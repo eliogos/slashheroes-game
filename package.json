@@ -23,9 +23,6 @@
 		"vitest": "~3.2.0",
 		"wrangler": "^4.50.0"
 	},
-	"overrides": {
-		"glob": "^11.1.0"
-	},
 	"dependencies": {
 		"@discordjs/builders": "^1.13.0",
 		"discord-api-types": "^0.38.34",
