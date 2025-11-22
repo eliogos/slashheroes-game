@@ -36,7 +36,7 @@ export async function showHeroOnboardingModal(payload, env, ctx) {
     .addOptions(classOptions.slice(0, 25));
 
   const notesDisplay = new TextDisplayBuilder()
-    .setContent('You cannot change this later. Choose wisely.');
+    .setContent('⚠️ You cannot change this later. Choose wisely.');
 
   // Use LabelBuilder to structure the modal with V2 components
   modal.addLabelComponents(
