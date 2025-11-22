@@ -1,5 +1,5 @@
-import { ButtonBuilder, ButtonStyle, ContainerBuilder, SectionBuilder, TextDisplayBuilder } from "@discordjs/builders";
-import { MessageFlags } from 'discord-api-types/payloads/v10';
+import { ButtonBuilder, ContainerBuilder, SectionBuilder, TextDisplayBuilder } from "@discordjs/builders";
+import { MessageFlags, ButtonStyle } from 'discord-api-types/payloads/v10';
 
 export async function discordAuth(event_type, player_id, env) {
 	let components = null;

@@ -1,4 +1,4 @@
-import { InteractionResponseType, MessageFlags } from 'discord.js';
+import { InteractionResponseType, MessageFlags } from 'discord-api-types/payloads/v10';
 import { showHeroOnboardingModal } from './events/onboarding.js';
 
 export async function handleButton(payload, env, ctx) {

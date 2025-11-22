@@ -1,4 +1,4 @@
-import { InteractionResponseType, MessageFlags } from 'discord.js';
+import { InteractionResponseType, MessageFlags } from 'discord-api-types/payloads/v10';
 import { handleHeroOnboarding } from './index.js';
 
 export async function handleModalSubmit(payload, env, ctx) {

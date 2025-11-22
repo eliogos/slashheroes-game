@@ -1,4 +1,5 @@
-import { InteractionResponseType, ContainerBuilder, TextDisplayBuilder } from 'discord.js';
+import { InteractionResponseType } from 'discord-api-types/payloads/v10';
+import { ContainerBuilder, TextDisplayBuilder } from '@discordjs/builders';
 
 export async function handleHeroOnboarding(payload, env, ctx) {
   try {

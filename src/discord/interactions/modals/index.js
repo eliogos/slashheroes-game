@@ -1,1 +1,1 @@
-export { handleHeroOnboarding } from './events/hero_onboarding.js';
+export { handleHeroOnboarding } from './events/heroOnboarding.js';

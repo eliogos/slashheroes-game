@@ -1,5 +1,5 @@
-import { ModalBuilder, TextInputBuilder, TextInputStyle, LabelBuilder } from "@discordjs/builders";
-import { InteractionResponseType } from "discord-api-types/v10";
+import { ModalBuilder, TextInputBuilder, LabelBuilder } from "@discordjs/builders";
+import { InteractionResponseType, TextInputStyle } from "discord-api-types/payloads/v10";
 
 export async function showHeroOnboardingModal(payload, env, ctx) {
   // Fetch available races and classes from the database to use as placeholders
