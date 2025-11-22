@@ -24,7 +24,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: '22'
 
       - name: Install dependencies
         run: npm ci # Using 'ci' is best practice for CI environments
@@ -33,5 +33,3 @@ jobs:
         run: npx semantic-release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          # If you were publishing to npm, you would add NPM_TOKEN here
-          # NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
