@@ -4,12 +4,20 @@
  */
 {
 	"$schema": "node_modules/wrangler/config-schema.json",
-	"name": "slashheroes-game",
+	"name": "slashheroes",
 	"main": "src/index.js",
 	"compatibility_date": "2025-11-21",
+	"compatibility_flags": ["nodejs_compat"],
 	"observability": {
 		"enabled": true
-	}
+	},
+  "d1_databases": [
+		{
+			"binding": "DB",
+			"database_name": "dungeongame",
+			"database_id": "22dc4494-fe45-4bcf-a919-4e167003a536"
+		}
+	 ]
 	/**
 	 * Smart Placement
 	 * Docs: https://developers.cloudflare.com/workers/configuration/smart-placement/#smart-placement
