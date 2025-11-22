@@ -1,0 +1,45 @@
+[
+  {
+    "name": "Bioluminescent Caverns",
+    "description": "Glowing fungi and creatures illuminate this cavernous section. Traps and combat rooms here have a 'Glowing' condition, attracting luminescent enemies.",
+    "effects": {
+      "trap": "Glowing",
+      "combat": "Glowing"
+    }
+  },
+  {
+    "name": "Lava Pits",
+    "description": "Rivers of molten lava flow through this fiery section. Combat rooms feature fire-based enemies and hazards.",
+    "effects": {
+      "combat": "Fiery"
+    }
+  },
+  {
+    "name": "Icy Catacombs",
+    "description": "Frozen tunnels and chambers make up this frigid section. Traps and combat rooms have an 'Icy' condition, with frost-based enemies.",
+    "effects": {
+      "trap": "Icy",
+      "combat": "Icy"
+    }
+  },
+  {
+    "name": "Shadow Halls",
+    "description": "Dark, mysterious corridors where light is scarce. Combat rooms have 'Shadow' enemies that thrive in darkness.",
+    "effects": {
+      "combat": "Shadow"
+    }
+  },
+  {
+    "name": "Crystal Caves",
+    "description": "Sparkling crystal formations fill this section. Utility rooms may reveal crystal-based enhancements.",
+    "effects": {
+      "utility": "Crystal"
+    }
+  }
+,
+  {
+    "name": "Dead End",
+    "description": "This path leads nowhere. The dungeon seems to have closed off this route for now.",
+    "effects": {}
+  }
+]

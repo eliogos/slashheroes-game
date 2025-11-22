@@ -1,0 +1,326 @@
+[
+  {
+    "id": 1,
+    "name": "EMPTY_ROOM",
+    "type": "navigation",
+    "description": "A quiet, uneventful room… or so it seems. Nothing of value is found, and stamina is wasted."
+  },
+  {
+    "id": 2,
+    "name": "DEAD_END",
+    "type": "navigation",
+    "description": "A hard stop. This channel is temporarily blacklisted and cannot be explored further."
+  },
+  {
+    "id": 3,
+    "name": "LOCKED_ROOM",
+    "type": "navigation",
+    "description": "A locked door blocks the path. Keys can be found in channels within the same category. Return with one to proceed."
+  },
+  {
+    "id": 4,
+    "name": "SECRET_ROOM",
+    "type": "navigation",
+    "description": "A hidden chamber discovered by chance. It can only be entered once; the channel becomes sealed afterward."
+  },
+  {
+    "id": 5,
+    "name": "COLLAPSING_TUNNEL",
+    "type": "trap",
+    "description": "The tunnel collapses, stunning the player for a few minutes and dealing minor damage. Explore again to continue."
+  },
+  {
+    "id": 6,
+    "name": "MATCHPIECES",
+    "type": "puzzle",
+    "description": "A puzzle of matching pieces or buttons. Solve it correctly to earn rewards."
+  },
+  {
+    "id": 7,
+    "name": "LEVER",
+    "type": "puzzle",
+    "description": "A solitary lever awaits. Pulling it may help—or unleash something unexpected."
+  },
+  {
+    "id": 8,
+    "name": "PRESSURE_PLATE",
+    "type": "trap",
+    "description": "A pressure plate clicks beneath the player’s foot, potentially triggering hazards or summoning enemies."
+  },
+  {
+    "id": 9,
+    "name": "TRIPWIRE",
+    "type": "trap",
+    "description": "A thin wire snaps. The player becomes crippled, unable to flee battles and less able to avoid traps."
+  },
+  {
+    "id": 10,
+    "name": "SAWS",
+    "type": "trap",
+    "description": "Rotating saws swing into action. Quick reactions are required to avoid taking damage."
+  },
+  {
+    "id": 11,
+    "name": "CHOICE_DOOR",
+    "type": "puzzle",
+    "description": "Several doors stand before the player. Choosing one will determine the next destination."
+  },
+  {
+    "id": 12,
+    "name": "BOULDER",
+    "type": "trap",
+    "description": "A massive boulder rushes forward. The player must run or risk getting crushed."
+  },
+  {
+    "id": 13,
+    "name": "ENCHANTED_DOOR",
+    "type": "puzzle",
+    "description": "A magical door sealed by arcane words. Input the correct code to open it."
+  },
+  {
+    "id": 14,
+    "name": "SHARD",
+    "type": "trap",
+    "description": "A crystal guardian awakens. The player must risk fleeing or suffer its attack."
+  },
+  {
+    "id": 15,
+    "name": "GRAVEYARD",
+    "type": "trap",
+    "description": "A cursed graveyard. Disturbing the gravestones may cause spirits to haunt the player."
+  },
+  {
+    "id": 16,
+    "name": "ALTAR",
+    "type": "utility",
+    "description": "A sacred altar. Offer something valuable to receive a blessing."
+  },
+  {
+    "id": 17,
+    "name": "FOUNTAIN_OF_YOUTH",
+    "type": "utility",
+    "description": "A rejuvenating fountain. Drinking from it restores health or energy."
+  },
+  {
+    "id": 18,
+    "name": "EMPTY_FOUNTAIN",
+    "type": "navigation",
+    "description": "A dried-up fountain offering nothing. Stamina spent for no gain."
+  },
+  {
+    "id": 19,
+    "name": "FOUNTAIN_OF_KNOWLEDGE",
+    "type": "utility",
+    "description": "A mystical fountain that reveals all room types on the current floor (category)."
+  },
+  {
+    "id": 20,
+    "name": "FOUNTAIN_OF_SIRENS",
+    "type": "combat",
+    "description": "A hauntingly beautiful fountain inhabited by sirens. Their charm disrupts continuous attacks."
+  },
+  {
+    "id": 21,
+    "name": "FOUNTAIN_OF_CLEANSING",
+    "type": "utility",
+    "description": "A purifying spring capable of removing curses, cleansing items, and lifting debuffs."
+  },
+  {
+    "id": 22,
+    "name": "WORKBENCH",
+    "type": "utility",
+    "description": "A crafting station where items can be created, dismantled for parts, or repaired."
+  },
+  {
+    "id": 23,
+    "name": "MARKET",
+    "type": "shop",
+    "description": "A stable shop. The player can return anytime to purchase goods."
+  },
+  {
+    "id": 24,
+    "name": "TRAVELING_MERCHANT",
+    "type": "shop",
+    "description": "A wandering merchant. Leaving or exploring again makes the merchant disappear and reveals a new room."
+  },
+  {
+    "id": 25,
+    "name": "DEN_OF_THIEVES",
+    "type": "combat",
+    "description": "A hidden den full of thieves eager to steal supplies."
+  },
+  {
+    "id": 26,
+    "name": "MONSTER",
+    "type": "combat",
+    "description": "A monster appears. Defeating it may yield loot, ingredients, or the chance to tame it as a companion."
+  },
+  {
+    "id": 27,
+    "name": "ELITE",
+    "type": "combat",
+    "description": "A powerful foe blocks the path. The player may choose to fight or flee."
+  },
+  {
+    "id": 28,
+    "name": "MINI_BOSS",
+    "type": "combat",
+    "description": "A formidable mini-boss stands in the way. Fleeing is not an option."
+  },
+  {
+    "id": 30,
+    "name": "BOSS",
+    "type": "combat",
+    "description": "A major boss encounter. Victory leads to powerful rewards."
+  },
+  {
+    "id": 31,
+    "name": "CAMP",
+    "type": "utility",
+    "description": "A safe camp. Resting here is far safer than usual."
+  },
+  {
+    "id": 32,
+    "name": "SPIKES",
+    "type": "trap",
+    "description": "Hidden spikes strike the player, causing immediate damage."
+  },
+  {
+    "id": 33,
+    "name": "COLLAPSING_ROOM",
+    "type": "trap",
+    "description": "The room begins to collapse. Escape quickly or get crushed. Success blacklists the entire floor."
+  },
+  {
+    "id": 34,
+    "name": "ANCIENT_LIBRARY",
+    "type": "utility",
+    "description": "A vast library of forgotten knowledge. Players can train or inscribe new spells here."
+  },
+  {
+    "id": 35,
+    "name": "SUBMERGED_ROOM",
+    "type": "trap",
+    "description": "A flooded chamber. Treasure lies within, but only agile players can reach it safely."
+  },
+  {
+    "id": 36,
+    "name": "BLACKMARKET",
+    "type": "shop",
+    "description": "A secretive black market that trades in an alternative currency."
+  },
+  {
+    "id": 37,
+    "name": "FRIENDLY_CREATURE",
+    "type": "utility",
+    "description": "A harmless creature that may be tamed to become a companion."
+  },
+  {
+    "id": 38,
+    "name": "TREASURE_CHEST",
+    "type": "navigation",
+    "description": "A chest sits in the room. Open it cautiously—it may be a mimic."
+  },
+  {
+    "id": 39,
+    "name": "GOLD_PILE",
+    "type": "navigation",
+    "description": "A shimmering pile of gold. Tempting to pick up… but sometimes risky."
+  },
+  {
+    "id": 40,
+    "name": "ARMORY",
+    "type": "navigation",
+    "description": "A room stocked with weapons and armor, waiting to be claimed."
+  },
+  {
+    "id": 41,
+    "name": "HAUNTED_ARMOR",
+    "type": "combat",
+    "description": "A set of armor animated by a vengeful spirit. Defeat it to claim its gear."
+  },
+  {
+    "id": 42,
+    "name": "RATIONS",
+    "type": "navigation",
+    "description": "Food rations left behind. Useful for survival."
+  },
+  {
+    "id": 43,
+    "name": "LOST_ITEM",
+    "type": "navigation",
+    "description": "An item dropped by a previous adventurer. Valuable—unless cursed."
+  },
+  {
+    "id": 44,
+    "name": "SUMMONING_CIRCLE",
+    "type": "utility",
+    "description": "A ritual circle. It can summon a fallen companion or call forth an enemy."
+  },
+  {
+    "id": 45,
+    "name": "STATUE",
+    "type": "landmark",
+    "description": "A towering statue of an ancient hero, deity, or creature."
+  },
+  {
+    "id": 46,
+    "name": "SWARM",
+    "type": "combat",
+    "description": "The room teems with aggressive creatures attacking in numbers."
+  },
+  {
+    "id": 47,
+    "name": "RUINS",
+    "type": "landmark",
+    "description": "Crumbling remnants of a forgotten structure, rich with history but offering no interactions."
+  },
+  {
+    "id": 48,
+    "name": "VEGETATION_PATCH",
+    "type": "utility",
+    "description": "A patch of vegetation perfect for gathering herbs or ingredients."
+  },
+  {
+    "id": 49,
+    "name": "CORPSE",
+    "type": "navigation",
+    "description": "A dead body lies on the ground. It may hold loot, but disturbing it risks a curse."
+  },
+  {
+    "id": 50,
+    "name": "FOSSIL_REMAINS",
+    "type": "landmark",
+    "description": "Massive fossilized bones or ancient creatures embedded in the stone."
+  },
+  {
+    "id": 51,
+    "name": "MURAL",
+    "type": "landmark",
+    "description": "Walls adorned with ancient paintings or symbolic imagery."
+  },
+  {
+    "id": 52,
+    "name": "SHRINE",
+    "type": "utility",
+    "description": "A quiet shrine where players can ask for blessings or guidance."
+  },
+  {
+    "id": 53,
+    "name": "PORTAL",
+    "type": "utility",
+    "description": "A shimmering portal linking to a random previously visited channel. If found first in a run, it remains inactive until another portal is discovered."
+  },
+  {
+    "id": 54,
+    "name": "UNDERGROUND_WATERFALL",
+    "type": "landmark",
+    "description": "A serene underground waterfall cascading into a crystal-clear pool."
+  },
+  {
+    "id": 55,
+    "name": "BLEEDING_WALLS",
+    "type": "landmark",
+    "description": "The walls seep with blood, creating an unsettling atmosphere."
+  }
+]
