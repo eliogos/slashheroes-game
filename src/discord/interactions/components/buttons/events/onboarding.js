@@ -1,50 +1,58 @@
-import { ModalBuilder, TextInputBuilder, LabelBuilder } from "@discordjs/builders";
-import { InteractionResponseType, TextInputStyle } from "discord-api-types/payloads/v10";
+import { ModalBuilder, StringSelectMenuBuilder, TextDisplayBuilder, LabelBuilder } from "@discordjs/builders";
+import { InteractionResponseType } from "discord-api-types/payloads/v10";
 
 export async function showHeroOnboardingModal(payload, env, ctx) {
-  // Fetch available races and classes from the database to use as placeholders
-  const races = await env.DB.prepare('SELECT name FROM hero_races').all();
-  const classes = await env.DB.prepare('SELECT name FROM hero_classes').all();
-
-  const racePlaceholder = races.results.map(r => r.name).join(', ');
-  const classPlaceholder = classes.results.map(c => c.name).join(', ');
+  // Fetch available races and classes from the database
+  const races = await env.DB.prepare('SELECT id, name, emoji, summary FROM hero_races').all();
+  const classes = await env.DB.prepare('SELECT id, name, emoji, summary FROM hero_classes').all();
 
   const modal = new ModalBuilder()
-    .setCustomId('hero_onboarding_modal') // This ID is handled by our modals/handler.js
-    .setTitle('Create Your Hero');
+    .setCustomId('setup_hero_modal_submit')
+    .setTitle('Set up your hero');
 
-  const raceInput = new TextInputBuilder()
-    .setCustomId('selected_race_name') // We'll look for this ID in the submission
-    // .setLabel('Choose your Race') // Label is now handled by LabelBuilder
-    .setPlaceholder(racePlaceholder)
-    .setStyle(TextInputStyle.Short)
-    .setRequired(true);
+  // Create select menu options from the database results
+  const raceOptions = races.results.map(r => ({
+    label: r.name,
+    value: String(r.id),
+    description: r.summary?.slice(0, 100) || null,
+    emoji: r.emoji ? { name: r.emoji } : undefined,
+  }));
 
-  const classInput = new TextInputBuilder()
-    .setCustomId('selected_class_name')
-    // .setLabel('Choose your Class')
-    .setPlaceholder(classPlaceholder)
-    .setStyle(TextInputStyle.Short)
-    .setRequired(true);
+  const classOptions = classes.results.map(c => ({
+    label: c.name,
+    value: String(c.id),
+    description: c.summary?.slice(0, 100) || null,
+    emoji: c.emoji ? { name: c.emoji } : undefined,
+  }));
 
-  const notesInput = new TextInputBuilder()
-    .setCustomId('onboarding_notes')
-    // .setLabel('Notes')
-    .setStyle(TextInputStyle.Paragraph)
-    .setRequired(false);
+  const raceSelect = new StringSelectMenuBuilder()
+    .setCustomId('selected_race')
+    .setPlaceholder('Choose your Race')
+    .addOptions(raceOptions.slice(0, 25));
 
-  // Use LabelBuilder instead of ActionRowBuilder
+  const classSelect = new StringSelectMenuBuilder()
+    .setCustomId('selected_class')
+    .setPlaceholder('Choose your Class')
+    .addOptions(classOptions.slice(0, 25));
+
+  const notesDisplay = new TextDisplayBuilder()
+    .setContent('You cannot change this later. Choose wisely.');
+
+  // Use LabelBuilder to structure the modal with V2 components
   modal.addLabelComponents(
     new LabelBuilder()
       .setLabel('Choose your Race')
-      .setTextInputComponent(raceInput),
+      .setDescription('Your race determines your physical attributes.')
+      .setStringSelectMenuComponent(raceSelect),
     new LabelBuilder()
       .setLabel('Choose your Class')
-      .setTextInputComponent(classInput),
-    new LabelBuilder()
-      .setLabel('Notes (Optional)')
-      .setTextInputComponent(notesInput)
+      .setDescription('Your class determines your role and skills.')
+      .setStringSelectMenuComponent(classSelect),
   );
+
+  modal.addTextDisplayComponents(
+    notesDisplay
+  )
 
   return new Response(JSON.stringify({
     type: InteractionResponseType.Modal,
