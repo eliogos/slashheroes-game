@@ -1,3 +1,10 @@
+# [1.4.0](https://github.com/eliogos/slashheroes-game/compare/v1.3.0...v1.4.0) (2025-11-23)
+
+
+### Features
+
+* **commands:** add context types to about, explore, and ping commands for improved interaction handling ([52c595c](https://github.com/eliogos/slashheroes-game/commit/52c595c3189f4bf5971c0f2e9cf558d346faab77))
+
 # [1.3.0](https://github.com/eliogos/slashheroes-game/compare/v1.2.0...v1.3.0) (2025-11-23)
 
 
