@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/eliogos/slashheroes-game/compare/v1.0.0...v1.1.0) (2025-11-23)
+
+
+### Features
+
+* restructure slash command handling and add new commands ([285854e](https://github.com/eliogos/slashheroes-game/commit/285854e2ac81c2d1998958fd538a162ac598f7fe))
+
 # 1.0.0 (2025-11-22)
 
 
