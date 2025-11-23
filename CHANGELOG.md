@@ -1,3 +1,10 @@
+## [1.4.3](https://github.com/eliogos/slashheroes-game/compare/v1.4.2...v1.4.3) (2025-11-23)
+
+
+### Bug Fixes
+
+* **commands:** remove InteractionContextType/.setContexts uses causing runtime ReferenceError ([efbc9ce](https://github.com/eliogos/slashheroes-game/commit/efbc9ceb9f8ff62b8dee2a5bbefdc1c88d4d7f64))
+
 ## [1.4.2](https://github.com/eliogos/slashheroes-game/compare/v1.4.1...v1.4.2) (2025-11-23)
 
 
