@@ -1,3 +1,10 @@
+## [1.4.1](https://github.com/eliogos/slashheroes-game/compare/v1.4.0...v1.4.1) (2025-11-23)
+
+
+### Bug Fixes
+
+* **commands:** correct import path for viewHero and remove unused import from slash commands ([db82fe6](https://github.com/eliogos/slashheroes-game/commit/db82fe61afc8390d4326adbb738cd3d3893a3073))
+
 # [1.4.0](https://github.com/eliogos/slashheroes-game/compare/v1.3.0...v1.4.0) (2025-11-23)
 
 
