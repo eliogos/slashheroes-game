@@ -44,18 +44,18 @@ export async function execute(interaction, env, ctx) {
                             )
                     )
                     .addSeparatorComponents(
-                        new SeparatorBuilder().setSpacing(SeparatorSpacingSize.Small).setDivider(true)
+                        new SeparatorBuilder().setSpacing(SeparatorSpacingSize.Large).setDivider(true)
                     )
                     .addSectionComponents(
                         new SectionBuilder()
                             .setButtonAccessory(
                                 new ButtonBuilder()
                                     .setStyle(ButtonStyle.Secondary)
-                                    .setLabel("Get early access")
-                                    .setCustomId("ce64230940254b16b1b24091d7f48874")
+                                    .setLabel("Sign up for beta")
+                                    .setCustomId("modal_joinbeta")
                             )
                             .addTextDisplayComponents(
-                                new TextDisplayBuilder().setContent(`-# Version \`${version}\`. As of <t:${time}:F>`),
+                                new TextDisplayBuilder().setContent(`-# Version \`${version}\` as of <t:${time}:F>`),
                             )
                     );
 
