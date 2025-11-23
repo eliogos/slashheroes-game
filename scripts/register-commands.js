@@ -1,5 +1,5 @@
-import * as slashCommands from '../src/discord/interactions/commands/slash/index.js';
-
+import { readdir, readFile } from 'fs/promises';
+import path from 'path';
 
 const APPLICATION_ID = process.env.APPLICATION_ID;
 const DISCORD_TOKEN = process.env.DISCORD_APP_TOKEN;
@@ -10,20 +10,31 @@ if (!APPLICATION_ID || !DISCORD_TOKEN) {
   process.exit(1);
 }
 
-const commands = [];
+// Scan the slash commands directory and extract basic command metadata (name/description)
+// without importing project modules (avoids executing app code during registration).
+const commandsDir = path.resolve(process.cwd(), 'src/discord/interactions/commands/slash/list');
 
-// Get the command definitions from the imported modules
-for (const commandModule of Object.values(slashCommands)) {
-  const cmd = commandModule.command;
-  // If the module exported a SlashCommandBuilder, call toJSON()
-  if (cmd && typeof cmd.toJSON === 'function') {
-    commands.push(cmd.toJSON());
-  } else if (cmd) {
-    commands.push(cmd);
-  }
+async function extractCommandMetadata(filePath) {
+  const src = await readFile(filePath, 'utf8');
+  const nameMatch = src.match(/\.setName\(\s*['"`]([^'"`]+)['"`]\s*\)/);
+  const descMatch = src.match(/\.setDescription\(\s*['"`]([^'"`]+)['"`]\s*\)/);
+  const isContext = /ContextMenuCommandBuilder/.test(src);
+  const name = nameMatch ? nameMatch[1] : null;
+  const description = descMatch ? descMatch[1] : '';
+  if (!name) return null;
+  // Determine type: 1 = Chat Input, 2 = User, 3 = Message
+  const type = isContext ? 2 : 1;
+  return { name, description, type };
 }
 
-// User commands soon
+const files = await readdir(commandsDir);
+const commands = [];
+for (const file of files) {
+  if (!file.endsWith('.js')) continue;
+  const full = path.join(commandsDir, file);
+  const meta = await extractCommandMetadata(full);
+  if (meta) commands.push(meta);
+}
 
 let url;
 if (GUILD_ID) {
