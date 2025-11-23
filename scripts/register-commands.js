@@ -31,7 +31,24 @@ const files = await readdir(commandsDir);
 const commands = [];
 for (const file of files) {
   if (!file.endsWith('.js')) continue;
+  const base = file.slice(0, -3);
   const full = path.join(commandsDir, file);
+
+  // Prefer a sidecar metadata JSON file (e.g. ping.meta.json) which can contain
+  // the full registration payload including `contexts` to avoid executing code.
+  const metaPath = path.join(commandsDir, `${base}.meta.json`);
+  try {
+    const raw = await readFile(metaPath, 'utf8');
+    const obj = JSON.parse(raw);
+    // Minimal validation: must have a name
+    if (obj && obj.name) {
+      commands.push(obj);
+      continue;
+    }
+  } catch (e) {
+    // no meta file or invalid JSON — fallback to source parsing
+  }
+
   const meta = await extractCommandMetadata(full);
   if (meta) commands.push(meta);
 }
