@@ -1,10 +1,12 @@
 import { SlashCommandBuilder, ContainerBuilder, TextDisplayBuilder, SeparatorBuilder } from '@discordjs/builders';
+import { InteractionContextType } from 'discord-api-types/payloads/v10';
 import { MessageFlags, SeparatorSpacingSize } from 'discord-api-types/v10';
 import { defer, editReply, errorReply, Colors } from '../slashCommandHandler.js';
 
 export const command = new SlashCommandBuilder()
   .setName('ping')
-  .setDescription('Replies with Pong!');
+  .setDescription('Replies with Pong!')
+  .setContexts([InteractionContextType.BotDM, InteractionContextType.Guild, InteractionContextType.PrivateChannel]);
 
 export async function execute(interaction, env, ctx) {
 

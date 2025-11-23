@@ -1,4 +1,5 @@
 import { SlashCommandBuilder } from '@discordjs/builders';
+import { InteractionContextType } from 'discord-api-types/payloads/v10';
 import { defer, followUp } from '../slashCommandHandler.js';
 import { MessageFlags } from 'discord-api-types/v10';
 import { generateRoomData } from '../../../../../data/func/roomGeneration.js';
@@ -7,6 +8,9 @@ export const command = new SlashCommandBuilder()
   .setName('explore')
   .setDescription('Explore the dungeon')
   ;
+
+// Allow in private channels and guilds
+command.setContexts([InteractionContextType.PrivateChannel, InteractionContextType.Guild]);
 
 const DISCORD_EPOCH = 1420070400000;
 const THREE_DAYS_IN_MS = 3 * 24 * 60 * 60 * 1000;
