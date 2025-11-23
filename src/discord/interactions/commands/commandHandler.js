@@ -1,4 +1,4 @@
-import { handleSlashCommand } from './slash/slashHandler.js';
+import { handleSlashCommand } from './slash/slashCommandHandler.js';
 import { handleUserCommand } from './user/userCommandHandler.js';
 import { handleMessageCommand } from './message/messageCommandHandler.js';
 import { ApplicationCommandType } from 'discord-api-types/payloads';

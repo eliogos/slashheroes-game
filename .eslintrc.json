@@ -1,0 +1,23 @@
+{
+  "env": {
+    "es2021": true,
+    "worker": true
+  },
+  "extends": ["eslint:recommended", "plugin:@typescript-eslint/recommended", "prettier"],
+  "rules": {
+    "semi": ["error", "always"],                
+    "comma-dangle": ["error", "always-multiline"],
+    "require-jsdoc": ["warn", {
+      "require": {
+        "FunctionDeclaration": true,
+        "MethodDefinition": true,
+        "ClassDeclaration": true
+      }
+    }],
+    "valid-jsdoc": ["warn", {
+      "requireReturn": false,
+      "requireParamDescription": true,
+      "requireReturnDescription": true
+    }]
+  }
+}
