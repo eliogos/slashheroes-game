@@ -1,3 +1,10 @@
+## [1.4.2](https://github.com/eliogos/slashheroes-game/compare/v1.4.1...v1.4.2) (2025-11-23)
+
+
+### Bug Fixes
+
+* **build:** correct user commands index exports ([2914fc4](https://github.com/eliogos/slashheroes-game/commit/2914fc4ef3c9fc277d26db3632ecdb535097449b))
+
 ## [1.4.1](https://github.com/eliogos/slashheroes-game/compare/v1.4.0...v1.4.1) (2025-11-23)
 
 
