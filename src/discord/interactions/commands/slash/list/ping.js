@@ -69,17 +69,6 @@ export async function execute(interaction, env, ctx) {
         });
       } catch (error) {
         console.error('Ping failed:', error);
-
-				await editReply(interaction, {
-					components: errorReply(
-						'Command failed',
-						[
-							'Something went wrong while calcating latency.',
-							`Error: ${error.message}`,
-						]
-					),
-					flags: MessageFlags.IsComponentsV2,
-				});
       }
     })(),
   );

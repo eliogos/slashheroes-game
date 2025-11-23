@@ -1,8 +1,8 @@
-import * as party from './c/party.js';
-import * as explore from './c/explore.js';
-import * as ping from './c/ping.js';
-import * as about from './c/about.js';
-import * as viewHero from '../user/c/view-hero.js';
+import * as party from './list/party.js';
+import * as explore from './list/explore.js';
+import * as ping from './list/ping.js';
+import * as about from './list/about.js';
+import * as viewHero from '../user/list/view-hero.js';
 
 export {
   party,

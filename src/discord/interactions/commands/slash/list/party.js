@@ -1,15 +1,16 @@
 import { SlashCommandBuilder } from "@discordjs/builders";
-import { MessageFlags } from 'discord-api-types/v10';
+import { ChannelType, InteractionContextType, MessageFlags } from 'discord-api-types/v10';
 import { defer, editReply } from '../slashCommandHandler.js';
 
 export const command = new SlashCommandBuilder()
     .setName('party')
-    .setDescription('Send an invite to your party');
+    .setDescription('Send an invite to your party')
+    .setContexts([InteractionContextType.PrivateChannel]);
 
 export async function execute(interaction, env, ctx) {
     ctx.waitUntil((async () => {
         try {
-            const isGroupDM = (interaction?.channel?.type ?? 0) === 3;
+            const isGroupDM = (interaction?.channel?.type ?? 0) === ChannelType.GroupDM;
 
             if (!isGroupDM) {
                 await editReply(interaction, {

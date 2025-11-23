@@ -7,6 +7,7 @@
 		"deploy": "wrangler deploy",
 		"dev": "wrangler dev",
 		"start": "wrangler dev",
+		"build-info": "node scripts/generate-build-info.js",
 		"test": "vitest",
 		"register": "node scripts/registerCommands.js",
 		"semantic-release": "semantic-release"

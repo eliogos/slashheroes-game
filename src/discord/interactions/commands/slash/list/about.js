@@ -3,6 +3,7 @@ import { MessageFlags, SeparatorSpacingSize, ButtonStyle } from 'discord-api-typ
 import { defer, editReply, errorReply, Colors } from '../slashCommandHandler.js';
 import { stat } from 'fs/promises';
 import pkg from '../../../../../../package.json' with { type: 'json' };
+import buildInfo from '../../../../../../build-info.json' assert { type: 'json' };
 
 export const command = new SlashCommandBuilder()
   .setName('about')
@@ -14,11 +15,18 @@ export async function execute(interaction, env, ctx) {
         (async () => {
             try {
                 const version = pkg.version;
+                
                 let time;
                 try {
-                    const pkgUrl = new URL('../../../../../../package.json', import.meta.url);
-                    const stats = await stat(pkgUrl);
-                    time = Math.floor(stats.mtimeMs / 1000);
+                    if (process.env.BUILD_TIME) {
+                        time = Math.floor(new Date(process.env.BUILD_TIME).getTime() / 1000);
+                    } else if (buildInfo && buildInfo.buildTime) {
+                        time = Math.floor(new Date(buildInfo.buildTime).getTime() / 1000);
+                    } else {
+                        const pkgUrl = new URL('../../../../../../package.json', import.meta.url);
+                        const stats = await stat(pkgUrl);
+                        time = Math.floor(stats.mtimeMs / 1000);
+                    }
                 } catch (statError) {
                     time = Math.floor(Date.now() / 1000);
                 }
@@ -61,7 +69,6 @@ export async function execute(interaction, env, ctx) {
 
             } catch (error) {
                 console.error('About failed:', error);
-                // Optional: send error reply
             }
         })(),
     );
