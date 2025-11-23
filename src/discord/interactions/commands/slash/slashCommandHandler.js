@@ -163,22 +163,19 @@ export async function handleSlashCommand(payload, env, ctx) {
 		// Import the commands index so esbuild can statically include modules.
 		const commandsIndex = await import('./index.js');
 
-		// Direct match (exports use the same name as command files for list/*)
 		let commandModule = commandsIndex[name];
 
-		// Fallback: convert dash-case to camelCase (e.g. view-hero -> viewHero)
 		if (!commandModule && name.includes('-')) {
 			const camel = name.split('-').map((p, i) => i === 0 ? p : p[0].toUpperCase() + p.slice(1)).join('');
 			commandModule = commandsIndex[camel];
 		}
 
 		if (!commandModule) {
-			// As a last resort, try to load a module from user/list directly (note: dynamic imports
-			// with unknown paths can fail during build; keep this attempt but handle errors).
+	
 			try {
 				commandModule = await import(`../user/list/${name}.js`);
 			} catch (e) {
-				// ignore — we'll handle below
+				
 			}
 		}
 

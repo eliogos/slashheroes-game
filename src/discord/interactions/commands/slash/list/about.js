@@ -3,7 +3,6 @@ import { MessageFlags, SeparatorSpacingSize, ButtonStyle } from 'discord-api-typ
 import { defer, editReply, errorReply, Colors } from '../slashCommandHandler.js';
 import { stat } from 'fs/promises';
 import pkg from '../../../../../../package.json' with { type: 'json' };
-import buildInfo from '../../../../../../build-info.json' assert { type: 'json' };
 
 export const command = new SlashCommandBuilder()
   .setName('about')
