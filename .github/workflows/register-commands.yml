@@ -1,0 +1,32 @@
+name: Register Discord Commands
+
+on:
+  push:
+    branches: [ master ]
+  workflow_dispatch: {}
+
+jobs:
+  register:
+    name: Register Commands
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Generate build-info (optional)
+        run: npm run build-info || true
+
+      - name: Register commands
+        env:
+          APPLICATION_ID: ${{ secrets.APPLICATION_ID }}
+          DISCORD_APP_TOKEN: ${{ secrets.DISCORD_APP_TOKEN }}
+          GUILD_ID: ${{ secrets.GUILD_ID }}
+        run: npm run register
