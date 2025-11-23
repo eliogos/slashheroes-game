@@ -151,3 +151,48 @@ export function errorReply(
 // #endregion
 
 export { Colors }
+
+/**
+ * Handle incoming slash (chat input) commands by loading the matching module
+ * and calling its `execute` function.
+ */
+export async function handleSlashCommand(payload, env, ctx) {
+	const name = payload.data?.name?.toLowerCase().replace(/\s+/g, '-');
+
+	try {
+		let commandModule;
+
+		try {
+			commandModule = await import(`./list/${name}.js`);
+		} catch (e1) {
+			try {
+				commandModule = await import(`../user/list/${name}.js`);
+			} catch (e2) {
+				throw new Error(`Command module not found for ${name}`);
+			}
+		}
+
+		if (typeof commandModule.execute !== 'function') {
+			console.warn(`⚠️ Slash command "${name}" is missing an execute() function.`);
+			return new Response(
+				JSON.stringify({ type: 4, data: { content: 'Invalid command module', flags: 64 } }),
+				{ status: 200, headers: { 'Content-Type': 'application/json' } }
+			);
+		}
+
+		const result = await commandModule.execute(payload, env, ctx);
+
+		if (result instanceof Response) return result;
+
+		return new Response(JSON.stringify(result ?? {}), {
+			status: 200,
+			headers: { 'Content-Type': 'application/json' },
+		});
+	} catch (err) {
+		console.error(`❌ Failed to handle slash command "${name}":`, err);
+		return new Response(
+			JSON.stringify({ type: 4, data: { content: 'An unexpected error occurred.', flags: 64 } }),
+			{ status: 200, headers: { 'Content-Type': 'application/json' } }
+		);
+	}
+}
