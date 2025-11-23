@@ -1,12 +1,13 @@
 import { SlashCommandBuilder, ContainerBuilder, SectionBuilder, ThumbnailBuilder, TextDisplayBuilder, SeparatorBuilder, ButtonBuilder } from "@discordjs/builders";
-import { MessageFlags, SeparatorSpacingSize, ButtonStyle } from 'discord-api-types/v10';
+import { MessageFlags, SeparatorSpacingSize, ButtonStyle, InteractionContextType } from 'discord-api-types/v10';
 import { defer, editReply, errorReply, Colors } from '../slashCommandHandler.js';
 import { stat } from 'fs/promises';
 import pkg from '../../../../../../package.json' with { type: 'json' };
 
 export const command = new SlashCommandBuilder()
   .setName('about')
-  .setDescription('Learn more about SLASHHEROES.');
+  .setDescription('Learn more about SLASHHEROES.')
+  .setContexts([InteractionContextType.PrivateChannel, InteractionContextType.Guild, InteractionContextType.BotDM]);
 
 export async function execute(interaction, env, ctx) {
 

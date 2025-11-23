@@ -1,5 +1,5 @@
-// export * as viewHero from './view-hero.js';
+export * as viewHero from './view-hero.js';
 
 export {
-  // To add soon
+  viewHero,
 };
