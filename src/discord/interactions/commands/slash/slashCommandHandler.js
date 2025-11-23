@@ -160,19 +160,29 @@ export async function handleSlashCommand(payload, env, ctx) {
 	const name = payload.data?.name?.toLowerCase().replace(/\s+/g, '-');
 
 	try {
-		let commandModule;
+		// Import the commands index so esbuild can statically include modules.
+		const commandsIndex = await import('./index.js');
 
-		try {
-			commandModule = await import(`./list/${name}.js`);
-		} catch (e1) {
+		// Direct match (exports use the same name as command files for list/*)
+		let commandModule = commandsIndex[name];
+
+		// Fallback: convert dash-case to camelCase (e.g. view-hero -> viewHero)
+		if (!commandModule && name.includes('-')) {
+			const camel = name.split('-').map((p, i) => i === 0 ? p : p[0].toUpperCase() + p.slice(1)).join('');
+			commandModule = commandsIndex[camel];
+		}
+
+		if (!commandModule) {
+			// As a last resort, try to load a module from user/list directly (note: dynamic imports
+			// with unknown paths can fail during build; keep this attempt but handle errors).
 			try {
 				commandModule = await import(`../user/list/${name}.js`);
-			} catch (e2) {
-				throw new Error(`Command module not found for ${name}`);
+			} catch (e) {
+				// ignore — we'll handle below
 			}
 		}
 
-		if (typeof commandModule.execute !== 'function') {
+		if (!commandModule || typeof commandModule.execute !== 'function') {
 			console.warn(`⚠️ Slash command "${name}" is missing an execute() function.`);
 			return new Response(
 				JSON.stringify({ type: 4, data: { content: 'Invalid command module', flags: 64 } }),

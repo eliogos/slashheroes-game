@@ -20,8 +20,6 @@ export async function execute(interaction, env, ctx) {
                 try {
                     if (process.env.BUILD_TIME) {
                         time = Math.floor(new Date(process.env.BUILD_TIME).getTime() / 1000);
-                    } else if (buildInfo && buildInfo.buildTime) {
-                        time = Math.floor(new Date(buildInfo.buildTime).getTime() / 1000);
                     } else {
                         const pkgUrl = new URL('../../../../../../package.json', import.meta.url);
                         const stats = await stat(pkgUrl);
