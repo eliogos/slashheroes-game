@@ -1,3 +1,10 @@
+# [1.7.0](https://github.com/eliogos/slashheroes-game/compare/v1.6.0...v1.7.0) (2025-11-23)
+
+
+### Features
+
+* **register:** enhance command metadata extraction with context support and dry run option ([807447c](https://github.com/eliogos/slashheroes-game/commit/807447c45bc3f39f0233e6429c8d436f70af1979))
+
 # [1.6.0](https://github.com/eliogos/slashheroes-game/compare/v1.5.0...v1.6.0) (2025-11-23)
 
 
