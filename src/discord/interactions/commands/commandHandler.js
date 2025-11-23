@@ -9,6 +9,7 @@ import { ApplicationCommandType } from 'discord-api-types/payloads';
 export async function handleCommand(payload, env, ctx) {
   const { data } = payload;
   const commandType = data.type;
+  console.log(env);
 
   switch (commandType) {
     case ApplicationCommandType.ChatInput:
