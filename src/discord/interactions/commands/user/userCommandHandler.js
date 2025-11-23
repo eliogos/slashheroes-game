@@ -2,9 +2,28 @@ export async function handleUserCommand(payload, env, ctx) {
   const name = payload.data?.name?.toLowerCase().replace(/\s+/g, '-');
 
   try {
-    const commandModule = await import(`./c/${name}.js`);
+    // Import the user commands index so the bundler includes available modules.
+    const commandsIndex = await import('./list/index.js');
 
-    if (typeof commandModule.execute !== "function") {
+    // Try direct lookup from the index exports
+    let commandModule = commandsIndex[name];
+
+    // Fallback: dash-case -> camelCase (e.g. view-hero -> viewHero)
+    if (!commandModule && name.includes('-')) {
+      const camel = name.split('-').map((p, i) => i === 0 ? p : p[0].toUpperCase() + p.slice(1)).join('');
+      commandModule = commandsIndex[camel];
+    }
+
+    // Final fallback: attempt dynamic import (may fail during build if unknown)
+    if (!commandModule) {
+      try {
+        commandModule = await import(`./list/${name}.js`);
+      } catch (e) {
+        // leave undefined; handled below
+      }
+    }
+
+    if (!commandModule || typeof commandModule.execute !== 'function') {
       console.warn(`⚠️ Command "${name}" is missing an execute() function.`);
       return new Response(
         JSON.stringify({
