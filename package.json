@@ -9,7 +9,7 @@
 		"start": "wrangler dev",
 		"build-info": "node scripts/generate-build-info.js",
 		"test": "vitest",
-		"register": "node scripts/registerCommands.js",
+		"register": "node scripts/register-commands.js",
 		"semantic-release": "semantic-release"
 	},
 	"devDependencies": {
