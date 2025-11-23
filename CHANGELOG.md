@@ -1,3 +1,11 @@
+# [1.6.0](https://github.com/eliogos/slashheroes-game/compare/v1.5.0...v1.6.0) (2025-11-23)
+
+
+### Features
+
+* **commands:** add context support for slash commands in private channels and guilds ([71acb69](https://github.com/eliogos/slashheroes-game/commit/71acb69d0ae05366726fc1d0b35b548833b5855f))
+* **register:** support per-command .meta.json files for full registration metadata (contexts, options) ([bb1ab53](https://github.com/eliogos/slashheroes-game/commit/bb1ab53bbdf94d016d9aeada3e243449adb33a68))
+
 # [1.5.0](https://github.com/eliogos/slashheroes-game/compare/v1.4.3...v1.5.0) (2025-11-23)
 
 
