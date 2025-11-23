@@ -5,7 +5,7 @@ import { defer, editReply } from '../slashCommandHandler.js';
 export const command = new SlashCommandBuilder()
     .setName('party')
     .setDescription('Send an invite to your party')
-    ;
+    .setContexts([2]);
 
 export async function execute(interaction, env, ctx) {
     ctx.waitUntil((async () => {
