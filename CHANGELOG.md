@@ -1,3 +1,18 @@
+# [1.3.0](https://github.com/eliogos/slashheroes-game/compare/v1.2.0...v1.3.0) (2025-11-23)
+
+
+### Bug Fixes
+
+* **about:** update button label and separator spacing for improved UI clarity ([adaef5f](https://github.com/eliogos/slashheroes-game/commit/adaef5f9a3fea50261e13ffbdb2323ec78c0d4e8))
+* **build:** avoid static import of missing build-info.json; make slash handler use commands index for bundler-friendly imports ([f37b648](https://github.com/eliogos/slashheroes-game/commit/f37b6483c299950776156c8d645b6cc0a508204d))
+* **build:** make user command handler bundler-friendly via commands index ([285607c](https://github.com/eliogos/slashheroes-game/commit/285607c35839706174e40dc211f15c115062d7e6))
+
+
+### Features
+
+* **commands:** add handleSlashCommand router to slashCommandHandler ([8cd7e71](https://github.com/eliogos/slashheroes-game/commit/8cd7e719906ead4c6534bc6c0a364690c197c973))
+* **commands:** update viewHero command and refactor imports for consistency ([4148d70](https://github.com/eliogos/slashheroes-game/commit/4148d70e95f84e07dd6f84150085ed48b8d303e2))
+
 # [1.2.0](https://github.com/eliogos/slashheroes-game/compare/v1.1.0...v1.2.0) (2025-11-23)
 
 
