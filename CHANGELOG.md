@@ -1,3 +1,10 @@
+# [1.5.0](https://github.com/eliogos/slashheroes-game/compare/v1.4.3...v1.5.0) (2025-11-23)
+
+
+### Features
+
+* **workflow:** add GitHub Actions workflow for registering Discord commands ([26571b9](https://github.com/eliogos/slashheroes-game/commit/26571b9760a97e48b4103b86e79211eefd19f36f))
+
 ## [1.4.3](https://github.com/eliogos/slashheroes-game/compare/v1.4.2...v1.4.3) (2025-11-23)
 
 
