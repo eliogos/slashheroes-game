@@ -20,7 +20,7 @@ export async function discordAuth(event_type, player_id, env) {
 				// Prepare message for Discord:
 				components = [
 					new ContainerBuilder()
-						.setAccentColor(0xF1C40F)
+						.setAccentColor(0xF1C40F)		// TODO: Use primary color, to be added from branding @eliogos @felexion
 						.addSectionComponents(
 							new SectionBuilder()
 								.setButtonAccessory(
@@ -41,6 +41,9 @@ export async function discordAuth(event_type, player_id, env) {
 											'-# Click on the button to choose your race and class.'
 										)
 						        )
+								// TODO: Add cover art @eliogos @felexion
+
+								// TODO: Add uninstallation notice about data deletion policy @eliogos @felexion
 						),
 				];
 
@@ -64,7 +67,10 @@ export async function discordAuth(event_type, player_id, env) {
 		}
 	}
 
-	else if (event_type === 'APPLICATION_UNAUTHORIZED') {
+	else if (event_type === 'APPLICATION_DEAUTHORIZED') {
+		// TODO: Delete data after 14 days instead.
+		// Since bot can no longer send a DM after app uninstallation, include it in the welcome message about data deletion policy.
+
 		try {
             await env.DB.prepare(`DELETE FROM players WHERE player_id = ?`).bind(player_id).run();
                 console.log(`🚪 Player ${player_id} deauthorized and removed`);

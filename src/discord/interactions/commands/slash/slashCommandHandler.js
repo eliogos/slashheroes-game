@@ -4,7 +4,7 @@ import { Colors } from '../../../../branding/colors.js';
 
 /**
  * Standard JSON response wrapper.
- * @param {object} data 							- The data to be sent in the response.
+ * @param {object} data - The data to be sent in the response.
  * @returns {Response}
  */
 function jsonResponse(data) {
@@ -35,7 +35,7 @@ export function defer(ephemeral = false) {
 
 /**
  * Reply immediately to the command.
- * @param {string|object} content 	 	- Message content or full body.
+ * @param {string|object} content - Message content or full body.
  * @param {boolean} [ephemeral=false] - Only the sender can see the message.
  * @returns {Response}
  */
@@ -57,10 +57,10 @@ export function reply(content, ephemeral = false) {
 
 /**
  * Sends a request to a Discord webhook.
- * @param {object} interaction	 		 - The interaction payload.
- * @param {object} body 						 - The request body.
- * @param {string} method 					 - The HTTP method.
- * @param {string} [endpoint=''] 		 - Path
+ * @param {object} interaction	- The interaction payload.
+ * @param {object} body - The request body.
+ * @param {string} method - The HTTP method.
+ * @param {string} [endpoint=''] - Path
  */
 async function webhookRequest(interaction, body, method, endpoint = '') {
 	const { application_id, token } = interaction;
@@ -82,8 +82,8 @@ async function webhookRequest(interaction, body, method, endpoint = '') {
 
 /**
  * Edits the original reply.
- * @param {object} interaction				- The interaction payload.
- * @param {object} body								- New message body.
+ * @param {object} interaction	- The interaction payload.
+ * @param {object} body - New message body.
  */
 export function editReply(interaction, body) {
 	return webhookRequest(interaction, body, 'PATCH', '/messages/@original');
@@ -91,13 +91,15 @@ export function editReply(interaction, body) {
 
 /**
  * Sends a follow-up message.
- * @param {object} interaction				- The interaction payload.
- * @param {object} body								- New message body.
+ * @param {object} interaction	- The interaction payload.
+ * @param {object} body - New message body.
  */
 export function followUp(interaction, body) {
 	return webhookRequest(interaction, body, 'POST');
 }
 
+
+// TODO: Better error reply design and function to include in catch blocks
 /**
  * Error reply with a custom theme.
  * @param {string} header - Error header text. Defaults to 'An error occured'.
@@ -150,7 +152,7 @@ export function errorReply(
 
 // #endregion
 
-export { Colors }
+export { Colors } // For convenience in command modules.
 
 /**
  * Handle incoming slash (chat input) commands by loading the matching module
@@ -182,7 +184,7 @@ export async function handleSlashCommand(payload, env, ctx) {
 		if (!commandModule || typeof commandModule.execute !== 'function') {
 			console.warn(`⚠️ Slash command "${name}" is missing an execute() function.`);
 			return new Response(
-				JSON.stringify({ type: 4, data: { content: 'Invalid command module', flags: 64 } }),
+				JSON.stringify({ type: 4, data: { content: 'Invalid command module', flags: MessageFlags.Ephemeral } }),
 				{ status: 200, headers: { 'Content-Type': 'application/json' } }
 			);
 		}
@@ -198,7 +200,7 @@ export async function handleSlashCommand(payload, env, ctx) {
 	} catch (err) {
 		console.error(`❌ Failed to handle slash command "${name}":`, err);
 		return new Response(
-			JSON.stringify({ type: 4, data: { content: 'An unexpected error occurred.', flags: 64 } }),
+			JSON.stringify({ type: 4, data: { content: 'An unexpected error occurred.', flags: MessageFlags.Ephemeral } }),
 			{ status: 200, headers: { 'Content-Type': 'application/json' } }
 		);
 	}

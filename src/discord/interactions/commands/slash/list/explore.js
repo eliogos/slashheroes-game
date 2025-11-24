@@ -7,10 +7,7 @@ import { generateRoomData } from '../../../../../data/func/roomGeneration.js';
 export const command = new SlashCommandBuilder()
   .setName('explore')
   .setDescription('Explore the dungeon')
-  ;
-
-// Allow in private channels and guilds
-command.setContexts([InteractionContextType.PrivateChannel, InteractionContextType.Guild]);
+  .setContexts([InteractionContextType.PrivateChannel, InteractionContextType.Guild]);
 
 const DISCORD_EPOCH = 1420070400000;
 const THREE_DAYS_IN_MS = 3 * 24 * 60 * 60 * 1000;
@@ -23,6 +20,10 @@ function isOldEnough(snowflake) {
 }
 
 export async function execute(interaction, env, ctx) {
+
+  // TODO: Add a checker if player has set up a hero. @eliogos @felexion
+
+
   if (ctx && typeof ctx.waitUntil === 'function') {
     ctx.waitUntil(processExplore(interaction, env));
   } else {
@@ -38,7 +39,7 @@ async function processExplore(interaction, env) {
     const categoryId = interaction.channel?.parent_id;
     const channelId = interaction.channel_id;
 
-    // --- Age Verification ---
+    // Verify if IDs are old enough. This is to prevent abuse from newly created servers/channels.
     if (!isOldEnough(serverId)) {
       await followUp(interaction, { content: "This server is too new. Please wait a few days before exploring.", flags: MessageFlags.Ephemeral });
       return;
@@ -56,6 +57,11 @@ async function processExplore(interaction, env) {
     const generationCategoryId = interaction.channel?.parent_id || interaction.guild_id;
 
     // Generate room data
+
+    // TODO: Improve room generation data.
+    // Dead-end should now be a floor condition, not a section condition. When a category is designated as a dead end, all channels in that category should be blocked from exploring.
+    // To prevent abuse and channels switching up categories, we store the channel IDs temporarily so whatever category it is in, it remains a dead end for that channel.
+    // Categories should also be stored.
     const data = await generateRoomData(serverId, generationCategoryId, channelId);
     console.log('Generated Room Data:', data);
 

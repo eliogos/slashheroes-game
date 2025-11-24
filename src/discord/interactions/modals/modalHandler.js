@@ -1,5 +1,5 @@
 import { InteractionResponseType, MessageFlags } from 'discord-api-types/payloads/v10';
-import { handleHeroOnboarding } from './index.js';
+import { handleHeroOnboarding, handlePartyInvite } from './index.js';
 
 export async function handleModalSubmit(payload, env, ctx) {
   const { data } = payload;
@@ -10,6 +10,9 @@ export async function handleModalSubmit(payload, env, ctx) {
   switch (customId) {
     case 'hero_onboarding_modal':
       return await handleHeroOnboarding(payload, env, ctx);
+
+    case 'party_invite_modal':
+      return await handlePartyInvite(payload, env, ctx);
 
     default:
       return new Response(JSON.stringify({

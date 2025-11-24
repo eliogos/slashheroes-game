@@ -7,11 +7,9 @@ import pkg from '../../../../../../package.json' with { type: 'json' };
 
 export const command = new SlashCommandBuilder()
     .setName('about')
-    .setDescription('Learn more about SLASHHEROES.');
+    .setDescription('Learn more about SLASHHEROES.')
+    .setContexts([InteractionContextType.PrivateChannel, InteractionContextType.Guild, InteractionContextType.BotDM]);
     
-// allow in private channels and guilds and bot DMs
-command.setContexts([InteractionContextType.PrivateChannel, InteractionContextType.Guild, InteractionContextType.BotDM]);
-
 export async function execute(interaction, env, ctx) {
 
     ctx.waitUntil(
@@ -32,7 +30,26 @@ export async function execute(interaction, env, ctx) {
                     time = Math.floor(Date.now() / 1000);
                 }
 
-                const botAvatar = "https://cdn.discordapp.com/embed/avatars/0.png"; // TODO: Replace with actual bot avatar URL
+                // Get bot avatar dynamically from the application data
+                const appId = interaction.application_id;
+                let botAvatar = "https://cdn.discordapp.com/embed/avatars/0.png"; // fallback
+                
+                try {
+                    const botResponse = await fetch(`https://discord.com/api/v10/applications/${appId}/rpc`, {
+                        headers: {
+                            'Authorization': `Bot ${env.DISCORD_APP_TOKEN}`
+                        }
+                    });
+                    
+                    if (botResponse.ok) {
+                        const botData = await botResponse.json();
+                        if (botData.icon) {
+                            botAvatar = `https://cdn.discordapp.com/app-icons/${appId}/${botData.icon}.png?size=256`;
+                        }
+                    }
+                } catch (avatarError) {
+                    console.warn('Failed to fetch bot avatar:', avatarError);
+                }
 
                 const container = new ContainerBuilder()
                     .setAccentColor(Colors.Info)
@@ -48,7 +65,7 @@ export async function execute(interaction, env, ctx) {
                             )
                     )
                     .addSeparatorComponents(
-                        new SeparatorBuilder().setSpacing(SeparatorSpacingSize.Large).setDivider(true)
+                        new SeparatorBuilder().setSpacing(SeparatorSpacingSize.Small).setDivider(true)
                     )
                     .addSectionComponents(
                         new SectionBuilder()
@@ -59,7 +76,8 @@ export async function execute(interaction, env, ctx) {
                                     .setCustomId("modal_joinbeta")
                             )
                             .addTextDisplayComponents(
-                                new TextDisplayBuilder().setContent(`-# Version \`${version}\` as of <t:${time}:F>`),
+                                new TextDisplayBuilder().setContent(`Version \`${version}\` as of <t:${time}:F>`),
+                                new TextDisplayBuilder().setContent(`-# If you uninstall this app, all your data will be deleted after 14 days.`),
                             )
                     );
 
