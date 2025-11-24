@@ -1,3 +1,10 @@
+# [1.8.0](https://github.com/eliogos/slashheroes-game/compare/v1.7.0...v1.8.0) (2025-11-24)
+
+
+### Features
+
+* **modals:** implement party invite modal handling and user selection ([b8c50d7](https://github.com/eliogos/slashheroes-game/commit/b8c50d7a64b277bcb0bfec8ecedebfb3f8f34e03))
+
 # [1.7.0](https://github.com/eliogos/slashheroes-game/compare/v1.6.0...v1.7.0) (2025-11-23)
 
 
