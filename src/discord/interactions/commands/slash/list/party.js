@@ -22,6 +22,8 @@ export async function execute(interaction, env, ctx) {
             }), { headers: { 'Content-Type': 'application/json' } });
         }
 
+        const userId = interaction.member?.user?.id || interaction.user?.id;
+
         // Create modal with user select menu
         const modal = new ModalBuilder()
             .setCustomId('party_invite_modal')
@@ -31,7 +33,8 @@ export async function execute(interaction, env, ctx) {
             .setCustomId('selected_users')
             .setPlaceholder('Select users to invite')
             .setMinValues(1)
-            .setMaxValues(5);
+            .setMaxValues(5)
+            .setDefaultUsers([userId]); 
 
         const noteDisplay = new TextDisplayBuilder()
             .setContent('Select up to 5 users to invite to your party.');

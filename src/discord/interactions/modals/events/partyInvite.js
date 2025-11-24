@@ -16,26 +16,29 @@ export async function handlePartyInvite(payload, env, ctx) {
     );
 
     const selectedUsers = values.find(v => v.id === 'selected_users')?.value || [];
+    
+    // Filter out the command user from invites
+    const filteredUsers = selectedUsers.filter(id => id !== userId);
 
-    if (selectedUsers.length === 0) {
+    if (filteredUsers.length === 0) {
       return new Response(JSON.stringify({
         type: InteractionResponseType.ChannelMessageWithSource,
         data: {
-          content: '❌ No users were selected.',
+          content: '❌ No valid users were selected. You cannot invite yourself!',
           flags: MessageFlags.Ephemeral,
         }
       }), { headers: { 'Content-Type': 'application/json' } });
     }
 
-    console.log(`✅ User ${userId} invited: ${selectedUsers.join(', ')}`);
+    console.log(`✅ User ${userId} invited: ${filteredUsers.join(', ')}`);
 
     // Format user mentions
-    const userMentions = selectedUsers.map(id => `<@${id}>`).join(', ');
+    const userMentions = filteredUsers.map(id => `<@${id}>`).join(', ');
 
     return new Response(JSON.stringify({
       type: InteractionResponseType.ChannelMessageWithSource,
       data: {
-        content: `🎊 Party invite sent to: ${userMentions}\n\nSelected ${selectedUsers.length} user(s).`,
+        content: `🎊 Party invite sent to: ${userMentions}\n\nSelected ${filteredUsers.length} user(s).`,
         flags: MessageFlags.Ephemeral,
       },
     }), { headers: { 'Content-Type': 'application/json' } });
