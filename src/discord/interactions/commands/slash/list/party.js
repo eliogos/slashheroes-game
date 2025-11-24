@@ -1,5 +1,5 @@
-import { SlashCommandBuilder, ModalBuilder, LabelBuilder, UserSelectMenuBuilder, TextDisplayBuilder } from "@discordjs/builders";
-import { InteractionContextType, InteractionResponseType } from 'discord-api-types/payloads/v10';
+import { SlashCommandBuilder } from "@discordjs/builders";
+import { InteractionContextType } from 'discord-api-types/payloads/v10';
 import { ChannelType, MessageFlags } from 'discord-api-types/v10';
 import { defer, editReply } from '../slashCommandHandler.js';
 
@@ -9,58 +9,61 @@ export const command = new SlashCommandBuilder()
     .setContexts([InteractionContextType.PrivateChannel]);
 
 export async function execute(interaction, env, ctx) {
-    try {
-        const isGroupDM = (interaction?.channel?.type ?? 0) === ChannelType.GroupDM;
+    ctx.waitUntil((async () => {
+        try {
+            const isGroupDM = (interaction?.channel?.type ?? 0) === ChannelType.GroupDM;
 
-        if (!isGroupDM) {
-            return new Response(JSON.stringify({
-                type: InteractionResponseType.ChannelMessageWithSource,
-                data: {
+            if (!isGroupDM) {
+                await editReply(interaction, {
                     flags: MessageFlags.Ephemeral,
                     content: "❌ This command only works in Group DMs."
-                }
-            }), { headers: { 'Content-Type': 'application/json' } });
-        }
-
-        const userId = interaction.member?.user?.id || interaction.user?.id;
-
-        // Create modal with user select menu
-        const modal = new ModalBuilder()
-            .setCustomId('party_invite_modal')
-            .setTitle('Invite Players to Party');
-
-        const userSelect = new UserSelectMenuBuilder()
-            .setCustomId('selected_users')
-            .setPlaceholder('Select users to invite')
-            .setMinValues(1)
-            .setMaxValues(5)
-            .setDefaultUsers([userId]); 
-
-        const noteDisplay = new TextDisplayBuilder()
-            .setContent('Select up to 5 users to invite to your party.');
-
-        modal.addLabelComponents(
-            new LabelBuilder()
-                .setLabel('Choose Party Members')
-                .setDescription('Select the users you want to invite.')
-                .setUserSelectMenuComponent(userSelect)
-        );
-
-        modal.addTextDisplayComponents(noteDisplay);
-
-        return new Response(JSON.stringify({
-            type: InteractionResponseType.Modal,
-            data: modal.toJSON(),
-        }), { headers: { 'Content-Type': 'application/json' } });
-
-    } catch (error) {
-        console.error('Party command failed:', error);
-        return new Response(JSON.stringify({
-            type: InteractionResponseType.ChannelMessageWithSource,
-            data: {
-                flags: MessageFlags.Ephemeral,
-                content: "❌ An error occurred."
+                });
+                return;
             }
-        }), { headers: { 'Content-Type': 'application/json' } });
-    }
+
+            const userId = interaction.member?.user?.id || interaction.user?.id;
+            const channelId = interaction.channel_id;
+
+            // Fetch channel info to get recipients
+            const channelResponse = await fetch(`https://discord.com/api/v10/channels/${channelId}`, {
+                headers: {
+                    'Authorization': `Bot ${env.DISCORD_APP_TOKEN}`
+                }
+            });
+
+            if (!channelResponse.ok) {
+                console.error('Failed to fetch channel:', await channelResponse.text());
+                await editReply(interaction, {
+                    flags: MessageFlags.Ephemeral,
+                    content: "❌ Could not fetch group chat information."
+                });
+                return;
+            }
+
+            const channelData = await channelResponse.json();
+            const recipients = channelData.recipients || [];
+            
+            // Format recipient info
+            const recipientInfo = recipients.map(user => 
+                `<@${user.id}> (${user.username})`
+            ).join('\n');
+
+            console.log('Channel data:', channelData);
+            console.log('Recipients:', recipients);
+
+            await editReply(interaction, {
+                flags: MessageFlags.Ephemeral,
+                content: `**Group DM Info:**\nChannel ID: ${channelId}\nYour ID: ${userId}\n\n**Recipients (${recipients.length}):**\n${recipientInfo || 'None found'}`
+            });
+
+        } catch (error) {
+            console.error('Party command failed:', error);
+            await editReply(interaction, {
+                flags: MessageFlags.Ephemeral,
+                content: `❌ An error occurred: ${error.message}`
+            });
+        }
+    })());
+
+    return defer(true);
 }
