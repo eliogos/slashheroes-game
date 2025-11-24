@@ -1,3 +1,10 @@
+# [1.9.0](https://github.com/eliogos/slashheroes-game/compare/v1.8.0...v1.9.0) (2025-11-24)
+
+
+### Features
+
+* **party:** improve user selection handling in party invites ([e79c306](https://github.com/eliogos/slashheroes-game/commit/e79c306204ae9ca7bad03d4a79c7ec19d1001c37))
+
 # [1.8.0](https://github.com/eliogos/slashheroes-game/compare/v1.7.0...v1.8.0) (2025-11-24)
 
 
