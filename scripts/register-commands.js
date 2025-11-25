@@ -20,6 +20,15 @@ const commandsDir = path.resolve(process.cwd(), 'src/discord/interactions/comman
 
 async function extractCommandMetadata(filePath) {
   const src = await readFile(filePath, 'utf8');
+  
+  const metaPath = filePath.replace(/\.js$/, '.meta.json');
+  try {
+    const metaSrc = await readFile(metaPath, 'utf8');
+    const meta = JSON.parse(metaSrc);
+    return meta;
+  } catch (err) {
+  }
+
   const nameMatch = src.match(/\.setName\(\s*['"`"]([^'"`]+)['"`"]\s*\)/);
   const descMatch = src.match(/\.setDescription\(\s*['"`"]([^'"`]+)['"`"]\s*\)/);
   const isContext = /ContextMenuCommandBuilder/.test(src);
@@ -27,51 +36,40 @@ async function extractCommandMetadata(filePath) {
   const description = descMatch ? descMatch[1] : '';
   if (!name) return null;
 
-  // Determine type: 1 = Chat Input, 2 = User, 3 = Message
   const type = isContext ? 2 : 1;
-
-  // Try to read a sidecar .meta.json file first (allows full registration metadata without executing modules)
   let contexts = null;
-  const metaPath = filePath.replace(/\.js$/, '.meta.json');
-  try {
-    const metaSrc = await readFile(metaPath, 'utf8');
-    const meta = JSON.parse(metaSrc);
-    // If meta provides contexts (array), use it; otherwise fall through to parsing from source
-    if (Array.isArray(meta.contexts) && meta.contexts.length > 0) {
-      contexts = meta.contexts;
-    }
-    // If meta contains name/description/type override, respect them
-    if (meta.name) {
-      // override name if provided in meta
-    }
-  } catch (err) {
-    // no sidecar; ignore
-  }
+  let options = null;
 
-  // If we still don't have contexts, try to parse .setContexts([...]) from source
-  if (!contexts) {
-    const ctxMatch = src.match(/\.setContexts\(\s*\[([^\]]+)\]\s*\)/);
-    if (ctxMatch) {
-      const inside = ctxMatch[1];
-      const parts = inside.split(',').map(s => s.trim()).filter(Boolean);
-      const parsed = [];
-      for (const p of parts) {
-        // Example tokens: InteractionContextType.PrivateChannel or numeric literals like 1
-        if (/InteractionContextType\./.test(p)) {
-          const key = p.replace(/.*\./, '').replace(/[^A-Za-z0-9_]/g, '');
-          if (InteractionContextType && InteractionContextType[key] !== undefined) {
-            parsed.push(InteractionContextType[key]);
-          }
-        } else {
-          const num = parseInt(p.replace(/[^0-9]/g, ''), 10);
-          if (!Number.isNaN(num)) parsed.push(num);
+  const ctxMatch = src.match(/\.setContexts\(\s*\[([^\]]+)\]\s*\)/);
+  if (ctxMatch) {
+    const inside = ctxMatch[1];
+    const parts = inside.split(',').map(s => s.trim()).filter(Boolean);
+    const parsed = [];
+    for (const p of parts) {
+      if (/InteractionContextType\./.test(p)) {
+        const key = p.replace(/.*\./, '').replace(/[^A-Za-z0-9_]/g, '');
+        if (InteractionContextType && InteractionContextType[key] !== undefined) {
+          parsed.push(InteractionContextType[key]);
         }
+      } else {
+        const num = parseInt(p.replace(/[^0-9]/g, ''), 10);
+        if (!Number.isNaN(num)) parsed.push(num);
       }
-      if (parsed.length) contexts = parsed;
     }
+    if (parsed.length) contexts = parsed;
   }
 
-  return { name, description, type, contexts };
+  const subcommandMatches = src.matchAll(/\.addSubcommand\(\s*new SlashCommandSubcommandBuilder\(\)\s*\.setName\(\s*['"`"]([^'"`]+)['"`"]\s*\)\s*\.setDescription\(\s*['"`"]([^'"`]+)['"`"]\s*\)/gs);
+  const subcommands = [...subcommandMatches];
+  if (subcommands.length > 0) {
+    options = subcommands.map(match => ({
+      type: 1,
+      name: match[1],
+      description: match[2]
+    }));
+  }
+
+  return { name, description, type, contexts, ...(options && { options }) };
 }
 
 const files = await readdir(commandsDir);
