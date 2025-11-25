@@ -1,3 +1,10 @@
+# [1.10.0](https://github.com/eliogos/slashheroes-game/compare/v1.9.0...v1.10.0) (2025-11-24)
+
+
+### Features
+
+* **party:** streamline group DM handling and improve error responses ([1103c5d](https://github.com/eliogos/slashheroes-game/commit/1103c5d56fcfce12aa8049cb7a853067fd4d0e40))
+
 # [1.9.0](https://github.com/eliogos/slashheroes-game/compare/v1.8.0...v1.9.0) (2025-11-24)
 
 
