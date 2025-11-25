@@ -1,69 +1,60 @@
-import { SlashCommandBuilder } from "@discordjs/builders";
-import { InteractionContextType } from 'discord-api-types/payloads/v10';
-import { ChannelType, MessageFlags } from 'discord-api-types/v10';
-import { defer, editReply } from '../slashCommandHandler.js';
+import { SlashCommandBuilder, SlashCommandSubcommandBuilder } from "@discordjs/builders";
+import { InteractionContextType } from "discord-api-types/v10";
 
 export const command = new SlashCommandBuilder()
     .setName('party')
-    .setDescription('Send an invite to your party')
-    .setContexts([InteractionContextType.PrivateChannel]);
+    .setDescription('Manage your party')
+    .setContexts([InteractionContextType.PrivateChannel])
+    .addSubcommand(
+        new SlashCommandSubcommandBuilder()
+            .setName('setup')
+            .setDescription('Set current Group DM as your party')
+    )
+    .addSubcommand(
+        new SlashCommandSubcommandBuilder()
+            .setName('sync')
+            .setDescription('Sync Group DM members to your party. This makes sure members are up to date.')
+    )
+    .addSubcommand(
+        new SlashCommandSubcommandBuilder()
+            .setName('disband')
+            .setDescription('Unset current Group DM as party and delete the party data')
+    )
+    .addSubcommand(
+        new SlashCommandSubcommandBuilder()
+            .setName('manage')
+            .setDescription('Manage party settings and members.')
+    );
 
-export async function execute(interaction, env, ctx) {
-    ctx.waitUntil((async () => {
-        try {
-            const isGroupDM = (interaction?.channel?.type ?? 0) === ChannelType.GroupDM;
+export async function execute(interaction) {
+    const subcommand = interaction.options.getSubcommand();
 
-            if (!isGroupDM) {
-                await editReply(interaction, {
-                    flags: MessageFlags.Ephemeral,
-                    content: "❌ This command only works in Group DMs."
-                });
-                return;
-            }
+    switch (subcommand) {
+        case 'setup':
+            return await executeSetup(interaction);
+        case 'sync':
+            return await executeSync(interaction);
+        case 'disband':
+            return await executeDisband(interaction);
+        case 'manage':
+            return await executeManage(interaction);
+        default:
+            return interaction.reply({ content: 'Unknown subcommand', ephemeral: true });
+    }
+}
 
-            const userId = interaction.member?.user?.id || interaction.user?.id;
-            const channelId = interaction.channel_id;
+async function executeSetup(interaction) {
+    return interaction.reply({ content: 'Party setup placeholder', ephemeral: true });
+}
 
-            // Fetch channel info to get recipients
-            const channelResponse = await fetch(`https://discord.com/api/v10/channels/${channelId}`, {
-                headers: {
-                    'Authorization': `Bot ${env.DISCORD_APP_TOKEN}`
-                }
-            });
+async function executeSync(interaction) {
+    return interaction.reply({ content: 'Party sync placeholder', ephemeral: true });
+}
 
-            if (!channelResponse.ok) {
-                console.error('Failed to fetch channel:', await channelResponse.text());
-                await editReply(interaction, {
-                    flags: MessageFlags.Ephemeral,
-                    content: "❌ Could not fetch group chat information."
-                });
-                return;
-            }
+async function executeDisband(interaction) {
+    return interaction.reply({ content: 'Party disband placeholder', ephemeral: true });
+}
 
-            const channelData = await channelResponse.json();
-            const recipients = channelData.recipients || [];
-            
-            // Format recipient info
-            const recipientInfo = recipients.map(user => 
-                `<@${user.id}> (${user.username})`
-            ).join('\n');
-
-            console.log('Channel data:', channelData);
-            console.log('Recipients:', recipients);
-
-            await editReply(interaction, {
-                flags: MessageFlags.Ephemeral,
-                content: `**Group DM Info:**\nChannel ID: ${channelId}\nYour ID: ${userId}\n\n**Recipients (${recipients.length}):**\n${recipientInfo || 'None found'}`
-            });
-
-        } catch (error) {
-            console.error('Party command failed:', error);
-            await editReply(interaction, {
-                flags: MessageFlags.Ephemeral,
-                content: `❌ An error occurred: ${error.message}`
-            });
-        }
-    })());
-
-    return defer(true);
+async function executeManage(interaction) {
+    return interaction.reply({ content: 'Party manage placeholder', ephemeral: true });
 }

@@ -4,6 +4,7 @@ import { MessageFlags } from 'discord-api-types/v10';
 export async function handlePartyInvite(payload, env, ctx) {
   try {
     console.log('🎉 Received party invite submission');
+    console.log('Full payload:', JSON.stringify(payload, null, 2));
 
     const userId = payload.member?.user?.id || payload.user?.id;
     
@@ -11,9 +12,16 @@ export async function handlePartyInvite(payload, env, ctx) {
     const values = payload.data.components.flatMap(r =>
       (r.component ? [r.component] : r.components).map(c => ({
         id: c.custom_id,
-        value: c.values || []
+        value: c.values || [],
+        resolved: c.resolved // Check if user data is included
       }))
     );
+
+    console.log('Extracted values:', JSON.stringify(values, null, 2));
+    
+    // Check if Discord provides resolved user data
+    const resolvedUsers = payload.data.resolved?.users || {};
+    console.log('Resolved users:', JSON.stringify(resolvedUsers, null, 2));
 
     const selectedUsers = values.find(v => v.id === 'selected_users')?.value || [];
     
@@ -32,8 +40,14 @@ export async function handlePartyInvite(payload, env, ctx) {
 
     console.log(`✅ User ${userId} invited: ${filteredUsers.join(', ')}`);
 
-    // Format user mentions
-    const userMentions = filteredUsers.map(id => `<@${id}>`).join(', ');
+    // Format user mentions with username if available
+    const userMentions = filteredUsers.map(id => {
+      const userData = resolvedUsers[id];
+      if (userData) {
+        return `<@${id}> (${userData.username})`;
+      }
+      return `<@${id}>`;
+    }).join(', ');
 
     return new Response(JSON.stringify({
       type: InteractionResponseType.ChannelMessageWithSource,
