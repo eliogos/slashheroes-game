@@ -1,3 +1,10 @@
+# [1.11.0](https://github.com/eliogos/slashheroes-game/compare/v1.10.0...v1.11.0) (2025-11-25)
+
+
+### Features
+
+* **party:** enhance party command structure with subcommands for setup, sync, disband, and manage ([f863ef7](https://github.com/eliogos/slashheroes-game/commit/f863ef7e7ee7a8d7f3ac90d16fbb35756a00a15e))
+
 # [1.10.0](https://github.com/eliogos/slashheroes-game/compare/v1.9.0...v1.10.0) (2025-11-24)
 
 
