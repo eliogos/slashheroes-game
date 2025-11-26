@@ -1,0 +1,302 @@
+// Dungeon Regions Metadata Schema
+// This file defines the structure and data types for dungeon region attributes
+
+{
+  // Schema version for tracking changes
+  schemaVersion: "1.0.0",
+  
+  // Metadata description
+  description: "Dungeon regions affect rooms generated per channel. They act as top-level conditions for all rooms. Regions are assigned to servers.",
+  
+  // Field definitions
+  fields: {
+    
+    // Region identification
+    id: {
+      type: "string",
+      required: true,
+      description: "Unique identifier for the region",
+      example: "sewers_1"
+    },
+    
+    name: {
+      type: "string",
+      required: true,
+      description: "Display name of the region",
+      example: "Ancient Sewers"
+    },
+    
+    description: {
+      type: "string",
+      required: true,
+      description: "Flavor text describing the region",
+      example: "Dark, murky tunnels filled with refuse and creatures of the deep"
+    },
+    
+    // Environmental Attributes
+    temperature: {
+      type: "enum",
+      dataType: "string",
+      required: true,
+      description: "Temperature affects player stamina drain, equipment durability, and modifies fire/ice damage",
+      values: ["freezing", "cold", "cool", "moderate", "warm", "hot", "scorching"],
+      example: "cool"
+    },
+    
+    temperatureValue: {
+      type: "number",
+      dataType: "integer",
+      required: false,
+      unit: "celsius",
+      description: "Specific temperature value in Celsius for the region",
+      range: {
+        min: -50,
+        max: 100
+      },
+      example: 12
+    },
+    
+    humidity: {
+      type: "enum",
+      dataType: "string",
+      required: true,
+      description: "Humidity level affects disease chance, equipment rust/decay, and environmental hazards",
+      values: ["arid", "dry", "moderate", "damp", "wet", "saturated"],
+      example: "damp"
+    },
+    
+    lightLevel: {
+      type: "enum",
+      dataType: "string",
+      required: true,
+      description: "Light level impacts perception checks, stealth mechanics, and visual range",
+      values: ["pitchBlack", "dark", "dim", "moderate", "bright", "blinding"],
+      example: "dark"
+    },
+    
+    airQuality: {
+      type: "enum",
+      dataType: "string",
+      required: true,
+      description: "Air quality affects health regeneration and poison/disease resistance",
+      values: ["fresh", "stale", "musty", "toxic", "suffocating", "deadly"],
+      example: "musty"
+    },
+    
+    waterPresence: {
+      type: "enum",
+      dataType: "string",
+      required: true,
+      description: "Amount and type of water present in the region",
+      values: ["none", "puddles", "streams", "shallow", "deep", "submerged"],
+      example: "shallow"
+    },
+    
+    // Difficulty & Challenge
+    baseDifficulty: {
+      type: "enum",
+      dataType: "string",
+      required: true,
+      description: "Overall challenge rating of the region",
+      values: ["trivial", "easy", "moderate", "hard", "deadly", "impossible"],
+      example: "moderate"
+    },
+    
+    enemyDensity: {
+      type: "enum",
+      dataType: "string",
+      required: true,
+      description: "Frequency of enemy encounters",
+      values: ["barren", "sparse", "normal", "dense", "infested"],
+      example: "normal"
+    },
+    
+    trapFrequency: {
+      type: "enum",
+      dataType: "string",
+      required: true,
+      description: "How common traps are in the region",
+      values: ["none", "rare", "occasional", "common", "abundant"],
+      example: "occasional"
+    },
+    
+    navigationComplexity: {
+      type: "enum",
+      dataType: "string",
+      required: true,
+      description: "How difficult it is to navigate the region",
+      values: ["linear", "simple", "moderate", "complex", "labyrinthine"],
+      example: "moderate"
+    },
+    
+    // Structural Attributes
+    ceilingHeight: {
+      type: "enum",
+      dataType: "string",
+      required: true,
+      description: "Average ceiling height affects combat and mobility",
+      values: ["cramped", "low", "average", "high", "cavernous", "endless"],
+      example: "low"
+    },
+    
+    roomSize: {
+      type: "enum",
+      dataType: "string",
+      required: true,
+      description: "Typical room size in the region",
+      values: ["tiny", "small", "medium", "large", "vast", "colossal"],
+      example: "medium"
+    },
+    
+    wallMaterial: {
+      type: "enum",
+      dataType: "string",
+      required: true,
+      description: "Primary material of walls and structures",
+      values: ["stone", "earth", "metal", "wood", "crystal", "bone", "flesh", "ice"],
+      example: "stone"
+    },
+    
+    floorCondition: {
+      type: "enum",
+      dataType: "string",
+      required: true,
+      description: "Condition of the floor affects movement speed and fall damage",
+      values: ["stable", "cracked", "slippery", "uneven", "unstable", "treacherous"],
+      example: "slippery"
+    },
+    
+    // Magical/Supernatural
+    magicDensity: {
+      type: "number",
+      dataType: "integer",
+      required: true,
+      unit: "percent",
+      description: "Ambient magical energy level (0-100)",
+      range: {
+        min: 0,
+        max: 100
+      },
+      example: 45
+    },
+    
+    corruptionLevel: {
+      type: "number",
+      dataType: "integer",
+      required: true,
+      unit: "percent",
+      description: "Level of dark/corrupting influence (0-100)",
+      range: {
+        min: 0,
+        max: 100
+      },
+      example: 20
+    },
+    
+    elementalAffinity: {
+      type: "enum",
+      dataType: "string",
+      required: true,
+      description: "Dominant elemental type that affects damage modifiers",
+      values: ["none", "fire", "water", "earth", "air", "lightning", "ice", "arcane", "necrotic", "holy", "poison"],
+      example: "water"
+    },
+    
+    // Loot & Resources
+    treasureQuality: {
+      type: "enum",
+      dataType: "string",
+      required: true,
+      description: "Quality tier of loot found in the region",
+      values: ["poor", "common", "uncommon", "rare", "epic", "legendary"],
+      example: "common"
+    },
+    
+    lootFrequency: {
+      type: "enum",
+      dataType: "string",
+      required: true,
+      description: "How often loot can be found",
+      values: ["barren", "scarce", "normal", "plentiful", "overflowing"],
+      example: "normal"
+    },
+    
+    resourceTypes: {
+      type: "array",
+      dataType: "string[]",
+      required: true,
+      description: "Types of resources that can be found in this region",
+      values: ["gold", "gems", "ore", "herbs", "scrolls", "potions", "equipment", "food"],
+      example: ["gold", "herbs", "equipment"]
+    },
+    
+    // Thematic
+    age: {
+      type: "enum",
+      dataType: "string",
+      required: true,
+      description: "How old the region is",
+      values: ["recent", "decades", "centuries", "ancient", "primordial"],
+      example: "centuries"
+    },
+    
+    maintenanceState: {
+      type: "enum",
+      dataType: "string",
+      required: true,
+      description: "Current state of upkeep and preservation",
+      values: ["pristine", "maintained", "weathered", "abandoned", "ruined", "collapsed"],
+      example: "abandoned"
+    },
+    
+    inhabitantType: {
+      type: "enum",
+      dataType: "string",
+      required: true,
+      description: "Type of creatures or beings that built or inhabit the region",
+      values: ["none", "humans", "dwarves", "elves", "monsters", "undead", "constructs", "demons", "unknown"],
+      example: "humans"
+    },
+    
+    atmosphere: {
+      type: "enum",
+      dataType: "string",
+      required: true,
+      description: "General feeling and mood of the region",
+      values: ["peaceful", "eerie", "oppressive", "chaotic", "sacred", "corrupted"],
+      example: "eerie"
+    },
+    
+    // Movement & Hazards
+    terrainDifficulty: {
+      type: "enum",
+      dataType: "string",
+      required: true,
+      description: "How difficult the terrain is to traverse",
+      values: ["easy", "moderate", "difficult", "treacherous", "impassable"],
+      example: "moderate"
+    },
+    
+    visibility: {
+      type: "number",
+      dataType: "integer",
+      required: true,
+      unit: "meters",
+      description: "Maximum visibility distance in meters (0-100)",
+      range: {
+        min: 0,
+        max: 100
+      },
+      example: 15
+    },
+    
+    noiseLevel: {
+      type: "enum",
+      dataType: "string",
+      required: true,
+      description: "Ambient noise level affects stealth and perception",
+      values: ["silent", "quiet", "moderate", "loud", "deafening"],
+      example: "moderate"
+    }
+  }
+}

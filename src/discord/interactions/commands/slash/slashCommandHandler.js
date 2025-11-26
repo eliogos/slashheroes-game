@@ -56,6 +56,37 @@ export function reply(content, ephemeral = false) {
 }
 
 /**
+ * Reply with a modal.
+ * @param {object} interaction - The interaction payload.
+ * @param {object} data - Modal data object containing custom_id, title, and components.
+ * @returns {Response}
+ */
+export async function modalReply(interaction, data) {
+	const url = `https://discord.com/api/v10/interactions/${interaction.id}/${interaction.token}/callback`;
+	
+	const body = {
+		type: InteractionResponseType.Modal,
+		data,
+	};
+
+	console.log('Sending modal via webhook:', JSON.stringify(body, null, 2));
+
+	const response = await fetch(url, {
+		method: 'POST',
+		headers: { 'Content-Type': 'application/json' },
+		body: JSON.stringify(body),
+	});
+
+	if (!response.ok) {
+		const errorText = await response.text();
+		console.error(`❌ Failed to send modal: ${response.status} ${response.statusText}`, errorText);
+		throw new Error(`Failed to send modal: ${errorText}`);
+	}
+
+	return new Response(null, { status: 200 });
+}
+
+/**
  * Sends a request to a Discord webhook.
  * @param {object} interaction	- The interaction payload.
  * @param {object} body - The request body.
@@ -191,6 +222,9 @@ export async function handleSlashCommand(payload, env, ctx) {
 
 		const result = await commandModule.execute(payload, env, ctx);
 
+		console.log('Command execute result type:', typeof result);
+		console.log('Is Response?', result instanceof Response);
+
 		if (result instanceof Response) return result;
 
 		return new Response(JSON.stringify(result ?? {}), {
@@ -199,6 +233,8 @@ export async function handleSlashCommand(payload, env, ctx) {
 		});
 	} catch (err) {
 		console.error(`❌ Failed to handle slash command "${name}":`, err);
+		console.error('Error stack:', err.stack);
+		console.error('Error details:', JSON.stringify(err, Object.getOwnPropertyNames(err), 2));
 		return new Response(
 			JSON.stringify({ type: 4, data: { content: 'An unexpected error occurred.', flags: MessageFlags.Ephemeral } }),
 			{ status: 200, headers: { 'Content-Type': 'application/json' } }

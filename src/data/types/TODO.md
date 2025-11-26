@@ -1,6 +1,6 @@
-# Sections
-Dungeon sections affect rooms generated per channel. It acts as a top=level condition for all rooms.
-Sections are assigned to servers.
+# Regions
+Dungeon regions affect rooms generated per channel. It acts as a top=level condition for all rooms.
+Regions are assigned to servers.
 
 # Floors
 Floors affect the chances of rooms to appear, and the number of monsters to be encountered in a single room.
@@ -9,14 +9,14 @@ Floors are assigned to server categories.
 # Rooms
 Rooms are where the adventure begins. As players venture to these rooms via the `/explore` command, they may encounter enemies, find loot, fall into a trap, find clues, solve puzzles, and more.
 Rooms can be special or empty. A player can use the command many times in the same room unless the room conditions don't allow the player to continue or the room is already empty.
-Rooms are assigned to all server channels with a set "steps" for each room. Rooms can have an extra condition alongside section conditions.
+Rooms are assigned to all server channels with a set "steps" for each room. Rooms can have an extra condition alongside region conditions.
 
 =================================
 
 # Room generation logic
 
 ## Overview
-All section, floor, and room generation logic will be based on their Discord Snowflakes so it stays persistent no matter what without relying on storing the IDs and setting it.
+All region, floor, and room generation logic will be based on their Discord Snowflakes so it stays persistent no matter what without relying on storing the IDs and setting it.
 This also makes it dynamic as generations also reset every month.
 
 ## Snowflake-Based Generation
@@ -30,18 +30,18 @@ Discord Snowflakes are unique 64-bit identifiers that contain timestamp informat
 
 ### Hierarchy Mapping
 ```
-Server ID (Guild)     → Dungeon Section
+Server ID (Guild)     → Dungeon Region
 Category ID           → Floor Level
 Channel ID            → Room Type & Contents
 ```
 
 ### Generation Algorithm
 
-1. **Section Assignment** (Server Level)
+1. **Region Assignment** (Server Level)
    - Extract server snowflake
-   - Apply modulo operation with total section count
-   - Result determines which dungeon section (Cave, Crypt, Castle, etc.)
-   - Sections have global properties affecting all rooms in that server
+   - Apply modulo operation with total region count
+   - Result determines which dungeon region (Cave, Crypt, Castle, etc.)
+   - Regions have global properties affecting all rooms in that server
 
 2. **Floor Assignment** (Category Level)
    - Use category ID (or fallback to server ID if no category)
@@ -63,7 +63,7 @@ Channel ID            → Room Type & Contents
    - Generate room properties:
      - Room type (combat, treasure, trap, puzzle, empty, etc.)
      - Number of steps/encounters available
-     - Specific enemy types (based on floor + section)
+     - Specific enemy types (based on floor + region)
      - Loot tables (weighted by floor level)
      - Special conditions or events
 
@@ -89,7 +89,7 @@ const roomData = generateRoom(roomSeed, categoryDifficulty, {
   spawnRateMultiplier,
   lootMultiplier,
   dangerModifier
-}, sectionRules);
+}, regionRules);
 ```
 
 This ensures:
@@ -186,8 +186,8 @@ Hard Tier (hash mod result 7+):
 - Puzzle: 10%
 ```
 
-### Section Modifiers
-Different sections alter base probabilities:
+### Region Modifiers
+Different regions alter base probabilities:
 - **Cave**: More traps, fewer treasures
 - **Crypt**: More undead enemies, cursed loot
 - **Castle**: More puzzles, elite enemies
@@ -256,5 +256,5 @@ const spawnRate = 0.5 + (baseMultiplier / 100); // Range: 0.5 - 2.0
 ### Room Memory
 - Track first discoverer
 - Show room history (defeated by, looted by)
-- Leaderboards per dungeon section
+- Leaderboards per dungeon region
 
