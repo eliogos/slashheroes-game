@@ -1,3 +1,10 @@
+# [1.12.0](https://github.com/eliogos/slashheroes-game/compare/v1.11.0...v1.12.0) (2025-11-25)
+
+
+### Features
+
+* **commands:** enhance command metadata extraction with sidecar support and subcommand options ([dedfe5a](https://github.com/eliogos/slashheroes-game/commit/dedfe5ac16f857c025fd9a5e847c236aa11ae1ff))
+
 # [1.11.0](https://github.com/eliogos/slashheroes-game/compare/v1.10.0...v1.11.0) (2025-11-25)
 
 
