@@ -1,3 +1,10 @@
+# [1.13.0](https://github.com/eliogos/slashheroes-game/compare/v1.12.0...v1.13.0) (2025-11-26)
+
+
+### Features
+
+* **regions:** restructure dungeon regions and enhance metadata for gameplay mechanics ([0fa677a](https://github.com/eliogos/slashheroes-game/commit/0fa677a147cadc177e84c3239c8c0b9bceeeb227))
+
 # [1.12.0](https://github.com/eliogos/slashheroes-game/compare/v1.11.0...v1.12.0) (2025-11-25)
 
 
