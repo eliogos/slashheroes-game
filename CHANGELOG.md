@@ -1,3 +1,10 @@
+# [1.14.0](https://github.com/eliogos/slashheroes-game/compare/v1.13.0...v1.14.0) (2025-11-26)
+
+
+### Features
+
+* **dungeonRegions:** enhance dungeon region metadata with detailed attributes and environmental effects. ([d0b7174](https://github.com/eliogos/slashheroes-game/commit/d0b7174d9e2a3a36711f22882e8a120cfc39da86))
+
 # [1.13.0](https://github.com/eliogos/slashheroes-game/compare/v1.12.0...v1.13.0) (2025-11-26)
 
 
