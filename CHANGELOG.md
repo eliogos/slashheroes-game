@@ -1,3 +1,10 @@
+# [1.15.0](https://github.com/eliogos/slashheroes-game/compare/v1.14.0...v1.15.0) (2025-11-29)
+
+
+### Features
+
+* **dungeonRegions:** expand environmental attributes with humidity, brightness, and air quality details ([375a561](https://github.com/eliogos/slashheroes-game/commit/375a56191f370f0fff41714ddfdc986d7b0325a5))
+
 # [1.14.0](https://github.com/eliogos/slashheroes-game/compare/v1.13.0...v1.14.0) (2025-11-26)
 
 
