@@ -27,19 +27,20 @@ Temperature affects player stamina drain, equipment durability, and fire/ice dam
 > [!IMPORTANT]
 > Extreme temperatures require appropriate gear or resistance buffs to survive extended exploration.
 
-| Value | Icon | Min °C | Max °C | Description |
-|-------|------|--------|--------|---------|
-| `FREEZING` | 🧊 | -20 | -10 | Rapid stamina/health drain. Water frozen. Fire damage reduced, ice increased. Equipment brittle. |
-| `COLD` | ❄️ | -9 | 5 | Slow stamina drain. Frozen puddles. Minor ice damage increase. Cold resistance recommended. |
-| `COOL` | 🌡️ | 6 | 15 | Minimal impact. Comfortable for most adventurers. No significant modifiers. |
-| `MODERATE` | 👍 | 16 | 25 | Ideal conditions. No stamina drain or penalties. Balanced damage modifiers. |
-| `WARM` | ☀️ | 26 | 35 | Gradual stamina drain. Water evaporation common. Minor fire damage increase. |
-| `HOT` | 🔥 | 36 | 45 | Significant stamina drain. Heat exhaustion risk. Increased fire damage. Heat resistance required. |
-| `SCORCHING` | 🌋 | 46 | 100 | Rapid health/equipment damage. No water sources. Metal hot to touch. Lava flows common. |
+| Value       | Icon | Min °C | Max °C | Description                                                                                       |
+| ----------- | ---- | ------ | ------ | ------------------------------------------------------------------------------------------------- |
+| `FREEZING`  | 🧊   | -20    | -10    | Rapid stamina/health drain. Water frozen. Fire damage reduced, ice increased. Equipment brittle.  |
+| `COLD`      | ❄️   | -9     | 5      | Slow stamina drain. Frozen puddles. Minor ice damage increase. Cold resistance recommended.       |
+| `COOL`      | 🌡️   | 6      | 15     | Minimal impact. Comfortable for most adventurers. No significant modifiers.                       |
+| `MODERATE`  | 👍   | 16     | 25     | Ideal conditions. No stamina drain or penalties. Balanced damage modifiers.                       |
+| `WARM`      | ☀️   | 26     | 35     | Gradual stamina drain. Water evaporation common. Minor fire damage increase.                      |
+| `HOT`       | 🔥   | 36     | 45     | Significant stamina drain. Heat exhaustion risk. Increased fire damage. Heat resistance required. |
+| `SCORCHING` | 🌋   | 46     | 100    | Rapid health/equipment damage. No water sources. Metal hot to touch. Lava flows common.           |
 
 <br>
 
 ### Humidity
+
 Humidity level affects disease chance, equipment rust/decay, and environmental hazards. Each race has different humidity tolerance.
 
 **Data Type:** `string` (enum)  
@@ -52,19 +53,19 @@ Humidity level affects disease chance, equipment rust/decay, and environmental h
 > [!IMPORTANT]
 > Extreme humidity levels require specialized gear or protective enchantments to prevent equipment degradation and disease.
 
-| Values | Min RH% | Max RH% | Description |
-| ------ | ------- | ------- | ------- |
-| `ARID` | 0 | 20 | Very low moisture.|
-| `DRY` | 21 | 35 | Noticeable dry air. |
-| `MODERATE` | 36 | 55 | Ideal humidity for humans. |
-| `DAMP` | 56 | 70 | Noticeable moisture. |
-| `WET` | 71 | 85 | High moisture. |
-| `SATURATED` | 86 | 100 | Air almost saturated. |
-<!-- TODO: Adjust description -->
+| Values      | Min RH% | Max RH% | Description                                                                                                                                                                                                        |
+| ----------- | ------- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `ARID`      | 0       | 20      | Extremely dry air. Increased stamina drain from dehydration. Leather cracks, wood becomes brittle. Fire spreads faster. No rust or mold. Water sources scarce.                                                     |
+| `DRY`       | 21      | 35      | Noticeably dry air. Minor stamina drain. Throat irritation over time. Minimal equipment decay. Fire damage slightly increased. Comfortable for desert races.                                                       |
+| `MODERATE`  | 36      | 55      | Ideal humidity for most races. No penalties or bonuses. Comfortable breathing. Standard equipment durability. Balanced conditions.                                                                                 |
+| `DAMP`      | 56      | 70      | Noticeable moisture. Slow equipment rust over time. Slight disease chance increase. Water puddles common. Cold feels colder. Mildew smell.                                                                         |
+| `WET`       | 71      | 85      | High moisture content. Significant rust/decay on metal and organic items. Increased disease and infection risk. Slippery surfaces. Breathing feels heavy. Fungal growth common.                                    |
+| `SATURATED` | 86      | 100     | Air nearly fully saturated. Rapid equipment degradation. High disease/infection chance. Visibility reduced by mist/fog. Metal corrodes quickly. Breathing difficult. Mold everywhere. Protective coating required. |
 
 <br>
 
 ### Brightness
+
 Brightness affects perception, stealth mechanics, spawn rate of monsters, and item loss frequency. Different races have varying vision capabilities in low-light conditions.
 
 **Data Type:** `string` (enum)  
@@ -77,19 +78,20 @@ Brightness affects perception, stealth mechanics, spawn rate of monsters, and it
 > [!IMPORTANT]
 > Darkness provides stealth advantages but increases danger from ambushes and environmental hazards. Light sources attract attention.
 
-| Value | Icon | Min Lux | Max Lux | Description |
-|-------|------|---------|---------|-------------|
-| `PITCHBLACK` | 🌑 | 0 | 0.01 | Total darkness. Vision impossible without darkvision. Monster spawn rate highest. Navigation nearly impossible. |
-| `DARK` | 🌘 | 0.01 | 1 | Starlight/distant glow only. Perception severely reduced. High stealth bonus. Frequent monster encounters. |
-| `DIM` | 🕯️ | 1 | 100 | Torchlight, scattered crystals, moonlight. Limited color vision. Moderate stealth advantage. |
-| `LOWLIGHT` | 💡 | 100 | 1,000 | Ambient magical glow, overcast dungeon sections. Basic visibility. Balanced perception and stealth. |
-| `MODERATE` | 🔆 | 1,000 | 10,000 | Well-lit areas, bioluminescent caverns. Full color vision. No light penalties or bonuses. |
-| `BRIGHT` | ☀️ | 10,000 | 32,000 | Direct magical light, crystal caverns, outdoor areas. Excellent visibility. Stealth difficult. |
-| `BLINDING` | ✨ | 32,000 | 100,000 | Intense magical radiance, sunlit openings. Glare penalties without protection. No stealth possible. Monster spawn minimal. |
+| Value        | Icon | Min Lux | Max Lux | Description                                                                                                                |
+| ------------ | ---- | ------- | ------- | -------------------------------------------------------------------------------------------------------------------------- |
+| `PITCHBLACK` | 🌑   | 0       | 0.01    | Total darkness. Vision impossible without darkvision. Monster spawn rate highest. Navigation nearly impossible.            |
+| `DARK`       | 🌘   | 0.01    | 1       | Starlight/distant glow only. Perception severely reduced. High stealth bonus. Frequent monster encounters.                 |
+| `DIM`        | 🕯️   | 1       | 100     | Torchlight, scattered crystals, moonlight. Limited color vision. Moderate stealth advantage.                               |
+| `LOWLIGHT`   | 💡   | 100     | 1,000   | Ambient magical glow, overcast dungeon sections. Basic visibility. Balanced perception and stealth.                        |
+| `MODERATE`   | 🔆   | 1,000   | 10,000  | Well-lit areas, bioluminescent caverns. Full color vision. No light penalties or bonuses.                                  |
+| `BRIGHT`     | ☀️   | 10,000  | 32,000  | Direct magical light, crystal caverns, outdoor areas. Excellent visibility. Stealth difficult.                             |
+| `BLINDING`   | ✨   | 32,000  | 100,000 | Intense magical radiance, sunlit openings. Glare penalties without protection. No stealth possible. Monster spawn minimal. |
 
 <br>
 
 ### Air Quality
+
 Air quality affects breathing, health drain, disease chance, and visibility. Toxicity requires protective equipment or resistance buffs. Each race has different tolerances to airborne hazards.
 
 **Data Type:** `string` (enum)  
@@ -102,14 +104,14 @@ Air quality affects breathing, health drain, disease chance, and visibility. Tox
 > [!IMPORTANT]
 > Poor air quality causes cumulative damage over time. Masks, potions, or natural resistances are essential in toxic environments.
 
-| Value | Icon | Min AQI | Max AQI | Description |
-|-------|------|---------|---------|-------------|
-| `PRISTINE` | 🌿 | 0 | 25 | Pure, fresh air. Healing rate increased. No penalties. Ideal breathing conditions. |
-| `CLEAN` | 💨 | 26 | 50 | Good air quality. No noticeable effects. Standard breathing. |
-| `MODERATE` | 😶 | 51 | 100 | Acceptable air. Slight dust or staleness. Minor discomfort for sensitive races. |
-| `POOR` | 😷 | 101 | 150 | Noticeable pollution. Stale, dusty air. Minor stamina drain. Coughing occasionally. |
-| `UNHEALTHY` | 🤢 | 151 | 200 | Contaminated air. Spores, dust, mild toxins. Health drain begins. Masks recommended. |
-| `TOXIC` | ☠️ | 201 | 300 | Poisonous fumes, heavy spores, sulfur. Significant health drain. Requires gas mask or poison resistance. |
-| `HAZARDOUS` | ⚠️ | 301 | 500 | Deadly miasma, corrosive gases, plague clouds. Rapid health loss. Death without protection. Visibility reduced. |
+| Value       | Icon | Min AQI | Max AQI | Description                                                                                                     |
+| ----------- | ---- | ------- | ------- | --------------------------------------------------------------------------------------------------------------- |
+| `PRISTINE`  | 🌿   | 0       | 25      | Pure, fresh air. Healing rate increased. No penalties. Ideal breathing conditions.                              |
+| `CLEAN`     | 💨   | 26      | 50      | Good air quality. No noticeable effects. Standard breathing.                                                    |
+| `MODERATE`  | 😶   | 51      | 100     | Acceptable air. Slight dust or staleness. Minor discomfort for sensitive races.                                 |
+| `POOR`      | 😷   | 101     | 150     | Noticeable pollution. Stale, dusty air. Minor stamina drain. Coughing occasionally.                             |
+| `UNHEALTHY` | 🤢   | 151     | 200     | Contaminated air. Spores, dust, mild toxins. Health drain begins. Masks recommended.                            |
+| `TOXIC`     | ☠️   | 201     | 300     | Poisonous fumes, heavy spores, sulfur. Significant health drain. Requires gas mask or poison resistance.        |
+| `HAZARDOUS` | ⚠️   | 301     | 500     | Deadly miasma, corrosive gases, plague clouds. Rapid health loss. Death without protection. Visibility reduced. |
 
 |
