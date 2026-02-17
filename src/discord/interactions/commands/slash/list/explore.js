@@ -1,8 +1,9 @@
 import { SlashCommandBuilder } from '@discordjs/builders';
 import { InteractionContextType } from 'discord-api-types/payloads/v10';
-import { defer, followUp } from '../slashCommandHandler.js';
+import { defer, followUp, reply } from '../slashCommandHandler.js';
 import { MessageFlags } from 'discord-api-types/v10';
 import { generateRoomData } from '../../../../../data/func/roomGeneration.js';
+import { evaluateHeroSetup, getPlayerHeroState } from '../../../../player/heroSetup.js';
 
 export const command = new SlashCommandBuilder()
   .setName('explore')
@@ -20,8 +21,12 @@ function isOldEnough(snowflake) {
 }
 
 export async function execute(interaction, env, ctx) {
-
-  // TODO: Add a checker if player has set up a hero. @eliogos @felexion
+  const playerId = interaction.member?.user?.id || interaction.user?.id;
+  const { player, columns } = await getPlayerHeroState(env, playerId);
+  const heroState = evaluateHeroSetup(player, env, columns);
+  if (!heroState.ok) {
+    return reply(`${heroState.message} Click **Set Hero** from your onboarding DM.`, true);
+  }
 
 
   if (ctx && typeof ctx.waitUntil === 'function') {

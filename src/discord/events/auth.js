@@ -15,7 +15,7 @@ export async function discordAuth(event_type, player_id, env) {
 				await env.DB.prepare(
 					`INSERT INTO players (player_id, hero_race_id, hero_class_id, joined_at, updated_at)
 					VALUES (?, ?, ?, ?, ?)`
-				).bind(player_id, 1, 1, now, now).run();
+				).bind(player_id, null, null, now, now).run();
 
 				// Prepare message for Discord:
 				components = [

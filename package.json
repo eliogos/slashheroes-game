@@ -1,6 +1,6 @@
 {
 	"name": "slashheroes-game",
-	"version": "1.15.0",
+	"version": "1.16.0",
 	"private": true,
 	"type": "module",
 	"scripts": {
@@ -28,6 +28,7 @@
 		"@discordjs/builders": "^1.13.0",
 		"discord-api-types": "^0.38.34",
 		"dotenv": "^17.2.3",
+		"hono": "^4.11.9",
 		"tweetnacl": "^1.0.3"
 	}
 }

@@ -1,24 +1,20 @@
 import { ModalBuilder, StringSelectMenuBuilder, TextDisplayBuilder, LabelBuilder } from "@discordjs/builders";
 import { InteractionResponseType } from "discord-api-types/payloads/v10";
+import { HERO_CLASSES, HERO_RACES } from '../../../../../data/presets/heroPresets.js';
 
 export async function showHeroOnboardingModal(payload, env, ctx) {
-  // Fetch available races and classes from the database
-  const races = await env.DB.prepare('SELECT id, name, emoji, summary FROM hero_races').all();
-  const classes = await env.DB.prepare('SELECT id, name, emoji, summary FROM hero_classes').all();
-
   const modal = new ModalBuilder()
-    .setCustomId('setup_hero_modal_submit')
+    .setCustomId('hero_onboarding_modal')
     .setTitle('Set up your hero');
 
-  // Create select menu options from the database results
-  const raceOptions = races.results.map(r => ({
+  const raceOptions = HERO_RACES.map((r) => ({
     label: r.name,
     value: String(r.id),
     description: r.summary?.slice(0, 100) || null,
     emoji: r.emoji ? { name: r.emoji } : undefined,
   }));
 
-  const classOptions = classes.results.map(c => ({
+  const classOptions = HERO_CLASSES.map((c) => ({
     label: c.name,
     value: String(c.id),
     description: c.summary?.slice(0, 100) || null,

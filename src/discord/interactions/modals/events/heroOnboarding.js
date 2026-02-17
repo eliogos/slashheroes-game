@@ -1,5 +1,12 @@
 import { InteractionResponseType } from 'discord-api-types/payloads/v10';
 import { ContainerBuilder, TextDisplayBuilder } from '@discordjs/builders';
+import {
+  computeHeroStats,
+  getClassById,
+  getRaceById,
+  resolveClassStarterLoadout,
+} from '../../../../data/presets/heroPresets.js';
+import { buildHeroSaveSql, evaluateHeroSetup, getPlayerHeroState } from '../../../player/heroSetup.js';
 
 export async function handleHeroOnboarding(payload, env, ctx) {
   try {
@@ -15,46 +22,72 @@ export async function handleHeroOnboarding(payload, env, ctx) {
 
     const raceId = values.find(v => v.id === 'selected_race')?.value;
     const classId = values.find(v => v.id === 'selected_class')?.value;
-    const notes = values.find(v => v.id === 'onboarding_notes')?.value || '';
 
     if (!raceId || !classId) {
-      console.warn('⚠️ Missing race or class in submission');
+      console.warn('⚠️ Missing onboarding fields in submission');
       return new Response('Missing fields', { status: 400 });
     }
 
-    // Update player's selected race and class
-    await env.DB.prepare(`
-      UPDATE players
-      SET hero_race_id = ?, hero_class_id = ?
-      WHERE player_id = ?
-    `).bind(raceId, classId, userId).run();
-
-    // Fetch related data
-    const race = await env.DB.prepare(`SELECT * FROM hero_races WHERE id = ?`).bind(raceId).first();
-    const heroClass = await env.DB.prepare(`SELECT * FROM hero_classes WHERE id = ?`).bind(classId).first();
-    const statsRows = await env.DB.prepare(`SELECT * FROM hero_stats`).all();
-
-    // Compute total stats dynamically
-    const computed = {};
-
-    for (const stat of statsRows.results || []) {
-      if (!stat.shortcode || stat.shortcode === 'HUN') continue; // Skip invalid stats and unchangeable HUN
-
-      const key = stat.shortcode.toUpperCase(); // e.g. 'HP'
-      const base = stat.default_value ?? 0;
-      const raceMod = race[`${stat.shortcode.toLowerCase()}_mod`] ?? 0;
-      const classMod = heroClass[`${stat.shortcode.toLowerCase()}_mod`] ?? 0;
-
-      // Apply formula: total = base + (raceMod * 10) + (classMod * 10)
-      const total = base + (raceMod * 10) + (classMod * 10);
-
-      computed[key] = total;
+    const race = getRaceById(raceId);
+    const heroClass = getClassById(classId);
+    if (!race || !heroClass) {
+      return new Response('Invalid race or class selection', { status: 400 });
     }
+    const starterLoadout = resolveClassStarterLoadout(heroClass, race);
+    const starterWeapon = starterLoadout.weapon;
+    const starterArmor = starterLoadout.armor;
+    const starterArtifact = starterLoadout.artifact;
+    const starterRing = starterLoadout.ring;
+    const starterCarrier = starterLoadout.carrier;
+    const starterBag = starterLoadout.bag;
+    const starterLongrange = starterLoadout.longrange;
+    const starterUtility = starterLoadout.utility;
+
+    const { player, columns } = await getPlayerHeroState(env, userId);
+    const heroState = evaluateHeroSetup(player, env, columns);
+    if (heroState.reason === 'ok') {
+      return new Response(JSON.stringify({
+        type: InteractionResponseType.ChannelMessageWithSource,
+        data: {
+          content: 'Your hero is already locked for this season.',
+          flags: 64,
+        }
+      }), { status: 200, headers: { 'Content-Type': 'application/json' } });
+    }
+    if (heroState.reason === 'missing_player') {
+      return new Response(JSON.stringify({
+        type: InteractionResponseType.ChannelMessageWithSource,
+        data: {
+          content: heroState.message,
+          flags: 64,
+        }
+      }), { status: 200, headers: { 'Content-Type': 'application/json' } });
+    }
+
+    const updateParts = buildHeroSaveSql(columns);
+    await env.DB.prepare(updateParts.sql).bind(
+      ...updateParts.bindingsBuilder(
+        raceId,
+        classId,
+        userId,
+        env,
+        starterLoadout.weaponKey,
+        starterLoadout.armorKey,
+        starterLoadout.artifactKey,
+        starterLoadout.ringKey,
+        starterLoadout.carrierKey,
+        starterLoadout.bagKey,
+        starterLoadout.longrangeKey,
+        starterLoadout.utilityKey,
+      ),
+    ).run();
+
+    const computed = computeHeroStats(race, heroClass);
 
     console.log(`✅ ${userId} set race=${race.name}, class=${heroClass.name}`);
 
     // Build the updated message using builders
-    const summaryContent = `### ${race.name}\n-# ${heroClass.name}\n${Object.entries(computed)
+    const summaryContent = `### ${race.name}\n-# ${heroClass.name}\n**Starter Weapon** (Auto): ${starterWeapon?.name || 'None'}\n**Starter Armor** (Auto): ${starterArmor?.name || 'None'}\n**Starter Artifact**: ${starterArtifact?.name || 'None'}\n**Starter Ring**: ${starterRing?.name || 'None'}\n**Starter Carrier**: ${starterCarrier?.name || 'None'}\n**Starter Bag**: ${starterBag?.name || 'None'}\n**Starter Longrange**: ${starterLongrange?.name || 'None'}\n**Starter Utility**: ${starterUtility?.name || 'None'}\n${Object.entries(computed)
       .map(([k, v]) => `**${k}**: ${v}`)
       .join(' | ')}`;
 
