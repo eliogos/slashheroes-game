@@ -32,9 +32,8 @@ export async function showHeroOnboardingModal(payload, env, ctx) {
     .addOptions(classOptions.slice(0, 25));
 
   const notesDisplay = new TextDisplayBuilder()
-    .setContent('⚠️ You cannot change this later. Choose wisely.');
+    .setContent('-# `⚠️ You cannot change your hero until the next season run. Choose wisely... ');
 
-  // Use LabelBuilder to structure the modal with V2 components
   modal.addLabelComponents(
     new LabelBuilder()
       .setLabel('Choose your Race')
