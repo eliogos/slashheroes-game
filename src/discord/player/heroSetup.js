@@ -68,25 +68,9 @@ export function evaluateHeroSetup(player, env, columns) {
 export function buildHeroSaveSql(columns) {
 	const hasSeason = hasColumn(columns, 'hero_season_id');
 	const hasUpdatedAt = hasColumn(columns, 'updated_at');
-	const hasStarterWeapon = hasColumn(columns, 'starter_weapon');
-	const hasStarterArmor = hasColumn(columns, 'starter_armor');
-	const hasStarterArtifact = hasColumn(columns, 'starter_artifact');
-	const hasStarterRing = hasColumn(columns, 'starter_ring');
-	const hasStarterCarrier = hasColumn(columns, 'starter_carrier');
-	const hasStarterBag = hasColumn(columns, 'starter_bag');
-	const hasStarterLongrange = hasColumn(columns, 'starter_longrange');
-	const hasStarterUtility = hasColumn(columns, 'starter_utility');
 
 	const assignments = ['hero_race_id = ?', 'hero_class_id = ?'];
 	if (hasSeason) assignments.push('hero_season_id = ?');
-	if (hasStarterWeapon) assignments.push('starter_weapon = ?');
-	if (hasStarterArmor) assignments.push('starter_armor = ?');
-	if (hasStarterArtifact) assignments.push('starter_artifact = ?');
-	if (hasStarterRing) assignments.push('starter_ring = ?');
-	if (hasStarterCarrier) assignments.push('starter_carrier = ?');
-	if (hasStarterBag) assignments.push('starter_bag = ?');
-	if (hasStarterLongrange) assignments.push('starter_longrange = ?');
-	if (hasStarterUtility) assignments.push('starter_utility = ?');
 	if (hasUpdatedAt) assignments.push('updated_at = ?');
 
 	const bindingsBuilder = (
@@ -94,25 +78,9 @@ export function buildHeroSaveSql(columns) {
 		classId,
 		userId,
 		env,
-		starterWeaponKey = null,
-		starterArmorKey = null,
-		starterArtifactKey = null,
-		starterRingKey = null,
-		starterCarrierKey = null,
-		starterBagKey = null,
-		starterLongrangeKey = null,
-		starterUtilityKey = null,
 	) => {
 		const bindings = [raceId, classId];
 		if (hasSeason) bindings.push(getCurrentSeasonId(env));
-		if (hasStarterWeapon) bindings.push(starterWeaponKey);
-		if (hasStarterArmor) bindings.push(starterArmorKey);
-		if (hasStarterArtifact) bindings.push(starterArtifactKey);
-		if (hasStarterRing) bindings.push(starterRingKey);
-		if (hasStarterCarrier) bindings.push(starterCarrierKey);
-		if (hasStarterBag) bindings.push(starterBagKey);
-		if (hasStarterLongrange) bindings.push(starterLongrangeKey);
-		if (hasStarterUtility) bindings.push(starterUtilityKey);
 		if (hasUpdatedAt) bindings.push(new Date().toISOString());
 		bindings.push(userId);
 		return bindings;

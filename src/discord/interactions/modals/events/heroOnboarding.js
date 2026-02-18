@@ -4,7 +4,6 @@ import {
   computeHeroStats,
   getClassById,
   getRaceById,
-  resolveClassStarterLoadout,
 } from '../../../../data/presets/heroPresets.js';
 import { buildHeroSaveSql, evaluateHeroSetup, getPlayerHeroState } from '../../../player/heroSetup.js';
 
@@ -33,16 +32,6 @@ export async function handleHeroOnboarding(payload, env, ctx) {
     if (!race || !heroClass) {
       return new Response('Invalid race or class selection', { status: 400 });
     }
-    const starterLoadout = resolveClassStarterLoadout(heroClass, race);
-    const starterWeapon = starterLoadout.weapon;
-    const starterArmor = starterLoadout.armor;
-    const starterArtifact = starterLoadout.artifact;
-    const starterRing = starterLoadout.ring;
-    const starterCarrier = starterLoadout.carrier;
-    const starterBag = starterLoadout.bag;
-    const starterLongrange = starterLoadout.longrange;
-    const starterUtility = starterLoadout.utility;
-
     const { player, columns } = await getPlayerHeroState(env, userId);
     const heroState = evaluateHeroSetup(player, env, columns);
     if (heroState.reason === 'ok') {
@@ -71,14 +60,6 @@ export async function handleHeroOnboarding(payload, env, ctx) {
         classId,
         userId,
         env,
-        starterLoadout.weaponKey,
-        starterLoadout.armorKey,
-        starterLoadout.artifactKey,
-        starterLoadout.ringKey,
-        starterLoadout.carrierKey,
-        starterLoadout.bagKey,
-        starterLoadout.longrangeKey,
-        starterLoadout.utilityKey,
       ),
     ).run();
 
@@ -87,7 +68,7 @@ export async function handleHeroOnboarding(payload, env, ctx) {
     console.log(`✅ ${userId} set race=${race.name}, class=${heroClass.name}`);
 
     // Build the updated message using builders
-    const summaryContent = `### ${race.name}\n-# ${heroClass.name}\n**Starter Weapon** (Auto): ${starterWeapon?.name || 'None'}\n**Starter Armor** (Auto): ${starterArmor?.name || 'None'}\n**Starter Artifact**: ${starterArtifact?.name || 'None'}\n**Starter Ring**: ${starterRing?.name || 'None'}\n**Starter Carrier**: ${starterCarrier?.name || 'None'}\n**Starter Bag**: ${starterBag?.name || 'None'}\n**Starter Longrange**: ${starterLongrange?.name || 'None'}\n**Starter Utility**: ${starterUtility?.name || 'None'}\n${Object.entries(computed)
+    const summaryContent = `### ${race.name}\n-# ${heroClass.name}\n${Object.entries(computed)
       .map(([k, v]) => `**${k}**: ${v}`)
       .join(' | ')}`;
 
