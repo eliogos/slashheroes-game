@@ -13,7 +13,7 @@
 		"semantic-release": "semantic-release"
 	},
 	"devDependencies": {
-		"@cloudflare/vitest-pool-workers": "^0.8.19",
+		"@cloudflare/vitest-pool-workers": "^0.13.4",
 		"@semantic-release/changelog": "^6.0.3",
 		"@semantic-release/git": "^10.0.1",
 		"eslint": "^9.39.1",
@@ -29,6 +29,7 @@
 		"discord-api-types": "^0.38.34",
 		"dotenv": "^17.2.3",
 		"hono": "^4.11.9",
+		"measurement": "^0.2.1",
 		"tweetnacl": "^1.0.3"
 	}
 }
