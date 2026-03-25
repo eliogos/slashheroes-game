@@ -13,8 +13,8 @@ Each weapon family includes:
 | **Weight**      | grams (g)           | Mass of the weapon. Heavier weapons hit harder but may swing slower.           |
 | **Speed**       | meters/second (m/s) | Swing or thrust velocity, affects kinetic energy and attack tempo.             |
 | **Edge**        | millimeters (mm)    | Thickness or sharpness. Smaller → sharper → more cutting damage.               |
-| **Reach**       | centimeters (m)          | How far the weapon can hit.                                           |
-| **Defense**     | points (pt)             | Only for defensive weapons like shields; adds blocking value.                  |
+| **Reach**       | centimeters (cm)    | How far the weapon can hit.                                           		 		 |
+| **Defense**     | points (pt)         | Only for defensive weapons like shields; adds blocking value.              		 |
 
 > ⚠️ While actual units are used for realism, values are **normalized internally** to balance gameplay and keep numbers manageable.
 

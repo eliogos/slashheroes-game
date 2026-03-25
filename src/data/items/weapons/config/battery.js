@@ -1,5 +1,5 @@
 import measurement from 'measurement';
-import { normalizeQualities } from "../../../helpers/normalizeQ";
+import { normalizeQualities } from "../../../helpers/convertWeaponUnits";
 
 export default {
 	id: "FAM_BATT",

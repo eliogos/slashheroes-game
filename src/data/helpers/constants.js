@@ -1,0 +1,1 @@
+export const EPSILON = 1e-6;		// 0.000001 (Prevents division by zero)
