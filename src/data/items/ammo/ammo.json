@@ -17,7 +17,7 @@
 		"weaponAmplifiers": {
 			"sling": 1,
 			"slingshot": 0.92,
-			"handcannon": 1.35
+			"handcannon": 1.55
 		},
 		"created_at": "2026-03-26T14:55:00.000Z"
 	},
@@ -39,8 +39,8 @@
 		"weaponAmplifiers": {
 			"shortbow": 1,
 			"longbow": 1.12,
-			"recurveBow": 1.16,
-			"compositeBow": 1.2
+			"recurveBow": 1.19,
+			"compositeBow": 1.4
 		},
 		"created_at": "2026-03-26T14:55:00.000Z"
 	},
@@ -65,7 +65,7 @@
 			"electricWhip": 1.08,
 			"electricGuitar": 1.1,
 			"electricRacket": 1,
-			"lightsabre": 1.28
+			"lightsabre": 1.5
 		},
 		"created_at": "2026-03-26T14:55:00.000Z"
 	},
@@ -88,7 +88,7 @@
 			"flintlock": 0.95,
 			"musket": 1.04,
 			"rifle": 1.12,
-			"machineGun": 1.08
+			"machineGun": 1.28
 		},
 		"created_at": "2026-03-26T14:55:00.000Z"
 	},

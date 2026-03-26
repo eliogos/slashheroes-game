@@ -44,6 +44,12 @@ const familyEntries = [
 		{ weight: 1.5, speed: 9.4, edge: 13, reach: 1.0, curvature: 22 }
 	),
 	defineFamily(
+		WEAPON_FAMILY.FAN,
+		'FAN',
+		'War fans that blend feints, sweeping defense, and precise follow-up strikes.',
+		{ weight: 1.15, speed: 9.1, edge: 7, reach: 1.05, curvature: 14 }
+	),
+	defineFamily(
 		WEAPON_FAMILY.FIREARM,
 		'FIREARM',
 		'Amplifies ammo power and speed, but feels weak without ammunition.',

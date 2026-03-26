@@ -17,5 +17,6 @@ export const WEAPON_FAMILY = Object.freeze({
 	RANGED: 1 << 12,
 	SHIELD: 1 << 13,
 	STAFF: 1 << 14,
-	TOOL: 1 << 15
+	TOOL: 1 << 15,
+	FAN: 1 << 16
 });

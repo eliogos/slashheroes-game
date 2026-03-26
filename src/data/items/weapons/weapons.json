@@ -2166,7 +2166,7 @@
 		"internalId": 99,
 		"id": "tessen",
 		"displayName": "Tessen",
-		"description": "A war fan that hides striking force inside graceful defensive motions.",
+		"description": "A Japanese war fan that hides iron ribs inside graceful folds for sudden blocks and disciplined strikes.",
 		"tags": [
 			"graceful",
 			"hidden",
@@ -2179,10 +2179,11 @@
 			"weight": 0.86,
 			"speed": 1.04,
 			"edge": 0.98,
-			"reach": 0.82
+			"reach": 0.82,
+			"curvature": 1.12
 		},
 		"created_at": "2026-03-26T13:50:55.126Z",
-		"familyFlag": 512
+		"familyFlag": 65536
 	},
 	{
 		"internalId": 100,
@@ -2450,5 +2451,97 @@
 		},
 		"created_at": "2026-03-26T14:55:00.000Z",
 		"familyFlag": 514
+	},
+	{
+		"internalId": 112,
+		"id": "mubuchae",
+		"displayName": "Mubuchae",
+		"description": "A Korean war fan that turns sweeping dance-like motions into sudden strikes, guards, and cutting gusts of pressure.",
+		"tags": [
+			"sweeping",
+			"elegant",
+			"disciplined"
+		],
+		"localization": {},
+		"tier": 2,
+		"grip": 1,
+		"qualityMultipliers": {
+			"weight": 0.82,
+			"speed": 1.08,
+			"edge": 0.92,
+			"reach": 0.88,
+			"curvature": 1.22
+		},
+		"created_at": "2026-03-26T16:20:00.000Z",
+		"familyFlag": 65536
+	},
+	{
+		"internalId": 113,
+		"id": "abanikoDeGuerra",
+		"displayName": "Abaniko de Guerra",
+		"description": "A light Filipino war fan built around fast feints, sharp snaps, and graceful hits that sting more than they crush.",
+		"tags": [
+			"fluttering",
+			"deceptive",
+			"nimble"
+		],
+		"localization": {},
+		"tier": 1,
+		"grip": 1,
+		"qualityMultipliers": {
+			"weight": 0.72,
+			"speed": 1.12,
+			"edge": 0.74,
+			"reach": 0.8,
+			"curvature": 1.2
+		},
+		"created_at": "2026-03-26T16:45:00.000Z",
+		"familyFlag": 65536
+	},
+	{
+		"internalId": 114,
+		"id": "tieShan",
+		"displayName": "Tie Shan",
+		"description": "A Chinese iron fan whose rigid steel ribs turn elegant motions into heavy parries and precise punishment.",
+		"tags": [
+			"ironbound",
+			"courtly",
+			"precise"
+		],
+		"localization": {},
+		"tier": 4,
+		"grip": 1,
+		"qualityMultipliers": {
+			"weight": 1.08,
+			"speed": 1.02,
+			"edge": 1.12,
+			"reach": 0.96,
+			"curvature": 1.18
+		},
+		"created_at": "2026-03-26T16:45:00.000Z",
+		"familyFlag": 65536
+	},
+	{
+		"internalId": 115,
+		"id": "gunbai",
+		"displayName": "Gunbai",
+		"description": "A commander's solid war fan broad enough to signal troops, catch force, and hit harder than any fan has a right to.",
+		"tags": [
+			"commanding",
+			"broad",
+			"forceful"
+		],
+		"localization": {},
+		"tier": 5,
+		"grip": 1,
+		"qualityMultipliers": {
+			"weight": 1.34,
+			"speed": 0.92,
+			"edge": 0.86,
+			"reach": 1.08,
+			"curvature": 0.94
+		},
+		"created_at": "2026-03-26T16:45:00.000Z",
+		"familyFlag": 65536
 	}
 ]
