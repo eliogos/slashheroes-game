@@ -1,5 +1,5 @@
-import exploreOutcomeTypes from '../types/exploreOutcomeTypes.json' assert { type: 'json' };
-import dungeonSections from '../types/dungeonSections.json' assert { type: 'json' };
+import exploreOutcomeTypes from '../types/exploreOutcomeTypes.json' with { type: 'json' };
+import dungeonSections from '../types/dungeonSections.json' with { type: 'json' };
 
 // --- Utilities ---
 

@@ -1,9 +1,7 @@
-// STEP 0 — default stat weights and base
-const DEFAULT_WEIGHTS = { weight: 0.25, speed: 0.30, edge: 0.30, reach: 0.15 };
-const BASE_MULTIPLIER = 100;
+import { BASE_MULTIPLIER, DEFAULT_DAMAGE_WEIGHTS } from './constants.js';
 
 // STEP 1 — Compute damage from normalized qualities
-export function getBaseDamage(norm, weights = DEFAULT_WEIGHTS, base = BASE_MULTIPLIER) {
+export function getBaseDamage(norm, weights = DEFAULT_DAMAGE_WEIGHTS, base = BASE_MULTIPLIER) {
 	const score =
 		norm.weight * weights.weight +
 		norm.speed  * weights.speed +

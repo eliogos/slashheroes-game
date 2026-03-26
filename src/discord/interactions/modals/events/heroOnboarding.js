@@ -4,7 +4,7 @@ import {
   computeHeroStats,
   getClassById,
   getRaceById,
-} from '../../../../data/presets/heroPresets.js';
+} from '../../../../data/heroes/index.js';
 import { buildHeroSaveSql, evaluateHeroSetup, getPlayerHeroState } from '../../../player/heroSetup.js';
 
 export async function handleHeroOnboarding(payload, env, ctx) {

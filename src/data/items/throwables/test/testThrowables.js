@@ -1,15 +1,16 @@
-import { activeWeapons } from '../weapons.js';
+import { activeThrowables } from '../throwables.js';
 import {
 	familyConfigs,
 	getWeaponFamilyKeys,
 	hasAnyWeaponFamily,
 	normalizeWeaponFamilyIds
-} from '../familyConfigs.js';
-import { resolveFamilyDamageProfile, resolveFamilyQualities } from '../../../helpers/resolveFamilyQualities.js';
+} from '../../weapons/familyConfigs.js';
+import { resolveFamilyDamageProfile } from '../../../helpers/resolveFamilyQualities.js';
 import { applyTierScaling } from '../../../helpers/tierScaling.js';
 import { normalizeQualities } from '../../../helpers/normalizeQualities.js';
 import { getBaseDamage } from '../../../helpers/getBaseDamage.js';
 import { getDamageRange } from '../../../helpers/damageVariance.js';
+import { resolveThrowableQualities } from '../resolveThrowableQualities.js';
 
 const families = familyConfigs;
 const SORT_FIELDS = [
@@ -69,9 +70,9 @@ function parseFamilyFilter(value) {
 
 	return normalizeWeaponFamilyIds(
 		value
-		.split(',')
-		.map(entry => entry.trim())
-		.filter(Boolean),
+			.split(',')
+			.map(entry => entry.trim())
+			.filter(Boolean),
 		'family'
 	);
 }
@@ -88,14 +89,9 @@ function parseTierFilter(value) {
 
 	const tiers = rawTiers.map(rawTier => {
 		const tier = Number.parseInt(rawTier, 10);
-		if (!Number.isInteger(tier) || `${tier}` !== rawTier) {
+		if (!Number.isInteger(tier) || `${tier}` !== rawTier || tier < 1) {
 			throw new Error(`Unknown tier "${rawTier}". Tiers must be positive integers.`);
 		}
-
-		if (tier < 1) {
-			throw new Error(`Unknown tier "${rawTier}". Tiers must be positive integers.`);
-		}
-
 		return tier;
 	});
 
@@ -169,11 +165,11 @@ function sortRows(rows, sortField, sortDirection) {
 	});
 }
 
-function getMaxQualities(weaponList) {
+function getMaxQualities(throwableList) {
 	let max = { weight: 0, speed: 0, edge: 0, reach: 0 };
-	for (const weapon of weaponList) {
-		const baseQualities = resolveFamilyQualities(weapon, families);
-		const scaledQualities = applyTierScaling(baseQualities, weapon.tier);
+	for (const throwable of throwableList) {
+		const baseQualities = resolveThrowableQualities(throwable, families);
+		const scaledQualities = applyTierScaling(baseQualities, throwable.tier);
 		max.weight = Math.max(max.weight, scaledQualities.weight);
 		max.speed = Math.max(max.speed, scaledQualities.speed);
 		max.edge = Math.max(max.edge, scaledQualities.edge);
@@ -188,34 +184,34 @@ const tierFilter = parseTierFilter(args.tier);
 const sortField = parseSortField(args.sort);
 const sortDirection = parseSortDirection(args, sortField);
 
-const weapons = activeWeapons.filter(weapon => {
-	const matchesFamily = !familyFilter.length || hasAnyWeaponFamily(weapon, familyFilter);
-	const matchesTier = !tierFilter.length || tierFilter.includes(weapon.tier);
+const throwables = activeThrowables.filter(throwable => {
+	const matchesFamily = !familyFilter.length || hasAnyWeaponFamily(throwable, familyFilter);
+	const matchesTier = !tierFilter.length || tierFilter.includes(throwable.tier);
 	return matchesFamily && matchesTier;
 });
 
-if (!weapons.length) {
-	console.log('No weapons matched the provided filters.');
+if (!throwables.length) {
+	console.log('No throwables matched the provided filters.');
 	process.exit(0);
 }
 
-const maxQualities = getMaxQualities(weapons);
+const maxQualities = getMaxQualities(throwables);
 const rows = [];
 
-for (const weapon of weapons) {
-	const baseQualities = resolveFamilyQualities(weapon, families);
-	const scaledQualities = applyTierScaling(baseQualities, weapon.tier);
+for (const throwable of throwables) {
+	const baseQualities = resolveThrowableQualities(throwable, families);
+	const scaledQualities = applyTierScaling(baseQualities, throwable.tier);
 	const normalizedQualities = normalizeQualities(scaledQualities, maxQualities);
-	const damageProfile = resolveFamilyDamageProfile(weapon, families);
+	const damageProfile = resolveFamilyDamageProfile(throwable, families);
 	const baseDamage = getBaseDamage(normalizedQualities, damageProfile);
 	const damageRange = getDamageRange(baseDamage, scaledQualities.curvature);
 
 	rows.push({
-		index: weapon.internalId,
-		name: weapon.displayName ?? weapon.name,
-		tier: weapon.tier,
-		families: getWeaponFamilyKeys(weapon).join('+'),
-		grip: weapon.grip,
+		index: throwable.internalId,
+		name: throwable.displayName,
+		tier: throwable.tier,
+		families: getWeaponFamilyKeys(throwable).join('+'),
+		grip: throwable.grip,
 		base: baseDamage,
 		range: `${damageRange.min}-${damageRange.max}`,
 		rangeSpread: damageRange.max - damageRange.min,

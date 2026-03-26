@@ -1,6 +1,6 @@
 import { ModalBuilder, StringSelectMenuBuilder, TextDisplayBuilder, LabelBuilder } from "@discordjs/builders";
 import { InteractionResponseType } from "discord-api-types/payloads/v10";
-import { HERO_CLASSES, HERO_RACES } from '../../../../../data/presets/heroPresets.js';
+import { HERO_CLASSES, HERO_RACES } from '../../../../../data/heroes/index.js';
 
 export async function showHeroOnboardingModal(payload, env, ctx) {
   const modal = new ModalBuilder()

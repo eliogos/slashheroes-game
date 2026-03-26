@@ -1,4 +1,4 @@
-import { getCurrentSeasonId } from '../../data/presets/season.js';
+import { getCurrentSeasonId } from '../../data/season.js';
 
 let cachedPlayersColumns = null;
 

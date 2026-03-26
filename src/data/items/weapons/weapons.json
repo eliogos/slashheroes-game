@@ -1,0 +1,2454 @@
+[
+	{
+		"internalId": 1,
+		"id": "dagger",
+		"displayName": "Dagger",
+		"description": "A compact starter blade built for simple close-quarters strikes.",
+		"tags": [
+			"furtive",
+			"plain",
+			"reliable"
+		],
+		"localization": {},
+		"tier": 1,
+		"grip": 1,
+		"qualityMultipliers": {
+			"weight": 0.97,
+			"speed": 1.02,
+			"edge": 0.99,
+			"reach": 0.96
+		},
+		"created_at": "2026-03-26T13:22:44.000Z",
+		"familyFlag": 128
+	},
+	{
+		"internalId": 2,
+		"id": "dirk",
+		"displayName": "Dirk",
+		"description": "A reinforced thrusting knife favored for disciplined one-handed fighting.",
+		"tags": [
+			"formal",
+			"sturdy",
+			"disciplined"
+		],
+		"localization": {},
+		"tier": 2,
+		"grip": 1,
+		"qualityMultipliers": {
+			"weight": 1.01,
+			"speed": 1,
+			"edge": 1.02,
+			"reach": 1.01
+		},
+		"created_at": "2026-03-26T13:22:44.000Z",
+		"familyFlag": 128
+	},
+	{
+		"internalId": 3,
+		"id": "stiletto",
+		"displayName": "Stiletto",
+		"description": "A narrow dueling blade designed for precise punctures and clean finishers.",
+		"tags": [
+			"elegant",
+			"sinister",
+			"precise"
+		],
+		"localization": {},
+		"tier": 3,
+		"grip": 1,
+		"qualityMultipliers": {
+			"weight": 0.96,
+			"speed": 1.04,
+			"edge": 1.05,
+			"reach": 1.02,
+			"curvature": 2
+		},
+		"created_at": "2026-03-26T13:22:44.000Z",
+		"familyFlag": 128
+	},
+	{
+		"internalId": 4,
+		"id": "balisong",
+		"displayName": "Balisong",
+		"description": "A folding blade with flashy handling and deceptive attack timing.",
+		"tags": [
+			"flashy",
+			"playful",
+			"unorthodox"
+		],
+		"localization": {},
+		"tier": 4,
+		"grip": 1,
+		"qualityMultipliers": {
+			"weight": 1.03,
+			"speed": 1.03,
+			"edge": 0.99,
+			"reach": 0.97
+		},
+		"created_at": "2026-03-26T13:22:44.000Z",
+		"familyFlag": 128
+	},
+	{
+		"internalId": 5,
+		"id": "tanto",
+		"displayName": "Tantō",
+		"description": "A rigid short blade that favors decisive cuts in tight spaces.",
+		"tags": [
+			"stoic",
+			"focused",
+			"ceremonial"
+		],
+		"localization": {},
+		"tier": 5,
+		"grip": 1,
+		"qualityMultipliers": {
+			"weight": 1.04,
+			"speed": 0.99,
+			"edge": 1.03,
+			"reach": 1.02,
+			"curvature": 0.95
+		},
+		"created_at": "2026-03-26T13:22:44.000Z",
+		"familyFlag": 128
+	},
+	{
+		"internalId": 6,
+		"id": "kris",
+		"displayName": "Kris",
+		"description": "A wavy ceremonial blade with unsettling follow-through and ritual weight.",
+		"tags": [
+			"ritual",
+			"serpentine",
+			"ominous"
+		],
+		"localization": {},
+		"tier": 5,
+		"grip": 1,
+		"qualityMultipliers": {
+			"weight": 0.99,
+			"speed": 1.02,
+			"edge": 1.01,
+			"reach": 1,
+			"curvature": 1.3
+		},
+		"created_at": "2026-03-26T13:22:44.000Z",
+		"familyFlag": 128
+	},
+	{
+		"internalId": 7,
+		"id": "assassinsBlade",
+		"displayName": "Assassin's Blade",
+		"description": "A masterwork knife reserved for lethal specialists and silent executions.",
+		"tags": [
+			"elite",
+			"ruthless",
+			"shadowed"
+		],
+		"localization": {},
+		"tier": 6,
+		"grip": 1,
+		"qualityMultipliers": {
+			"weight": 1.02,
+			"speed": 1.03,
+			"edge": 1.05,
+			"reach": 1.06
+		},
+		"created_at": "2026-03-26T13:22:44.000Z",
+		"familyFlag": 128
+	},
+	{
+		"internalId": 8,
+		"id": "cleaver",
+		"displayName": "Cleaver",
+		"description": "A brutal butcher's blade repurposed for hacking fights and ugly finishing blows.",
+		"tags": [
+			"grim",
+			"crude",
+			"meaty"
+		],
+		"localization": {},
+		"tier": 1,
+		"grip": 1,
+		"qualityMultipliers": {
+			"weight": 1.08,
+			"speed": 0.94,
+			"edge": 0.98,
+			"reach": 0.92,
+			"curvature": 0.8
+		},
+		"created_at": "2026-03-26T13:45:32.803Z",
+		"familyFlag": 4
+	},
+	{
+		"internalId": 9,
+		"id": "shortsword",
+		"displayName": "Shortsword",
+		"description": "A compact training sword built for dependable cuts, simple drills, and steady beginner footwork.",
+		"tags": [
+			"steady",
+			"simple",
+			"dependable"
+		],
+		"localization": {},
+		"tier": 1,
+		"grip": 1,
+		"qualityMultipliers": {
+			"weight": 0.96,
+			"speed": 1.01,
+			"edge": 1,
+			"reach": 0.95,
+			"curvature": 0.95
+		},
+		"created_at": "2026-03-26T13:45:32.803Z",
+		"familyFlag": 4
+	},
+	{
+		"internalId": 10,
+		"id": "saw",
+		"displayName": "Saw",
+		"description": "A jagged hand weapon that tears flesh open with every dragging cut.",
+		"tags": [
+			"jagged",
+			"ragged",
+			"vicious"
+		],
+		"localization": {},
+		"tier": 2,
+		"grip": 1,
+		"qualityMultipliers": {
+			"weight": 1.05,
+			"speed": 0.96,
+			"edge": 1.08,
+			"reach": 0.96,
+			"curvature": 0.7
+		},
+		"created_at": "2026-03-26T13:45:32.803Z",
+		"familyFlag": 4
+	},
+	{
+		"internalId": 11,
+		"id": "rapier",
+		"displayName": "Rapier",
+		"description": "A thin dueling sword built for fast lunges, exact lines, and punishing thrusts.",
+		"tags": [
+			"elegant",
+			"refined",
+			"exacting"
+		],
+		"localization": {},
+		"tier": 2,
+		"grip": 1,
+		"qualityMultipliers": {
+			"weight": 0.82,
+			"speed": 1.08,
+			"edge": 1.02,
+			"reach": 1.16,
+			"curvature": 0.9
+		},
+		"created_at": "2026-03-26T13:45:32.803Z",
+		"familyFlag": 4
+	},
+	{
+		"internalId": 12,
+		"id": "zweihander",
+		"displayName": "Zweihänder",
+		"description": "A massive battlefield sword that trades speed for sweeping two-handed dominance.",
+		"tags": [
+			"massive",
+			"sweeping",
+			"imposing"
+		],
+		"localization": {},
+		"tier": 3,
+		"grip": 2,
+		"qualityMultipliers": {
+			"weight": 1.2,
+			"speed": 0.87,
+			"edge": 1.04,
+			"reach": 1.2,
+			"curvature": 0.85
+		},
+		"created_at": "2026-03-26T13:45:32.803Z",
+		"familyFlag": 4
+	},
+	{
+		"internalId": 13,
+		"id": "falchion",
+		"displayName": "Falchion",
+		"description": "A forward-weighted slashing sword that bites hard through wide, committed arcs.",
+		"tags": [
+			"feral",
+			"hungry",
+			"arcing"
+		],
+		"localization": {},
+		"tier": 3,
+		"grip": 1,
+		"qualityMultipliers": {
+			"weight": 1.04,
+			"speed": 0.98,
+			"edge": 1.05,
+			"reach": 0.95,
+			"curvature": 1.35
+		},
+		"created_at": "2026-03-26T13:45:32.803Z",
+		"familyFlag": 4
+	},
+	{
+		"internalId": 14,
+		"id": "longsword",
+		"displayName": "Longsword",
+		"description": "A versatile war sword with reliable reach, clean handling, and disciplined offense.",
+		"tags": [
+			"martial",
+			"versatile",
+			"steadfast"
+		],
+		"localization": {},
+		"tier": 4,
+		"grip": 1,
+		"qualityMultipliers": {
+			"weight": 1,
+			"speed": 1,
+			"edge": 1.02,
+			"reach": 1.04,
+			"curvature": 0.95
+		},
+		"created_at": "2026-03-26T13:45:32.803Z",
+		"familyFlag": 4
+	},
+	{
+		"internalId": 15,
+		"id": "greatsword",
+		"displayName": "Greatsword",
+		"description": "A heavy two-handed blade that delivers punishing strikes with fully committed swings.",
+		"tags": [
+			"towering",
+			"punishing",
+			"relentless"
+		],
+		"localization": {},
+		"tier": 5,
+		"grip": 2,
+		"qualityMultipliers": {
+			"weight": 1.18,
+			"speed": 0.89,
+			"edge": 1.05,
+			"reach": 1.16,
+			"curvature": 0.9
+		},
+		"created_at": "2026-03-26T13:45:32.803Z",
+		"familyFlag": 4
+	},
+	{
+		"internalId": 16,
+		"id": "macuahuitl",
+		"displayName": "Macuahuitl",
+		"description": "A brutal war club lined with cutting edges, blending crushing force with savage slashes.",
+		"tags": [
+			"primal",
+			"ritual",
+			"savage"
+		],
+		"localization": {},
+		"tier": 5,
+		"grip": 2,
+		"qualityMultipliers": {
+			"weight": 1.12,
+			"speed": 0.86,
+			"edge": 0.96,
+			"reach": 0.97,
+			"curvature": 0.75
+		},
+		"created_at": "2026-03-26T13:45:32.803Z",
+		"familyFlag": 12
+	},
+	{
+		"internalId": 17,
+		"id": "claymore",
+		"displayName": "Claymore",
+		"description": "A broad two-handed war sword built for commanding reach and decisive battlefield cuts.",
+		"tags": [
+			"noble",
+			"disciplined",
+			"commanding"
+		],
+		"localization": {},
+		"tier": 6,
+		"grip": 2,
+		"qualityMultipliers": {
+			"weight": 1.1,
+			"speed": 0.94,
+			"edge": 1.04,
+			"reach": 1.14,
+			"curvature": 0.92
+		},
+		"created_at": "2026-03-26T13:45:32.803Z",
+		"familyFlag": 4
+	},
+	{
+		"internalId": 18,
+		"id": "chainsaw",
+		"displayName": "Chainsaw",
+		"description": "A roaring motorized cutter that shreds through targets while its battery still holds.",
+		"tags": [
+			"roaring",
+			"industrial",
+			"ferocious"
+		],
+		"localization": {},
+		"tier": 6,
+		"grip": 2,
+		"qualityMultipliers": {
+			"weight": 1.09,
+			"speed": 1.08,
+			"edge": 1.15,
+			"reach": 0.93,
+			"curvature": 0.55
+		},
+		"created_at": "2026-03-26T13:45:32.803Z",
+		"familyFlag": 6
+	},
+	{
+		"internalId": 19,
+		"id": "excalibur",
+		"displayName": "Excalibur",
+		"description": "A legendary sword of impossible poise and power, answering only a worthy bearer.",
+		"tags": [
+			"hallowed",
+			"regal",
+			"fated"
+		],
+		"localization": {},
+		"tier": 6,
+		"grip": 2,
+		"qualityMultipliers": {
+			"weight": 1.03,
+			"speed": 1.08,
+			"edge": 1.12,
+			"reach": 1.1,
+			"curvature": 1.25
+		},
+		"created_at": "2026-03-26T13:45:32.803Z",
+		"familyFlag": 260
+	},
+	{
+		"internalId": 20,
+		"id": "sickle",
+		"displayName": "Sickle",
+		"description": "A hooked harvesting blade turned into a quick close-range cutter.",
+		"tags": [
+			"hooked",
+			"rustic",
+			"nimble"
+		],
+		"localization": {},
+		"tier": 1,
+		"grip": 1,
+		"qualityMultipliers": {
+			"weight": 0.84,
+			"speed": 1.06,
+			"edge": 0.97,
+			"reach": 0.78,
+			"curvature": 1.3
+		},
+		"created_at": "2026-03-26T13:50:55.126Z",
+		"familyFlag": 32784
+	},
+	{
+		"internalId": 21,
+		"id": "boloKnife",
+		"displayName": "Bolo Knife",
+		"description": "A dense utility chopper that hits harder than its size suggests.",
+		"tags": [
+			"dense",
+			"utilitarian",
+			"rugged"
+		],
+		"localization": {},
+		"tier": 2,
+		"grip": 1,
+		"qualityMultipliers": {
+			"weight": 1.02,
+			"speed": 1.01,
+			"edge": 1,
+			"reach": 0.94,
+			"curvature": 1.18
+		},
+		"created_at": "2026-03-26T13:50:55.126Z",
+		"familyFlag": 32784
+	},
+	{
+		"internalId": 22,
+		"id": "machete",
+		"displayName": "Machete",
+		"description": "A thick jungle cutter built for repeated chopping through brush and bone.",
+		"tags": [
+			"rugged",
+			"broad",
+			"relentless"
+		],
+		"localization": {},
+		"tier": 2,
+		"grip": 1,
+		"qualityMultipliers": {
+			"weight": 1.08,
+			"speed": 0.98,
+			"edge": 1.03,
+			"reach": 1.02,
+			"curvature": 1.12
+		},
+		"created_at": "2026-03-26T13:50:55.126Z",
+		"familyFlag": 16
+	},
+	{
+		"internalId": 23,
+		"id": "cutlass",
+		"displayName": "Cutlass",
+		"description": "A naval sidearm tuned for compact swings in cramped decks and brawls.",
+		"tags": [
+			"briny",
+			"agile",
+			"rowdy"
+		],
+		"localization": {},
+		"tier": 3,
+		"grip": 1,
+		"qualityMultipliers": {
+			"weight": 0.95,
+			"speed": 1.05,
+			"edge": 1.02,
+			"reach": 0.96,
+			"curvature": 1.2
+		},
+		"created_at": "2026-03-26T13:50:55.126Z",
+		"familyFlag": 16
+	},
+	{
+		"internalId": 24,
+		"id": "sabre",
+		"displayName": "Sabre",
+		"description": "A swift cavalry-style sword that rewards slashing momentum and timing.",
+		"tags": [
+			"swift",
+			"dashing",
+			"refined"
+		],
+		"localization": {},
+		"tier": 3,
+		"grip": 1,
+		"qualityMultipliers": {
+			"weight": 0.92,
+			"speed": 1.07,
+			"edge": 1.03,
+			"reach": 1.04,
+			"curvature": 1.22
+		},
+		"created_at": "2026-03-26T13:50:55.126Z",
+		"familyFlag": 16
+	},
+	{
+		"internalId": 25,
+		"id": "scimitar",
+		"displayName": "Scimitar",
+		"description": "A deeply curved sword designed for flowing cuts and confident follow-through.",
+		"tags": [
+			"flowing",
+			"elegant",
+			"keen"
+		],
+		"localization": {},
+		"tier": 4,
+		"grip": 1,
+		"qualityMultipliers": {
+			"weight": 0.97,
+			"speed": 1.04,
+			"edge": 1.06,
+			"reach": 1.03,
+			"curvature": 1.3
+		},
+		"created_at": "2026-03-26T13:50:55.126Z",
+		"familyFlag": 16
+	},
+	{
+		"internalId": 26,
+		"id": "katana",
+		"displayName": "Katana",
+		"description": "A disciplined two-handed sword prized for clean technique and lethal precision.",
+		"tags": [
+			"disciplined",
+			"exacting",
+			"serene"
+		],
+		"localization": {},
+		"tier": 5,
+		"grip": 2,
+		"qualityMultipliers": {
+			"weight": 0.98,
+			"speed": 1.06,
+			"edge": 1.1,
+			"reach": 1.08,
+			"curvature": 1.25
+		},
+		"created_at": "2026-03-26T13:50:55.126Z",
+		"familyFlag": 16
+	},
+	{
+		"internalId": 27,
+		"id": "khopesh",
+		"displayName": "Khopesh",
+		"description": "A forward-hooking sickle-sword that drags targets into brutal finishing arcs.",
+		"tags": [
+			"ancient",
+			"hooked",
+			"brutal"
+		],
+		"localization": {},
+		"tier": 5,
+		"grip": 2,
+		"qualityMultipliers": {
+			"weight": 1.08,
+			"speed": 0.96,
+			"edge": 1.04,
+			"reach": 0.99,
+			"curvature": 1.4
+		},
+		"created_at": "2026-03-26T13:50:55.126Z",
+		"familyFlag": 16
+	},
+	{
+		"internalId": 28,
+		"id": "odachi",
+		"displayName": "Ōdachi",
+		"description": "An oversized war sword with sweeping reach and fearsome cutting authority.",
+		"tags": [
+			"grand",
+			"sweeping",
+			"imperial"
+		],
+		"localization": {},
+		"tier": 6,
+		"grip": 2,
+		"qualityMultipliers": {
+			"weight": 1.16,
+			"speed": 0.92,
+			"edge": 1.08,
+			"reach": 1.22,
+			"curvature": 1.15
+		},
+		"created_at": "2026-03-26T13:50:55.126Z",
+		"familyFlag": 16
+	},
+	{
+		"internalId": 29,
+		"id": "club",
+		"displayName": "Club",
+		"description": "A plain wooden club that solves problems with uncomplicated force.",
+		"tags": [
+			"plain",
+			"crude",
+			"reliable"
+		],
+		"localization": {},
+		"tier": 1,
+		"grip": 1,
+		"qualityMultipliers": {
+			"weight": 0.94,
+			"speed": 1.01,
+			"edge": 1,
+			"reach": 0.9
+		},
+		"created_at": "2026-03-26T13:50:55.126Z",
+		"familyFlag": 8
+	},
+	{
+		"internalId": 30,
+		"id": "bat",
+		"displayName": "Bat",
+		"description": "A light swingable stick that favors tempo over raw crushing power.",
+		"tags": [
+			"sporty",
+			"lively",
+			"balanced"
+		],
+		"localization": {},
+		"tier": 1,
+		"grip": 1,
+		"qualityMultipliers": {
+			"weight": 0.88,
+			"speed": 1.07,
+			"edge": 1,
+			"reach": 1
+		},
+		"created_at": "2026-03-26T13:50:55.126Z",
+		"familyFlag": 8
+	},
+	{
+		"internalId": 32,
+		"id": "crowbar",
+		"displayName": "Crowbar",
+		"description": "A prying tool repurposed into a compact weapon with nasty leverage.",
+		"tags": [
+			"industrial",
+			"stubborn",
+			"harsh"
+		],
+		"localization": {},
+		"tier": 2,
+		"grip": 1,
+		"qualityMultipliers": {
+			"weight": 1.02,
+			"speed": 0.97,
+			"edge": 0.98,
+			"reach": 0.92
+		},
+		"created_at": "2026-03-26T13:50:55.126Z",
+		"familyFlag": 8
+	},
+	{
+		"internalId": 33,
+		"id": "blackjack",
+		"displayName": "Blackjack",
+		"description": "A concealed weighted striker built for sudden, brutal impacts.",
+		"tags": [
+			"covert",
+			"weighted",
+			"compact"
+		],
+		"localization": {},
+		"tier": 2,
+		"grip": 1,
+		"qualityMultipliers": {
+			"weight": 0.76,
+			"speed": 1.12,
+			"edge": 1,
+			"reach": 0.7
+		},
+		"created_at": "2026-03-26T13:50:55.126Z",
+		"familyFlag": 8
+	},
+	{
+		"internalId": 34,
+		"id": "baton",
+		"displayName": "Baton",
+		"description": "A short control weapon made for fast jabs and disciplined strikes.",
+		"tags": [
+			"disciplined",
+			"compact",
+			"brisk"
+		],
+		"localization": {},
+		"tier": 2,
+		"grip": 1,
+		"qualityMultipliers": {
+			"weight": 0.84,
+			"speed": 1.12,
+			"edge": 1,
+			"reach": 0.82
+		},
+		"created_at": "2026-03-26T13:50:55.126Z",
+		"familyFlag": 8
+	},
+	{
+		"internalId": 35,
+		"id": "electricBaton",
+		"displayName": "Electric Baton",
+		"description": "A charged enforcement baton that mixes blunt trauma with powered shocks.",
+		"tags": [
+			"charged",
+			"policing",
+			"crackling"
+		],
+		"localization": {},
+		"tier": 3,
+		"grip": 1,
+		"qualityMultipliers": {
+			"weight": 0.9,
+			"speed": 1.08,
+			"edge": 1.02,
+			"reach": 0.82
+		},
+		"created_at": "2026-03-26T13:50:55.126Z",
+		"familyFlag": 10
+	},
+	{
+		"internalId": 36,
+		"id": "bludgeon",
+		"displayName": "Bludgeon",
+		"description": "A brutally heavy melee weapon that overwhelms through repeated crushing hits.",
+		"tags": [
+			"brutal",
+			"crushing",
+			"oppressive"
+		],
+		"localization": {},
+		"tier": 3,
+		"grip": 1,
+		"qualityMultipliers": {
+			"weight": 1.12,
+			"speed": 0.92,
+			"edge": 1,
+			"reach": 0.95
+		},
+		"created_at": "2026-03-26T13:50:55.126Z",
+		"familyFlag": 8
+	},
+	{
+		"internalId": 37,
+		"id": "sledgehammer",
+		"displayName": "Sledgehammer",
+		"description": "A massive work hammer turned into a devastating two-handed breaker.",
+		"tags": [
+			"massive",
+			"demolishing",
+			"laborious"
+		],
+		"localization": {},
+		"tier": 3,
+		"grip": 2,
+		"qualityMultipliers": {
+			"weight": 1.24,
+			"speed": 0.78,
+			"edge": 1,
+			"reach": 1.08
+		},
+		"created_at": "2026-03-26T13:50:55.126Z",
+		"familyFlag": 8
+	},
+	{
+		"internalId": 38,
+		"id": "mace",
+		"displayName": "Mace",
+		"description": "A spiked striking weapon that concentrates force into armored targets.",
+		"tags": [
+			"spiked",
+			"martial",
+			"punishing"
+		],
+		"localization": {},
+		"tier": 3,
+		"grip": 1,
+		"qualityMultipliers": {
+			"weight": 1,
+			"speed": 0.98,
+			"edge": 1.08,
+			"reach": 0.92
+		},
+		"created_at": "2026-03-26T13:50:55.126Z",
+		"familyFlag": 8
+	},
+	{
+		"internalId": 39,
+		"id": "nunchaku",
+		"displayName": "Nunchaku",
+		"description": "A flexible twin-stick weapon that thrives on rhythm and rapid chaining hits.",
+		"tags": [
+			"nimble",
+			"rhythmic",
+			"flashy"
+		],
+		"localization": {},
+		"tier": 3,
+		"grip": 1,
+		"qualityMultipliers": {
+			"weight": 0.72,
+			"speed": 1.18,
+			"edge": 0.94,
+			"reach": 0.88
+		},
+		"created_at": "2026-03-26T13:50:55.126Z",
+		"familyFlag": 8
+	},
+	{
+		"internalId": 40,
+		"id": "flail",
+		"displayName": "Flail",
+		"description": "A chain-linked striker that whips around guards with wild momentum.",
+		"tags": [
+			"wild",
+			"whipping",
+			"erratic"
+		],
+		"localization": {},
+		"tier": 4,
+		"grip": 1,
+		"qualityMultipliers": {
+			"weight": 1.03,
+			"speed": 0.99,
+			"edge": 1.04,
+			"reach": 1.06
+		},
+		"created_at": "2026-03-26T13:50:55.126Z",
+		"familyFlag": 8
+	},
+	{
+		"internalId": 41,
+		"id": "morningstar",
+		"displayName": "Morningstar",
+		"description": "A brutal spiked weapon that lands heavy impacts with ugly finishing bites.",
+		"tags": [
+			"menacing",
+			"jagged",
+			"severe"
+		],
+		"localization": {},
+		"tier": 4,
+		"grip": 1,
+		"qualityMultipliers": {
+			"weight": 1.08,
+			"speed": 0.94,
+			"edge": 1.08,
+			"reach": 0.98
+		},
+		"created_at": "2026-03-26T13:50:55.126Z",
+		"familyFlag": 8
+	},
+	{
+		"internalId": 42,
+		"id": "maul",
+		"displayName": "Maul",
+		"description": "A huge two-handed hammer built to flatten anything standing in front of it.",
+		"tags": [
+			"gigantic",
+			"flattening",
+			"relentless"
+		],
+		"localization": {},
+		"tier": 4,
+		"grip": 2,
+		"qualityMultipliers": {
+			"weight": 1.25,
+			"speed": 0.8,
+			"edge": 1,
+			"reach": 1.04
+		},
+		"created_at": "2026-03-26T13:50:55.126Z",
+		"familyFlag": 8
+	},
+	{
+		"internalId": 43,
+		"id": "warHammer",
+		"displayName": "War Hammer",
+		"description": "A battlefield hammer designed to punch through armor with focused force.",
+		"tags": [
+			"armored",
+			"focused",
+			"severe"
+		],
+		"localization": {},
+		"tier": 5,
+		"grip": 2,
+		"qualityMultipliers": {
+			"weight": 1.12,
+			"speed": 0.92,
+			"edge": 1.18,
+			"reach": 1
+		},
+		"created_at": "2026-03-26T13:50:55.126Z",
+		"familyFlag": 8
+	},
+	{
+		"internalId": 44,
+		"id": "lucerneHammer",
+		"displayName": "Lucerne Hammer",
+		"description": "A pole-mounted hammer that extends crushing force deep into formation lines.",
+		"tags": [
+			"martial",
+			"elongated",
+			"disciplined"
+		],
+		"localization": {},
+		"tier": 5,
+		"grip": 2,
+		"qualityMultipliers": {
+			"weight": 1.1,
+			"speed": 0.88,
+			"edge": 1.12,
+			"reach": 1.22
+		},
+		"created_at": "2026-03-26T13:50:55.126Z",
+		"familyFlag": 1032
+	},
+	{
+		"internalId": 45,
+		"id": "kanabo",
+		"displayName": "Kanabo",
+		"description": "A monstrous spiked club that turns every swing into a punishment.",
+		"tags": [
+			"monstrous",
+			"savage",
+			"domineering"
+		],
+		"localization": {},
+		"tier": 5,
+		"grip": 2,
+		"qualityMultipliers": {
+			"weight": 1.22,
+			"speed": 0.84,
+			"edge": 1.05,
+			"reach": 1.05
+		},
+		"created_at": "2026-03-26T13:50:55.126Z",
+		"familyFlag": 8
+	},
+	{
+		"internalId": 46,
+		"id": "mjolnir",
+		"displayName": "Mjölnir",
+		"description": "A legendary hammer of impossible density, minus the thunder but not the impact.",
+		"tags": [
+			"mythic",
+			"divine",
+			"compact"
+		],
+		"localization": {},
+		"tier": 6,
+		"grip": 1,
+		"qualityMultipliers": {
+			"weight": 1.08,
+			"speed": 1.02,
+			"edge": 1.1,
+			"reach": 0.86
+		},
+		"created_at": "2026-03-26T13:50:55.126Z",
+		"familyFlag": 264
+	},
+	{
+		"internalId": 47,
+		"id": "colossalCrusher",
+		"displayName": "Colossal Crusher",
+		"description": "An absurdly oversized hammer built for pure destructive spectacle.",
+		"tags": [
+			"colossal",
+			"devastating",
+			"absurd"
+		],
+		"localization": {},
+		"tier": 6,
+		"grip": 2,
+		"qualityMultipliers": {
+			"weight": 1.34,
+			"speed": 0.72,
+			"edge": 1,
+			"reach": 1.12
+		},
+		"created_at": "2026-03-26T13:50:55.126Z",
+		"familyFlag": 8
+	},
+	{
+		"internalId": 48,
+		"id": "pitchfork",
+		"displayName": "Pitchfork",
+		"description": "A farming fork pressed into service with awkward but useful reach.",
+		"tags": [
+			"rustic",
+			"awkward",
+			"poking"
+		],
+		"localization": {},
+		"tier": 1,
+		"grip": 1,
+		"qualityMultipliers": {
+			"weight": 0.96,
+			"speed": 0.94,
+			"edge": 1.03,
+			"reach": 1.08
+		},
+		"created_at": "2026-03-26T13:50:55.126Z",
+		"familyFlag": 33792
+	},
+	{
+		"internalId": 49,
+		"id": "spear",
+		"displayName": "Spear",
+		"description": "A classic thrusting weapon with reliable reach and clean linear attacks.",
+		"tags": [
+			"classic",
+			"balanced",
+			"disciplined"
+		],
+		"localization": {},
+		"tier": 1,
+		"grip": 1,
+		"qualityMultipliers": {
+			"weight": 0.94,
+			"speed": 1.02,
+			"edge": 1.05,
+			"reach": 1.02
+		},
+		"created_at": "2026-03-26T13:50:55.126Z",
+		"familyFlag": 1024
+	},
+	{
+		"internalId": 50,
+		"id": "pike",
+		"displayName": "Pike",
+		"description": "A very long infantry weapon built to keep danger several steps away.",
+		"tags": [
+			"lengthy",
+			"rigid",
+			"defensive"
+		],
+		"localization": {},
+		"tier": 2,
+		"grip": 1,
+		"qualityMultipliers": {
+			"weight": 1.02,
+			"speed": 0.91,
+			"edge": 1.01,
+			"reach": 1.24
+		},
+		"created_at": "2026-03-26T13:50:55.126Z",
+		"familyFlag": 1024
+	},
+	{
+		"internalId": 51,
+		"id": "battleRake",
+		"displayName": "Battle Rake",
+		"description": "A reworked farming rake that snags and jabs with ungainly persistence.",
+		"tags": [
+			"ungainly",
+			"hooked",
+			"stubborn"
+		],
+		"localization": {},
+		"tier": 2,
+		"grip": 1,
+		"qualityMultipliers": {
+			"weight": 1.04,
+			"speed": 0.9,
+			"edge": 0.96,
+			"reach": 1.12
+		},
+		"created_at": "2026-03-26T13:50:55.126Z",
+		"familyFlag": 33792
+	},
+	{
+		"internalId": 52,
+		"id": "harpoon",
+		"displayName": "Harpoon",
+		"description": "A barbed hunting spear suited for long thrusts and thrown follow-ups.",
+		"tags": [
+			"barbed",
+			"maritime",
+			"hunting"
+		],
+		"localization": {},
+		"tier": 3,
+		"grip": 1,
+		"qualityMultipliers": {
+			"weight": 1.03,
+			"speed": 0.96,
+			"edge": 1.06,
+			"reach": 1.12
+		},
+		"created_at": "2026-03-26T13:50:55.126Z",
+		"familyFlag": 5120
+	},
+	{
+		"internalId": 53,
+		"id": "trident",
+		"displayName": "Trident",
+		"description": "A three-pronged spear that controls space with punishing outward pressure.",
+		"tags": [
+			"regal",
+			"pronged",
+			"poised"
+		],
+		"localization": {},
+		"tier": 3,
+		"grip": 1,
+		"qualityMultipliers": {
+			"weight": 1.06,
+			"speed": 0.95,
+			"edge": 1.02,
+			"reach": 1.1
+		},
+		"created_at": "2026-03-26T13:50:55.126Z",
+		"familyFlag": 1024
+	},
+	{
+		"internalId": 54,
+		"id": "naginata",
+		"displayName": "Naginata",
+		"description": "A sweeping polearm that mixes elegant handling with punishing long arcs.",
+		"tags": [
+			"sweeping",
+			"elegant",
+			"poised"
+		],
+		"localization": {},
+		"tier": 4,
+		"grip": 1,
+		"qualityMultipliers": {
+			"weight": 0.97,
+			"speed": 1.01,
+			"edge": 1.08,
+			"reach": 1.14
+		},
+		"created_at": "2026-03-26T13:50:55.126Z",
+		"familyFlag": 1024
+	},
+	{
+		"internalId": 55,
+		"id": "glaive",
+		"displayName": "Glaive",
+		"description": "A single-edged polearm that rewards long arcs and committed cuts.",
+		"tags": [
+			"sweeping",
+			"martial",
+			"severe"
+		],
+		"localization": {},
+		"tier": 5,
+		"grip": 1,
+		"qualityMultipliers": {
+			"weight": 1.08,
+			"speed": 0.95,
+			"edge": 1.07,
+			"reach": 1.18
+		},
+		"created_at": "2026-03-26T13:50:55.126Z",
+		"familyFlag": 1024
+	},
+	{
+		"internalId": 56,
+		"id": "halberd",
+		"displayName": "Halberd",
+		"description": "A battlefield poleaxe combining reach, hooking control, and crushing finish.",
+		"tags": [
+			"disciplined",
+			"fearsome",
+			"commanding"
+		],
+		"localization": {},
+		"tier": 6,
+		"grip": 2,
+		"qualityMultipliers": {
+			"weight": 1.14,
+			"speed": 0.9,
+			"edge": 1.08,
+			"reach": 1.24
+		},
+		"created_at": "2026-03-26T13:50:55.126Z",
+		"familyFlag": 1025
+	},
+	{
+		"internalId": 57,
+		"id": "warScythe",
+		"displayName": "War Scythe",
+		"description": "A reaped farming tool remade into a lethal weapon with vicious pulling cuts.",
+		"tags": [
+			"reaping",
+			"grim",
+			"hooked"
+		],
+		"localization": {},
+		"tier": 6,
+		"grip": 1,
+		"qualityMultipliers": {
+			"weight": 1.02,
+			"speed": 0.96,
+			"edge": 1.1,
+			"reach": 1.2
+		},
+		"created_at": "2026-03-26T13:50:55.126Z",
+		"familyFlag": 1024
+	},
+	{
+		"internalId": 58,
+		"id": "hatchet",
+		"displayName": "Hatchet",
+		"description": "A small chopping axe suited to quick one-handed swings and field work.",
+		"tags": [
+			"handy",
+			"brisk",
+			"rugged"
+		],
+		"localization": {},
+		"tier": 1,
+		"grip": 1,
+		"qualityMultipliers": {
+			"weight": 0.84,
+			"speed": 1.08,
+			"edge": 1.02,
+			"reach": 0.78
+		},
+		"created_at": "2026-03-26T13:50:55.126Z",
+		"familyFlag": 1
+	},
+	{
+		"internalId": 59,
+		"id": "handAxe",
+		"displayName": "Hand Axe",
+		"description": "A light versatile axe that balances utility with honest combat bite.",
+		"tags": [
+			"versatile",
+			"sturdy",
+			"honest"
+		],
+		"localization": {},
+		"tier": 2,
+		"grip": 1,
+		"qualityMultipliers": {
+			"weight": 0.96,
+			"speed": 1.04,
+			"edge": 1.03,
+			"reach": 0.86
+		},
+		"created_at": "2026-03-26T13:50:55.126Z",
+		"familyFlag": 1
+	},
+	{
+		"internalId": 60,
+		"id": "pickaxe",
+		"displayName": "Pickaxe",
+		"description": "A mining tool adapted for combat that punctures with nasty concentrated force.",
+		"tags": [
+			"mining",
+			"stubborn",
+			"puncturing"
+		],
+		"localization": {},
+		"tier": 3,
+		"grip": 1,
+		"qualityMultipliers": {
+			"weight": 1.08,
+			"speed": 0.9,
+			"edge": 1.12,
+			"reach": 0.92
+		},
+		"created_at": "2026-03-26T13:50:55.126Z",
+		"familyFlag": 32769
+	},
+	{
+		"internalId": 61,
+		"id": "battleAxe",
+		"displayName": "Battle Axe",
+		"description": "A war-ready axe with broad chopping power and confident handling.",
+		"tags": [
+			"martial",
+			"broad",
+			"forceful"
+		],
+		"localization": {},
+		"tier": 4,
+		"grip": 1,
+		"qualityMultipliers": {
+			"weight": 1.08,
+			"speed": 0.96,
+			"edge": 1.05,
+			"reach": 1.02
+		},
+		"created_at": "2026-03-26T13:50:55.126Z",
+		"familyFlag": 1
+	},
+	{
+		"internalId": 62,
+		"id": "warPick",
+		"displayName": "War Pick",
+		"description": "A piercing battlefield weapon focused on punching through hard protection.",
+		"tags": [
+			"piercing",
+			"focused",
+			"grim"
+		],
+		"localization": {},
+		"tier": 5,
+		"grip": 1,
+		"qualityMultipliers": {
+			"weight": 1.04,
+			"speed": 0.94,
+			"edge": 1.14,
+			"reach": 0.94
+		},
+		"created_at": "2026-03-26T13:50:55.126Z",
+		"familyFlag": 1
+	},
+	{
+		"internalId": 63,
+		"id": "greataxe",
+		"displayName": "Greataxe",
+		"description": "An enormous axe that feels oversized even in skilled hands.",
+		"tags": [
+			"enormous",
+			"fearsome",
+			"sweeping"
+		],
+		"localization": {},
+		"tier": 6,
+		"grip": 1,
+		"qualityMultipliers": {
+			"weight": 1.22,
+			"speed": 0.86,
+			"edge": 1.08,
+			"reach": 1.08
+		},
+		"created_at": "2026-03-26T13:50:55.126Z",
+		"familyFlag": 1
+	},
+	{
+		"internalId": 64,
+		"id": "sling",
+		"displayName": "Sling",
+		"description": "A simple launcher that turns loose stones into cheap ranged pressure.",
+		"tags": [
+			"simple",
+			"frugal",
+			"whirling"
+		],
+		"localization": {},
+		"tier": 1,
+		"grip": 2,
+		"qualityMultipliers": {
+			"weight": 0.72,
+			"speed": 0.92,
+			"edge": 1,
+			"reach": 0.82
+		},
+		"created_at": "2026-03-26T13:50:55.126Z",
+		"familyFlag": 2048
+	},
+	{
+		"internalId": 65,
+		"id": "shortbow",
+		"displayName": "Shortbow",
+		"description": "A compact bow with fast draw speed and easy handling at short range.",
+		"tags": [
+			"compact",
+			"nimble",
+			"responsive"
+		],
+		"localization": {},
+		"tier": 1,
+		"grip": 2,
+		"qualityMultipliers": {
+			"weight": 0.84,
+			"speed": 1.05,
+			"edge": 1,
+			"reach": 0.92
+		},
+		"created_at": "2026-03-26T13:50:55.126Z",
+		"familyFlag": 2048
+	},
+	{
+		"internalId": 66,
+		"id": "slingshot",
+		"displayName": "Slingshot",
+		"description": "A small elastic launcher suited for quick shots and cheap ammunition.",
+		"tags": [
+			"elastic",
+			"playful",
+			"snappy"
+		],
+		"localization": {},
+		"tier": 2,
+		"grip": 2,
+		"qualityMultipliers": {
+			"weight": 0.66,
+			"speed": 1.08,
+			"edge": 1,
+			"reach": 0.74
+		},
+		"created_at": "2026-03-26T13:50:55.126Z",
+		"familyFlag": 2048
+	},
+	{
+		"internalId": 67,
+		"id": "bow",
+		"displayName": "Bow",
+		"description": "A standard bow that balances draw speed, range, and dependable control.",
+		"tags": [
+			"balanced",
+			"steady",
+			"dependable"
+		],
+		"localization": {},
+		"tier": 2,
+		"grip": 2,
+		"qualityMultipliers": {
+			"weight": 0.96,
+			"speed": 1,
+			"edge": 1,
+			"reach": 1
+		},
+		"created_at": "2026-03-26T13:50:55.126Z",
+		"familyFlag": 2048
+	},
+	{
+		"internalId": 68,
+		"id": "crossbow",
+		"displayName": "Crossbow",
+		"description": "A mechanized ranged weapon that favors punch and ease over draw rhythm.",
+		"tags": [
+			"mechanical",
+			"heavy",
+			"direct"
+		],
+		"localization": {},
+		"tier": 3,
+		"grip": 1,
+		"qualityMultipliers": {
+			"weight": 1.18,
+			"speed": 0.94,
+			"edge": 1,
+			"reach": 1.08
+		},
+		"created_at": "2026-03-26T13:50:55.126Z",
+		"familyFlag": 2048
+	},
+	{
+		"internalId": 69,
+		"id": "longbow",
+		"displayName": "Longbow",
+		"description": "A tall bow built for far-reaching shots and disciplined volleys.",
+		"tags": [
+			"tall",
+			"patient",
+			"disciplined"
+		],
+		"localization": {},
+		"tier": 4,
+		"grip": 2,
+		"qualityMultipliers": {
+			"weight": 1.04,
+			"speed": 0.96,
+			"edge": 1,
+			"reach": 1.18
+		},
+		"created_at": "2026-03-26T13:50:55.126Z",
+		"familyFlag": 2048
+	},
+	{
+		"internalId": 70,
+		"id": "recurveBow",
+		"displayName": "Recurve Bow",
+		"description": "A refined curved bow that squeezes more force from every practiced draw.",
+		"tags": [
+			"refined",
+			"efficient",
+			"taut"
+		],
+		"localization": {},
+		"tier": 5,
+		"grip": 2,
+		"qualityMultipliers": {
+			"weight": 0.92,
+			"speed": 1.06,
+			"edge": 1,
+			"reach": 1.1
+		},
+		"created_at": "2026-03-26T13:50:55.126Z",
+		"familyFlag": 2048
+	},
+	{
+		"internalId": 71,
+		"id": "compositeBow",
+		"displayName": "Composite Bow",
+		"description": "A reinforced high-end bow delivering strong output without sacrificing control.",
+		"tags": [
+			"reinforced",
+			"elite",
+			"resilient"
+		],
+		"localization": {},
+		"tier": 6,
+		"grip": 2,
+		"qualityMultipliers": {
+			"weight": 0.98,
+			"speed": 1.08,
+			"edge": 1,
+			"reach": 1.16
+		},
+		"created_at": "2026-03-26T13:50:55.126Z",
+		"familyFlag": 2048
+	},
+	{
+		"internalId": 72,
+		"id": "gloves",
+		"displayName": "Gloves",
+		"description": "Basic fighting gloves that add structure to simple hand strikes.",
+		"tags": [
+			"basic",
+			"padded",
+			"humble"
+		],
+		"localization": {},
+		"tier": 1,
+		"grip": 1,
+		"qualityMultipliers": {
+			"weight": 0.92,
+			"speed": 1.02,
+			"edge": 0.96,
+			"reach": 0.9
+		},
+		"created_at": "2026-03-26T13:50:55.126Z",
+		"familyFlag": 64
+	},
+	{
+		"internalId": 73,
+		"id": "chargedGloves",
+		"displayName": "Charged Gloves",
+		"description": "Powered gloves that crackle on impact and sharpen close-range bursts.",
+		"tags": [
+			"charged",
+			"crackling",
+			"volatile"
+		],
+		"localization": {},
+		"tier": 2,
+		"grip": 1,
+		"qualityMultipliers": {
+			"weight": 0.98,
+			"speed": 1.05,
+			"edge": 1.02,
+			"reach": 0.92
+		},
+		"created_at": "2026-03-26T13:50:55.126Z",
+		"familyFlag": 66
+	},
+	{
+		"internalId": 74,
+		"id": "knuckleduster",
+		"displayName": "Knuckleduster",
+		"description": "A metal fist weapon built to turn compact punches into brutal impacts.",
+		"tags": [
+			"metal",
+			"compact",
+			"punishing"
+		],
+		"localization": {},
+		"tier": 3,
+		"grip": 1,
+		"qualityMultipliers": {
+			"weight": 1.05,
+			"speed": 1,
+			"edge": 1.03,
+			"reach": 0.86
+		},
+		"created_at": "2026-03-26T13:50:55.126Z",
+		"familyFlag": 64
+	},
+	{
+		"internalId": 75,
+		"id": "baghNakh",
+		"displayName": "Bagh Nakh",
+		"description": "A clawed hand weapon that rips targets open during quick slashing flurries.",
+		"tags": [
+			"clawed",
+			"feral",
+			"ripping"
+		],
+		"localization": {},
+		"tier": 4,
+		"grip": 1,
+		"qualityMultipliers": {
+			"weight": 0.88,
+			"speed": 1.1,
+			"edge": 1.12,
+			"reach": 0.82,
+			"curvature": 1.25
+		},
+		"created_at": "2026-03-26T13:50:55.126Z",
+		"familyFlag": 68
+	},
+	{
+		"internalId": 76,
+		"id": "gauntlet",
+		"displayName": "Gauntlet",
+		"description": "An ultimate hand weapon that turns armored blows into crushing certainty.",
+		"tags": [
+			"armored",
+			"supreme",
+			"crushing"
+		],
+		"localization": {},
+		"tier": 6,
+		"grip": 1,
+		"qualityMultipliers": {
+			"weight": 1.16,
+			"speed": 0.98,
+			"edge": 1.04,
+			"reach": 0.94
+		},
+		"created_at": "2026-03-26T13:50:55.126Z",
+		"familyFlag": 64
+	},
+	{
+		"internalId": 77,
+		"id": "flintlock",
+		"displayName": "Flintlock",
+		"description": "An early single-shot firearm that rewards nerve and deliberate timing.",
+		"tags": [
+			"antique",
+			"deliberate",
+			"smoky"
+		],
+		"localization": {},
+		"tier": 1,
+		"grip": 1,
+		"qualityMultipliers": {
+			"weight": 0.84,
+			"speed": 0.92,
+			"edge": 1,
+			"reach": 0.88
+		},
+		"created_at": "2026-03-26T13:50:55.126Z",
+		"familyFlag": 32
+	},
+	{
+		"internalId": 78,
+		"id": "blunderbuss",
+		"displayName": "Blunderbuss",
+		"description": "A short brutal scatter gun built for chaos at punishingly close range.",
+		"tags": [
+			"chaotic",
+			"booming",
+			"savage"
+		],
+		"localization": {},
+		"tier": 2,
+		"grip": 1,
+		"qualityMultipliers": {
+			"weight": 1.06,
+			"speed": 0.88,
+			"edge": 1,
+			"reach": 0.76
+		},
+		"created_at": "2026-03-26T13:50:55.126Z",
+		"familyFlag": 32
+	},
+	{
+		"internalId": 79,
+		"id": "musket",
+		"displayName": "Musket",
+		"description": "A standard infantry gun meant for disciplined lines and measured volleys.",
+		"tags": [
+			"disciplined",
+			"martial",
+			"measured"
+		],
+		"localization": {},
+		"tier": 3,
+		"grip": 2,
+		"qualityMultipliers": {
+			"weight": 1.08,
+			"speed": 0.94,
+			"edge": 1,
+			"reach": 1.16
+		},
+		"created_at": "2026-03-26T13:50:55.126Z",
+		"familyFlag": 32
+	},
+	{
+		"internalId": 80,
+		"id": "laserPistol",
+		"displayName": "Laser Pistol",
+		"description": "A battery-fed sidearm that fires clean energy with crisp modern precision.",
+		"tags": [
+			"sleek",
+			"precise",
+			"luminous"
+		],
+		"localization": {},
+		"tier": 4,
+		"grip": 1,
+		"qualityMultipliers": {
+			"weight": 0.82,
+			"speed": 1.12,
+			"edge": 1.05,
+			"reach": 0.98
+		},
+		"created_at": "2026-03-26T13:50:55.126Z",
+		"familyFlag": 34
+	},
+	{
+		"internalId": 81,
+		"id": "rifle",
+		"displayName": "Rifle",
+		"description": "A long precision firearm built to reward calm aim and steady hands.",
+		"tags": [
+			"precise",
+			"steady",
+			"lethal"
+		],
+		"localization": {},
+		"tier": 5,
+		"grip": 2,
+		"qualityMultipliers": {
+			"weight": 1.02,
+			"speed": 1.04,
+			"edge": 1,
+			"reach": 1.2
+		},
+		"created_at": "2026-03-26T13:50:55.126Z",
+		"familyFlag": 32
+	},
+	{
+		"internalId": 82,
+		"id": "handcannon",
+		"displayName": "Handcannon",
+		"description": "A heavy short-range gun that trades finesse for outrageous stopping power.",
+		"tags": [
+			"heavy",
+			"outrageous",
+			"brutal"
+		],
+		"localization": {},
+		"tier": 5,
+		"grip": 1,
+		"qualityMultipliers": {
+			"weight": 1.2,
+			"speed": 0.86,
+			"edge": 1,
+			"reach": 0.82
+		},
+		"created_at": "2026-03-26T13:50:55.126Z",
+		"familyFlag": 32
+	},
+	{
+		"internalId": 83,
+		"id": "bazooka",
+		"displayName": "Bazooka",
+		"description": "An explosive launcher engineered for oversized destruction and backblast terror.",
+		"tags": [
+			"explosive",
+			"oversized",
+			"demolishing"
+		],
+		"localization": {},
+		"tier": 6,
+		"grip": 2,
+		"qualityMultipliers": {
+			"weight": 1.32,
+			"speed": 0.72,
+			"edge": 1,
+			"reach": 1.1
+		},
+		"created_at": "2026-03-26T13:50:55.126Z",
+		"familyFlag": 32
+	},
+	{
+		"internalId": 84,
+		"id": "machineGun",
+		"displayName": "Machine Gun",
+		"description": "A rapid-fire heavy weapon that overwhelms targets through relentless output.",
+		"tags": [
+			"rapidfire",
+			"relentless",
+			"suppressive"
+		],
+		"localization": {},
+		"tier": 6,
+		"grip": 2,
+		"qualityMultipliers": {
+			"weight": 1.24,
+			"speed": 1.06,
+			"edge": 1,
+			"reach": 1.08
+		},
+		"created_at": "2026-03-26T13:50:55.126Z",
+		"familyFlag": 32
+	},
+	{
+		"internalId": 85,
+		"id": "staff",
+		"displayName": "Staff",
+		"description": "A simple wooden pole with plain handling and dependable length.",
+		"tags": [
+			"plain",
+			"wooden",
+			"steady"
+		],
+		"localization": {},
+		"tier": 1,
+		"grip": 1,
+		"qualityMultipliers": {
+			"weight": 0.9,
+			"speed": 1,
+			"edge": 0.95,
+			"reach": 0.96
+		},
+		"created_at": "2026-03-26T13:50:55.126Z",
+		"familyFlag": 16384
+	},
+	{
+		"internalId": 86,
+		"id": "quarterstaff",
+		"displayName": "Quarterstaff",
+		"description": "A reinforced combat staff built for disciplined spins and measured strikes.",
+		"tags": [
+			"disciplined",
+			"reinforced",
+			"measured"
+		],
+		"localization": {},
+		"tier": 2,
+		"grip": 1,
+		"qualityMultipliers": {
+			"weight": 1,
+			"speed": 1.02,
+			"edge": 0.96,
+			"reach": 1.04
+		},
+		"created_at": "2026-03-26T13:50:55.126Z",
+		"familyFlag": 16384
+	},
+	{
+		"internalId": 87,
+		"id": "scepter",
+		"displayName": "Scepter",
+		"description": "A ceremonial rod that carries authority and surprising close-range menace.",
+		"tags": [
+			"ceremonial",
+			"regal",
+			"poised"
+		],
+		"localization": {},
+		"tier": 4,
+		"grip": 1,
+		"qualityMultipliers": {
+			"weight": 0.82,
+			"speed": 1.06,
+			"edge": 1.02,
+			"reach": 0.82
+		},
+		"created_at": "2026-03-26T13:50:55.126Z",
+		"familyFlag": 16384
+	},
+	{
+		"internalId": 88,
+		"id": "warStaff",
+		"displayName": "War Staff",
+		"description": "A combat-optimized staff hardened for forceful sweeps and stubborn defense.",
+		"tags": [
+			"hardened",
+			"forceful",
+			"disciplined"
+		],
+		"localization": {},
+		"tier": 5,
+		"grip": 1,
+		"qualityMultipliers": {
+			"weight": 1.12,
+			"speed": 0.98,
+			"edge": 1.04,
+			"reach": 1.12
+		},
+		"created_at": "2026-03-26T13:50:55.126Z",
+		"familyFlag": 16384
+	},
+	{
+		"internalId": 89,
+		"id": "ruyiJinguBang",
+		"displayName": "Ruyi Jingu Bang",
+		"description": "A mythic staff of impossible mastery, famous for overwhelming reach and power.",
+		"tags": [
+			"mythic",
+			"sovereign",
+			"overwhelming"
+		],
+		"localization": {},
+		"tier": 6,
+		"grip": 2,
+		"qualityMultipliers": {
+			"weight": 1.18,
+			"speed": 1.08,
+			"edge": 1.06,
+			"reach": 1.28
+		},
+		"created_at": "2026-03-26T13:50:55.126Z",
+		"familyFlag": 16640
+	},
+	{
+		"internalId": 90,
+		"id": "taser",
+		"displayName": "Taser",
+		"description": "A compact electric shock weapon built for close-range stuns and dirty little jolts.",
+		"tags": [
+			"compact",
+			"crackling",
+			"covert"
+		],
+		"localization": {},
+		"tier": 1,
+		"grip": 1,
+		"qualityMultipliers": {
+			"weight": 0.52,
+			"speed": 1.12,
+			"edge": 0.96,
+			"reach": 0.52
+		},
+		"created_at": "2026-03-26T13:50:55.126Z",
+		"familyFlag": 2
+	},
+	{
+		"internalId": 91,
+		"id": "lightsabre",
+		"displayName": "Lightsabre",
+		"description": "A bladeless weapon of concentrated light that cuts with impossible cleanliness.",
+		"tags": [
+			"radiant",
+			"humming",
+			"immaculate"
+		],
+		"localization": {},
+		"tier": 6,
+		"grip": 1,
+		"qualityMultipliers": {
+			"weight": 0.78,
+			"speed": 1.22,
+			"edge": 1.22,
+			"reach": 1.02,
+			"curvature": 0.85
+		},
+		"created_at": "2026-03-26T13:50:55.126Z",
+		"familyFlag": 2
+	},
+	{
+		"internalId": 92,
+		"id": "whip",
+		"displayName": "Whip",
+		"description": "A flexible long-range weapon that punishes spacing and timing mistakes.",
+		"tags": [
+			"flexible",
+			"snaring",
+			"stinging"
+		],
+		"localization": {},
+		"tier": 1,
+		"grip": 1,
+		"qualityMultipliers": {
+			"weight": 0.76,
+			"speed": 1.08,
+			"edge": 0.98,
+			"reach": 1.18,
+			"curvature": 1.18
+		},
+		"created_at": "2026-03-26T13:50:55.126Z",
+		"familyFlag": 4096
+	},
+	{
+		"internalId": 93,
+		"id": "yoYo",
+		"displayName": "Yo-yo",
+		"description": "A weighted tethered toy turned into a looping weapon with odd rhythm.",
+		"tags": [
+			"playful",
+			"looping",
+			"eccentric"
+		],
+		"localization": {},
+		"tier": 2,
+		"grip": 1,
+		"qualityMultipliers": {
+			"weight": 0.82,
+			"speed": 1.06,
+			"edge": 0.92,
+			"reach": 0.94
+		},
+		"created_at": "2026-03-26T13:50:55.126Z",
+		"familyFlag": 4104
+	},
+	{
+		"internalId": 94,
+		"id": "electricWhip",
+		"displayName": "Electric Whip",
+		"description": "A powered lash that mixes long-range control with crackling punishment.",
+		"tags": [
+			"crackling",
+			"flexible",
+			"punishing"
+		],
+		"localization": {},
+		"tier": 3,
+		"grip": 1,
+		"qualityMultipliers": {
+			"weight": 0.88,
+			"speed": 1.12,
+			"edge": 1.02,
+			"reach": 1.16,
+			"curvature": 1.14
+		},
+		"created_at": "2026-03-26T13:50:55.126Z",
+		"familyFlag": 4098
+	},
+	{
+		"internalId": 95,
+		"id": "kusarigama",
+		"displayName": "Kusarigama",
+		"description": "A chain-sickle hybrid that controls distance before snapping into lethal cuts.",
+		"tags": [
+			"chained",
+			"vicious",
+			"controlling"
+		],
+		"localization": {},
+		"tier": 6,
+		"grip": 2,
+		"qualityMultipliers": {
+			"weight": 1.04,
+			"speed": 1.04,
+			"edge": 1.1,
+			"reach": 1.22,
+			"curvature": 1.35
+		},
+		"created_at": "2026-03-26T13:50:55.126Z",
+		"familyFlag": 4100
+	},
+	{
+		"internalId": 96,
+		"id": "jitte",
+		"displayName": "Jitte",
+		"description": "A short iron weapon built for catching attacks and punishing openings.",
+		"tags": [
+			"vigilant",
+			"hooked",
+			"tactical"
+		],
+		"localization": {},
+		"tier": 1,
+		"grip": 1,
+		"qualityMultipliers": {
+			"weight": 0.92,
+			"speed": 1,
+			"edge": 0.96,
+			"reach": 0.78
+		},
+		"created_at": "2026-03-26T13:50:55.126Z",
+		"familyFlag": 512
+	},
+	{
+		"internalId": 97,
+		"id": "scissors",
+		"displayName": "Scissors",
+		"description": "A cutting tool that becomes surprisingly nasty once used with intent.",
+		"tags": [
+			"domestic",
+			"snippy",
+			"awkward"
+		],
+		"localization": {},
+		"tier": 1,
+		"grip": 1,
+		"qualityMultipliers": {
+			"weight": 0.74,
+			"speed": 1.05,
+			"edge": 1.04,
+			"reach": 0.58
+		},
+		"created_at": "2026-03-26T13:50:55.126Z",
+		"familyFlag": 512
+	},
+	{
+		"internalId": 98,
+		"id": "greatScissors",
+		"displayName": "Great Scissors",
+		"description": "An absurd oversized cutting tool turned into a ridiculous but dangerous showpiece.",
+		"tags": [
+			"absurd",
+			"theatrical",
+			"savage"
+		],
+		"localization": {},
+		"tier": 6,
+		"grip": 2,
+		"qualityMultipliers": {
+			"weight": 1.18,
+			"speed": 0.9,
+			"edge": 1.12,
+			"reach": 1.08
+		},
+		"created_at": "2026-03-26T13:50:55.126Z",
+		"familyFlag": 512
+	},
+	{
+		"internalId": 99,
+		"id": "tessen",
+		"displayName": "Tessen",
+		"description": "A war fan that hides striking force inside graceful defensive motions.",
+		"tags": [
+			"graceful",
+			"hidden",
+			"poised"
+		],
+		"localization": {},
+		"tier": 2,
+		"grip": 1,
+		"qualityMultipliers": {
+			"weight": 0.86,
+			"speed": 1.04,
+			"edge": 0.98,
+			"reach": 0.82
+		},
+		"created_at": "2026-03-26T13:50:55.126Z",
+		"familyFlag": 512
+	},
+	{
+		"internalId": 100,
+		"id": "umbrella",
+		"displayName": "Umbrella",
+		"description": "A light improvised guard that pokes, blocks, and survives bad weather.",
+		"tags": [
+			"improvised",
+			"jaunty",
+			"guarded"
+		],
+		"localization": {},
+		"tier": 1,
+		"grip": 1,
+		"qualityMultipliers": {
+			"weight": 0.82,
+			"speed": 1.02,
+			"edge": 0.94,
+			"reach": 1.08
+		},
+		"created_at": "2026-03-26T13:50:55.126Z",
+		"familyFlag": 9216
+	},
+	{
+		"internalId": 101,
+		"id": "buckler",
+		"displayName": "Buckler",
+		"description": "A compact hand shield meant for quick parries and close-in confidence.",
+		"tags": [
+			"compact",
+			"defensive",
+			"nimble"
+		],
+		"localization": {},
+		"tier": 1,
+		"grip": 1,
+		"qualityMultipliers": {
+			"weight": 0.74,
+			"speed": 1.1,
+			"edge": 0.9,
+			"reach": 0.7
+		},
+		"created_at": "2026-03-26T13:50:55.126Z",
+		"familyFlag": 8192
+	},
+	{
+		"internalId": 102,
+		"id": "roundShield",
+		"displayName": "Round Shield",
+		"description": "A standard shield with balanced coverage and steady battlefield utility.",
+		"tags": [
+			"balanced",
+			"sturdy",
+			"dependable"
+		],
+		"localization": {},
+		"tier": 2,
+		"grip": 1,
+		"qualityMultipliers": {
+			"weight": 0.96,
+			"speed": 1,
+			"edge": 0.9,
+			"reach": 0.88
+		},
+		"created_at": "2026-03-26T13:50:55.126Z",
+		"familyFlag": 8192
+	},
+	{
+		"internalId": 103,
+		"id": "targe",
+		"displayName": "Targe",
+		"description": "A sturdy small shield that favors rugged control over raw size.",
+		"tags": [
+			"rugged",
+			"compact",
+			"resolute"
+		],
+		"localization": {},
+		"tier": 3,
+		"grip": 1,
+		"qualityMultipliers": {
+			"weight": 1.02,
+			"speed": 0.98,
+			"edge": 0.92,
+			"reach": 0.82
+		},
+		"created_at": "2026-03-26T13:50:55.126Z",
+		"familyFlag": 8192
+	},
+	{
+		"internalId": 104,
+		"id": "heaterShield",
+		"displayName": "Heater Shield",
+		"description": "A medium shield shaped for dependable coverage and practical front-line work.",
+		"tags": [
+			"practical",
+			"protective",
+			"solid"
+		],
+		"localization": {},
+		"tier": 3,
+		"grip": 1,
+		"qualityMultipliers": {
+			"weight": 1.08,
+			"speed": 0.94,
+			"edge": 0.9,
+			"reach": 0.94
+		},
+		"created_at": "2026-03-26T13:50:55.126Z",
+		"familyFlag": 8192
+	},
+	{
+		"internalId": 105,
+		"id": "forcefieldBand",
+		"displayName": "Forcefield Band",
+		"description": "An armband projector that spins battery power into a portable barrier.",
+		"tags": [
+			"projected",
+			"sleek",
+			"defensive"
+		],
+		"localization": {},
+		"tier": 4,
+		"grip": 1,
+		"qualityMultipliers": {
+			"weight": 0.58,
+			"speed": 1.14,
+			"edge": 0.88,
+			"reach": 0.62
+		},
+		"created_at": "2026-03-26T13:50:55.126Z",
+		"familyFlag": 8194
+	},
+	{
+		"internalId": 106,
+		"id": "pavise",
+		"displayName": "Pavise",
+		"description": "A large portable shield built to turn incoming pressure into a wall.",
+		"tags": [
+			"towering",
+			"protective",
+			"steadfast"
+		],
+		"localization": {},
+		"tier": 4,
+		"grip": 1,
+		"qualityMultipliers": {
+			"weight": 1.26,
+			"speed": 0.82,
+			"edge": 0.88,
+			"reach": 1
+		},
+		"created_at": "2026-03-26T13:50:55.126Z",
+		"familyFlag": 8192
+	},
+	{
+		"internalId": 107,
+		"id": "scutum",
+		"displayName": "Scutum",
+		"description": "A Roman-style shield that dominates space through size and disciplined coverage.",
+		"tags": [
+			"roman",
+			"disciplined",
+			"imposing"
+		],
+		"localization": {},
+		"tier": 5,
+		"grip": 1,
+		"qualityMultipliers": {
+			"weight": 1.18,
+			"speed": 0.86,
+			"edge": 0.9,
+			"reach": 0.96
+		},
+		"created_at": "2026-03-26T13:50:55.126Z",
+		"familyFlag": 8192
+	},
+	{
+		"internalId": 108,
+		"id": "greatshield",
+		"displayName": "Greatshield",
+		"description": "An ultimate heavy shield that sacrifices agility for overwhelming protection.",
+		"tags": [
+			"massive",
+			"immovable",
+			"daunting"
+		],
+		"localization": {},
+		"tier": 6,
+		"grip": 1,
+		"qualityMultipliers": {
+			"weight": 1.34,
+			"speed": 0.72,
+			"edge": 0.88,
+			"reach": 1.04
+		},
+		"created_at": "2026-03-26T13:50:55.126Z",
+		"familyFlag": 8192
+	},
+	{
+		"internalId": 109,
+		"id": "ukulele",
+		"displayName": "Ukulele",
+		"description": "A bard's cheerful little instrument that can charm a crowd or crack a skull in a pinch.",
+		"tags": [
+			"cheerful",
+			"melodic",
+			"nimble"
+		],
+		"localization": {},
+		"tier": 1,
+		"grip": 1,
+		"qualityMultipliers": {
+			"weight": 0.82,
+			"speed": 1.05,
+			"edge": 0.76,
+			"reach": 0.8,
+			"curvature": 1.15
+		},
+		"created_at": "2026-03-26T14:07:45.113Z",
+		"familyFlag": 512
+	},
+	{
+		"internalId": 110,
+		"id": "electricGuitar",
+		"displayName": "Electric Guitar",
+		"description": "A stage weapon that turns amplified feedback, heavy swings, and raw showmanship into damage.",
+		"tags": [
+			"amplified",
+			"showy",
+			"thunderous"
+		],
+		"localization": {},
+		"tier": 5,
+		"grip": 1,
+		"qualityMultipliers": {
+			"weight": 1.14,
+			"speed": 0.98,
+			"edge": 0.82,
+			"reach": 0.98,
+			"curvature": 1.2
+		},
+		"created_at": "2026-03-26T14:07:45.113Z",
+		"familyFlag": 514
+	},
+	{
+		"internalId": 111,
+		"id": "electricRacket",
+		"displayName": "Electric Racket",
+		"description": "A crackling racket that swats targets aside with charged mesh and buzzing follow-through.",
+		"tags": [
+			"buzzing",
+			"swatting",
+			"lively"
+		],
+		"localization": {},
+		"tier": 2,
+		"grip": 1,
+		"qualityMultipliers": {
+			"weight": 0.9,
+			"speed": 1.08,
+			"edge": 0.84,
+			"reach": 0.96,
+			"curvature": 1.1
+		},
+		"created_at": "2026-03-26T14:55:00.000Z",
+		"familyFlag": 514
+	}
+]
