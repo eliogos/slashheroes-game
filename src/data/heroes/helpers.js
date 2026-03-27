@@ -10,6 +10,8 @@ export function getClassById(classId) {
 	return HERO_CLASSES.find(heroClass => String(heroClass.id) === String(classId)) || null;
 }
 
+const POINT_STATS = new Set(['str', 'agi', 'wis', 'int', 'per', 'luk']);
+
 export function computeHeroStats(race, heroClass) {
 	const computed = {};
 
@@ -22,7 +24,8 @@ export function computeHeroStats(race, heroClass) {
 		const modKey = stat.shortcode.toLowerCase();
 		const raceMod = race.mods?.[modKey] ?? 0;
 		const classMod = heroClass.mods?.[modKey] ?? 0;
-		computed[key] = (stat.defaultValue ?? 0) + (raceMod * 10) + (classMod * 10);
+		const multiplier = POINT_STATS.has(modKey) ? 1 : 10;
+		computed[key] = (stat.defaultValue ?? 0) + (raceMod * multiplier) + (classMod * multiplier);
 	}
 
 	return computed;

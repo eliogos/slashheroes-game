@@ -4,7 +4,7 @@ export const HERO_RACES = [
 		name: 'Human',
 		emoji: '🧑',
 		summary: 'Jack of all trades, master of none',
-		description: 'Humans are probably the most basic among the races. No innate special abilities, no magic, just sheer stubbornness and determination.',
+		description: 'Humans are the most basic among the races. No innate special abilities, no magic, just sheer stubbornness and determination.',
 		mods: { str: 0, agi: 0, sta: 0, hp: 0, mp: 0, wis: 0, int: 0, per: 0, luk: 0, hun: 0 }
 	},
 	{
@@ -28,7 +28,7 @@ export const HERO_RACES = [
 		name: 'Orc',
 		emoji: '🪓',
 		summary: 'Built for battle, fueled by pride',
-		description: 'Orcs are natural fighters. They hit hard, take hits well, and are not really built for sitting still. If you need something dead, an Orc is a solid choice.',
+		description: 'Orcs are a warrior race, raised in clans where strength and combat are a way of life. They are physically imposing and built to take punishment as well as dish it out.',
 		mods: { str: 3, agi: -1, sta: 1, hp: 2, mp: -2, wis: -1, int: -1, per: 0, luk: 0, hun: -1 }
 	},
 	{
@@ -60,7 +60,7 @@ export const HERO_RACES = [
 		name: 'Fairy',
 		emoji: '🧚',
 		summary: 'Glitter, giggles, and mischief.',
-		description: 'Fairies are fragile but magically powerful. They are fast, wise, and surprisingly sharp — just do not expect them to take anything seriously. High risk, high reward.',
+		description: 'Fairies are ancient nature spirits in a very small body. Magically powerful and surprisingly wise, though they are also fragile and tend to follow their whims more than any plan.',
 		mods: { str: -3, agi: 3, sta: -2, hp: -2, mp: 3, wis: 2, int: 2, per: 0, luk: -1, hun: -2 }
 	},
 	{
@@ -68,7 +68,7 @@ export const HERO_RACES = [
 		name: 'Werewolf',
 		emoji: '🐺',
 		summary: 'Loyal heart, wild spirit.',
-		description: 'Werewolves are physically one of the strongest races you can pick. Strong, tough, and fast enough to keep up in a fight. The downside is they are not great at anything that requires patience or careful thinking.',
+		description: 'Werewolves carry a beast within them that never fully rests. They are physically powerful and fiercely loyal to those they consider pack. The curse is real, but so is everything that comes with it.',
 		mods: { str: 3, agi: 1, sta: 2, hp: 2, mp: -2, wis: -2, int: -2, per: 0, luk: -1, hun: -1 }
 	}
 ];
