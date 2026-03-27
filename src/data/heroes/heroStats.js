@@ -13,7 +13,7 @@ export const HERO_STATS = [
 		shortcode: 'STA',
 		type: 'Physical',
 		influences: 'Action limits and pacing',
-		defaultValue: 50
+		defaultValue: 100
 	},
 	{
 		id: 3,
