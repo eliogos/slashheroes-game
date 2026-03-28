@@ -1,0 +1,101 @@
+[
+	{
+		"internalId": 301,
+		"id": "coin_purse",
+		"displayName": "Coin Purse",
+		"description": "A tiny drawstring pouch worn at the belt. Fits coins, a ring, and very little optimism.",
+		"slots": 2,
+		"weightCapacity": 1,
+		"tags": ["tiny", "belt", "starter"],
+		"localization": {},
+		"created_at": "2026-03-28T00:00:00.000Z"
+	},
+	{
+		"internalId": 302,
+		"id": "belt_pouch",
+		"displayName": "Belt Pouch",
+		"description": "A sturdy pouch clipped to the belt. Holds essentials without getting in the way.",
+		"slots": 4,
+		"weightCapacity": 3,
+		"tags": ["small", "belt", "common"],
+		"localization": {},
+		"created_at": "2026-03-28T00:00:00.000Z"
+	},
+	{
+		"internalId": 303,
+		"id": "satchel",
+		"displayName": "Satchel",
+		"description": "A shoulder-slung bag with a single wide compartment. The adventurer's everyday carry.",
+		"slots": 8,
+		"weightCapacity": 8,
+		"tags": ["medium", "shoulder", "common"],
+		"localization": {},
+		"created_at": "2026-03-28T00:00:00.000Z"
+	},
+	{
+		"internalId": 304,
+		"id": "messenger_bag",
+		"displayName": "Messenger Bag",
+		"description": "A flat cross-body bag with a wide strap. More space than it looks, easier to access than a backpack.",
+		"slots": 12,
+		"weightCapacity": 12,
+		"tags": ["medium", "crossbody", "practical"],
+		"localization": {},
+		"created_at": "2026-03-28T00:00:00.000Z"
+	},
+	{
+		"internalId": 305,
+		"id": "duffel_bag",
+		"displayName": "Duffel Bag",
+		"description": "A wide cylindrical carry bag with handles. Fits a surprising amount when you stop caring about organization.",
+		"slots": 16,
+		"weightCapacity": 20,
+		"tags": ["large", "carry", "bulky"],
+		"localization": {},
+		"created_at": "2026-03-28T00:00:00.000Z"
+	},
+	{
+		"internalId": 306,
+		"id": "backpack",
+		"displayName": "Backpack",
+		"description": "A two-strap back-carried pack with padded shoulder support. The standard for serious travel.",
+		"slots": 20,
+		"weightCapacity": 25,
+		"tags": ["large", "back", "standard"],
+		"localization": {},
+		"created_at": "2026-03-28T00:00:00.000Z"
+	},
+	{
+		"internalId": 307,
+		"id": "hiking_pack",
+		"displayName": "Hiking Pack",
+		"description": "A tall framed pack built for long hauls. Heavy duty straps, a hip belt, and room for everything you swore you needed.",
+		"slots": 26,
+		"weightCapacity": 35,
+		"tags": ["large", "back", "framed"],
+		"localization": {},
+		"created_at": "2026-03-28T00:00:00.000Z"
+	},
+	{
+		"internalId": 308,
+		"id": "military_pack",
+		"displayName": "Military Pack",
+		"description": "A reinforced tactical pack designed to carry gear through the worst conditions imaginable.",
+		"slots": 32,
+		"weightCapacity": 45,
+		"tags": ["large", "tactical", "reinforced"],
+		"localization": {},
+		"created_at": "2026-03-28T00:00:00.000Z"
+	},
+	{
+		"internalId": 309,
+		"id": "merchants_trunk",
+		"displayName": "Merchant's Trunk",
+		"description": "A reinforced travel trunk on a carrying frame. Holds an entire shop's worth of goods. Walking with it is another matter.",
+		"slots": 40,
+		"weightCapacity": 60,
+		"tags": ["huge", "trunk", "merchant"],
+		"localization": {},
+		"created_at": "2026-03-28T00:00:00.000Z"
+	}
+]

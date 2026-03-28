@@ -10,6 +10,7 @@
 		"build-info": "node scripts/generate-build-info.js",
 		"create:weapon": "node scripts/create-weapon.js",
 		"check:stats": "node scripts/stat-checker.js",
+		"test:bags": "node src/data/items/bags/test/testBags.js",
 		"test:armors": "node src/data/items/armors/test/testArmors.js",
 		"test:ammo": "node src/data/items/ammo/test/testAmmo.js",
 		"test:throwables": "node src/data/items/throwables/test/testThrowables.js",
