@@ -1,8 +1,0 @@
-{
-  "permissions": {
-    "allow": [
-      "Bash(node -e \"import\\(''./src/data/items/weapons/weapons.js''\\).then\\(m => { const w = m.activeWeapons.filter\\(w => w.tier <= 2\\); console.log\\(JSON.stringify\\(w.map\\(x => \\({id: x.id, name: x.name, family: x.family, tier: x.tier}\\)\\), null, 2\\)\\) }\\)\")",
-      "Bash(node -e \"import\\(''./src/data/items/weapons/weapons.js''\\).then\\(m => { const ids = [''staff'',''quarterstaff'',''umbrella'',''jitte'',''gloves'',''chargedGloves'',''taser'']; const w = m.activeWeapons.filter\\(w => ids.includes\\(w.id\\)\\); console.log\\(JSON.stringify\\(w.map\\(x => \\({id: x.id, name: x.name, family: x.family, tier: x.tier, description: x.description}\\)\\), null, 2\\)\\) }\\)\")"
-    ]
-  }
-}
