@@ -2,301 +2,451 @@
 	{
 		"internalId": 201,
 		"id": "paper_helm",
-		"displayName": "Paper Helm",
+		"displayName": "Paper Hat",
 		"type": "helm",
 		"material": "paper",
 		"description": "A paper hat you have convinced yourself counts as armor. It does not.",
-		"tags": ["papery", "flimsy", "unconvincing"],
+		"tags": [
+			"papery",
+			"flimsy",
+			"unconvincing"
+		],
 		"localization": {},
-		"qualityMultipliers": { "protection": 1.0 },
+		"qualityMultipliers": {
+			"protection": 1
+		},
 		"created_at": "2026-03-28T00:00:00.000Z"
 	},
 	{
 		"internalId": 202,
 		"id": "paper_chest",
-		"displayName": "Paper Chest",
+		"displayName": "Paper Polo",
 		"type": "chest",
 		"material": "paper",
-		"description": "A paper vest folded with care and destroyed with one good punch.",
-		"tags": ["papery", "flimsy", "pointless"],
+		"description": "A paper polo shirt that passes the visual inspection and fails every other kind.",
+		"tags": [
+			"papery",
+			"flimsy",
+			"pointless"
+		],
 		"localization": {},
-		"qualityMultipliers": { "protection": 1.0 },
+		"qualityMultipliers": {
+			"protection": 1
+		},
 		"created_at": "2026-03-28T00:00:00.000Z"
 	},
 	{
 		"internalId": 203,
 		"id": "paper_leggings",
-		"displayName": "Paper Leggings",
+		"displayName": "Paper Pants",
 		"type": "leggings",
 		"material": "paper",
 		"description": "Paper tubes wrapped around the legs. They rustle when you walk and crumple when it matters.",
-		"tags": ["papery", "flimsy", "rustling"],
+		"tags": [
+			"papery",
+			"flimsy",
+			"rustling"
+		],
 		"localization": {},
-		"qualityMultipliers": { "protection": 1.0 },
+		"qualityMultipliers": {
+			"protection": 1
+		},
 		"created_at": "2026-03-28T00:00:00.000Z"
 	},
 	{
 		"internalId": 204,
 		"id": "paper_boots",
-		"displayName": "Paper Boots",
+		"displayName": "Origami Oxfords",
 		"type": "boots",
 		"material": "paper",
-		"description": "Paper wrapped over the feet. They lasted exactly one puddle.",
-		"tags": ["papery", "flimsy", "soggy"],
+		"description": "Paper folded into the shape of dress shoes. They hold their crease until the first puddle.",
+		"tags": [
+			"papery",
+			"flimsy",
+			"soggy"
+		],
 		"localization": {},
-		"qualityMultipliers": { "protection": 1.0 },
+		"qualityMultipliers": {
+			"protection": 1
+		},
 		"created_at": "2026-03-28T00:00:00.000Z"
 	},
 	{
 		"internalId": 205,
 		"id": "bread_helm",
-		"displayName": "Bread Helm",
+		"displayName": "Brioche Cap",
 		"type": "helm",
 		"material": "bread",
 		"description": "A hollow loaf balanced on the head. The crumbs offer no protection but the smell is oddly calming.",
-		"tags": ["edible", "crumbly", "comforting"],
+		"tags": [
+			"edible",
+			"crumbly",
+			"comforting"
+		],
 		"localization": {},
-		"qualityMultipliers": { "protection": 1.0 },
+		"qualityMultipliers": {
+			"protection": 1
+		},
 		"created_at": "2026-03-28T00:00:00.000Z"
 	},
 	{
 		"internalId": 206,
 		"id": "bread_chest",
-		"displayName": "Bread Chest",
+		"displayName": "Breadplate",
 		"type": "chest",
 		"material": "bread",
 		"description": "A bread breastplate that softens in rain, hardens in sun, and helps nobody.",
-		"tags": ["edible", "crumbly", "impractical"],
+		"tags": [
+			"edible",
+			"crumbly",
+			"impractical"
+		],
 		"localization": {},
-		"qualityMultipliers": { "protection": 1.0 },
+		"qualityMultipliers": {
+			"protection": 1
+		},
 		"created_at": "2026-03-28T00:00:00.000Z"
 	},
 	{
 		"internalId": 207,
 		"id": "bread_leggings",
-		"displayName": "Bread Leggings",
+		"displayName": "Baguette Boxers",
 		"type": "leggings",
 		"material": "bread",
 		"description": "Baguettes strapped to the thighs. They snap before the enemy does.",
-		"tags": ["edible", "crumbly", "snappy"],
+		"tags": [
+			"edible",
+			"crumbly",
+			"snappy"
+		],
 		"localization": {},
-		"qualityMultipliers": { "protection": 1.0 },
+		"qualityMultipliers": {
+			"protection": 1
+		},
 		"created_at": "2026-03-28T00:00:00.000Z"
 	},
 	{
 		"internalId": 208,
 		"id": "bread_boots",
-		"displayName": "Bread Boots",
+		"displayName": "Loaf-ers",
 		"type": "boots",
 		"material": "bread",
-		"description": "Loaves worn as shoes. Comfortable for exactly one step on dry ground.",
-		"tags": ["edible", "crumbly", "short-lived"],
+		"description": "Loaves worn as shoes. The hyphen is doing a lot of work here.",
+		"tags": [
+			"edible",
+			"crumbly",
+			"short-lived"
+		],
 		"localization": {},
-		"qualityMultipliers": { "protection": 1.0 },
+		"qualityMultipliers": {
+			"protection": 1
+		},
 		"created_at": "2026-03-28T00:00:00.000Z"
 	},
 	{
 		"internalId": 209,
 		"id": "cardboard_helm",
-		"displayName": "Cardboard Helm",
+		"displayName": "Carton Cap",
 		"type": "helm",
 		"material": "cardboard",
 		"description": "A cardboard box trimmed into a helm shape. It held once, against a light drizzle.",
-		"tags": ["corrugated", "makeshift", "optimistic"],
+		"tags": [
+			"corrugated",
+			"makeshift",
+			"optimistic"
+		],
 		"localization": {},
-		"qualityMultipliers": { "protection": 1.0 },
+		"qualityMultipliers": {
+			"protection": 1
+		},
 		"created_at": "2026-03-28T00:00:00.000Z"
 	},
 	{
 		"internalId": 210,
 		"id": "cardboard_chest",
-		"displayName": "Cardboard Chest",
+		"displayName": "Cardboard Cuirass",
 		"type": "chest",
 		"material": "cardboard",
 		"description": "Layers of corrugated cardboard shaped into a vest. Survives light contact and nothing deliberate.",
-		"tags": ["corrugated", "makeshift", "layered"],
+		"tags": [
+			"corrugated",
+			"makeshift",
+			"layered"
+		],
 		"localization": {},
-		"qualityMultipliers": { "protection": 1.0 },
+		"qualityMultipliers": {
+			"protection": 1
+		},
 		"created_at": "2026-03-28T00:00:00.000Z"
 	},
 	{
 		"internalId": 211,
 		"id": "cardboard_leggings",
-		"displayName": "Cardboard Leggings",
+		"displayName": "Box-ers",
 		"type": "leggings",
 		"material": "cardboard",
 		"description": "Cardboard strapped to the legs with tape. The tape is structural.",
-		"tags": ["corrugated", "makeshift", "taped"],
+		"tags": [
+			"corrugated",
+			"makeshift",
+			"taped"
+		],
 		"localization": {},
-		"qualityMultipliers": { "protection": 1.0 },
+		"qualityMultipliers": {
+			"protection": 1
+		},
 		"created_at": "2026-03-28T00:00:00.000Z"
 	},
 	{
 		"internalId": 212,
 		"id": "cardboard_boots",
-		"displayName": "Cardboard Boots",
+		"displayName": "Cardboard Cleats",
 		"type": "boots",
 		"material": "cardboard",
 		"description": "Cardboard boxes on the feet. Waterproof for about twelve seconds.",
-		"tags": ["corrugated", "makeshift", "brief"],
+		"tags": [
+			"corrugated",
+			"makeshift",
+			"brief"
+		],
 		"localization": {},
-		"qualityMultipliers": { "protection": 1.0 },
+		"qualityMultipliers": {
+			"protection": 1
+		},
 		"created_at": "2026-03-28T00:00:00.000Z"
 	},
 	{
 		"internalId": 213,
 		"id": "fabric_helm",
-		"displayName": "Fabric Helm",
+		"displayName": "Cloth Hood",
 		"type": "helm",
 		"material": "fabric",
 		"description": "A padded cloth hood that takes the edge off glancing blows and keeps the ears warm.",
-		"tags": ["woven", "soft", "humble"],
+		"tags": [
+			"woven",
+			"soft",
+			"humble"
+		],
 		"localization": {},
-		"qualityMultipliers": { "protection": 1.0 },
+		"qualityMultipliers": {
+			"protection": 1
+		},
 		"created_at": "2026-03-28T00:00:00.000Z"
 	},
 	{
 		"internalId": 214,
 		"id": "fabric_chest",
-		"displayName": "Fabric Chest",
+		"displayName": "Quilted Vest",
 		"type": "chest",
 		"material": "fabric",
 		"description": "A quilted cloth vest that diffuses weak strikes across its padding.",
-		"tags": ["woven", "soft", "padded"],
+		"tags": [
+			"woven",
+			"soft",
+			"padded"
+		],
 		"localization": {},
-		"qualityMultipliers": { "protection": 1.0 },
+		"qualityMultipliers": {
+			"protection": 1
+		},
 		"created_at": "2026-03-28T00:00:00.000Z"
 	},
 	{
 		"internalId": 215,
 		"id": "fabric_leggings",
-		"displayName": "Fabric Leggings",
+		"displayName": "Padded Leggings",
 		"type": "leggings",
 		"material": "fabric",
 		"description": "Lightweight padded leggings that offer minimal protection and maximum freedom of movement.",
-		"tags": ["woven", "soft", "mobile"],
+		"tags": [
+			"woven",
+			"soft",
+			"mobile"
+		],
 		"localization": {},
-		"qualityMultipliers": { "protection": 1.0 },
+		"qualityMultipliers": {
+			"protection": 1
+		},
 		"created_at": "2026-03-28T00:00:00.000Z"
 	},
 	{
 		"internalId": 216,
 		"id": "fabric_boots",
-		"displayName": "Fabric Boots",
+		"displayName": "Cotton Kicks",
 		"type": "boots",
 		"material": "fabric",
 		"description": "Soft cloth boots that keep the feet comfortable without offering much else.",
-		"tags": ["woven", "soft", "comfortable"],
+		"tags": [
+			"woven",
+			"soft",
+			"comfortable"
+		],
 		"localization": {},
-		"qualityMultipliers": { "protection": 1.0 },
+		"qualityMultipliers": {
+			"protection": 1
+		},
 		"created_at": "2026-03-28T00:00:00.000Z"
 	},
 	{
 		"internalId": 217,
 		"id": "seashells_helm",
-		"displayName": "Seashell Helm",
+		"displayName": "Shell Crown",
 		"type": "helm",
 		"material": "seashells",
 		"description": "Shells lashed over the skull. Looks coastal, cracks under anything deliberate.",
-		"tags": ["coastal", "brittle", "decorative"],
+		"tags": [
+			"coastal",
+			"brittle",
+			"decorative"
+		],
 		"localization": {},
-		"qualityMultipliers": { "protection": 1.0 },
+		"qualityMultipliers": {
+			"protection": 1
+		},
 		"created_at": "2026-03-28T00:00:00.000Z"
 	},
 	{
 		"internalId": 218,
 		"id": "seashells_chest",
-		"displayName": "Seashell Chest",
+		"displayName": "Shell Coat",
 		"type": "chest",
 		"material": "seashells",
 		"description": "A shell-covered vest that rattles as you walk and shatters if hit hard enough.",
-		"tags": ["coastal", "brittle", "rattling"],
+		"tags": [
+			"coastal",
+			"brittle",
+			"rattling"
+		],
 		"localization": {},
-		"qualityMultipliers": { "protection": 1.0 },
+		"qualityMultipliers": {
+			"protection": 1
+		},
 		"created_at": "2026-03-28T00:00:00.000Z"
 	},
 	{
 		"internalId": 219,
 		"id": "seashells_leggings",
-		"displayName": "Seashell Leggings",
+		"displayName": "Coral Guards",
 		"type": "leggings",
 		"material": "seashells",
 		"description": "Shell plates across the knees and shins. Crunchy, scratchy, and marginally protective.",
-		"tags": ["coastal", "brittle", "crunchy"],
+		"tags": [
+			"coastal",
+			"brittle",
+			"crunchy"
+		],
 		"localization": {},
-		"qualityMultipliers": { "protection": 1.0 },
+		"qualityMultipliers": {
+			"protection": 1
+		},
 		"created_at": "2026-03-28T00:00:00.000Z"
 	},
 	{
 		"internalId": 220,
 		"id": "seashells_boots",
-		"displayName": "Seashell Boots",
+		"displayName": "Shell Sneakers",
 		"type": "boots",
 		"material": "seashells",
 		"description": "Shells strapped to the feet. Uneven footing and a crunching sound with every step.",
-		"tags": ["coastal", "brittle", "uneven"],
+		"tags": [
+			"coastal",
+			"brittle",
+			"uneven"
+		],
 		"localization": {},
-		"qualityMultipliers": { "protection": 1.0 },
+		"qualityMultipliers": {
+			"protection": 1
+		},
 		"created_at": "2026-03-28T00:00:00.000Z"
 	},
 	{
 		"internalId": 221,
 		"id": "bone_helm",
-		"displayName": "Bone Helm",
+		"displayName": "Skull",
 		"type": "helm",
 		"material": "bone",
-		"description": "Animal skulls and jaw bones assembled into a helm. Grim to look at, genuinely decent protection.",
-		"tags": ["skeletal", "grim", "functional"],
+		"description": "Just a skull strapped to the head. Whose skull is unclear. Does the job regardless.",
+		"tags": [
+			"skeletal",
+			"grim",
+			"functional"
+		],
 		"localization": {},
-		"qualityMultipliers": { "protection": 1.0 },
+		"qualityMultipliers": {
+			"protection": 1
+		},
 		"created_at": "2026-03-28T00:00:00.000Z"
 	},
 	{
 		"internalId": 222,
 		"id": "bone_chest",
-		"displayName": "Bone Chest",
+		"displayName": "Ribcage Plate",
 		"type": "chest",
 		"material": "bone",
 		"description": "Rib bones and vertebrae arranged into a chest piece. The gaps are a problem, the plates are not.",
-		"tags": ["skeletal", "grim", "gapped"],
+		"tags": [
+			"skeletal",
+			"grim",
+			"gapped"
+		],
 		"localization": {},
-		"qualityMultipliers": { "protection": 1.0 },
+		"qualityMultipliers": {
+			"protection": 1
+		},
 		"created_at": "2026-03-28T00:00:00.000Z"
 	},
 	{
 		"internalId": 223,
 		"id": "bone_leggings",
-		"displayName": "Bone Leggings",
+		"displayName": "Femur Guards",
 		"type": "leggings",
 		"material": "bone",
 		"description": "Long bones buckled along the legs. More durable than they look, less than you would hope.",
-		"tags": ["skeletal", "grim", "gapped"],
+		"tags": [
+			"skeletal",
+			"grim",
+			"gapped"
+		],
 		"localization": {},
-		"qualityMultipliers": { "protection": 1.0 },
+		"qualityMultipliers": {
+			"protection": 1
+		},
 		"created_at": "2026-03-28T00:00:00.000Z"
 	},
 	{
 		"internalId": 224,
 		"id": "bone_boots",
-		"displayName": "Bone Boots",
+		"displayName": "Skeletal Slippers",
 		"type": "boots",
 		"material": "bone",
-		"description": "Animal bones shaped into foot guards. Surprisingly good arch support.",
-		"tags": ["skeletal", "grim", "supportive"],
+		"description": "Foot bones assembled into something resembling slippers. Cozy is not the word, but they do fit.",
+		"tags": [
+			"skeletal",
+			"grim",
+			"supportive"
+		],
 		"localization": {},
-		"qualityMultipliers": { "protection": 1.0 },
+		"qualityMultipliers": {
+			"protection": 1
+		},
 		"created_at": "2026-03-28T00:00:00.000Z"
 	},
 	{
 		"internalId": 225,
 		"id": "leather_helm",
-		"displayName": "Leather Helm",
+		"displayName": "Leather Cap",
 		"type": "helm",
 		"material": "leather",
 		"description": "A hardened leather cap that takes a hit without splitting. Dependable starter gear.",
-		"tags": ["tanned", "reliable", "sturdy"],
+		"tags": [
+			"tanned",
+			"reliable",
+			"sturdy"
+		],
 		"localization": {},
-		"qualityMultipliers": { "protection": 1.0 },
+		"qualityMultipliers": {
+			"protection": 1
+		},
 		"created_at": "2026-03-28T00:00:00.000Z"
 	},
 	{
@@ -306,9 +456,15 @@
 		"type": "chest",
 		"material": "leather",
 		"description": "A hardened leather cuirass that shrugs off glancing hits without weighing you down.",
-		"tags": ["tanned", "reliable", "fitted"],
+		"tags": [
+			"tanned",
+			"reliable",
+			"fitted"
+		],
 		"localization": {},
-		"qualityMultipliers": { "protection": 1.0 },
+		"qualityMultipliers": {
+			"protection": 1
+		},
 		"created_at": "2026-03-28T00:00:00.000Z"
 	},
 	{
@@ -318,9 +474,15 @@
 		"type": "leggings",
 		"material": "leather",
 		"description": "Hardened leather greaves that protect without slowing the stride.",
-		"tags": ["tanned", "reliable", "mobile"],
+		"tags": [
+			"tanned",
+			"reliable",
+			"mobile"
+		],
 		"localization": {},
-		"qualityMultipliers": { "protection": 1.0 },
+		"qualityMultipliers": {
+			"protection": 1
+		},
 		"created_at": "2026-03-28T00:00:00.000Z"
 	},
 	{
@@ -330,105 +492,159 @@
 		"type": "boots",
 		"material": "leather",
 		"description": "Tough leather boots that protect the feet and hold up under sustained use.",
-		"tags": ["tanned", "reliable", "durable"],
+		"tags": [
+			"tanned",
+			"reliable",
+			"durable"
+		],
 		"localization": {},
-		"qualityMultipliers": { "protection": 1.0 },
+		"qualityMultipliers": {
+			"protection": 1
+		},
 		"created_at": "2026-03-28T00:00:00.000Z"
 	},
 	{
 		"internalId": 229,
 		"id": "wood_helm",
-		"displayName": "Wood Helm",
+		"displayName": "Bark Helm",
 		"type": "helm",
 		"material": "wood",
 		"description": "A carved wooden cap that deflects glancing blows and smells faintly of pine.",
-		"tags": ["carved", "natural", "sturdy"],
+		"tags": [
+			"carved",
+			"natural",
+			"sturdy"
+		],
 		"localization": {},
-		"qualityMultipliers": { "protection": 1.0 },
+		"qualityMultipliers": {
+			"protection": 1
+		},
 		"created_at": "2026-03-28T00:00:00.000Z"
 	},
 	{
 		"internalId": 230,
 		"id": "wood_chest",
-		"displayName": "Wood Chest",
+		"displayName": "Timberplate",
 		"type": "chest",
 		"material": "wood",
 		"description": "Treated timber plates strapped to the torso. Heavier than leather but meaningfully tougher.",
-		"tags": ["carved", "natural", "planked"],
+		"tags": [
+			"carved",
+			"natural",
+			"planked"
+		],
 		"localization": {},
-		"qualityMultipliers": { "protection": 1.0 },
+		"qualityMultipliers": {
+			"protection": 1
+		},
 		"created_at": "2026-03-28T00:00:00.000Z"
 	},
 	{
 		"internalId": 231,
 		"id": "wood_leggings",
-		"displayName": "Wood Leggings",
+		"displayName": "Plank Guards",
 		"type": "leggings",
 		"material": "wood",
 		"description": "Wooden shin and thigh plates that hold against most blades but restrict movement noticeably.",
-		"tags": ["carved", "natural", "stiff"],
+		"tags": [
+			"carved",
+			"natural",
+			"stiff"
+		],
 		"localization": {},
-		"qualityMultipliers": { "protection": 1.0 },
+		"qualityMultipliers": {
+			"protection": 1
+		},
 		"created_at": "2026-03-28T00:00:00.000Z"
 	},
 	{
 		"internalId": 232,
 		"id": "wood_boots",
-		"displayName": "Wood Boots",
+		"displayName": "Wooden Clogs",
 		"type": "boots",
 		"material": "wood",
 		"description": "Carved wooden clogs reinforced for combat. Loud, durable, and impossible to sneak in.",
-		"tags": ["carved", "natural", "loud"],
+		"tags": [
+			"carved",
+			"natural",
+			"loud"
+		],
 		"localization": {},
-		"qualityMultipliers": { "protection": 1.0 },
+		"qualityMultipliers": {
+			"protection": 1
+		},
 		"created_at": "2026-03-28T00:00:00.000Z"
 	},
 	{
 		"internalId": 233,
 		"id": "scales_helm",
-		"displayName": "Scale Helm",
+		"displayName": "Scale Coif",
 		"type": "helm",
 		"material": "scales",
 		"description": "Overlapping reptile scales formed into a cap. Deflects blade tips and distributes smaller impacts.",
-		"tags": ["reptilian", "layered", "flexible"],
+		"tags": [
+			"reptilian",
+			"layered",
+			"flexible"
+		],
 		"localization": {},
-		"qualityMultipliers": { "protection": 1.0 },
+		"qualityMultipliers": {
+			"protection": 1
+		},
 		"created_at": "2026-03-28T00:00:00.000Z"
 	},
 	{
 		"internalId": 234,
 		"id": "scales_chest",
-		"displayName": "Scale Chest",
+		"displayName": "Scale Coat",
 		"type": "chest",
 		"material": "scales",
 		"description": "A coat of overlapping reptile scales that redirects strikes and resists minor punctures.",
-		"tags": ["reptilian", "layered", "redirecting"],
+		"tags": [
+			"reptilian",
+			"layered",
+			"redirecting"
+		],
 		"localization": {},
-		"qualityMultipliers": { "protection": 1.0 },
+		"qualityMultipliers": {
+			"protection": 1
+		},
 		"created_at": "2026-03-28T00:00:00.000Z"
 	},
 	{
 		"internalId": 235,
 		"id": "scales_leggings",
-		"displayName": "Scale Leggings",
+		"displayName": "Scale Chausses",
 		"type": "leggings",
 		"material": "scales",
 		"description": "Scaled leg armor that moves with the wearer and sheds strikes across its surface.",
-		"tags": ["reptilian", "layered", "fluid"],
+		"tags": [
+			"reptilian",
+			"layered",
+			"fluid"
+		],
 		"localization": {},
-		"qualityMultipliers": { "protection": 1.0 },
+		"qualityMultipliers": {
+			"protection": 1
+		},
 		"created_at": "2026-03-28T00:00:00.000Z"
 	},
 	{
 		"internalId": 236,
 		"id": "scales_boots",
-		"displayName": "Scale Boots",
+		"displayName": "Scale Socks",
 		"type": "boots",
 		"material": "scales",
-		"description": "Scaled foot guards that protect without sacrificing footing or flexibility.",
-		"tags": ["reptilian", "layered", "gripping"],
+		"description": "Overlapping scales fitted snugly around the feet. The reptilian answer to comfortable footwear.",
+		"tags": [
+			"reptilian",
+			"layered",
+			"gripping"
+		],
 		"localization": {},
-		"qualityMultipliers": { "protection": 1.0 },
+		"qualityMultipliers": {
+			"protection": 1
+		},
 		"created_at": "2026-03-28T00:00:00.000Z"
 	},
 	{
@@ -438,9 +654,15 @@
 		"type": "helm",
 		"material": "chainmail",
 		"description": "A coif of interlocked rings that spreads impact force and resists most cutting edges.",
-		"tags": ["linked", "rattling", "thorough"],
+		"tags": [
+			"linked",
+			"rattling",
+			"thorough"
+		],
 		"localization": {},
-		"qualityMultipliers": { "protection": 1.0 },
+		"qualityMultipliers": {
+			"protection": 1
+		},
 		"created_at": "2026-03-28T00:00:00.000Z"
 	},
 	{
@@ -450,9 +672,15 @@
 		"type": "chest",
 		"material": "chainmail",
 		"description": "Interlocked metal rings that distribute strike force across the entire torso.",
-		"tags": ["linked", "rattling", "distributed"],
+		"tags": [
+			"linked",
+			"rattling",
+			"distributed"
+		],
 		"localization": {},
-		"qualityMultipliers": { "protection": 1.0 },
+		"qualityMultipliers": {
+			"protection": 1
+		},
 		"created_at": "2026-03-28T00:00:00.000Z"
 	},
 	{
@@ -462,21 +690,33 @@
 		"type": "leggings",
 		"material": "chainmail",
 		"description": "Linked metal rings covering the legs completely. Heavy but leaving no gaps to exploit.",
-		"tags": ["linked", "rattling", "complete"],
+		"tags": [
+			"linked",
+			"rattling",
+			"complete"
+		],
 		"localization": {},
-		"qualityMultipliers": { "protection": 1.0 },
+		"qualityMultipliers": {
+			"protection": 1
+		},
 		"created_at": "2026-03-28T00:00:00.000Z"
 	},
 	{
 		"internalId": 240,
 		"id": "chainmail_boots",
-		"displayName": "Chainmail Boots",
+		"displayName": "Chain Flops",
 		"type": "boots",
 		"material": "chainmail",
-		"description": "Linked rings over the feet. Heavy and jingly but leaves no inch unprotected.",
-		"tags": ["linked", "rattling", "jingly"],
+		"description": "Metal rings strung around the feet. They flop, they clank, and they protect every inch.",
+		"tags": [
+			"linked",
+			"rattling",
+			"jingly"
+		],
 		"localization": {},
-		"qualityMultipliers": { "protection": 1.0 },
+		"qualityMultipliers": {
+			"protection": 1
+		},
 		"created_at": "2026-03-28T00:00:00.000Z"
 	},
 	{
@@ -486,9 +726,15 @@
 		"type": "helm",
 		"material": "ironplate",
 		"description": "A forged iron helmet that turns serious hits into dull thuds and requires a strong neck to wear.",
-		"tags": ["forged", "heavy", "decisive"],
+		"tags": [
+			"forged",
+			"heavy",
+			"decisive"
+		],
 		"localization": {},
-		"qualityMultipliers": { "protection": 1.0 },
+		"qualityMultipliers": {
+			"protection": 1
+		},
 		"created_at": "2026-03-28T00:00:00.000Z"
 	},
 	{
@@ -498,9 +744,15 @@
 		"type": "chest",
 		"material": "ironplate",
 		"description": "Thick forged iron that eats damage at the cost of breathing freely during a sprint.",
-		"tags": ["forged", "heavy", "absorbing"],
+		"tags": [
+			"forged",
+			"heavy",
+			"absorbing"
+		],
 		"localization": {},
-		"qualityMultipliers": { "protection": 1.0 },
+		"qualityMultipliers": {
+			"protection": 1
+		},
 		"created_at": "2026-03-28T00:00:00.000Z"
 	},
 	{
@@ -510,9 +762,15 @@
 		"type": "leggings",
 		"material": "ironplate",
 		"description": "Solid iron leg plates that reduce mobility noticeably in exchange for serious protection.",
-		"tags": ["forged", "heavy", "restricting"],
+		"tags": [
+			"forged",
+			"heavy",
+			"restricting"
+		],
 		"localization": {},
-		"qualityMultipliers": { "protection": 1.0 },
+		"qualityMultipliers": {
+			"protection": 1
+		},
 		"created_at": "2026-03-28T00:00:00.000Z"
 	},
 	{
@@ -522,57 +780,87 @@
 		"type": "boots",
 		"material": "ironplate",
 		"description": "Iron sabatons that protect every inch of the foot and remind you of their weight with every step.",
-		"tags": ["forged", "heavy", "stamina-taxing"],
+		"tags": [
+			"forged",
+			"heavy",
+			"stamina-taxing"
+		],
 		"localization": {},
-		"qualityMultipliers": { "protection": 1.0 },
+		"qualityMultipliers": {
+			"protection": 1
+		},
 		"created_at": "2026-03-28T00:00:00.000Z"
 	},
 	{
 		"internalId": 245,
 		"id": "obsidian_helm",
-		"displayName": "Obsidian Helm",
+		"displayName": "Void Helm",
 		"type": "helm",
 		"material": "obsidian",
 		"description": "Volcanic glass plates worked into a helm. Extremely hard against blades, fragile under heavy blunt force.",
-		"tags": ["volcanic", "sharp", "brittle"],
+		"tags": [
+			"volcanic",
+			"sharp",
+			"brittle"
+		],
 		"localization": {},
-		"qualityMultipliers": { "protection": 1.0 },
+		"qualityMultipliers": {
+			"protection": 1
+		},
 		"created_at": "2026-03-28T00:00:00.000Z"
 	},
 	{
 		"internalId": 246,
 		"id": "obsidian_chest",
-		"displayName": "Obsidian Chest",
+		"displayName": "Obsidian Breastplate",
 		"type": "chest",
 		"material": "obsidian",
 		"description": "Black glass plates layered over the chest. Annihilates cutting edges, shatters against hammers.",
-		"tags": ["volcanic", "sharp", "polarizing"],
+		"tags": [
+			"volcanic",
+			"sharp",
+			"polarizing"
+		],
 		"localization": {},
-		"qualityMultipliers": { "protection": 1.0 },
+		"qualityMultipliers": {
+			"protection": 1
+		},
 		"created_at": "2026-03-28T00:00:00.000Z"
 	},
 	{
 		"internalId": 247,
 		"id": "obsidian_leggings",
-		"displayName": "Obsidian Leggings",
+		"displayName": "Obsidian Greaves",
 		"type": "leggings",
 		"material": "obsidian",
 		"description": "Obsidian plates down the legs. Effortlessly deflects blades, dangerously weak against bludgeons.",
-		"tags": ["volcanic", "sharp", "polarizing"],
+		"tags": [
+			"volcanic",
+			"sharp",
+			"polarizing"
+		],
 		"localization": {},
-		"qualityMultipliers": { "protection": 1.0 },
+		"qualityMultipliers": {
+			"protection": 1
+		},
 		"created_at": "2026-03-28T00:00:00.000Z"
 	},
 	{
 		"internalId": 248,
 		"id": "obsidian_boots",
-		"displayName": "Obsidian Boots",
+		"displayName": "Obsidian Oxfords",
 		"type": "boots",
 		"material": "obsidian",
-		"description": "Black glass foot armor that is completely silent, perfect against blades, and catastrophic under a mace.",
-		"tags": ["volcanic", "sharp", "silent"],
+		"description": "Black glass shaped into a formal foot profile. Looks distinguished, shatters under a hammer.",
+		"tags": [
+			"volcanic",
+			"sharp",
+			"silent"
+		],
 		"localization": {},
-		"qualityMultipliers": { "protection": 1.0 },
+		"qualityMultipliers": {
+			"protection": 1
+		},
 		"created_at": "2026-03-28T00:00:00.000Z"
 	},
 	{
@@ -582,9 +870,15 @@
 		"type": "helm",
 		"material": "kevlar",
 		"description": "A synthetic combat helmet engineered for ballistic and impact resistance in modern engagements.",
-		"tags": ["synthetic", "ballistic", "modern"],
+		"tags": [
+			"synthetic",
+			"ballistic",
+			"modern"
+		],
 		"localization": {},
-		"qualityMultipliers": { "protection": 1.0 },
+		"qualityMultipliers": {
+			"protection": 1
+		},
 		"created_at": "2026-03-28T00:00:00.000Z"
 	},
 	{
@@ -594,9 +888,15 @@
 		"type": "chest",
 		"material": "kevlar",
 		"description": "A ballistic-rated vest that handles modern threats with more confidence than most forged steel.",
-		"tags": ["synthetic", "ballistic", "rated"],
+		"tags": [
+			"synthetic",
+			"ballistic",
+			"rated"
+		],
 		"localization": {},
-		"qualityMultipliers": { "protection": 1.0 },
+		"qualityMultipliers": {
+			"protection": 1
+		},
 		"created_at": "2026-03-28T00:00:00.000Z"
 	},
 	{
@@ -606,69 +906,105 @@
 		"type": "leggings",
 		"material": "kevlar",
 		"description": "Synthetic leg armor tuned for agility under live combat conditions.",
-		"tags": ["synthetic", "ballistic", "agile"],
+		"tags": [
+			"synthetic",
+			"ballistic",
+			"agile"
+		],
 		"localization": {},
-		"qualityMultipliers": { "protection": 1.0 },
+		"qualityMultipliers": {
+			"protection": 1
+		},
 		"created_at": "2026-03-28T00:00:00.000Z"
 	},
 	{
 		"internalId": 252,
 		"id": "kevlar_boots",
-		"displayName": "Kevlar Boots",
+		"displayName": "Kevlar Kicks",
 		"type": "boots",
 		"material": "kevlar",
 		"description": "Combat-rated synthetic boots with reinforced toe protection and ankle support.",
-		"tags": ["synthetic", "ballistic", "supported"],
+		"tags": [
+			"synthetic",
+			"ballistic",
+			"supported"
+		],
 		"localization": {},
-		"qualityMultipliers": { "protection": 1.0 },
+		"qualityMultipliers": {
+			"protection": 1
+		},
 		"created_at": "2026-03-28T00:00:00.000Z"
 	},
 	{
 		"internalId": 253,
 		"id": "diamondplate_helm",
-		"displayName": "Diamond Helm",
+		"displayName": "Crystal Crown",
 		"type": "helm",
 		"material": "diamondplate",
 		"description": "A crystalline helm that distributes incoming force so completely the wearer barely registers a hit.",
-		"tags": ["crystalline", "supreme", "absolute"],
+		"tags": [
+			"crystalline",
+			"supreme",
+			"absolute"
+		],
 		"localization": {},
-		"qualityMultipliers": { "protection": 1.0 },
+		"qualityMultipliers": {
+			"protection": 1
+		},
 		"created_at": "2026-03-28T00:00:00.000Z"
 	},
 	{
 		"internalId": 254,
 		"id": "diamondplate_chest",
-		"displayName": "Diamond Chest",
+		"displayName": "Diamond Breastplate",
 		"type": "chest",
 		"material": "diamondplate",
 		"description": "A full chest piece of crystalline plate that defines the upper ceiling of what protection can mean.",
-		"tags": ["crystalline", "supreme", "definitive"],
+		"tags": [
+			"crystalline",
+			"supreme",
+			"definitive"
+		],
 		"localization": {},
-		"qualityMultipliers": { "protection": 1.0 },
+		"qualityMultipliers": {
+			"protection": 1
+		},
 		"created_at": "2026-03-28T00:00:00.000Z"
 	},
 	{
 		"internalId": 255,
 		"id": "diamondplate_leggings",
-		"displayName": "Diamond Leggings",
+		"displayName": "Crystal Greaves",
 		"type": "leggings",
 		"material": "diamondplate",
 		"description": "Crystalline leg plates that move with surprising ease given how thoroughly they absorb damage.",
-		"tags": ["crystalline", "supreme", "fluid"],
+		"tags": [
+			"crystalline",
+			"supreme",
+			"fluid"
+		],
 		"localization": {},
-		"qualityMultipliers": { "protection": 1.0 },
+		"qualityMultipliers": {
+			"protection": 1
+		},
 		"created_at": "2026-03-28T00:00:00.000Z"
 	},
 	{
 		"internalId": 256,
 		"id": "diamondplate_boots",
-		"displayName": "Diamond Boots",
+		"displayName": "Crystal Cleats",
 		"type": "boots",
 		"material": "diamondplate",
-		"description": "Crystalline sabatons that anchor every step with the quiet confidence of total protection.",
-		"tags": ["crystalline", "supreme", "confident"],
+		"description": "Crystalline foot armor with a grip that refuses to slip. Every step lands with authority.",
+		"tags": [
+			"crystalline",
+			"supreme",
+			"confident"
+		],
 		"localization": {},
-		"qualityMultipliers": { "protection": 1.0 },
+		"qualityMultipliers": {
+			"protection": 1
+		},
 		"created_at": "2026-03-28T00:00:00.000Z"
 	}
 ]
