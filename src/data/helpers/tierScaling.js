@@ -16,6 +16,6 @@ export function applyTierScaling(baseQ, tier) {
 		speed:  baseQ.speed  * (0.8 + t * 0.4),
 		edge:   baseQ.edge   * (0.7 + t * 0.6),
 		reach:  baseQ.reach  * (0.85 + t * 0.3),
-		curvature: baseQ.curvature
+		curvature: baseQ.curvature * (0.5 + t)
 	};
 }

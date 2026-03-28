@@ -588,5 +588,27 @@
 		},
 		"familyFlag": 512,
 		"created_at": "2026-03-26T15:24:00.000Z"
+	},
+	{
+		"internalId": 139,
+		"id": "water_balloon",
+		"displayName": "Water Balloon",
+		"description": "A thin latex pouch of water that bursts on impact with a satisfying splash and absolutely zero lethality.",
+		"tags": [
+			"splashing",
+			"harmless",
+			"playful"
+		],
+		"localization": {},
+		"tier": 1,
+		"grip": 1,
+		"qualityMultipliers": {
+			"weight": 0.32,
+			"speed": 0.92,
+			"edge": 0.1,
+			"reach": 0.68
+		},
+		"familyFlag": 512,
+		"created_at": "2026-03-28T00:00:00.000Z"
 	}
 ]

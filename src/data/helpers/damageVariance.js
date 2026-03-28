@@ -5,8 +5,8 @@ const MAX_SPREAD = 0.25; // ±25% by default
 export function getDamageRange(baseDamage, curvature) {
 
 	// STEP 2 — Convert curvature to precision factor (0–1)
-	// - Using sin as a simple non-linear mapping
-	const precision = Math.sin(curvature || 0);
+	// - Clamps to 1.0 (zero spread) once curvature reaches 0.5
+	const precision = Math.min(1, (curvature || 0) * 2);
 
 	// STEP 3 — Compute spread
 	// - More curvature → smaller spread

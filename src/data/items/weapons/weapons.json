@@ -68,7 +68,7 @@
 	},
 	{
 		"internalId": 4,
-		"id": "butterflyKnife",
+		"id": "butterfly_knife",
 		"displayName": "Balisong",
 		"description": "A folding blade with flashy handling and deceptive attack timing.",
 		"tags": [
@@ -90,7 +90,7 @@
 	},
 	{
 		"internalId": 5,
-		"id": "tanto",
+		"id": "short_blade",
 		"displayName": "Tantō",
 		"description": "A rigid short blade that favors decisive cuts in tight spaces.",
 		"tags": [
@@ -113,7 +113,7 @@
 	},
 	{
 		"internalId": 6,
-		"id": "kris",
+		"id": "wavy_dagger",
 		"displayName": "Kris",
 		"description": "A wavy ceremonial blade with unsettling follow-through and ritual weight.",
 		"tags": [
@@ -136,7 +136,7 @@
 	},
 	{
 		"internalId": 7,
-		"id": "assassinsBlade",
+		"id": "assassins_blade",
 		"displayName": "Assassin's Blade",
 		"description": "A masterwork knife reserved for lethal specialists and silent executions.",
 		"tags": [
@@ -250,7 +250,7 @@
 	},
 	{
 		"internalId": 12,
-		"id": "zweihander",
+		"id": "two_hander",
 		"displayName": "Zweihänder",
 		"description": "A massive battlefield sword that trades speed for sweeping two-handed dominance.",
 		"tags": [
@@ -342,7 +342,7 @@
 	},
 	{
 		"internalId": 16,
-		"id": "macuahuitl",
+		"id": "obsidian_sword",
 		"displayName": "Macuahuitl",
 		"description": "A brutal war club lined with cutting edges, blending crushing force with savage slashes.",
 		"tags": [
@@ -457,7 +457,7 @@
 	},
 	{
 		"internalId": 21,
-		"id": "boloKnife",
+		"id": "bolo_knife",
 		"displayName": "Bolo Knife",
 		"description": "A dense utility chopper that hits harder than its size suggests.",
 		"tags": [
@@ -595,7 +595,7 @@
 	},
 	{
 		"internalId": 27,
-		"id": "khopesh",
+		"id": "sickle_sword",
 		"displayName": "Khopesh",
 		"description": "A forward-hooking sickle-sword that drags targets into brutal finishing arcs.",
 		"tags": [
@@ -618,7 +618,7 @@
 	},
 	{
 		"internalId": 28,
-		"id": "odachi",
+		"id": "great_blade",
 		"displayName": "Ōdachi",
 		"description": "An oversized war sword with sweeping reach and fearsome cutting authority.",
 		"tags": [
@@ -751,7 +751,7 @@
 	},
 	{
 		"internalId": 35,
-		"id": "electricBaton",
+		"id": "electric_baton",
 		"displayName": "Electric Baton",
 		"description": "A charged enforcement baton that mixes blunt trauma with powered shocks.",
 		"tags": [
@@ -927,7 +927,7 @@
 	},
 	{
 		"internalId": 43,
-		"id": "warHammer",
+		"id": "war_hammer",
 		"displayName": "War Hammer",
 		"description": "A battlefield hammer designed to punch through armor with focused force.",
 		"tags": [
@@ -949,7 +949,7 @@
 	},
 	{
 		"internalId": 44,
-		"id": "lucerneHammer",
+		"id": "lucerne_hammer",
 		"displayName": "Lucerne Hammer",
 		"description": "A pole-mounted hammer that extends crushing force deep into formation lines.",
 		"tags": [
@@ -971,7 +971,7 @@
 	},
 	{
 		"internalId": 45,
-		"id": "kanabo",
+		"id": "iron_club",
 		"displayName": "Kanabo",
 		"description": "A monstrous spiked club that turns every swing into a punishment.",
 		"tags": [
@@ -1015,7 +1015,7 @@
 	},
 	{
 		"internalId": 47,
-		"id": "colossalCrusher",
+		"id": "colossal_crusher",
 		"displayName": "Colossal Crusher",
 		"description": "An absurdly oversized hammer built for pure destructive spectacle.",
 		"tags": [
@@ -1103,7 +1103,7 @@
 	},
 	{
 		"internalId": 51,
-		"id": "battleRake",
+		"id": "battle_rake",
 		"displayName": "Battle Rake",
 		"description": "A reworked farming rake that snags and jabs with ungainly persistence.",
 		"tags": [
@@ -1169,7 +1169,7 @@
 	},
 	{
 		"internalId": 54,
-		"id": "naginata",
+		"id": "pole_blade",
 		"displayName": "Naginata",
 		"description": "A sweeping polearm that mixes elegant handling with punishing long arcs.",
 		"tags": [
@@ -1235,7 +1235,7 @@
 	},
 	{
 		"internalId": 57,
-		"id": "warScythe",
+		"id": "war_scythe",
 		"displayName": "War Scythe",
 		"description": "A reaped farming tool remade into a lethal weapon with vicious pulling cuts.",
 		"tags": [
@@ -1279,7 +1279,7 @@
 	},
 	{
 		"internalId": 59,
-		"id": "handAxe",
+		"id": "hand_axe",
 		"displayName": "Hand Axe",
 		"description": "A light versatile axe that balances utility with honest combat bite.",
 		"tags": [
@@ -1323,7 +1323,7 @@
 	},
 	{
 		"internalId": 61,
-		"id": "battleAxe",
+		"id": "battle_axe",
 		"displayName": "Battle Axe",
 		"description": "A war-ready axe with broad chopping power and confident handling.",
 		"tags": [
@@ -1345,7 +1345,7 @@
 	},
 	{
 		"internalId": 62,
-		"id": "warPick",
+		"id": "war_pick",
 		"displayName": "War Pick",
 		"description": "A piercing battlefield weapon focused on punching through hard protection.",
 		"tags": [
@@ -1521,7 +1521,7 @@
 	},
 	{
 		"internalId": 70,
-		"id": "recurveBow",
+		"id": "recurve_bow",
 		"displayName": "Recurve Bow",
 		"description": "A refined curved bow that squeezes more force from every practiced draw.",
 		"tags": [
@@ -1543,7 +1543,7 @@
 	},
 	{
 		"internalId": 71,
-		"id": "compositeBow",
+		"id": "composite_bow",
 		"displayName": "Composite Bow",
 		"description": "A reinforced high-end bow delivering strong output without sacrificing control.",
 		"tags": [
@@ -1566,11 +1566,11 @@
 	{
 		"internalId": 72,
 		"id": "gloves",
-		"displayName": "Gloves",
-		"description": "Basic fighting gloves that add structure to simple hand strikes.",
+		"displayName": "Studded Gloves",
+		"description": "Reinforced gloves with knuckle studs that turn every punch into something the other guy remembers.",
 		"tags": [
-			"basic",
-			"padded",
+			"studded",
+			"reinforced",
 			"humble"
 		],
 		"localization": {},
@@ -1587,7 +1587,7 @@
 	},
 	{
 		"internalId": 73,
-		"id": "chargedGloves",
+		"id": "charged_gloves",
 		"displayName": "Charged Gloves",
 		"description": "Powered gloves that crackle on impact and sharpen close-range bursts.",
 		"tags": [
@@ -1631,7 +1631,7 @@
 	},
 	{
 		"internalId": 75,
-		"id": "baghNakh",
+		"id": "tigerclaw",
 		"displayName": "Bagh Nakh",
 		"description": "A clawed hand weapon that rips targets open during quick slashing flurries.",
 		"tags": [
@@ -1650,29 +1650,52 @@
 			"curvature": 1.25
 		},
 		"created_at": "2026-03-26T13:50:55.126Z",
-		"familyFlag": 68
+		"familyFlag": 80
 	},
 	{
 		"internalId": 76,
 		"id": "gauntlet",
-		"displayName": "Gauntlet",
-		"description": "An ultimate hand weapon that turns armored blows into crushing certainty.",
+		"displayName": "Stone Gauntlet",
+		"description": "A gauntlet carved from dense stone that turns every punch into a wall hitting you back.",
 		"tags": [
-			"armored",
-			"supreme",
-			"crushing"
+			"stone",
+			"crushing",
+			"supreme"
 		],
 		"localization": {},
 		"tier": 6,
 		"grip": 1,
 		"qualityMultipliers": {
-			"weight": 1.16,
-			"speed": 0.98,
-			"edge": 1.04,
+			"weight": 1.38,
+			"speed": 0.88,
+			"edge": 1.18,
 			"reach": 0.94
 		},
 		"created_at": "2026-03-26T13:50:55.126Z",
-		"familyFlag": 64
+		"familyFlag": 72
+	},
+	{
+		"internalId": 115,
+		"id": "ninjaclaw",
+		"displayName": "Tekkō-kagi",
+		"description": "A set of hand claws designed for ninjas — rakes across flesh with curved iron tines and punishes anything that gets too close.",
+		"tags": [
+			"clawed",
+			"ninja",
+			"swift"
+		],
+		"localization": {},
+		"tier": 5,
+		"grip": 1,
+		"qualityMultipliers": {
+			"weight": 0.91,
+			"speed": 1.1,
+			"edge": 1.14,
+			"reach": 0.85,
+			"curvature": 1.4
+		},
+		"created_at": "2026-03-28T00:00:00.000Z",
+		"familyFlag": 192
 	},
 	{
 		"internalId": 77,
@@ -1742,7 +1765,7 @@
 	},
 	{
 		"internalId": 80,
-		"id": "laserPistol",
+		"id": "laser_pistol",
 		"displayName": "Laser Pistol",
 		"description": "A battery-fed sidearm that fires clean energy with crisp modern precision.",
 		"tags": [
@@ -1830,7 +1853,7 @@
 	},
 	{
 		"internalId": 84,
-		"id": "machineGun",
+		"id": "machine_gun",
 		"displayName": "Machine Gun",
 		"description": "A rapid-fire heavy weapon that overwhelms targets through relentless output.",
 		"tags": [
@@ -1918,7 +1941,7 @@
 	},
 	{
 		"internalId": 88,
-		"id": "warStaff",
+		"id": "war_staff",
 		"displayName": "War Staff",
 		"description": "A combat-optimized staff hardened for forceful sweeps and stubborn defense.",
 		"tags": [
@@ -1940,7 +1963,7 @@
 	},
 	{
 		"internalId": 89,
-		"id": "ruyiJinguBang",
+		"id": "monkey_staff",
 		"displayName": "Ruyi Jingu Bang",
 		"description": "A mythic staff of impossible mastery, famous for overwhelming reach and power.",
 		"tags": [
@@ -2030,7 +2053,7 @@
 	},
 	{
 		"internalId": 93,
-		"id": "yoYo",
+		"id": "yo_yo",
 		"displayName": "Yo-yo",
 		"description": "A weighted tethered toy turned into a looping weapon with odd rhythm.",
 		"tags": [
@@ -2052,7 +2075,7 @@
 	},
 	{
 		"internalId": 94,
-		"id": "electricWhip",
+		"id": "electric_whip",
 		"displayName": "Electric Whip",
 		"description": "A powered lash that mixes long-range control with crackling punishment.",
 		"tags": [
@@ -2075,7 +2098,7 @@
 	},
 	{
 		"internalId": 95,
-		"id": "kusarigama",
+		"id": "chain_sickle",
 		"displayName": "Kusarigama",
 		"description": "A chain-sickle hybrid that controls distance before snapping into lethal cuts.",
 		"tags": [
@@ -2098,7 +2121,7 @@
 	},
 	{
 		"internalId": 96,
-		"id": "jitte",
+		"id": "fork_baton",
 		"displayName": "Jitte",
 		"description": "A short iron weapon built for catching attacks and punishing openings.",
 		"tags": [
@@ -2142,7 +2165,7 @@
 	},
 	{
 		"internalId": 98,
-		"id": "greatScissors",
+		"id": "great_scissors",
 		"displayName": "Great Scissors",
 		"description": "An absurd oversized cutting tool turned into a ridiculous but dangerous showpiece.",
 		"tags": [
@@ -2154,9 +2177,9 @@
 		"tier": 6,
 		"grip": 2,
 		"qualityMultipliers": {
-			"weight": 1.18,
-			"speed": 0.9,
-			"edge": 1.12,
+			"weight": 1.35,
+			"speed": 0.82,
+			"edge": 1.28,
 			"reach": 1.08
 		},
 		"created_at": "2026-03-26T13:50:55.126Z",
@@ -2176,14 +2199,14 @@
 		"tier": 6,
 		"grip": 1,
 		"qualityMultipliers": {
-			"weight": 0.92,
-			"speed": 1.07,
-			"edge": 1.24,
+			"weight": 0.82,
+			"speed": 1.2,
+			"edge": 1.5,
 			"reach": 0.88,
 			"curvature": 1.22
 		},
 		"created_at": "2026-03-26T13:50:55.126Z",
-		"familyFlag": 512
+		"familyFlag": 768
 	},
 	{
 		"internalId": 100,
@@ -2231,7 +2254,7 @@
 	},
 	{
 		"internalId": 102,
-		"id": "roundShield",
+		"id": "round_shield",
 		"displayName": "Round Shield",
 		"description": "A standard shield with balanced coverage and steady battlefield utility.",
 		"tags": [
@@ -2275,7 +2298,7 @@
 	},
 	{
 		"internalId": 104,
-		"id": "heaterShield",
+		"id": "heater_shield",
 		"displayName": "Heater Shield",
 		"description": "A medium shield shaped for dependable coverage and practical front-line work.",
 		"tags": [
@@ -2297,7 +2320,7 @@
 	},
 	{
 		"internalId": 105,
-		"id": "forcefieldBand",
+		"id": "forcefield_band",
 		"displayName": "Forcefield Band",
 		"description": "An armband projector that spins battery power into a portable barrier.",
 		"tags": [
@@ -2408,7 +2431,7 @@
 	},
 	{
 		"internalId": 110,
-		"id": "electricGuitar",
+		"id": "electric_guitar",
 		"displayName": "Electric Guitar",
 		"description": "A stage weapon that turns amplified feedback, heavy swings, and raw showmanship into damage.",
 		"tags": [
@@ -2431,7 +2454,7 @@
 	},
 	{
 		"internalId": 111,
-		"id": "electricRacket",
+		"id": "electric_racket",
 		"displayName": "Electric Racket",
 		"description": "A crackling racket that swats targets aside with charged mesh and buzzing follow-through.",
 		"tags": [
@@ -2451,5 +2474,137 @@
 		},
 		"created_at": "2026-03-26T14:55:00.000Z",
 		"familyFlag": 514
+	},
+	{
+		"internalId": 112,
+		"id": "baseball_gloves",
+		"displayName": "Baseball Gloves",
+		"description": "Worn leather batting gloves repurposed for brawling. Light and comfortable, but they do the job.",
+		"tags": [
+			"leather",
+			"casual",
+			"light"
+		],
+		"localization": {},
+		"tier": 1,
+		"grip": 1,
+		"qualityMultipliers": {
+			"weight": 0.45,
+			"speed": 0.72,
+			"edge": 0.38,
+			"reach": 0.68
+		},
+		"created_at": "2026-03-28T00:00:00.000Z",
+		"familyFlag": 64
+	},
+	{
+		"internalId": 113,
+		"id": "boxing_gloves",
+		"displayName": "Boxing Gloves",
+		"description": "Thick padded gloves built for sustained punishment. Hits land heavy and protect the hands just as well.",
+		"tags": [
+			"padded",
+			"heavy",
+			"trained"
+		],
+		"localization": {},
+		"tier": 2,
+		"grip": 1,
+		"qualityMultipliers": {
+			"weight": 1.1,
+			"speed": 0.95,
+			"edge": 1.06,
+			"reach": 0.94
+		},
+		"created_at": "2026-03-28T00:00:00.000Z",
+		"familyFlag": 64
+	},
+	{
+		"internalId": 114,
+		"id": "tactical_gloves",
+		"displayName": "Tactical Gloves",
+		"description": "Military-grade combat gloves with reinforced knuckles and non-slip grip. Built for fighters who mean business.",
+		"tags": [
+			"military",
+			"reinforced",
+			"combat"
+		],
+		"localization": {},
+		"tier": 3,
+		"grip": 1,
+		"qualityMultipliers": {
+			"weight": 0.96,
+			"speed": 1.02,
+			"edge": 1.08,
+			"reach": 0.9
+		},
+		"created_at": "2026-03-28T00:00:00.000Z",
+		"familyFlag": 64
+	},
+	{
+		"internalId": 116,
+		"id": "monkey_fist",
+		"displayName": "Monkey Fist",
+		"description": "A dense rope-knotted ball swung on a short lead. Hits harder than it looks and leaves a satisfying dent.",
+		"tags": [
+			"knotted",
+			"weighted",
+			"compact"
+		],
+		"localization": {},
+		"tier": 2,
+		"grip": 1,
+		"qualityMultipliers": {
+			"weight": 1.08,
+			"speed": 0.98,
+			"edge": 1.04,
+			"reach": 1.0
+		},
+		"created_at": "2026-03-28T00:00:00.000Z",
+		"familyFlag": 72
+	},
+	{
+		"internalId": 117,
+		"id": "mecha_mitt",
+		"displayName": "Mecha-mitt",
+		"description": "A battery-driven impact gauntlet that charges up between swings and releases the energy as a devastating piston strike.",
+		"tags": [
+			"powered",
+			"mechanical",
+			"hammering"
+		],
+		"localization": {},
+		"tier": 4,
+		"grip": 1,
+		"qualityMultipliers": {
+			"weight": 1.14,
+			"speed": 1.02,
+			"edge": 1.1,
+			"reach": 0.88
+		},
+		"created_at": "2026-03-28T00:00:00.000Z",
+		"familyFlag": 74
+	},
+	{
+		"internalId": 118,
+		"id": "buster_sword",
+		"displayName": "Buster Sword",
+		"description": "A legendary blade so massive it barely qualifies as a sword. Swings slowly, lands absolutely, and leaves nothing to argue about.",
+		"tags": [
+			"massive",
+			"legendary",
+			"devastating"
+		],
+		"localization": {},
+		"tier": 6,
+		"grip": 2,
+		"qualityMultipliers": {
+			"weight": 1.42,
+			"speed": 0.72,
+			"edge": 1.45,
+			"reach": 1.3
+		},
+		"created_at": "2026-03-28T00:00:00.000Z",
+		"familyFlag": 260
 	}
 ]

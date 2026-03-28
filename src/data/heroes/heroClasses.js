@@ -54,7 +54,7 @@ export const HERO_CLASSES = [
 	{
 		id: 6,
 		name: 'Bard',
-		emoji: '🎵',
+		emoji: '🎻',
 		summary: 'Charming, inspiring, and clever',
 		description: 'Bards travel, perform, and pick up a little of everything along the way. They are perceptive, socially sharp, and know more useful things than they probably should.',
 		preferredStarterWeapons: ['ukulele', 'dagger', 'whip'],
@@ -77,7 +77,7 @@ export const HERO_CLASSES = [
 		emoji: '🥋',
 		summary: 'Focused, disciplined, and swift',
 		description: 'Monks have trained their body to be the weapon. Years of discipline have made them fast and resilient, and they do not need much else.',
-		preferredStarterWeapons: ['gloves', 'staff', 'jitte'],
+		preferredStarterWeapons: ['gloves', 'staff', 'fork_baton'],
 		preferredWeaponFamilyId: WEAPON_FAMILY.FIST,
 		mods: { str: 1, agi: 2, sta: 2, wis: -2, int: 0, per: -1, luk: 0, hun: -2 }
 	}
