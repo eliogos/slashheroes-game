@@ -1,20 +1,40 @@
 import { materialConfigs } from './materialConfigs.js';
-import { typeConfigs } from './typeConfigs.js';
+import { typeConfigs }     from './typeConfigs.js';
+import { getCritMitigation } from '../../helpers/armor/getCritMitigation.js';
+import { getBaseDefense }    from '../../helpers/armor/getBaseDefense.js';
+import { getBaseEvasion }    from '../../helpers/armor/getBaseEvasion.js';
+import { getBaseStride }     from '../../helpers/armor/getBaseStride.js';
 
-export function getInfluenceRange(armor) {
+const SLOT_FORMULA = {
+	helm:     (m, qm) => getCritMitigation(m.malleability, qm),
+	chest:    (m, qm) => getBaseDefense(m.hardness, qm),
+	leggings: (m, qm) => getBaseEvasion(m.malleability, m.weightFactor, qm),
+	boots:    (m, qm) => getBaseStride(m.traction, qm),
+};
+
+function round(value) {
+	return Math.round(value * 100) / 100;
+}
+
+// Returns normalized 0–1 values.
+// base   — the central stat value for this armor piece
+// spread — maximum deviation above/below base (driven by material variance)
+// stat   — the stat name this armor piece contributes to
+export function resolveArmorStat(armor) {
 	const material = materialConfigs[armor.material];
-	const type = typeConfigs[armor.type];
-
-	const base = type.baseInfluence * (material.baseProtection / 100) * (armor.qualityMultipliers?.protection ?? 1);
-	const spread = base * material.variance;
+	const qm       = armor.qualityMultipliers?.protection ?? 1;
+	const base     = round(SLOT_FORMULA[armor.type](material, qm));
+	const spread   = round(base * material.variance);
 
 	return {
-		base: Math.round(base * 10) / 10,
-		min:  Math.round(Math.max(base - spread, type.min) * 10) / 10,
-		max:  Math.round(Math.min(base + spread, type.max) * 10) / 10,
+		stat:   typeConfigs[armor.type].stat,
+		base,
+		spread,
+		min:    round(Math.max(base - spread, 0)),
+		max:    round(base + spread),
 	};
 }
 
 export function applyArmorInfluence(statValue, influenceValue) {
-	return statValue * (1 + influenceValue / 100);
+	return statValue * (1 + influenceValue);
 }

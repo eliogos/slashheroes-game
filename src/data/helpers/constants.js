@@ -1,5 +1,6 @@
 export const EPSILON = 1e-6;		// 0.000001 (Prevents division by zero)
-export const DEFAULT_DAMAGE_WEIGHTS = { weight: 0.25, speed: 0.30, edge: 0.30, reach: 0.15 };
+export const DEFAULT_DAMAGE_WEIGHTS   = { weight: 0.25, speed: 0.30, edge: 0.30, reach: 0.15 };
+export const DEFAULT_EVASION_WEIGHTS = { malleability: 0.60, weight: 0.40 };
 export const BASE_MULTIPLIER = 100;
 export const WEAPON_FAMILY = Object.freeze({
 	AXE: 1 << 0,

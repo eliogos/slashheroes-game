@@ -1,17 +1,17 @@
 import { activeArmors } from '../armors.js';
 import { materialIds } from '../materialConfigs.js';
 import { armorTypeIds, typeConfigs } from '../typeConfigs.js';
-import { getInfluenceRange } from '../resolveArmorInfluence.js';
+import { resolveArmorStat } from '../resolveArmorInfluence.js';
 
-const SORT_FIELDS = ['index', 'name', 'type', 'material', 'base', 'min', 'max'];
+const SORT_FIELDS = ['index', 'name', 'type', 'material', 'stat', 'base', 'spread'];
 const SORT_DEFAULT_DIRECTIONS = {
 	index:    'asc',
 	name:     'asc',
 	type:     'asc',
 	material: 'asc',
+	stat:     'asc',
 	base:     'desc',
-	min:      'asc',
-	max:      'desc'
+	spread:   'desc',
 };
 
 function parseArgs(argv) {
@@ -79,9 +79,8 @@ function parseSortDirection(args, sortField) {
 	return SORT_DEFAULT_DIRECTIONS[sortField];
 }
 
-
 function getSortValue(row, sortField) {
-	if (sortField === 'name' || sortField === 'type' || sortField === 'material') {
+	if (sortField === 'name' || sortField === 'type' || sortField === 'material' || sortField === 'stat') {
 		return row[sortField].toLowerCase();
 	}
 
@@ -124,16 +123,18 @@ if (!armors.length) {
 }
 
 const rows = armors.map(armor => {
-	const { base, min, max } = getInfluenceRange(armor);
+	const { stat, base, spread } = resolveArmorStat(armor);
 	return {
-		index:    armor.internalId,
-		name:     armor.displayName,
-		type:     armor.type,
-		material: armor.material,
+		index:         armor.internalId,
+		name:          armor.displayName,
+		type:          armor.type,
+		material:      armor.material,
+		'base effect': `${stat}  ${base.toFixed(2)} ±${spread.toFixed(2)}`,
 		base,
-		min,
-		max,
+		spread,
 	};
 });
 
-console.table(sortRows(rows, sortField, sortDirection));
+console.table(
+	sortRows(rows, sortField, sortDirection).map(({ base: _base, spread: _spread, ...row }) => row)
+);
