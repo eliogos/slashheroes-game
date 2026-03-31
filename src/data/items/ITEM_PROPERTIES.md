@@ -116,10 +116,13 @@ enforced.
 | Field | Type | Description |
 |---|---|---|
 | `id` | string | References an effect definition |
-| `magnitude` | number | Damage per tick, stat change amount, or heal value |
-| `duration` | number (ticks) | How long the effect persists. `0` = instant. |
+| `magnitude` | number | Damage per tick, stat change amount, heal value, or multiplier depending on effect type |
+| `duration` | number (ticks) | How long the effect persists. `0` = instant or permanent while active. |
 | `chance` | 0–1 | Probability of triggering. `1.0` = always. |
-| `target` | enum | `self` `enemy` `area` |
+| `target` | enum | `self` `enemy` `area` `contents` |
+| `hook` | enum | `onEquip` `onUnequip` `onHit` `onHitReceived` `onUse` `onExpire` `aura` |
+
+**Target: `contents`** — applies the effect to all items currently stored inside this carrier. Used exclusively on carriers. Magnitude is typically a multiplier (`1.25` = 25% boost) or a full-protection flag (`1.0`).
 
 **Effect trigger hooks:**
 
@@ -198,8 +201,15 @@ Sub-inventories that sit inside a bag and consolidate a specific item type into 
 
 | Property | Type | Description |
 |---|---|---|
-| `occupiedSlots` | integer | How many bag slots this carrier itself takes up | Always 1 — the efficiency comes from what it holds internally. |
-| `quickAccess` | boolean | Items in this carrier can be used directly without removing the carrier from the bag | |
+| `unique` | boolean | Only one of this carrier can be owned at a time. Attempting to acquire a second is blocked. All carriers are `true`. |
+| `occupiedSlots` | integer | How many bag slots this carrier itself takes up. Always `1` — the efficiency comes from what it holds internally. |
+| `quickAccess` | boolean | Items in this carrier can be used directly without removing the carrier from the bag. |
+| `acquiredFrom` | string[] | Where this carrier can be obtained. Values: `"shop"`, `"merchant"`. |
+| `stackLimitPerType` | integer \| null | Max items per type that can stack within this carrier. `null` = defer to the item's own `stackMax`. Omit if the carrier does not allow stacking. |
+| `mergeable` | boolean | Items in this carrier can be merged to compress slots (e.g. two small potions → one medium). Requires items to define `mergeTier`. |
+| `mergeTiers` | string[] | Ordered merge progression. e.g. `["small", "medium", "great"]`. Two of tier N merge into one of tier N+1. |
+| `effectMode` | enum | How effects from stored items are combined when the carrier itself is equipped. `"average"` = all stored item effects are averaged into one. Only relevant for ring-type carriers. |
+| `equipSlot` | string? | If set, this carrier is worn as equipment rather than stored in a bag. Value matches a character equipment slot (e.g. `"ring"`). |
 
 ---
 
@@ -288,24 +298,24 @@ Subtypes: `helm` `chest` `leggings` `boots`
 
 ### Edibles
 
-Subtypes: food, beverage
+Subtypes: `food`, `beverage`
+
+#### Core qualities
 
 | Property | Type | Description | Influence |
 |---|---|---|---|
-| `nutrition` | number (kcal) | Hunger restoration | Fills the hunger meter |
-| `hydration` | number (ml) | Thirst restoration | Fills the thirst meter |
-| `healing` | number | HP restored on consumption | |
-| `energy` | number | Stamina or energy boost | Temporary stamina increase beyond base |
-| `satiety` | 0–1 | How filling it feels relative to nutrition | High = fewer hunger pangs even at lower caloric value |
-| `taste` | enum | `vile` `bland` `plain` `tasty` `exquisite` | Morale and mood modifier |
-| `temperature` | enum | `frozen` `cold` `cool` `warm` `hot` `scalding` | Comfort effects — cold food in winter aids morale; hot food in a desert does not |
-| `alcoholContent` | 0–1 | Intoxication level per serving | Stacks across servings to build intoxication status with positive and negative effects |
-| `addictive` | boolean | Builds dependency over repeated use | Withdrawal debuffs apply if not regularly consumed |
-| `allergens` | string[] | Tags for adverse reactions | Certain characters or races suffer negative effects from flagged ingredients |
-| `servings` | integer | Uses per item instance | `1` = fully consumed on use |
-| `effects` | Effect[] | Buffs or debuffs applied on consumption | |
-| `expiryType` | enum? | `"steps"` or `"duration"`. `null` = does not expire | `steps` counts down on each player action. `duration` counts down in real hours. |
-| `expiry` | number? | Steps remaining, or hours until spoiled | When the counter reaches 0, the item id is prefixed with `rotten_` and a `[Rotten]` label is applied. No new item is created. |
+| `satiation` | number | How much hunger is restored on consumption | Fills the hunger meter. Higher = more filling. |
+| `effects` | Effect[] | Buffs or debuffs applied on consumption | Use the Effects System format with `hook: "onUse"`. Can be positive (stamina boost, heal) or negative (food poison). |
+| `decay` | number (actions) | How many player actions before the item rots | When the counter reaches 0, the item is prefixed with `rotten_` and a `[Rotten]` label is applied. No new item is created. |
+
+#### Additional properties
+
+| Property | Type | Description | Influence |
+|---|---|---|---|
+| `subtype` | enum | `food` `beverage` | Affects carrier compatibility and some race interactions. |
+| `requiresCooking` | boolean | Must be cooked before it is safe to consume | If consumed raw, `effects` apply regardless (typically `food_poison`). Use alongside `cookedFormId`. |
+| `cookedFormId` | string? | Item ID of the cooked form | Produced by cooking this item at a fire or cooking station. |
+| `refrigeratable` | boolean | Cold effects reset the `decay` counter | Applies when a chilling potion, cold aura, or cold environment is in contact with the item. |
 
 ---
 
