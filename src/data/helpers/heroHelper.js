@@ -1,6 +1,6 @@
-import { HERO_CLASSES } from './heroClasses.js';
-import { HERO_RACES } from './heroRaces.js';
-import { HERO_STATS } from './heroStats.js';
+import { HERO_CLASSES } from '../heroes/heroClasses.js';
+import { HERO_RACES } from '../heroes/heroRaces.js';
+import { HERO_STATS } from '../heroes/heroStats.js';
 
 export function getRaceById(raceId) {
 	return HERO_RACES.find(race => String(race.id) === String(raceId)) || null;

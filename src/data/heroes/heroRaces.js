@@ -1,83 +1,177 @@
-export const HERO_RACES = [
-	{
-		id: 1,
-		name: 'Human',
-		emoji: '🧑',
-		summary: 'Jack of all trades, master of none',
-		description: 'Humans are the most basic among the races. No innate special abilities, no magic, just sheer stubbornness and determination.',
-		inventorySlots: 12,
-		mods: { str: 0, agi: 0, sta: 0, hp: 0, mp: 0, wis: 0, int: 0, per: 0, luk: 0, hun: 0 }
-	},
-	{
-		id: 2,
-		name: 'Elf',
-		emoji: '🧝‍♂️',
-		summary: 'Graceful, sharp, and a little smug',
-		description: 'Elves are long-lived and naturally gifted with magic. They tend to be quicker and more perceptive than most, though centuries of living can make them a little hard to get along with.',
-		inventorySlots: 11,
-		mods: { str: -1, agi: 2, sta: -1, hp: 1, mp: 2, wis: 1, int: 0, per: 1, luk: -1, hun: -4 }
-	},
-	{
-		id: 3,
-		name: 'Dwarf',
-		emoji: '⛏️',
-		summary: 'Tough as the mountain they came from',
-		description: 'Dwarves come from deep underground and it shows. They are tough, strong, and built to outlast just about anything. Not the fastest or the most magical, but incredibly hard to put down.',
-		inventorySlots: 13,
-		mods: { str: 2, agi: -2, sta: 2, hp: 2, mp: -1, wis: -1, int: -1, per: 0, luk: 0, hun: -1 }
-	},
-	{
-		id: 4,
-		name: 'Orc',
-		emoji: '🪓',
-		summary: 'Built for battle, fueled by pride',
-		description: 'Orcs are a warrior race, raised in clans where strength and combat are a way of life. They are physically imposing and built to take punishment as well as dish it out.',
-		inventorySlots: 15,
-		mods: { str: 3, agi: -1, sta: 1, hp: 2, mp: -2, wis: -1, int: -1, per: 0, luk: 0, hun: -1 }
-	},
-	{
-		id: 5,
-		name: 'Halfling',
-		emoji: '🍀',
-		summary: 'Small size, big luck.',
-		description: 'Halflings are small and not particularly strong, but they make up for it with speed and an unusual amount of luck. Things just tend to work out for them somehow.',
-		inventorySlots: 10,
-		mods: { str: -2, agi: 2, sta: 0, hp: -1, mp: 0, wis: 0, int: 0, per: 1, luk: 2, hun: -2 }
-	},
-	{
-		id: 6,
-		name: 'Gnoll',
-		emoji: '🦊',
-		summary: 'Cunning, sly, and quick on their feet.',
-		description: 'Gnolls are pack hunters by nature. They are quick, strong enough to hold their own, and tend to rely on instinct over strategy. Not the brightest, but they know how to survive.',
-		inventorySlots: 12,
-		mods: { str: 2, agi: 1, sta: 1, hp: 0, mp: -2, wis: -1, int: -1, per: 1, luk: 0, hun: -1 }
-	},
-	{
-		id: 7,
-		name: 'Kobold',
-		emoji: '🦎',
-		summary: 'Tiny, crafty, and way too confident.',
-		description: 'Kobolds are small and physically weak, but they are clever and surprisingly capable with magic. They tend to make up for their size by being annoyingly hard to catch.',
-		inventorySlots: 9,
-		mods: { str: -2, agi: 2, sta: -1, hp: -1, mp: 1, wis: 1, int: 2, per: 0, luk: 0, hun: -2 }
-	},
-	{
-		id: 8,
-		name: 'Fairy',
-		emoji: '🧚',
-		summary: 'Glitter, giggles, and mischief.',
-		description: 'Fairies are ancient nature spirits. Magically powerful and surprisingly wise, though they are also fragile and tend to follow their whims more than any plan.',
-		inventorySlots: 8,
-		mods: { str: -3, agi: 3, sta: -2, hp: -2, mp: 3, wis: 2, int: 2, per: 0, luk: -1, hun: -2 }
-	},
-	{
-		id: 9,
-		name: 'Werewolf',
-		emoji: '🐺',
-		summary: 'Loyal heart, wild spirit.',
-		description: 'Werewolves carry a beast within them that never fully rests. They are physically powerful and fiercely loyal to those they consider pack. The curse is real, but so is everything that comes with it.',
-		inventorySlots: 13,
-		mods: { str: 3, agi: 1, sta: 2, hp: 2, mp: -2, wis: -2, int: -2, per: 0, luk: -1, hun: -1 }
+import { HeroDefinition } from './heroClasses.js';
+
+export class HeroRace extends HeroDefinition {
+	constructor(id) {
+		super(id);
+		this.inventorySlots = 0;
 	}
+
+	setInventorySlots(value) {
+		this.inventorySlots = value;
+		return this;
+	}
+}
+
+export const HERO_RACES = [
+	new HeroRace(1)
+		.setName('Human')
+		.setEmoji('🧑')
+		.setSummary('Jack of all trades, master of none')
+		.setDescription('Humans are the most basic among the races. No innate special abilities, no magic, just sheer stubbornness and determination.')
+		.setInventorySlots(12)
+		.modifiers
+		.strength(0)
+		.agility(0)
+		.stamina(0)
+		.health(0)
+		.mana(0)
+		.wisdom(0)
+		.intelligence(0)
+		.perception(0)
+		.luck(0)
+		.hunger(0),
+
+	new HeroRace(2)
+		.setName('Elf')
+		.setEmoji('🧝‍♂️')
+		.setSummary('Graceful, sharp, and a little smug')
+		.setDescription('Elves are long-lived and naturally gifted with magic. They tend to be quicker and more perceptive than most, though centuries of living can make them a little hard to get along with.')
+		.setInventorySlots(11)
+		.modifiers
+		.strength(-1)
+		.agility(2)
+		.stamina(-1)
+		.health(1)
+		.mana(2)
+		.wisdom(1)
+		.intelligence(0)
+		.perception(1)
+		.luck(-1)
+		.hunger(-4),
+
+	new HeroRace(3)
+		.setName('Dwarf')
+		.setEmoji('⛏️')
+		.setSummary('Tough as the mountain they came from')
+		.setDescription('Dwarves come from deep underground and it shows. They are tough, strong, and built to outlast just about anything. Not the fastest or the most magical, but incredibly hard to put down.')
+		.setInventorySlots(13)
+		.modifiers
+		.strength(2)
+		.agility(-2)
+		.stamina(2)
+		.health(2)
+		.mana(-1)
+		.wisdom(-1)
+		.intelligence(-1)
+		.perception(0)
+		.luck(0)
+		.hunger(-1),
+
+	new HeroRace(4)
+		.setName('Orc')
+		.setEmoji('🪓')
+		.setSummary('Built for battle, fueled by pride')
+		.setDescription('Orcs are a warrior race, raised in clans where strength and combat are a way of life. They are physically imposing and built to take punishment as well as dish it out.')
+		.setInventorySlots(15)
+		.modifiers
+		.strength(3)
+		.agility(-1)
+		.stamina(1)
+		.health(2)
+		.mana(-2)
+		.wisdom(-1)
+		.intelligence(-1)
+		.perception(0)
+		.luck(0)
+		.hunger(-1),
+
+	new HeroRace(5)
+		.setName('Halfling')
+		.setEmoji('🍀')
+		.setSummary('Small size, big luck.')
+		.setDescription('Halflings are small and not particularly strong, but they make up for it with speed and an unusual amount of luck. Things just tend to work out for them somehow.')
+		.setInventorySlots(10)
+		.modifiers
+		.strength(-2)
+		.agility(2)
+		.stamina(0)
+		.health(-1)
+		.mana(0)
+		.wisdom(0)
+		.intelligence(0)
+		.perception(1)
+		.luck(2)
+		.hunger(-2),
+
+	new HeroRace(6)
+		.setName('Gnoll')
+		.setEmoji('🦊')
+		.setSummary('Cunning, sly, and quick on their feet.')
+		.setDescription('Gnolls are pack hunters by nature. They are quick, strong enough to hold their own, and tend to rely on instinct over strategy. Not the brightest, but they know how to survive.')
+		.setInventorySlots(12)
+		.modifiers
+		.strength(2)
+		.agility(1)
+		.stamina(1)
+		.health(0)
+		.mana(-2)
+		.wisdom(-1)
+		.intelligence(-1)
+		.perception(1)
+		.luck(0)
+		.hunger(-1),
+
+	new HeroRace(7)
+		.setName('Kobold')
+		.setEmoji('🦎')
+		.setSummary('Tiny, crafty, and way too confident.')
+		.setDescription('Kobolds are small and physically weak, but they are clever and surprisingly capable with magic. They tend to make up for their size by being annoyingly hard to catch.')
+		.setInventorySlots(9)
+		.modifiers
+		.strength(-2)
+		.agility(2)
+		.stamina(-1)
+		.health(-1)
+		.mana(1)
+		.wisdom(1)
+		.intelligence(2)
+		.perception(0)
+		.luck(0)
+		.hunger(-2),
+
+	new HeroRace(8)
+		.setName('Fairy')
+		.setEmoji('🧚')
+		.setSummary('Glitter, giggles, and mischief.')
+		.setDescription('Fairies are ancient nature spirits. Magically powerful and surprisingly wise, though they are also fragile and tend to follow their whims more than any plan.')
+		.setInventorySlots(8)
+		.modifiers
+		.strength(-3)
+		.agility(3)
+		.stamina(-2)
+		.health(-2)
+		.mana(3)
+		.wisdom(2)
+		.intelligence(2)
+		.perception(0)
+		.luck(-1)
+		.hunger(-2),
+		
+	new HeroRace(9)
+		.setName('Werewolf')
+		.setEmoji('🐺')
+		.setSummary('Loyal heart, wild spirit.')
+		.setDescription('Werewolves carry a beast within them that never fully rests. They are physically powerful and fiercely loyal to those they consider pack. The curse is real, but so is everything that comes with it.')
+		.setInventorySlots(13)
+		.modifiers
+		.strength(3)
+		.agility(1)
+		.stamina(2)
+		.health(2)
+		.mana(-2)
+		.wisdom(-2)
+		.intelligence(-2)
+		.perception(0)
+		.luck(-1)
+		.hunger(-1)
 ];

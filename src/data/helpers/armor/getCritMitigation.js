@@ -1,7 +1,20 @@
-// Helm formula — malleability (0–1) drives crit damage mitigation.
-// Returns 0–1: 0 = no resistance, 0.5 = reduces crit damage by 50%, 1 = fully absorbs.
-// Malleable materials absorb and distribute the force of a critical hit.
-// Rigid/brittle materials concentrate it, offering little crit cushioning.
-export function getCritMitigation(malleability, qualityMultiplier = 1) {
-	return malleability * qualityMultiplier;
+import { DEFAULT_CRIT_PRESSURE_PA, EPSILON } from '../constants.js';
+
+function clamp(value, min, max) {
+	return Math.min(Math.max(value, min), max);
+}
+
+// Helm formula — compares incoming crit pressure against the helmet's yield threshold.
+// Returns -1..1: positive values reduce crit bonus damage, negative values amplify it.
+export function getCritMitigation(
+	yieldStress,
+	qualityMultiplier = 1,
+	critPressurePa = DEFAULT_CRIT_PRESSURE_PA
+) {
+	const yieldStressPa = typeof yieldStress === 'number'
+		? yieldStress
+		: (yieldStress?.Pascals ?? EPSILON);
+
+	const rawInfluence = 1 - (critPressurePa / Math.max(yieldStressPa, EPSILON));
+	return clamp(rawInfluence * qualityMultiplier, -1, 1);
 }

@@ -7,9 +7,9 @@ Research and finalize data definitions before reintroducing non-weapon starter i
 - [ ] Armor
 - [ ] Artifacts
 - [ ] Accessories
-- [ ] Scrolls
-- [ ] Potions
-- [ ] Edibles
+- [x] Scrolls
+- [x] Potions
+- [x] Edibles
 - [ ] Carriers
 - [ ] Bags
 

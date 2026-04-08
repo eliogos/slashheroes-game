@@ -1,12 +1,12 @@
-import helmsData    from './helms.json'    with { type: 'json' };
-import chestsData   from './chests.json'   with { type: 'json' };
-import leggingsData from './leggings.json' with { type: 'json' };
-import bootsData    from './boots.json'    with { type: 'json' };
+import { helmArmors } from './types/helm.js';
+import { chestArmors } from './types/chest.js';
+import { leggingsArmors } from './types/leggings.js';
+import { bootsArmors } from './types/boots.js';
 
-export const helms    = helmsData;
-export const chests   = chestsData;
-export const leggings = leggingsData;
-export const boots    = bootsData;
+export const helms    = helmArmors;
+export const chests   = chestArmors;
+export const leggings = leggingsArmors;
+export const boots    = bootsArmors;
 
 export const armors       = [...helms, ...chests, ...leggings, ...boots];
 export const activeArmors = armors.filter(entry => !entry.archived);

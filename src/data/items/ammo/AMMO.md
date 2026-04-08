@@ -1,6 +1,6 @@
 # Ammo
 
-Ammo is stored in [ammo.json](./ammo.json), and [ammo.js](./ammo.js) serves that data to the rest of the app.
+Ammo is defined as JS classes using `new Ammo()` from [AmmoItem.js](./AmmoItem.js) in per-family files such as `projectile.js`, `battery.js`, and `firearm.js`. [ammo.js](./ammo.js) aggregates those files and serves the combined data to the rest of the app.
 
 Current ammo fields:
 - `qualities.weight`

@@ -1,0 +1,95 @@
+import { Weapon, WEAPON_FAMILY } from '../Weapon.js';
+const { FIREARM } = WEAPON_FAMILY;
+
+export const firearmWeapons = [
+	new Weapon('flintlock')
+		.setInternalId(77)
+		.setDisplayName("Flintlock")
+		.setDescription("An early single-shot firearm that rewards nerve and deliberate timing.")
+		.setTags('antique', 'deliberate', 'smoky')
+		.setTier(1)
+		.setGrip(1)
+		.setFamilies(FIREARM)
+		.setWeightMod(0.84)
+		.setSpeedMod(0.92)
+		.setReachMod(0.88)
+		.setCreatedAt('2026-03-26T13:50:55.126Z'),
+
+	new Weapon('blunderbuss')
+		.setInternalId(78)
+		.setDisplayName("Blunderbuss")
+		.setDescription("A short brutal scatter gun built for chaos at punishingly close range.")
+		.setTags('chaotic', 'booming', 'savage')
+		.setTier(2)
+		.setGrip(1)
+		.setFamilies(FIREARM)
+		.setWeightMod(1.06)
+		.setSpeedMod(0.88)
+		.setReachMod(0.76)
+		.setCreatedAt('2026-03-26T13:50:55.126Z'),
+
+	new Weapon('musket')
+		.setInternalId(79)
+		.setDisplayName("Musket")
+		.setDescription("A standard infantry gun meant for disciplined lines and measured volleys.")
+		.setTags('disciplined', 'martial', 'measured')
+		.setTier(3)
+		.setGrip(2)
+		.setFamilies(FIREARM)
+		.setWeightMod(1.08)
+		.setSpeedMod(0.94)
+		.setReachMod(1.16)
+		.setCreatedAt('2026-03-26T13:50:55.126Z'),
+
+	new Weapon('rifle')
+		.setInternalId(81)
+		.setDisplayName("Rifle")
+		.setDescription("A long precision firearm built to reward calm aim and steady hands.")
+		.setTags('precise', 'steady', 'lethal')
+		.setTier(5)
+		.setGrip(2)
+		.setFamilies(FIREARM)
+		.setWeightMod(1.02)
+		.setSpeedMod(1.04)
+		.setReachMod(1.2)
+		.setCreatedAt('2026-03-26T13:50:55.126Z'),
+
+	new Weapon('handcannon')
+		.setInternalId(82)
+		.setDisplayName("Handcannon")
+		.setDescription("A heavy short-range gun that trades finesse for outrageous stopping power.")
+		.setTags('heavy', 'outrageous', 'brutal')
+		.setTier(5)
+		.setGrip(1)
+		.setFamilies(FIREARM)
+		.setWeightMod(1.2)
+		.setSpeedMod(0.86)
+		.setReachMod(0.82)
+		.setCreatedAt('2026-03-26T13:50:55.126Z'),
+
+	new Weapon('bazooka')
+		.setInternalId(83)
+		.setDisplayName("Bazooka")
+		.setDescription("An explosive launcher engineered for oversized destruction and backblast terror.")
+		.setTags('explosive', 'oversized', 'demolishing')
+		.setTier(6)
+		.setGrip(2)
+		.setFamilies(FIREARM)
+		.setWeightMod(1.32)
+		.setSpeedMod(0.72)
+		.setReachMod(1.1)
+		.setCreatedAt('2026-03-26T13:50:55.126Z'),
+
+	new Weapon('machine_gun')
+		.setInternalId(84)
+		.setDisplayName("Machine Gun")
+		.setDescription("A rapid-fire heavy weapon that overwhelms targets through relentless output.")
+		.setTags('rapidfire', 'relentless', 'suppressive')
+		.setTier(6)
+		.setGrip(2)
+		.setFamilies(FIREARM)
+		.setWeightMod(1.24)
+		.setSpeedMod(1.06)
+		.setReachMod(1.08)
+		.setCreatedAt('2026-03-26T13:50:55.126Z'),
+];

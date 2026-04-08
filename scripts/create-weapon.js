@@ -4,11 +4,12 @@ import { fileURLToPath } from 'url';
 import {
 	buildWeaponFamilyFlag,
 	getWeaponFamilyKeys,
+	getPrimaryFamilyKey,
 	normalizeWeaponFamilyIds
 } from '../src/data/items/weapons/familyConfigs.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const weaponsPath = path.resolve(__dirname, '../src/data/items/weapons/weapons.json');
+const weaponsDir = path.resolve(__dirname, '../src/data/items/weapons/families');
 const qualityKeys = new Set(['weight', 'speed', 'edge', 'reach', 'curvature']);
 
 const helpText = `
@@ -26,7 +27,7 @@ Optional flags:
 
 Notes:
   families and tags use comma-separated values.
-  families accepts numeric ids or family keys and is stored as familyFlag in weapons.json.
+  families accepts numeric ids or family keys and is stored as familyFlag in per-family JS files.
   localization accepts a JSON object or --localizationFile.
   qualityMultipliers accepts JSON or key=value pairs.
 `.trim();
@@ -54,12 +55,75 @@ function parseArgs(argv) {
   return args;
 }
 
-function readWeapons() {
-  return JSON.parse(readFileSync(weaponsPath, 'utf8'));
+async function readAllWeapons() {
+  const { weapons } = await import('../src/data/items/weapons/weapons.js');
+  return weapons;
 }
 
-function writeWeapons(weapons) {
-  writeFileSync(weaponsPath, `${JSON.stringify(weapons, null, '\t')}\n`);
+function formatWeaponCode(weapon) {
+  const familyKeys = getWeaponFamilyKeys(weapon.familyFlag);
+  const qm = weapon.qualityMultipliers || {};
+
+  const lines = [];
+  lines.push(`\tnew Weapon('${weapon.id}')`);
+  lines.push(`\t\t.setInternalId(${weapon.internalId})`);
+  lines.push(`\t\t.setDisplayName(${JSON.stringify(weapon.displayName)})`);
+  lines.push(`\t\t.setDescription(${JSON.stringify(weapon.description)})`);
+  lines.push(`\t\t.setTags(${weapon.tags.map(t => `'${t}'`).join(', ')})`);
+
+  if (weapon.localization && Object.keys(weapon.localization).length) {
+    lines.push(`\t\t.setLocalization(${JSON.stringify(weapon.localization)})`);
+  }
+
+  lines.push(`\t\t.setTier(${weapon.tier})`);
+  lines.push(`\t\t.setGrip(${weapon.grip})`);
+  lines.push(`\t\t.setFamilies(${familyKeys.join(' | ')})`);
+
+  for (const k of ['weight', 'speed', 'edge', 'reach', 'curvature']) {
+    if (qm[k] !== undefined && qm[k] !== 1) {
+      const setter = 'set' + k.charAt(0).toUpperCase() + k.slice(1) + 'Mod';
+      lines.push(`\t\t.${setter}(${qm[k]})`);
+    }
+  }
+
+  lines.push(`\t\t.setCreatedAt('${weapon.created_at}')`);
+
+  if (weapon.archived) {
+    lines.push(`\t\t.setArchived()`);
+  }
+
+  return lines.join('\n');
+}
+
+function appendWeaponToFile(familyFile, weaponCode, familyKeys) {
+  const filePath = path.join(weaponsDir, familyFile);
+  let content = readFileSync(filePath, 'utf8');
+
+  // Ensure all family keys are destructured
+  const destructureMatch = content.match(/const \{ ([^}]+) \} = WEAPON_FAMILY;/);
+  if (destructureMatch) {
+    const existing = new Set(destructureMatch[1].split(',').map(k => k.trim()));
+    for (const key of familyKeys) {
+      existing.add(key);
+    }
+    const sorted = [...existing].sort();
+    content = content.replace(
+      destructureMatch[0],
+      `const { ${sorted.join(', ')} } = WEAPON_FAMILY;`
+    );
+  }
+
+  // Insert before the closing ];
+  const closingIndex = content.lastIndexOf('];');
+  if (closingIndex === -1) {
+    throw new Error(`Could not find closing ]; in ${familyFile}`);
+  }
+
+  const before = content.slice(0, closingIndex);
+  const after = content.slice(closingIndex);
+  const updated = before + '\n' + weaponCode + ',\n' + after;
+
+  writeFileSync(filePath, updated);
 }
 
 function parseInteger(value, label) {
@@ -324,7 +388,7 @@ function createWeaponRecord(args, weapons) {
   return weapon;
 }
 
-function main() {
+async function main() {
   const args = parseArgs(process.argv.slice(2));
 
   if (args.help) {
@@ -332,23 +396,27 @@ function main() {
     return;
   }
 
-  const weapons = readWeapons();
+  const weapons = await readAllWeapons();
   const weapon = createWeaponRecord(args, weapons);
-  const nextWeapons = [...weapons, weapon].sort((left, right) => left.internalId - right.internalId);
 
   if (args['dry-run'] || args.dryRun) {
     console.log('Dry run. Weapon was validated but not written:');
-    console.log(JSON.stringify(weapon, null, 2));
+    console.log(formatWeaponCode(weapon));
     return;
   }
 
-  writeWeapons(nextWeapons);
-  console.log(`Created weapon "${weapon.displayName}" in ${weaponsPath}`);
-  console.log(JSON.stringify(weapon, null, 2));
+  const primaryKey = getPrimaryFamilyKey(weapon.familyFlag);
+  const familyFile = `${primaryKey.toLowerCase()}.js`;
+  const familyKeys = getWeaponFamilyKeys(weapon.familyFlag);
+  const weaponCode = formatWeaponCode(weapon);
+
+  appendWeaponToFile(familyFile, weaponCode, familyKeys);
+  console.log(`Created weapon "${weapon.displayName}" in ${path.join(weaponsDir, familyFile)}`);
+  console.log(weaponCode);
 }
 
 try {
-  main();
+  await main();
 } catch (error) {
   console.error(error.message);
   process.exitCode = 1;

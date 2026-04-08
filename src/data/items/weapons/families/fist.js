@@ -1,0 +1,88 @@
+import { Weapon, WEAPON_FAMILY } from '../Weapon.js';
+const { FIST, KNIFE } = WEAPON_FAMILY;
+
+export const fistWeapons = [
+	new Weapon('gloves')
+		.setInternalId(72)
+		.setDisplayName("Studded Gloves")
+		.setDescription("Reinforced gloves with knuckle studs that turn every punch into something the other guy remembers.")
+		.setTags('studded', 'reinforced', 'humble')
+		.setTier(1)
+		.setGrip(1)
+		.setFamilies(FIST)
+		.setWeightMod(0.92)
+		.setSpeedMod(1.02)
+		.setEdgeMod(0.96)
+		.setReachMod(0.9)
+		.setCreatedAt('2026-03-26T13:50:55.126Z'),
+
+	new Weapon('knuckleduster')
+		.setInternalId(74)
+		.setDisplayName("Knuckleduster")
+		.setDescription("A metal fist weapon built to turn compact punches into brutal impacts.")
+		.setTags('metal', 'compact', 'punishing')
+		.setTier(3)
+		.setGrip(1)
+		.setFamilies(FIST)
+		.setWeightMod(1.05)
+		.setEdgeMod(1.03)
+		.setReachMod(0.86)
+		.setCreatedAt('2026-03-26T13:50:55.126Z'),
+
+	new Weapon('ninjaclaw')
+		.setInternalId(115)
+		.setDisplayName("Tekkō-kagi")
+		.setDescription("A set of hand claws designed for ninjas — rakes across flesh with curved iron tines and punishes anything that gets too close.")
+		.setTags('clawed', 'ninja', 'swift')
+		.setTier(5)
+		.setGrip(1)
+		.setFamilies(FIST | KNIFE)
+		.setWeightMod(0.91)
+		.setSpeedMod(1.1)
+		.setEdgeMod(1.14)
+		.setReachMod(0.85)
+		.setCurvatureMod(1.4)
+		.setCreatedAt('2026-03-28T00:00:00.000Z'),
+
+	new Weapon('baseball_gloves')
+		.setInternalId(112)
+		.setDisplayName("Baseball Gloves")
+		.setDescription("Worn leather batting gloves repurposed for brawling. Light and comfortable, but they do the job.")
+		.setTags('leather', 'casual', 'light')
+		.setTier(1)
+		.setGrip(1)
+		.setFamilies(FIST)
+		.setWeightMod(0.45)
+		.setSpeedMod(0.72)
+		.setEdgeMod(0.38)
+		.setReachMod(0.68)
+		.setCreatedAt('2026-03-28T00:00:00.000Z'),
+
+	new Weapon('boxing_gloves')
+		.setInternalId(113)
+		.setDisplayName("Boxing Gloves")
+		.setDescription("Thick padded gloves built for sustained punishment. Hits land heavy and protect the hands just as well.")
+		.setTags('padded', 'heavy', 'trained')
+		.setTier(2)
+		.setGrip(1)
+		.setFamilies(FIST)
+		.setWeightMod(1.1)
+		.setSpeedMod(0.95)
+		.setEdgeMod(1.06)
+		.setReachMod(0.94)
+		.setCreatedAt('2026-03-28T00:00:00.000Z'),
+
+	new Weapon('tactical_gloves')
+		.setInternalId(114)
+		.setDisplayName("Tactical Gloves")
+		.setDescription("Military-grade combat gloves with reinforced knuckles and non-slip grip. Built for fighters who mean business.")
+		.setTags('military', 'reinforced', 'combat')
+		.setTier(3)
+		.setGrip(1)
+		.setFamilies(FIST)
+		.setWeightMod(0.96)
+		.setSpeedMod(1.02)
+		.setEdgeMod(1.08)
+		.setReachMod(0.9)
+		.setCreatedAt('2026-03-28T00:00:00.000Z'),
+];

@@ -1,120 +1,177 @@
-import { convertWeaponUnits } from '../../helpers/convertWeaponUnits.js';
+import { Angle, Length, Mass, Speed } from 'unitsnet-js';
+import { EPSILON } from '../../helpers/constants.js';
 import { WEAPON_FAMILY } from '../../helpers/constants.js';
 
-function defineFamily(id, key, description, qualities, damageProfile = null) {
-	return {
-		id,
-		key,
-		description,
-		qualities: convertWeaponUnits(qualities),
-		damageProfile
-	};
+class WeaponFamily {
+	constructor(id, key) {
+		this.id = id;
+		this.key = key;
+		this.description = '';
+		this.damageProfile = null;
+
+		this._baseWeight = Mass.FromKilograms(EPSILON);
+		this._speed = Speed.FromMetersPerSecond(EPSILON);
+		this._edge = Length.FromMillimeters(EPSILON);
+		this._reach = Length.FromMeters(EPSILON);
+		this._curvature = Angle.FromDegrees(0);
+	}
+
+	get qualities() {
+		return {
+			weight: this._baseWeight.Grams,
+			speed: this._speed.MetersPerSecond,
+			edge: this._edge.Millimeters,
+			reach: this._reach.Centimeters,
+			curvature: this._curvature.Radians
+		};
+	}
+
+	setDescription(value) { this.description = value; return this; }
+	setBaseWeight(value) { this._baseWeight = value; return this; }
+	setSpeed(value) { this._speed = value; return this; }
+	setEdge(value) { this._edge = value; return this; }
+	setReach(value) { this._reach = value; return this; }
+	setCurvature(value) { this._curvature = value; return this; }
+	setDamageProfile(value) { this.damageProfile = value; return this; }
 }
 
 const familyEntries = [
-	defineFamily(
-		WEAPON_FAMILY.AXE,
-		'AXE',
-		'Heavy and slow, strong impact with moderate randomness.',
-		{ weight: 3.4, speed: 5.4, edge: 14, reach: 1.1, curvature: 6 }
-	),
-	defineFamily(
-		WEAPON_FAMILY.BATTERY,
-		'BATTERY',
-		'Powered weapons relying on energy and weaker without a charge source.',
-		{ weight: 1.7, speed: 8.2, edge: 8, reach: 1.0, curvature: 4 }
-	),
-	defineFamily(
-		WEAPON_FAMILY.BLADE,
-		'BLADE',
-		'Balanced weapons with consistent performance.',
-		{ weight: 1.6, speed: 8.8, edge: 12, reach: 1.0, curvature: 10 }
-	),
-	defineFamily(
-		WEAPON_FAMILY.BLUNT,
-		'BLUNT',
-		'Heavy impact weapons that swing slower and hit with raw force.',
-		{ weight: 4.2, speed: 4.6, edge: 2, reach: 1.05, curvature: 0 },
-		{ weight: 0.95, speed: 0.01, edge: 0.03, reach: 0.2 }
-	),
-	defineFamily(
-		WEAPON_FAMILY.CURVED_BLADE,
-		'CURVED_BLADE',
-		'Most precise weapons, favoring controlled and consistent strikes.',
-		{ weight: 1.5, speed: 9.4, edge: 13, reach: 1.0, curvature: 22 }
-	),
-	defineFamily(
-		WEAPON_FAMILY.FAN,
-		'FAN',
-		'War fans that blend feints, sweeping defense, and precise follow-up strikes.',
-		{ weight: 1.15, speed: 9.1, edge: 7, reach: 1.05, curvature: 14 }
-	),
-	defineFamily(
-		WEAPON_FAMILY.FIREARM,
-		'FIREARM',
-		'Amplifies ammo power and speed, but feels weak without ammunition.',
-		{ weight: 2.8, speed: 4.8, edge: 1, reach: 1.2, curvature: 0 }
-	),
-	defineFamily(
-		WEAPON_FAMILY.FIST,
-		'FIST',
-		'Fast strikes with moderate impact and low reach.',
-		{ weight: 0.5, speed: 14.5, edge: 7, reach: 0.45, curvature: 8 }
-	),
-	defineFamily(
-		WEAPON_FAMILY.KNIFE,
-		'KNIFE',
-		'Very fast strikes, low damage, improves precision with tier.',
-		{ weight: 1.0, speed: 15.0, edge: 12, reach: 0.8, curvature: 15 }
-	),
-	defineFamily(
-		WEAPON_FAMILY.LEGENDARY,
-		'LEGENDARY',
-		'Extreme weapons with high performance and consistency.',
-		{ weight: 2.2, speed: 13.8, edge: 18, reach: 1.3, curvature: 18 }
-	),
-	defineFamily(
-		WEAPON_FAMILY.MISC,
-		'MISC',
-		'Unpredictable weapons with mixed traits.',
-		{ weight: 1.9, speed: 7.5, edge: 6, reach: 0.95, curvature: 3 }
-	),
-	defineFamily(
-		WEAPON_FAMILY.POLEARM,
-		'POLEARM',
-		'Long reach weapons, slower but extended range.',
-		{ weight: 3.1, speed: 6.3, edge: 10, reach: 1.85, curvature: 0 }
-	),
-	defineFamily(
-		WEAPON_FAMILY.PROJECTILE,
-		'PROJECTILE',
-		'Amplifies external ammo and stays weak without loaded projectiles.',
-		{ weight: 0.7, speed: 4.2, edge: 1, reach: 0.4, curvature: 0 }
-	),
-	defineFamily(
-		WEAPON_FAMILY.RANGED,
-		'RANGED',
-		'Flexible long-range weapons such as whips or yoyos.',
-		{ weight: 1.2, speed: 10.0, edge: 5, reach: 1.6, curvature: 12 }
-	),
-	defineFamily(
-		WEAPON_FAMILY.SHIELD,
-		'SHIELD',
-		'Defensive tools using a blunt base with reduced damage output.',
-		{ weight: 4.8, speed: 4.0, edge: 1, reach: 0.85, curvature: 2 }
-	),
-	defineFamily(
-		WEAPON_FAMILY.STAFF,
-		'STAFF',
-		'Blunt weapons amplified by magic users.',
-		{ weight: 2.4, speed: 6.8, edge: 4, reach: 1.7, curvature: 0 }
-	),
-	defineFamily(
-		WEAPON_FAMILY.TOOL,
-		'TOOL',
-		'Utility items usable in combat but not optimized for it.',
-		{ weight: 1.8, speed: 5.8, edge: 5, reach: 0.85, curvature: 2 }
-	)
+	new WeaponFamily(WEAPON_FAMILY.AXE, 'AXE')
+		.setDescription('Heavy and slow, strong impact with moderate randomness.')
+		.setBaseWeight(Mass.FromKilograms(3.4))
+		.setSpeed(Speed.FromMetersPerSecond(5.4))
+		.setEdge(Length.FromMillimeters(14))
+		.setReach(Length.FromMeters(1.1))
+		.setCurvature(Angle.FromDegrees(6)),
+
+	new WeaponFamily(WEAPON_FAMILY.BATTERY, 'BATTERY')
+		.setDescription('Powered weapons relying on energy and weaker without a charge source.')
+		.setBaseWeight(Mass.FromKilograms(1.7))
+		.setSpeed(Speed.FromMetersPerSecond(8.2))
+		.setEdge(Length.FromMillimeters(8))
+		.setReach(Length.FromMeters(1.0))
+		.setCurvature(Angle.FromDegrees(4)),
+
+	new WeaponFamily(WEAPON_FAMILY.BLADE, 'BLADE')
+		.setDescription('Balanced weapons with consistent performance.')
+		.setBaseWeight(Mass.FromKilograms(1.6))
+		.setSpeed(Speed.FromMetersPerSecond(8.8))
+		.setEdge(Length.FromMillimeters(12))
+		.setReach(Length.FromMeters(1.0))
+		.setCurvature(Angle.FromDegrees(10)),
+
+	new WeaponFamily(WEAPON_FAMILY.BLUNT, 'BLUNT')
+		.setDescription('Heavy impact weapons that swing slower and hit with raw force.')
+		.setBaseWeight(Mass.FromKilograms(4.2))
+		.setSpeed(Speed.FromMetersPerSecond(4.6))
+		.setEdge(Length.FromMillimeters(2))
+		.setReach(Length.FromMeters(1.05))
+		.setCurvature(Angle.FromDegrees(0))
+		.setDamageProfile({ weight: 0.95, speed: 0.01, edge: 0.03, reach: 0.2 }),
+
+	new WeaponFamily(WEAPON_FAMILY.CURVED_BLADE, 'CURVED_BLADE')
+		.setDescription('Most precise weapons, favoring controlled and consistent strikes.')
+		.setBaseWeight(Mass.FromKilograms(1.5))
+		.setSpeed(Speed.FromMetersPerSecond(9.4))
+		.setEdge(Length.FromMillimeters(13))
+		.setReach(Length.FromMeters(1.0))
+		.setCurvature(Angle.FromDegrees(22)),
+
+	new WeaponFamily(WEAPON_FAMILY.FIREARM, 'FIREARM')
+		.setDescription('Amplifies ammo power and speed, but feels weak without ammunition.')
+		.setBaseWeight(Mass.FromKilograms(2.8))
+		.setSpeed(Speed.FromMetersPerSecond(4.8))
+		.setEdge(Length.FromMillimeters(1))
+		.setReach(Length.FromMeters(1.2))
+		.setCurvature(Angle.FromDegrees(0)),
+
+	new WeaponFamily(WEAPON_FAMILY.FIST, 'FIST')
+		.setDescription('Fast strikes with moderate impact and low reach.')
+		.setBaseWeight(Mass.FromKilograms(0.5))
+		.setSpeed(Speed.FromMetersPerSecond(14.5))
+		.setEdge(Length.FromMillimeters(7))
+		.setReach(Length.FromMeters(0.45))
+		.setCurvature(Angle.FromDegrees(8)),
+
+	new WeaponFamily(WEAPON_FAMILY.KNIFE, 'KNIFE')
+		.setDescription('Very fast strikes, low damage, improves precision with tier.')
+		.setBaseWeight(Mass.FromKilograms(1.0))
+		.setSpeed(Speed.FromMetersPerSecond(15.0))
+		.setEdge(Length.FromMillimeters(12))
+		.setReach(Length.FromMeters(0.8))
+		.setCurvature(Angle.FromDegrees(15)),
+
+	new WeaponFamily(WEAPON_FAMILY.LEGENDARY, 'LEGENDARY')
+		.setDescription('Extreme weapons with high performance and consistency.')
+		.setBaseWeight(Mass.FromKilograms(2.2))
+		.setSpeed(Speed.FromMetersPerSecond(13.8))
+		.setEdge(Length.FromMillimeters(18))
+		.setReach(Length.FromMeters(1.3))
+		.setCurvature(Angle.FromDegrees(18)),
+
+	new WeaponFamily(WEAPON_FAMILY.MISC, 'MISC')
+		.setDescription('Unpredictable weapons with mixed traits.')
+		.setBaseWeight(Mass.FromKilograms(1.9))
+		.setSpeed(Speed.FromMetersPerSecond(7.5))
+		.setEdge(Length.FromMillimeters(6))
+		.setReach(Length.FromMeters(0.95))
+		.setCurvature(Angle.FromDegrees(3)),
+
+	new WeaponFamily(WEAPON_FAMILY.POLEARM, 'POLEARM')
+		.setDescription('Long reach weapons, slower but extended range.')
+		.setBaseWeight(Mass.FromKilograms(3.1))
+		.setSpeed(Speed.FromMetersPerSecond(6.3))
+		.setEdge(Length.FromMillimeters(10))
+		.setReach(Length.FromMeters(1.85))
+		.setCurvature(Angle.FromDegrees(0)),
+
+	new WeaponFamily(WEAPON_FAMILY.PROJECTILE, 'PROJECTILE')
+		.setDescription('Amplifies external ammo and stays weak without loaded projectiles.')
+		.setBaseWeight(Mass.FromKilograms(0.7))
+		.setSpeed(Speed.FromMetersPerSecond(4.2))
+		.setEdge(Length.FromMillimeters(1))
+		.setReach(Length.FromMeters(0.4))
+		.setCurvature(Angle.FromDegrees(0)),
+
+	new WeaponFamily(WEAPON_FAMILY.RANGED, 'RANGED')
+		.setDescription('Flexible long-range weapons such as whips or yoyos.')
+		.setBaseWeight(Mass.FromKilograms(1.2))
+		.setSpeed(Speed.FromMetersPerSecond(10.0))
+		.setEdge(Length.FromMillimeters(5))
+		.setReach(Length.FromMeters(1.6))
+		.setCurvature(Angle.FromDegrees(12)),
+
+	new WeaponFamily(WEAPON_FAMILY.SHIELD, 'SHIELD')
+		.setDescription('Defensive tools using a blunt base with reduced damage output.')
+		.setBaseWeight(Mass.FromKilograms(4.8))
+		.setSpeed(Speed.FromMetersPerSecond(4.0))
+		.setEdge(Length.FromMillimeters(1))
+		.setReach(Length.FromMeters(0.85))
+		.setCurvature(Angle.FromDegrees(2)),
+
+	new WeaponFamily(WEAPON_FAMILY.STAFF, 'STAFF')
+		.setDescription('Blunt weapons amplified by magic users.')
+		.setBaseWeight(Mass.FromKilograms(2.4))
+		.setSpeed(Speed.FromMetersPerSecond(6.8))
+		.setEdge(Length.FromMillimeters(4))
+		.setReach(Length.FromMeters(1.7))
+		.setCurvature(Angle.FromDegrees(0)),
+
+	new WeaponFamily(WEAPON_FAMILY.TOOL, 'TOOL')
+		.setDescription('Utility items usable in combat but not optimized for it.')
+		.setBaseWeight(Mass.FromKilograms(1.8))
+		.setSpeed(Speed.FromMetersPerSecond(5.8))
+		.setEdge(Length.FromMillimeters(5))
+		.setReach(Length.FromMeters(0.85))
+		.setCurvature(Angle.FromDegrees(2)),
+
+	new WeaponFamily(WEAPON_FAMILY.THROWABLE, 'THROWABLE')
+		.setDescription('Thrown support weapons used for pre-attacks and counterattack follow-ups.')
+		.setBaseWeight(Mass.FromKilograms(EPSILON))
+		.setSpeed(Speed.FromMetersPerSecond(EPSILON))
+		.setEdge(Length.FromMillimeters(EPSILON))
+		.setReach(Length.FromMeters(EPSILON))
+		.setCurvature(Angle.FromDegrees(0))
 ];
 
 export const familyConfigs = Object.freeze(
@@ -219,4 +276,17 @@ export function hasAnyWeaponFamily(value, familyIds) {
 					: buildWeaponFamilyFlag(getWeaponFamilyIds(value));
 
 	return familyIds.some(familyId => (flag & familyId) === familyId);
+}
+
+export function getPrimaryFamilyKey(value) {
+	const ids = getWeaponFamilyIds(value);
+	if (!ids.length) {
+		return null;
+	}
+
+	if (ids.includes(WEAPON_FAMILY.THROWABLE)) {
+		return 'THROWABLE';
+	}
+
+	return weaponFamilyKeyById[Math.min(...ids)];
 }

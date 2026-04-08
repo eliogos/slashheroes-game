@@ -1,6 +1,13 @@
-import ammoData from './ammo.json' with { type: 'json' };
+import { batteryAmmo } from './families/battery.js';
+import { firearmAmmo } from './families/firearm.js';
+import { projectileAmmo } from './families/projectile.js';
 
-export const ammo = ammoData;
+export const ammo = [
+	...projectileAmmo,
+	...batteryAmmo,
+	...firearmAmmo,
+];
+
 export const activeAmmo = ammo.filter(entry => !entry.archived);
 
 export function getAmmoById(id) {

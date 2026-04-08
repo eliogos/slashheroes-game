@@ -1,6 +1,6 @@
 {
 	"name": "slashheroes-game",
-	"version": "1.16.0",
+	"version": "1.17.0",
 	"private": true,
 	"type": "module",
 	"scripts": {
@@ -13,7 +13,11 @@
 		"test:bags": "node src/data/items/bags/test/testBags.js",
 		"test:armors": "node src/data/items/armors/test/testArmors.js",
 		"test:ammo": "node src/data/items/ammo/test/testAmmo.js",
-		"test:throwables": "node src/data/items/throwables/test/testThrowables.js",
+		"test:carriers": "node src/data/items/carriers/test/testCarriers.js",
+		"test:edibles": "node src/data/items/edibles/test/testEdibles.js",
+		"test:potions": "node src/data/items/potions/test/testPotions.js",
+		"test:scrolls": "node src/data/items/scrolls/test/testScrolls.js",
+		"test:throwables": "node src/data/items/weapons/test/testWeapons.js --family THROWABLE",
 		"test:weapons": "node src/data/items/weapons/test/testWeapons.js",
 		"test": "vitest",
 		"register": "node scripts/register-commands.js",
@@ -38,6 +42,7 @@
 		"dotenv": "^17.2.3",
 		"hono": "^4.11.9",
 		"mathjs": "^11.12.0",
-		"tweetnacl": "^1.0.3"
+		"tweetnacl": "^1.0.3",
+		"unitsnet-js": "^4.0.5"
 	}
 }
