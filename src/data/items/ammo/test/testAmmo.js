@@ -1,9 +1,9 @@
-import { activeAmmo } from '../ammo.js';
+import { activeAmmo } from '../index.ts';
 import {
 	getWeaponFamilyKeys,
 	hasAnyWeaponFamily,
-	normalizeWeaponFamilyIds
-} from '../../weapons/familyConfigs.js';
+	normalizeWeaponFamilyIds,
+} from '../../weapons/index.ts';
 
 const SORT_FIELDS = ['index', 'name', 'weight', 'families', 'amplifiers'];
 const SORT_DEFAULT_DIRECTIONS = {

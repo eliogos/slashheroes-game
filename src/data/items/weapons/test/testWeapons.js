@@ -1,15 +1,16 @@
-import { activeWeapons } from '../weapons.js';
 import {
+	activeWeapons,
 	familyConfigs,
+	getBaseDamage,
+	getDamageRange,
 	getWeaponFamilyKeys,
 	hasAnyWeaponFamily,
-	normalizeWeaponFamilyIds
-} from '../familyConfigs.js';
-import { resolveFamilyDamageProfile, resolveFamilyQualities } from '../../../helpers/resolveFamilyQualities.js';
-import { applyTierScaling } from '../../../helpers/tierScaling.js';
-import { normalizeQualities } from '../../../helpers/normalizeQualities.js';
-import { getBaseDamage } from '../../../helpers/getBaseDamage.js';
-import { getDamageRange } from '../../../helpers/damageVariance.js';
+	normalizeQualities,
+	normalizeWeaponFamilyIds,
+	applyTierScaling,
+	resolveFamilyDamageProfile,
+	resolveFamilyQualities,
+} from '../index.ts';
 
 const families = familyConfigs;
 const SORT_FIELDS = [

@@ -1,7 +1,4 @@
-import { activeArmors } from '../armors.js';
-import { materialIds } from '../materialConfigs.js';
-import { armorTypeIds, typeConfigs } from '../typeConfigs.js';
-import { resolveArmorStat } from '../resolveArmorInfluence.js';
+import { activeArmors, materialIds, armorTypeIds, typeConfigs, resolveArmorStat } from '../index.ts';
 
 const SORT_FIELDS = ['index', 'name', 'type', 'material', 'stat', 'base', 'spread'];
 const SORT_DEFAULT_DIRECTIONS = {

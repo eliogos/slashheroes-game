@@ -1,4 +1,4 @@
-import { activeCarriers } from '../carriers.js';
+import { activeCarriers } from '../index.ts';
 
 const SORT_FIELDS = ['index', 'name', 'rarity', 'occupied', 'slots', 'effects'];
 const SORT_DEFAULT_DIRECTIONS = {

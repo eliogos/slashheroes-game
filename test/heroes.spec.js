@@ -1,28 +1,14 @@
-import { describe, it, expect } from 'vitest';
-import { computeHeroStats, HeroClass, HeroRace } from '../src/data/heroes/index.js';
+import { describe, expect, it } from 'vitest';
+import { computeHeroStats, defineHero, defineRace } from '../src/data/heroes/index.ts';
 
-describe('hero builder classes', () => {
-	it('builds hero classes with fluent modifier helpers', () => {
-		const heroClass = new HeroClass(99)
-			.setName('Scout')
-			.setEmoji('🧭')
-			.setSummary('Fast and watchful')
-			.setDescription('A test class for fluent hero modifiers.')
-			.setPreferredStarterWeapons('dagger', 'shortbow')
-			.modifiers
-			.strength(1)
-			.agility(2)
-			.stamina(-1)
-			.wisdom(3)
-			.intelligence(0)
-			.perception(4)
-			.luck(1)
-			.hunger(-2);
-
-		expect(heroClass).toMatchObject({
+describe('hero definition helpers', () => {
+	it('fills missing hero fields with defaults', () => {
+		const heroClass = defineHero({
 			id: 99,
-			name: 'Scout',
-			emoji: '🧭',
+			name: 'Warrior',
+			emoji: '⚔️',
+			summary: 'Brave, relentless, and mighty',
+			description: 'A test class using the default Warrior-style data shape.',
 			preferredStarterWeapons: ['dagger', 'shortbow'],
 			mods: {
 				str: 1,
@@ -32,25 +18,50 @@ describe('hero builder classes', () => {
 				int: 0,
 				per: 4,
 				luk: 1,
-				hun: -2
-			}
+				hun: -2,
+			},
+		});
+
+		expect(heroClass).toMatchObject({
+			id: 99,
+			name: 'Warrior',
+			emoji: '⚔️',
+			preferredStarterWeapons: ['dagger', 'shortbow'],
+			mods: {
+				str: 1,
+				agi: 2,
+				sta: -1,
+				hp: 0,
+				mp: 0,
+				wis: 3,
+				int: 0,
+				per: 4,
+				luk: 1,
+				hun: -2,
+			},
 		});
 	});
 
 	it('combines race and class modifiers into computed stats', () => {
-		const race = new HeroRace(50)
-			.setName('Testling')
-			.setInventorySlots(11)
-			.modifiers
-			.strength(1)
-			.health(1)
-			.mana(2);
+		const race = defineRace({
+			id: 50,
+			name: 'Human',
+			inventorySlots: 11,
+			mods: {
+				str: 1,
+				hp: 1,
+				mp: 2,
+			},
+		});
 
-		const heroClass = new HeroClass(51)
-			.setName('Mystic')
-			.modifiers
-			.strength(2)
-			.wisdom(1);
+		const heroClass = defineHero({
+			id: 51,
+			name: 'Warrior',
+			mods: {
+				str: 2,
+				wis: 1,
+			},
+		});
 
 		const computed = computeHeroStats(race, heroClass);
 

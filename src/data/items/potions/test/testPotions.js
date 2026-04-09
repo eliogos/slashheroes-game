@@ -1,4 +1,4 @@
-import { activePotions } from '../potions.js';
+import { activePotions } from '../index.ts';
 
 const SORT_FIELDS = ['index', 'name', 'school', 'volume', 'servings', 'effects'];
 const SORT_DEFAULT_DIRECTIONS = {

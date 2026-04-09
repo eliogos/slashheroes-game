@@ -54,4 +54,4 @@ Exact values to be tuned when plugged into combat.
 **When unblocked:**
 - Add `hardness` (or `surface`) property to enemies
 - Wire `target_hardness_factor` into the wear calculation
-- Define `family_wear_coefficient` per weapon family in `familyConfigs.js`
+- Define `family_wear_coefficient` per weapon family in `helpers/familyConfigs.ts`

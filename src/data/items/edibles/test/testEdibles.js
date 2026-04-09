@@ -1,4 +1,4 @@
-import { activeEdibles } from '../edibles.js';
+import { activeEdibles } from '../index.ts';
 
 const SORT_FIELDS = ['index', 'name', 'subtype', 'satiation', 'decay', 'effects'];
 const SORT_DEFAULT_DIRECTIONS = {

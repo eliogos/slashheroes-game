@@ -1,4 +1,4 @@
-import { activeScrolls } from '../scrolls.js';
+import { activeScrolls } from '../index.ts';
 
 const SORT_FIELDS = ['index', 'name', 'school', 'charges', 'castTime', 'effects'];
 const SORT_DEFAULT_DIRECTIONS = {

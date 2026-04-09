@@ -1,10 +1,8 @@
 import { createInterface } from 'readline/promises';
-import { HERO_RACES } from '../src/data/heroes/heroRaces.js';
-import { HERO_CLASSES } from '../src/data/heroes/heroClasses.js';
-import { HERO_STATS } from '../src/data/heroes/heroStats.js';
-import { computeHeroStats } from '../src/data/heroes/helpers.js';
+import { computeHeroStats, HERO_CLASSES, HERO_RACES, HERO_STATS } from '../src/data/heroes/index.ts';
 
 const rl = createInterface({ input: process.stdin, output: process.stdout });
+const POINT_STATS = new Set(['str', 'agi', 'wis', 'int', 'per', 'luk']);
 
 function printList(items) {
 	items.forEach((item, i) => {
@@ -34,8 +32,10 @@ function printStats(race, heroClass, stats) {
 
 		const value = stats[key];
 		const base = stat.defaultValue;
-		const raceMod = (race.mods?.[stat.shortcode.toLowerCase()] ?? 0) * 10;
-		const classMod = (heroClass.mods?.[stat.shortcode.toLowerCase()] ?? 0) * 10;
+		const modKey = stat.shortcode.toLowerCase();
+		const multiplier = POINT_STATS.has(modKey) ? 1 : 10;
+		const raceMod = (race.mods?.[modKey] ?? 0) * multiplier;
+		const classMod = (heroClass.mods?.[modKey] ?? 0) * multiplier;
 		const total = value - base;
 
 		const totalStr = total === 0 ? '±0' : total > 0 ? `+${total}` : `${total}`;

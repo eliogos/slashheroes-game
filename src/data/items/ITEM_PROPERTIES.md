@@ -177,22 +177,6 @@ enforced.
 
 ## Item-Type Specific Properties
 
----
-
-### Bags
-
-The player's primary inventory. Bags occupy a carry slot on the character.
-
-*Uses all Container Properties above.*
-
-| Property | Type | Description |
-|---|---|---|
-| `wearPosition` | enum | Where it is worn: `belt` `shoulder` `back` `crossbody` `hand` |
-| `durability` | number? | Some bags can wear out over time, losing slots when broken |
-| `durabilityMax` | number? | |
-
----
-
 ### Carriers
 
 Sub-inventories that sit inside a bag and consolidate a specific item type into one bag slot, saving space.
@@ -230,7 +214,7 @@ Sub-inventories that sit inside a bag and consolidate a specific item type into 
 | `critChance` | 0–1 | Base critical hit chance | Stacks additively with character stats |
 | `critMultiplier` | number | Damage multiplier on crit | Default `2.0` |
 | `staminaCost` | number | Stamina consumed per swing | Scales with weight and grip |
-| `sharpnable` | boolean | Can be honed with a sharpening stone | Temporarily boosts `edge` above base for a duration |
+| `sharpenable` | boolean | Can be honed with a sharpening stone | Temporarily boosts `edge` above base for a duration |
 | `enchantable` | boolean | Can receive enchantments | |
 | `soulbound` | boolean | Binds to character on equip | Cannot be traded or dropped while soulbound |
 

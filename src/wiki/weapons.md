@@ -136,12 +136,12 @@ A weapon with `familyFlag` combining multiple families (e.g. `BLADE | KNIFE` = `
 
 | File | Purpose |
 |---|---|
-| `src/data/items/weapons/*.js` | Per-family weapon definitions using `Weapon` builder class |
-| `src/data/items/weapons/Weapon.js` | `Weapon` builder class |
-| `src/data/items/weapons/familyConfigs.js` | `WeaponFamily` class and family base quality definitions |
+| `src/data/items/weapons/_entries/**/*.ts` | One-file-per-weapon TypeScript definitions using `defineWeapon()` |
+| `src/data/items/weapons/helpers/weaponEntries.ts` | Aggregated weapon entry registry |
+| `src/data/items/weapons/helpers/familyConfigs.ts` | `WeaponFamily` class and family base quality definitions |
 | `src/data/helpers/constants.js` | Damage weights, `WEAPON_FAMILY` bitmask constants, `BASE_MULTIPLIER` |
-| `src/data/helpers/resolveFamilyQualities.js` | Averages multi-family bases, applies quality multipliers |
-| `src/data/helpers/tierScaling.js` | Tier → exponential multiplier (power curve 1.4) |
-| `src/data/helpers/normalizeQualities.js` | Divides each quality by its max to get 0–1 range |
-| `src/data/helpers/getBaseDamage.js` | Weighted sum of normalized qualities × 100 |
-| `src/data/helpers/damageVariance.js` | Converts curvature to min/max damage range |
+| `src/data/items/weapons/helpers/resolveFamilyQualities.ts` | Averages multi-family bases, applies quality multipliers |
+| `src/data/items/weapons/helpers/tierScaling.ts` | Tier → exponential multiplier (power curve 1.4) |
+| `src/data/items/weapons/helpers/normalizeQualities.ts` | Divides each quality by its max to get 0–1 range |
+| `src/data/items/weapons/helpers/getBaseDamage.ts` | Weighted sum of normalized qualities × 100 |
+| `src/data/items/weapons/helpers/damageVariance.ts` | Converts curvature to min/max damage range |

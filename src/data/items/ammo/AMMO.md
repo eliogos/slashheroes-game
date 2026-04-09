@@ -1,9 +1,9 @@
 # Ammo
 
-Ammo is defined as JS classes using `new Ammo()` from [AmmoItem.js](./AmmoItem.js) in per-family files such as `projectile.js`, `battery.js`, and `firearm.js`. [ammo.js](./ammo.js) aggregates those files and serves the combined data to the rest of the app.
+Ammo is now defined as typed plain-data entries using `defineAmmo()` from `helpers/defineAmmo.ts`, with one file per ammo item under `_entries/`. `index.ts` aggregates those entries and exposes the final ammo list.
 
 Current ammo fields:
-- `qualities.weight`
+- `qualities.weight` (stored in grams, authored semantically via `Mass.FromGrams(...).Grams`)
 - `compatibleFamilyFlag`
 - `weaponAmplifiers`
 
