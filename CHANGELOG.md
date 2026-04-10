@@ -1,3 +1,10 @@
+# [1.16.0](https://github.com/eliogos/slashheroes-game/compare/v1.15.0...v1.16.0) (2026-04-10)
+
+
+### Features
+
+* implement food system with satiation and spoilage mechanics ([bd7cadb](https://github.com/eliogos/slashheroes-game/commit/bd7cadb79b16e75723bcd1bf6e7ad10e6dde8fa5))
+
 # [1.15.0](https://github.com/eliogos/slashheroes-game/compare/v1.14.0...v1.15.0) (2025-11-29)
 
 
