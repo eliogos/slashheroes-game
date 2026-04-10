@@ -9,6 +9,7 @@ export {
 	spoilageStateIds,
 } from './constants.js';
 export { defineEdible } from './defineEdible.js';
+export { defineVariant } from './defineVariant.js';
 export {
 	DEFAULT_HUMAN_ENERGY_MAX_KCAL,
 	DEFAULT_HUNGER_MAX,

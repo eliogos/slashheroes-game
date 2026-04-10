@@ -74,7 +74,7 @@ export function getEffectiveSatiationKcal(
 	const type = options.type ?? SATIATION_TYPE.INSTANT;
 	const currentHunger = options.currentHunger ?? DEFAULT_HUNGER_MAX;
 
-	let effectiveKcal = Math.max(baseKcal, 0);
+	let effectiveKcal = baseKcal;
 
 	if (type === SATIATION_TYPE.THRESHOLD && currentHunger <= (options.thresholdHunger ?? DEFAULT_LOW_HUNGER_THRESHOLD)) {
 		effectiveKcal *= options.thresholdMultiplier ?? 1.25;
@@ -102,7 +102,7 @@ export function getBaseSatiation(
 		return 0;
 	}
 
-	return Math.round((Math.max(satiationKcal, 0) / energyMaxKcal) * hungerMax);
+	return Math.round((satiationKcal / energyMaxKcal) * hungerMax);
 }
 
 export function getSatiationDistribution(

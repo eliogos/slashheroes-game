@@ -1,15 +1,19 @@
-import { cooked_meat } from './_entries/cooked_meat.js';
-import { honeyed_steak } from './_entries/honeyed_steak.js';
-import { raw_meat } from './_entries/raw_meat.js';
+import {
+	cooked_meat,
+	honeyed_steak,
+	raw_meat,
+	rotten_meat,
+} from './_entries/meat.js';
 import type { ActiveEdibleDefinition, EdibleDefinition } from './helpers/index.js';
 
-export { defineEdible } from './helpers/index.js';
+export { defineEdible, defineVariant } from './helpers/index.js';
 export * from './helpers/index.js';
 
 export const edibles: EdibleDefinition[] = [
 	raw_meat,
 	cooked_meat,
 	honeyed_steak,
+	rotten_meat,
 ];
 
 export const activeEdibles: ActiveEdibleDefinition[] = edibles.filter(
