@@ -1,3 +1,9 @@
+import type {
+	EdibleSubtype,
+	SatiationType,
+	SpoilageState,
+} from './constants.js';
+
 export interface EdibleLocalizationEntry {
 	displayName: string;
 	description: string;
@@ -23,13 +29,26 @@ export interface EdibleDefinition {
 	tags: string[];
 	rarity: string;
 	stackable: number;
-	subtype: string;
+	subtype: EdibleSubtype;
 	localization: EdibleLocalization;
+	/**
+	 * Internal food energy stored in kilocalories.
+	 * Author semantically with `Energy.FromKilocalories(...).Kilocalories` and derive the normalized value with `getBaseSatiation`.
+	 */
 	satiation: number;
+	/** Action-based distribution behavior applied after `getBaseSatiation` is derived. */
+	satiationType: SatiationType;
+	/** Manual variant label such as `raw`, `cooked`, or `glazed`. */
+	form: string;
 	requiresCooking: boolean;
 	cookedFormId: string | null;
 	refrigeratable: boolean;
+	/** Total action budget before the item reaches its spoiled endpoint under neutral conditions. */
 	decay: number;
+	/** Number of actions between each spoilage tick when decay is processed incrementally. */
+	decayAction: number;
+	/** Current freshness bucket after decay has progressed. */
+	spoilageState: SpoilageState;
 	effects: EdibleEffect[];
 	created_at: string;
 	archived?: boolean;

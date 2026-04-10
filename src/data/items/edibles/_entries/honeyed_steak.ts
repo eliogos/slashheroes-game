@@ -1,4 +1,6 @@
-import { defineEdible } from '../helpers/index.js';
+import { Energy } from 'unitsnet-js';
+
+import { defineEdible, SATIATION_TYPE } from '../helpers/index.js';
 
 export const honeyed_steak = defineEdible({
 	internalId: 3,
@@ -9,7 +11,9 @@ export const honeyed_steak = defineEdible({
 	rarity: 'uncommon',
 	stackable: 3,
 	subtype: 'food',
-	satiation: 55,
+	satiation: Energy.FromKilocalories(520).Kilocalories,
+	satiationType: SATIATION_TYPE.BOOST,
+	form: 'glazed',
 	decay: 80,
 	effects: [
 		{ hook: 'onUse', id: 'stamina_boost', target: 'self', magnitude: 30, duration: 50, chance: 1.0 },

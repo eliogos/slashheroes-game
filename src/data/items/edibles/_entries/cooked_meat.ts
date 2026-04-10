@@ -1,4 +1,6 @@
-import { defineEdible } from '../helpers/index.js';
+import { Energy } from 'unitsnet-js';
+
+import { defineEdible, SATIATION_TYPE } from '../helpers/index.js';
 
 export const cooked_meat = defineEdible({
 	internalId: 2,
@@ -9,7 +11,9 @@ export const cooked_meat = defineEdible({
 	rarity: 'common',
 	stackable: 5,
 	subtype: 'food',
-	satiation: 40,
+	satiation: Energy.FromKilocalories(400).Kilocalories,
+	satiationType: SATIATION_TYPE.STEADY,
+	form: 'cooked',
 	decay: 100,
 	created_at: '2026-03-31T00:00:00.000Z',
 });

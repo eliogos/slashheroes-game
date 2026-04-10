@@ -17,3 +17,8 @@
 3. Do crafting research.
 
 4. Move branding to constants.ts for consistency with the new structure or whatever
+
+
+- [ ] Food research
+	- [ ] Satiation
+	- [ ] Spoilage
