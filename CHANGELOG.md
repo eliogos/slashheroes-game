@@ -1,3 +1,10 @@
+# [1.19.0](https://github.com/eliogos/slashheroes-game/compare/v1.18.0...v1.19.0) (2026-04-11)
+
+
+### Features
+
+* enhance hero stats system with derived stats and utility functions ([b8a7036](https://github.com/eliogos/slashheroes-game/commit/b8a70364ff0f732fe794e799951aa47dbef43a8c))
+
 # [1.18.0](https://github.com/eliogos/slashheroes-game/compare/v1.17.0...v1.18.0) (2026-04-11)
 
 
