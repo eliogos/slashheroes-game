@@ -1,3 +1,10 @@
+# [1.17.0](https://github.com/eliogos/slashheroes-game/compare/v1.16.0...v1.17.0) (2026-04-10)
+
+
+### Features
+
+* add meat variants with defined properties and effects ([e48eceb](https://github.com/eliogos/slashheroes-game/commit/e48ecebd6294b36079d618a7e81a86c35070286e))
+
 # [1.16.0](https://github.com/eliogos/slashheroes-game/compare/v1.15.0...v1.16.0) (2026-04-10)
 
 
