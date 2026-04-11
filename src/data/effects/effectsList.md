@@ -216,13 +216,10 @@ This file is just for reference, will delete after implementation.
   Lowers weight and movement penalty.
 
 - <span style="color: #22c55e;"><strong>🌿 Camouflaged</strong></span>:<br>
-  Helps the wearer blend into foliage, brush, or shadows.
+  Decreases the chance for enemies to spawn or notice the wearer during exploration.
 
 - <span style="color: #f59e0b;"><strong>❄️ Anti-Entropy</strong></span>:<br>
   Freezes attackers but may ignite the wearer in return.
-
-- <span style="color: #3b82f6;"><strong>🌀 Displaced</strong></span>:<br>
-  Randomly teleports the wearer away from danger when struck.
 
 - <span style="color: #f59e0b;"><strong>🍖 Metabolic</strong></span>:<br>
   Converts hunger or satiation into emergency healing.
@@ -236,8 +233,6 @@ This file is just for reference, will delete after implementation.
 - <span style="color: #f59e0b;"><strong>🌱 Overgrown</strong></span>:<br>
   Causes plants or roots to sprout unpredictably during combat.
 
-- <span style="color: #ef4444;"><strong>🚪 Bulky</strong></span>:<br>
-  Makes movement through doorways and tight spaces slower.
 
 - <span style="color: #a855f7;"><strong>🐚 Cursed Shell</strong></span>:<br>
   Boosts protection with a hidden drawback.
