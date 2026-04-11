@@ -1,3 +1,10 @@
+# [1.18.0](https://github.com/eliogos/slashheroes-game/compare/v1.17.0...v1.18.0) (2026-04-11)
+
+
+### Features
+
+* update effects list with new descriptions and remove obsolete effects ([47f11db](https://github.com/eliogos/slashheroes-game/commit/47f11db8f1556b0ff6e8c1f2aed4b7e3947303f9))
+
 # [1.17.0](https://github.com/eliogos/slashheroes-game/compare/v1.16.0...v1.17.0) (2026-04-10)
 
 
