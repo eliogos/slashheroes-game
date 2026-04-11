@@ -4,16 +4,31 @@ import {
 	computeHeroStats,
 	defineHero,
 	defineRace,
+	getAccuracy,
 	getAvailableStatPoints,
+	getBaseATKSpeed,
+	getBaseEvasion,
+	getCritChance,
 	getExperienceForLevel,
 	getExperienceProgress,
 	getExperienceToNextLevel,
 	getIntelligenceUtilityMultiplier,
 	getLevelFromExperience,
+	getMagicEffectEndurance,
+	getManaRegenByActions,
+	getManaRegenPerAction,
+	getPhysicalDmg,
+	getPoise,
 	getSpentStatPointCount,
+	getStaminaRegenIdleDelay,
+	getStaminaRegenPerSecond,
 	getStatPointsForLevel,
 	getTotalStatPointsForLevel,
+	getWeightCap,
+	getWillpower,
 	getWisdomExperienceMultiplier,
+	HERO_DERIVED_STATS,
+	HERO_STATS,
 } from '../src/data/heroes/index.ts';
 
 describe('hero definition helpers', () => {
@@ -86,6 +101,74 @@ describe('hero definition helpers', () => {
 		expect(computed.MP).toBe(120);
 		expect(computed.WIS).toBe(11);
 		expect(computed.EXP).toBe(0);
+	});
+
+	it('marks base stats explicitly and keeps hunger as a base resource', () => {
+		const hungerStat = HERO_STATS.find((stat) => stat.shortcode === 'HUN');
+		const experienceStat = HERO_STATS.find((stat) => stat.shortcode === 'EXP');
+		const strengthStat = HERO_STATS.find((stat) => stat.shortcode === 'STR');
+
+		expect(strengthStat).toMatchObject({
+			base: true,
+			type: 'Physical',
+		});
+		expect(hungerStat).toMatchObject({
+			base: true,
+			type: 'Resource',
+		});
+		expect(experienceStat).toMatchObject({
+			base: false,
+			type: 'Progression',
+		});
+	});
+
+	it('defines reusable derived stat helpers from the core stats', () => {
+		expect(HERO_DERIVED_STATS.every((stat) => stat.base === false)).toBe(true);
+		expect(HERO_DERIVED_STATS[0]?.id).toBe(12);
+		expect(HERO_DERIVED_STATS.map((stat) => stat.name)).toEqual(
+			expect.arrayContaining([
+				'Focus',
+				'Attack Speed',
+				'Evasion',
+				'Accuracy',
+				'Crit Chance',
+				'Willpower',
+				'Physical Damage',
+				'Weight Capacity',
+				'Stamina Regen',
+				'Mana Regen',
+				'Poise',
+				'Magic Endurance',
+			]),
+		);
+		expect(getBaseATKSpeed(14)).toBe(1.08);
+		expect(getBaseEvasion(14)).toBe(0.11);
+		expect(getAccuracy(13)).toBe(0.59);
+		expect(getCritChance(13, 12)).toBe(0.09);
+		expect(getStaminaRegenIdleDelay(14, 12)).toBe(2.38);
+		expect(getStaminaRegenPerSecond(14, 12)).toBe(5.2);
+		expect(getManaRegenPerAction(12, 14, 100)).toBe(0.75);
+		expect(getManaRegenByActions(12, 14, 4, 100)).toBe(3);
+		expect(getPoise(15, 12)).toBe(82);
+		expect(getPhysicalDmg(15)).toEqual({
+			min: 2,
+			max: 5,
+			average: 3.5,
+		});
+		expect(getWeightCap(14)).toEqual({
+			safe: 42,
+			max: 61,
+			agilityPenaltyPerKg: 0.015,
+			physicalDamagePenaltyPerKg: 0.02,
+		});
+		expect(getWillpower(12)).toEqual({ bonus: 1 });
+		expect(getWillpower(10)).toEqual({ bonus: 0 });
+		expect(getWillpower(8)).toEqual({ bonus: -1 });
+		expect(getMagicEffectEndurance(120, 12)).toEqual({
+			reductionChance: 0.086,
+			nullifyChance: 0.024,
+			appliesTo: 'positive-or-negative',
+		});
 	});
 
 	it('applies stat point upgrades only to the allowed hero stats', () => {

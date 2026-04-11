@@ -1,13 +1,13 @@
-import { HERO_CLASSES, HERO_RACES, HERO_STATS } from '../heroes/index.ts';
-import { EPSILON, STAT_DECIMAL_PLACES } from './constants.js';
-import { HERO_MODIFIER_KEY_BY_SHORTCODE } from '../heroes/types.ts';
+import { EPSILON, STAT_DECIMAL_PLACES } from '../../helpers/constants.js';
+import { HERO_CLASSES, HERO_RACES, HERO_STATS } from '../index.ts';
+import { HERO_MODIFIER_KEY_BY_SHORTCODE } from '../types.ts';
 import type {
 	ComputedHeroStats,
 	HeroClassDefinition,
 	HeroLookupId,
 	HeroRaceDefinition,
 	ModifierKey,
-} from '../heroes/types.ts';
+} from '../types.ts';
 
 export function getRaceById(raceId: HeroLookupId): HeroRaceDefinition | null {
 	return HERO_RACES.find((race) => String(race.id) === String(raceId)) ?? null;
@@ -37,7 +37,7 @@ export function computeHeroStats(
 			continue;
 		}
 
-		if (key === 'EXP') {
+		if (!stat.base) {
 			computed[key] = roundToStatPrecision(stat.defaultValue ?? 0);
 			continue;
 		}

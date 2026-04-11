@@ -1,10 +1,10 @@
 import type { HeroStatDefinition } from '../types.js';
 
 export const health: HeroStatDefinition = {
-	id: 1,
 	name: 'Health',
 	shortcode: 'HP',
-	type: 'Physical',
+	type: 'Resource',
+	base: true,
 	influences: 'Survivability and endurance',
 	defaultValue: 100,
 };

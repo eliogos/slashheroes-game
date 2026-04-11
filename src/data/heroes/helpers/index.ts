@@ -1,4 +1,5 @@
 export { DEFAULT_MODIFIERS, defineHero } from './defineHero.js';
+export { computeHeroStats, getClassById, getRaceById } from './heroHelper.ts';
 export { defineRace } from './defineRace.js';
 export {
 	LEVELING_CURVE,
@@ -21,5 +22,6 @@ export {
 	getWisdomExperienceMultiplier,
 	isUpgradableHeroStat,
 } from './statUpgrades.js';
+export * from './derivedStats.js';
 export type { ExperienceProgress, StatPointProgress } from './leveling.js';
 export type { HeroStatPointAllocation, UpgradableHeroStatShortcode } from './statUpgrades.js';

@@ -37,3 +37,6 @@
 - [ ] Artifact research
 
 - [-] Effects
+
+- [x] Derived stats
+- [x] Die-based chance generator system

@@ -1,23 +1,24 @@
 This file is just for reference, will delete after implementation.
 
 ### Player-based
+Might look to this later.
 - <span style="color: #ef4444;"><strong>☠️ Poisoned</strong></span>:<br>
-  Loses HP each turn or action.
+  Loses HP gradually each turn or action.
 
 - <span style="color: #ef4444;"><strong>🩸 Bleeding</strong></span>:<br>
-  Takes damage until healed or bandaged or bleeding has stopped.
+  Loses varying HP intermittently after actions.
 
 - <span style="color: #ef4444;"><strong>🔥 Burning</strong></span>:<br>
-  Fire damage over time; may spread.
+  Loses varying HP intermittently after actions and has a chance to burn flammable items.
 
 - <span style="color: #ef4444;"><strong>🧊 Frozen</strong></span>:<br>
-  Movement speed and attack speed are reduced.
+  Happens once. 2 turns are skipped, wasting stamina more. Chance to shatter potions or freeze food.
 
 - <span style="color: #ef4444;"><strong>⚡ Shocked</strong></span>:<br>
-  Chance to skip a turn or fail an action.
+  Happens once. 2 turns are skipped, wasting stamina more. Deals a bit of damage.
 
 - <span style="color: #ef4444;"><strong>💢 Weakened</strong></span>:<br>
-  Reduced strength and physical damage.
+  Temporarily reduces STRENGTH and dealing physical damage.
 
 - <span style="color: #ef4444;"><strong>😮‍💨 Exhausted</strong></span>:<br>
   Stamina drains faster and recovers slower.

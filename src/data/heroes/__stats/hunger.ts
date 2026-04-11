@@ -16,10 +16,10 @@ export const HUNGER_STAT_CONTEXT = {
 } as const;
 
 export const hunger: HeroStatDefinition = {
-	id: 10,
 	name: 'Hunger',
 	shortcode: 'HUN',
-	type: 'Derived',
+	type: 'Resource',
+	base: true,
 	influences: 'Energy safety, recovery, and overall performance',
 	defaultValue: HUNGER_STAT_CONTEXT.max,
 };

@@ -1,10 +1,10 @@
 import type { HeroStatDefinition } from '../types.js';
 
 export const mana: HeroStatDefinition = {
-	id: 5,
 	name: 'Mana',
 	shortcode: 'MP',
-	type: 'Physical',
+	type: 'Resource',
+	base: true,
 	influences: 'Spell usage and magical endurance',
 	defaultValue: 100,
 };
