@@ -3,13 +3,12 @@ import { defineWeapon, MISC, THROWABLE } from '../../helpers/index.js';
 export const bomb = defineWeapon({
 	internalId: 119,
 	id: 'bomb',
-	displayName: 'Bomb',
-	description: 'A crude packed explosive meant to do one loud job and leave a nasty mess behind it.',
-	tags: [
-	'crude',
-	'volatile',
-	'loud',
-],
+	display: {
+			en: {
+				name: 'Bomb',
+				description: 'A crude packed explosive meant to do one loud job and leave a nasty mess behind it.',
+			},
+		},
 	tier: 2,
 	grip: 0,
 	families: MISC | THROWABLE,

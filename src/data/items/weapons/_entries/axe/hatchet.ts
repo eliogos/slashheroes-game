@@ -3,13 +3,12 @@ import { defineWeapon, AXE } from '../../helpers/index.js';
 export const hatchet = defineWeapon({
 	internalId: 58,
 	id: 'hatchet',
-	displayName: 'Hatchet',
-	description: 'A small chopping axe suited to quick one-handed swings and field work.',
-	tags: [
-	'handy',
-	'brisk',
-	'rugged',
-],
+	display: {
+			en: {
+				name: 'Hatchet',
+				description: 'A small chopping axe suited to quick one-handed swings and field work.',
+			},
+		},
 	tier: 1,
 	grip: 1,
 	families: AXE,

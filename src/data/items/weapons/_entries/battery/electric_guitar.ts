@@ -3,13 +3,12 @@ import { defineWeapon, BATTERY, MISC } from '../../helpers/index.js';
 export const electric_guitar = defineWeapon({
 	internalId: 110,
 	id: 'electric_guitar',
-	displayName: 'Electric Guitar',
-	description: 'A stage weapon that turns amplified feedback, heavy swings, and raw showmanship into damage.',
-	tags: [
-	'amplified',
-	'showy',
-	'thunderous',
-],
+	display: {
+			en: {
+				name: 'Electric Guitar',
+				description: 'A stage weapon that turns amplified feedback, heavy swings, and raw showmanship into damage.',
+			},
+		},
 	tier: 5,
 	grip: 1,
 	families: BATTERY | MISC,

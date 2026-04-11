@@ -3,13 +3,12 @@ import { defineWeapon, CURVED_BLADE, THROWABLE } from '../../helpers/index.js';
 export const chakram = defineWeapon({
 	internalId: 128,
 	id: 'chakram',
-	displayName: 'Chakram',
-	description: 'A sharpened war ring that flies flat, slices wide, and punishes anything caught in its line.',
-	tags: [
-	'ringed',
-	'whirling',
-	'severe',
-],
+	display: {
+			en: {
+				name: 'Chakram',
+				description: 'A sharpened war ring that flies flat, slices wide, and punishes anything caught in its line.',
+			},
+		},
 	tier: 4,
 	grip: 0,
 	families: CURVED_BLADE | THROWABLE,

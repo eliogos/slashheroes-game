@@ -3,13 +3,12 @@ import { defineWeapon, BATTERY, SHIELD } from '../../helpers/index.js';
 export const forcefield_band = defineWeapon({
 	internalId: 105,
 	id: 'forcefield_band',
-	displayName: 'Forcefield Band',
-	description: 'An armband projector that spins battery power into a portable barrier.',
-	tags: [
-	'projected',
-	'sleek',
-	'defensive',
-],
+	display: {
+			en: {
+				name: 'Forcefield Band',
+				description: 'An armband projector that spins battery power into a portable barrier.',
+			},
+		},
 	tier: 4,
 	grip: 1,
 	families: BATTERY | SHIELD,

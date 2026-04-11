@@ -20,6 +20,8 @@ export interface HeroModifiers {
 	luk: number;
 	/** Hunger modifier affecting upkeep pressure and recovery balance. */
 	hun: number;
+	/** Experience modifier affecting leveling pace and long-term progression. */
+	exp: number;
 }
 
 export type ModifierKey = keyof HeroModifiers;
@@ -40,6 +42,7 @@ export const HERO_MODIFIER_KEY_BY_SHORTCODE = {
 	PER: 'per',
 	LUK: 'luk',
 	HUN: 'hun',
+	EXP: 'exp',
 } as const satisfies Record<HeroStatShortcode, ModifierKey>;
 
 /** Shared metadata used by both hero classes and hero races. */

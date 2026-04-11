@@ -3,13 +3,12 @@ import { defineWeapon, POLEARM } from '../../helpers/index.js';
 export const glaive = defineWeapon({
 	internalId: 55,
 	id: 'glaive',
-	displayName: 'Glaive',
-	description: 'A single-edged polearm that rewards long arcs and committed cuts.',
-	tags: [
-	'sweeping',
-	'martial',
-	'severe',
-],
+	display: {
+			en: {
+				name: 'Glaive',
+				description: 'A single-edged polearm that rewards long arcs and committed cuts.',
+			},
+		},
 	tier: 5,
 	grip: 1,
 	families: POLEARM,

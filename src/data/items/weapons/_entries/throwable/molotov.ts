@@ -3,13 +3,12 @@ import { defineWeapon, MISC, THROWABLE, TOOL } from '../../helpers/index.js';
 export const molotov = defineWeapon({
 	internalId: 122,
 	id: 'molotov',
-	displayName: 'Molotov',
-	description: 'A bottle of burning liquid that turns a desperate throw into spreading fire and chaos.',
-	tags: [
-	'burning',
-	'desperate',
-	'spreading',
-],
+	display: {
+			en: {
+				name: 'Molotov',
+				description: 'A bottle of burning liquid that turns a desperate throw into spreading fire and chaos.',
+			},
+		},
 	tier: 3,
 	grip: 0,
 	families: MISC | TOOL | THROWABLE,

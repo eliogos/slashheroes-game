@@ -3,13 +3,12 @@ import { defineWeapon, BLADE, THROWABLE } from '../../helpers/index.js';
 export const icicle = defineWeapon({
 	internalId: 140,
 	id: 'icicle',
-	displayName: 'Icicle',
-	description: 'A jagged spike of winter hurled like a frozen dagger, leaving targets stiff and sluggish when the cold bites in.',
-	tags: [
-	'cold',
-	'piercing',
-	'frosted',
-],
+	display: {
+			en: {
+				name: 'Icicle',
+				description: 'A jagged spike of winter hurled like a frozen dagger, leaving targets stiff and sluggish when the cold bites in.',
+			},
+		},
 	tier: 2,
 	grip: 0,
 	families: BLADE | THROWABLE,

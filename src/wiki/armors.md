@@ -241,11 +241,9 @@ Material **Variance** determines how wide the gap is between a piece's best and 
 |---|---|
 | `internalId` | Internal numeric identifier |
 | `id` | Unique slug (`snake_case`) |
-| `displayName` | Visible item name |
+| `display` | Language-keyed UI copy at `display.en.{name, description, plural?}` |
 | `type` | Armor slot: `helm`, `chest`, `leggings`, `boots` |
 | `material` | References a key in `materialConfigs` |
-| `description` | Flavor text |
-| `tags` | Descriptor tags |
 | `qualityMultipliers.protection` | Craftsmanship modifier — scales the material's base stat |
 | `archived` | If `true`, excluded from active armor lists |
 | `created_at` | ISO creation timestamp |

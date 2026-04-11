@@ -7,7 +7,7 @@ import type { HeroStatDefinition } from '../types.js';
 export const HUNGER_STAT_CONTEXT = {
 	min: 0,
 	max: 100,
-	humanBaselineKcal: {
+	BaselineKcal: {
 		low: 2000,
 		high: 2500,
 		average: 2250,

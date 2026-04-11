@@ -120,7 +120,7 @@ const rows = ammo.map(entry => {
 	const amplifierEntries = Object.entries(entry.weaponAmplifiers ?? {});
 	return {
 		index: entry.internalId,
-		name: entry.displayName,
+		name: entry.display.en.name,
 		families: getWeaponFamilyKeys(entry.compatibleFamilyFlag).join('+'),
 		weight: entry.qualities?.weight ?? 0,
 		amplifiers: amplifierEntries.length,

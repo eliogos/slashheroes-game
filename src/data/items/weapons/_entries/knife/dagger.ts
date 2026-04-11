@@ -3,13 +3,12 @@ import { defineWeapon, KNIFE } from '../../helpers/index.js';
 export const dagger = defineWeapon({
 	internalId: 1,
 	id: 'dagger',
-	displayName: 'Dagger',
-	description: 'A compact starter blade built for simple close-quarters strikes.',
-	tags: [
-	'furtive',
-	'plain',
-	'reliable',
-],
+	display: {
+			en: {
+				name: 'Dagger',
+				description: 'A compact starter blade built for simple close-quarters strikes.',
+			},
+		},
 	tier: 1,
 	grip: 1,
 	families: KNIFE,

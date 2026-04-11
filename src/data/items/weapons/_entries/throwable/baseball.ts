@@ -3,13 +3,12 @@ import { defineWeapon, BLUNT, THROWABLE } from '../../helpers/index.js';
 export const baseball = defineWeapon({
 	internalId: 137,
 	id: 'baseball',
-	displayName: 'Baseball',
-	description: 'A hard little leather ball that goes from harmless pastime to beaning weapon the moment someone throws it with intent.',
-	tags: [
-	'hardball',
-	'sporty',
-	'beaning',
-],
+	display: {
+			en: {
+				name: 'Baseball',
+				description: 'A hard little leather ball that goes from harmless pastime to beaning weapon the moment someone throws it with intent.',
+			},
+		},
 	tier: 1,
 	grip: 0,
 	families: BLUNT | THROWABLE,

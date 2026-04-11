@@ -3,13 +3,12 @@ import { defineWeapon, PROJECTILE } from '../../helpers/index.js';
 export const bow = defineWeapon({
 	internalId: 67,
 	id: 'bow',
-	displayName: 'Bow',
-	description: 'A standard bow that balances draw speed, range, and dependable control.',
-	tags: [
-	'balanced',
-	'steady',
-	'dependable',
-],
+	display: {
+			en: {
+				name: 'Bow',
+				description: 'A standard bow that balances draw speed, range, and dependable control.',
+			},
+		},
 	tier: 2,
 	grip: 2,
 	families: PROJECTILE,

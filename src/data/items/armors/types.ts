@@ -1,4 +1,5 @@
 import type { Length, Mass, Pressure } from 'unitsnet-js';
+import type { ItemDisplay } from '../helpers/display.js';
 
 export type ArmorTypeId = 'helm' | 'chest' | 'leggings' | 'boots';
 export type ArmorStatId = 'critInfluence' | 'defense' | 'evasion' | 'stride';
@@ -17,17 +18,6 @@ export type ArmorMaterialId =
 	| 'obsidian'
 	| 'kevlar'
 	| 'diamondplate';
-
-/** Localized armor copy for a specific language code. */
-export interface ArmorLocalizationEntry {
-	/** Localized display name shown to the player. */
-	displayName: string;
-	/** Localized description text for the armor entry. */
-	description: string;
-}
-
-/** Localized variants keyed by language code. */
-export type ArmorLocalization = Record<string, ArmorLocalizationEntry>;
 
 /** Tunable multipliers affecting armor stat calculations. */
 export interface ArmorQualityMultipliers {
@@ -79,18 +69,12 @@ export interface ArmorDefinition {
 	internalId: number;
 	/** Internal unique id used by the game data. */
 	id: string;
-	/** Human-readable name shown in UI. */
-	displayName: string;
 	/** Equipped slot for the armor piece. */
 	type: ArmorTypeId;
 	/** Material key used to resolve derived defensive values. */
 	material: ArmorMaterialId;
-	/** Flavor and gameplay description for the armor. */
-	description: string;
-	/** Search and categorization tags. */
-	tags: string[];
-	/** Optional localized copy overrides. */
-	localization: ArmorLocalization;
+	/** Language-keyed display copy. English text lives under `display.en`. */
+	display: ItemDisplay;
 	/** Multiplier overrides affecting armor formulas. */
 	qualityMultipliers: ArmorQualityMultipliers;
 	/** ISO timestamp for when the entry was added. */

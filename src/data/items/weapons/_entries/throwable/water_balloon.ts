@@ -3,13 +3,12 @@ import { defineWeapon, MISC, THROWABLE } from '../../helpers/index.js';
 export const water_balloon = defineWeapon({
 	internalId: 139,
 	id: 'water_balloon',
-	displayName: 'Water Balloon',
-	description: 'A thin latex pouch of water that bursts on impact with a satisfying splash and absolutely zero lethality.',
-	tags: [
-	'splashing',
-	'harmless',
-	'playful',
-],
+	display: {
+			en: {
+				name: 'Water Balloon',
+				description: 'A thin latex pouch of water that bursts on impact with a satisfying splash and absolutely zero lethality.',
+			},
+		},
 	tier: 1,
 	grip: 0,
 	families: MISC | THROWABLE,

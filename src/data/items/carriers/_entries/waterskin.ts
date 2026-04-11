@@ -3,9 +3,12 @@ import { defineCarrier } from '../helpers/index.js';
 export const waterskin = defineCarrier({
 	internalId: 7,
 	id: 'waterskin',
-	displayName: 'Waterskin',
-	description: 'A soft leather pouch for carrying liquid drops. Droplets absorbed on pickup go here instead of being lost — drinking from the skin restores a bit of health with each sip.',
-	tags: ['droplet', 'liquid', 'utility'],
+	display: {
+			en: {
+				name: 'Waterskin',
+				description: 'A soft leather pouch for carrying liquid drops. Droplets absorbed on pickup go here instead of being lost — drinking from the skin restores a bit of health with each sip.',
+			},
+		},
 	rarity: 'common',
 	quickAccess: true,
 	allowedTypes: ['droplet'],

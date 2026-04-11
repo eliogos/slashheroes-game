@@ -3,13 +3,12 @@ import { defineWeapon, MISC, THROWABLE } from '../../helpers/index.js';
 export const bolas = defineWeapon({
 	internalId: 113,
 	id: 'bolas',
-	displayName: 'Bolas',
-	description: 'Weighted cords spun overhead to tangle limbs and turn a clean chase into a helpless stumble.',
-	tags: [
-	'weighted',
-	'entangling',
-	'tricky',
-],
+	display: {
+			en: {
+				name: 'Bolas',
+				description: 'Weighted cords spun overhead to tangle limbs and turn a clean chase into a helpless stumble.',
+			},
+		},
 	tier: 1,
 	grip: 0,
 	families: MISC | THROWABLE,

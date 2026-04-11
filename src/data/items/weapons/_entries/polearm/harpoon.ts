@@ -3,13 +3,12 @@ import { defineWeapon, POLEARM, RANGED } from '../../helpers/index.js';
 export const harpoon = defineWeapon({
 	internalId: 52,
 	id: 'harpoon',
-	displayName: 'Harpoon',
-	description: 'A barbed hunting spear suited for long thrusts and thrown follow-ups.',
-	tags: [
-	'barbed',
-	'maritime',
-	'hunting',
-],
+	display: {
+			en: {
+				name: 'Harpoon',
+				description: 'A barbed hunting spear suited for long thrusts and thrown follow-ups.',
+			},
+		},
 	tier: 3,
 	grip: 1,
 	families: POLEARM | RANGED,

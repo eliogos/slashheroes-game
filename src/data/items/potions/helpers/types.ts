@@ -1,9 +1,4 @@
-export interface PotionLocalizationEntry {
-	displayName: string;
-	description: string;
-}
-
-export type PotionLocalization = Record<string, PotionLocalizationEntry>;
+import type { ItemDisplay } from '../../helpers/display.js';
 
 export interface PotionEffect {
 	hook: string;
@@ -18,13 +13,10 @@ export interface PotionEffect {
 export interface PotionDefinition {
 	internalId: number;
 	id: string;
-	displayName: string;
-	description: string;
-	tags: string[];
+	display: ItemDisplay;
 	rarity: string;
 	stackable: number;
 	subtype: string;
-	localization: PotionLocalization;
 	volume: number;
 	concentration: number;
 	servings: number;

@@ -3,13 +3,12 @@ import { defineWeapon, KNIFE } from '../../helpers/index.js';
 export const short_blade = defineWeapon({
 	internalId: 5,
 	id: 'short_blade',
-	displayName: 'Tantō',
-	description: 'A rigid short blade that favors decisive cuts in tight spaces.',
-	tags: [
-	'stoic',
-	'focused',
-	'ceremonial',
-],
+	display: {
+			en: {
+				name: 'Tantō',
+				description: 'A rigid short blade that favors decisive cuts in tight spaces.',
+			},
+		},
 	tier: 5,
 	grip: 1,
 	families: KNIFE,

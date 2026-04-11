@@ -3,13 +3,12 @@ import { defineWeapon, SHIELD } from '../../helpers/index.js';
 export const heater_shield = defineWeapon({
 	internalId: 104,
 	id: 'heater_shield',
-	displayName: 'Heater Shield',
-	description: 'A medium shield shaped for dependable coverage and practical front-line work.',
-	tags: [
-	'practical',
-	'protective',
-	'solid',
-],
+	display: {
+			en: {
+				name: 'Heater Shield',
+				description: 'A medium shield shaped for dependable coverage and practical front-line work.',
+			},
+		},
 	tier: 3,
 	grip: 1,
 	families: SHIELD,

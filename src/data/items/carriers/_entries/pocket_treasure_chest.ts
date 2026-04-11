@@ -3,9 +3,12 @@ import { defineCarrier } from '../helpers/index.js';
 export const pocketTreasureChest = defineCarrier({
 	internalId: 9,
 	id: 'pocket_treasure_chest',
-	displayName: 'Pocket Treasure Chest',
-	description: 'A surprisingly sturdy miniature chest fitted with a clasp. Holds gems, jewelry, ores, and rings — the kind of things too valuable to rattle around loose in a pack.',
-	tags: ['gem', 'jewelry', 'treasure'],
+	display: {
+			en: {
+				name: 'Pocket Treasure Chest',
+				description: 'A surprisingly sturdy miniature chest fitted with a clasp. Holds gems, jewelry, ores, and rings — the kind of things too valuable to rattle around loose in a pack.',
+			},
+		},
 	rarity: 'uncommon',
 	allowedTypes: ['gem', 'jewelry', 'ore', 'ring'],
 	slots: 20,

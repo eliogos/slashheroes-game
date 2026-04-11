@@ -3,13 +3,12 @@ import { defineWeapon, BLUNT } from '../../helpers/index.js';
 export const nunchaku = defineWeapon({
 	internalId: 39,
 	id: 'nunchaku',
-	displayName: 'Nunchaku',
-	description: 'A flexible twin-stick weapon that thrives on rhythm and rapid chaining hits.',
-	tags: [
-	'nimble',
-	'rhythmic',
-	'flashy',
-],
+	display: {
+			en: {
+				name: 'Nunchaku',
+				description: 'A flexible twin-stick weapon that thrives on rhythm and rapid chaining hits.',
+			},
+		},
 	tier: 3,
 	grip: 1,
 	families: BLUNT,

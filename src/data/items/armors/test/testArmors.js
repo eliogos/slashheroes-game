@@ -123,7 +123,7 @@ const rows = armors.map(armor => {
 	const { stat, base, spread } = resolveArmorStat(armor);
 	return {
 		index:         armor.internalId,
-		name:          armor.displayName,
+		name:          armor.display.en.name,
 		type:          armor.type,
 		material:      armor.material,
 		'base effect': `${stat}  ${base.toFixed(2)} ±${spread.toFixed(2)}`,

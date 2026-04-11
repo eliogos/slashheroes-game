@@ -1,13 +1,4 @@
-/** Localized ammo copy for a specific language code. */
-export interface AmmoLocalizationEntry {
-	/** Localized display name shown to the player. */
-	displayName: string;
-	/** Localized description text for the ammo entry. */
-	description: string;
-}
-
-/** Localized variants keyed by language code. */
-export type AmmoLocalization = Record<string, AmmoLocalizationEntry>;
+import type { ItemDisplay } from '../helpers/display.js';
 
 /** Physical qualities tracked for ammo. */
 export interface AmmoQualities {
@@ -24,14 +15,8 @@ export interface AmmoDefinition {
 	internalId: number;
 	/** Internal unique id used by the game data. */
 	id: string;
-	/** Human-readable name shown in UI. */
-	displayName: string;
-	/** Flavor and gameplay description for the ammo. */
-	description: string;
-	/** Search and categorization tags. */
-	tags: string[];
-	/** Optional localized copy overrides. */
-	localization: AmmoLocalization;
+	/** Localized or language-keyed display copy. English text lives under `display.en`. */
+	display: ItemDisplay;
 	/** Physical qualities such as weight. */
 	qualities: AmmoQualities;
 	/** Bitflag compatibility mask using `WEAPON_FAMILY`. */

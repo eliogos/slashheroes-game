@@ -3,13 +3,12 @@ import { defineWeapon, CURVED_BLADE } from '../../helpers/index.js';
 export const katana = defineWeapon({
 	internalId: 26,
 	id: 'katana',
-	displayName: 'Katana',
-	description: 'A disciplined two-handed sword prized for clean technique and lethal precision.',
-	tags: [
-	'disciplined',
-	'exacting',
-	'serene',
-],
+	display: {
+			en: {
+				name: 'Katana',
+				description: 'A disciplined two-handed sword prized for clean technique and lethal precision.',
+			},
+		},
 	tier: 5,
 	grip: 2,
 	families: CURVED_BLADE,

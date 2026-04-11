@@ -1,3 +1,5 @@
+import type { ItemDisplay } from '../../helpers/display.js';
+
 export type CarrierRarity = 'common' | 'uncommon' | 'rare' | 'epic' | 'legendary' | 'unique';
 
 export interface CarrierEffect {
@@ -9,23 +11,13 @@ export interface CarrierEffect {
 	chance: number;
 }
 
-export interface CarrierLocalizationEntry {
-	displayName: string;
-	description: string;
-}
-
-export type CarrierLocalization = Record<string, CarrierLocalizationEntry>;
-
 export interface CarrierDefinition {
 	internalId: number;
 	id: string;
-	displayName: string;
-	description: string;
-	tags: string[];
+	display: ItemDisplay;
 	rarity: CarrierRarity;
 	unique: boolean;
 	stackable: boolean;
-	localization: CarrierLocalization;
 	occupiedSlots: number;
 	quickAccess: boolean;
 	allowedTypes: string[] | null;

@@ -3,13 +3,12 @@ import { defineWeapon, MISC, THROWABLE } from '../../helpers/index.js';
 export const boomerang = defineWeapon({
 	internalId: 114,
 	id: 'boomerang',
-	displayName: 'Boomerang',
-	description: 'A curved throwing stick made to arc wide, clip targets, and sometimes swing back into your hand.',
-	tags: [
-	'curving',
-	'arcing',
-	'playful',
-],
+	display: {
+			en: {
+				name: 'Boomerang',
+				description: 'A curved throwing stick made to arc wide, clip targets, and sometimes swing back into your hand.',
+			},
+		},
 	tier: 1,
 	grip: 0,
 	families: MISC | THROWABLE,

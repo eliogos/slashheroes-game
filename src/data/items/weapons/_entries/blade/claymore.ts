@@ -3,13 +3,12 @@ import { defineWeapon, BLADE } from '../../helpers/index.js';
 export const claymore = defineWeapon({
 	internalId: 17,
 	id: 'claymore',
-	displayName: 'Claymore',
-	description: 'A broad two-handed war sword built for commanding reach and decisive battlefield cuts.',
-	tags: [
-	'noble',
-	'disciplined',
-	'commanding',
-],
+	display: {
+			en: {
+				name: 'Claymore',
+				description: 'A broad two-handed war sword built for commanding reach and decisive battlefield cuts.',
+			},
+		},
 	tier: 6,
 	grip: 2,
 	families: BLADE,

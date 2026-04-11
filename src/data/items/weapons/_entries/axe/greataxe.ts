@@ -3,13 +3,12 @@ import { defineWeapon, AXE } from '../../helpers/index.js';
 export const greataxe = defineWeapon({
 	internalId: 63,
 	id: 'greataxe',
-	displayName: 'Greataxe',
-	description: 'An enormous axe that feels oversized even in skilled hands.',
-	tags: [
-	'enormous',
-	'fearsome',
-	'sweeping',
-],
+	display: {
+			en: {
+				name: 'Greataxe',
+				description: 'An enormous axe that feels oversized even in skilled hands.',
+			},
+		},
 	tier: 6,
 	grip: 1,
 	families: AXE,

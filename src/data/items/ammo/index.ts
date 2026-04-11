@@ -8,8 +8,6 @@ import type { ActiveAmmoDefinition } from './types.js';
 export type {
 	ActiveAmmoDefinition,
 	AmmoDefinition,
-	AmmoLocalization,
-	AmmoLocalizationEntry,
 	AmmoQualities,
 	AmmoWeaponAmplifiers,
 } from './types.js';

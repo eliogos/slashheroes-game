@@ -3,13 +3,12 @@ import { defineWeapon, FIREARM } from '../../helpers/index.js';
 export const rifle = defineWeapon({
 	internalId: 81,
 	id: 'rifle',
-	displayName: 'Rifle',
-	description: 'A long precision firearm built to reward calm aim and steady hands.',
-	tags: [
-	'precise',
-	'steady',
-	'lethal',
-],
+	display: {
+			en: {
+				name: 'Rifle',
+				description: 'A long precision firearm built to reward calm aim and steady hands.',
+			},
+		},
 	tier: 5,
 	grip: 2,
 	families: FIREARM,

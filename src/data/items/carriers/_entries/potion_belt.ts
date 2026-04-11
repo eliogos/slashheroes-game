@@ -3,9 +3,12 @@ import { defineCarrier } from '../helpers/index.js';
 export const potionBelt = defineCarrier({
 	internalId: 1,
 	id: 'potion_belt',
-	displayName: 'Potion Belt',
-	description: 'A wide leather belt lined with snug loops, one per potion. Keeps them upright, reachable, and mercifully unbroken. Smalls can be merged into mediums, mediums into greats — a full belt holds twenty, but a smart one holds fewer.',
-	tags: ['belt', 'potion', 'combat'],
+	display: {
+			en: {
+				name: 'Potion Belt',
+				description: 'A wide leather belt lined with snug loops, one per potion. Keeps them upright, reachable, and mercifully unbroken. Smalls can be merged into mediums, mediums into greats — a full belt holds twenty, but a smart one holds fewer.',
+			},
+		},
 	rarity: 'uncommon',
 	quickAccess: true,
 	allowedTags: ['potion'],

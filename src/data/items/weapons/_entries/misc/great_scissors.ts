@@ -3,13 +3,12 @@ import { defineWeapon, MISC } from '../../helpers/index.js';
 export const great_scissors = defineWeapon({
 	internalId: 98,
 	id: 'great_scissors',
-	displayName: 'Great Scissors',
-	description: 'An absurd oversized cutting tool turned into a ridiculous but dangerous showpiece.',
-	tags: [
-	'absurd',
-	'theatrical',
-	'savage',
-],
+	display: {
+			en: {
+				name: 'Great Scissors',
+				description: 'An absurd oversized cutting tool turned into a ridiculous but dangerous showpiece.',
+			},
+		},
 	tier: 6,
 	grip: 2,
 	families: MISC,

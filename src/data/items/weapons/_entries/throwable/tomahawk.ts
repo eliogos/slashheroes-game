@@ -3,13 +3,12 @@ import { defineWeapon, AXE, THROWABLE } from '../../helpers/index.js';
 export const tomahawk = defineWeapon({
 	internalId: 112,
 	id: 'tomahawk',
-	displayName: 'Tomahawk',
-	description: 'A compact throwing axe that bites hard for its size and still feels brutal up close.',
-	tags: [
-	'compact',
-	'biting',
-	'nimble',
-],
+	display: {
+			en: {
+				name: 'Tomahawk',
+				description: 'A compact throwing axe that bites hard for its size and still feels brutal up close.',
+			},
+		},
 	tier: 1,
 	grip: 0,
 	families: AXE | THROWABLE,

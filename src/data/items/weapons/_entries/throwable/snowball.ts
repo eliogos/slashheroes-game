@@ -3,13 +3,12 @@ import { defineWeapon, MISC, THROWABLE } from '../../helpers/index.js';
 export const snowball = defineWeapon({
 	internalId: 138,
 	id: 'snowball',
-	displayName: 'Snowball',
-	description: 'A cold little handful of winter that feels harmless right until it smacks someone square in the face.',
-	tags: [
-	'cold',
-	'powdery',
-	'playful',
-],
+	display: {
+			en: {
+				name: 'Snowball',
+				description: 'A cold little handful of winter that feels harmless right until it smacks someone square in the face.',
+			},
+		},
 	tier: 1,
 	grip: 0,
 	families: MISC | THROWABLE,

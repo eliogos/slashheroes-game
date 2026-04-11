@@ -3,13 +3,12 @@ import { defineWeapon, BATTERY, FIST } from '../../helpers/index.js';
 export const charged_gloves = defineWeapon({
 	internalId: 73,
 	id: 'charged_gloves',
-	displayName: 'Charged Gloves',
-	description: 'Powered gloves that crackle on impact and sharpen close-range bursts.',
-	tags: [
-	'charged',
-	'crackling',
-	'volatile',
-],
+	display: {
+			en: {
+				name: 'Charged Gloves',
+				description: 'Powered gloves that crackle on impact and sharpen close-range bursts.',
+			},
+		},
 	tier: 2,
 	grip: 1,
 	families: BATTERY | FIST,

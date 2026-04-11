@@ -3,13 +3,12 @@ import { defineWeapon, PROJECTILE } from '../../helpers/index.js';
 export const sling = defineWeapon({
 	internalId: 64,
 	id: 'sling',
-	displayName: 'Sling',
-	description: 'A simple launcher that turns loose stones into cheap ranged pressure.',
-	tags: [
-	'simple',
-	'frugal',
-	'whirling',
-],
+	display: {
+			en: {
+				name: 'Sling',
+				description: 'A simple launcher that turns loose stones into cheap ranged pressure.',
+			},
+		},
 	tier: 1,
 	grip: 2,
 	families: PROJECTILE,

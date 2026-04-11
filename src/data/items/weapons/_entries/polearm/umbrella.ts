@@ -3,13 +3,12 @@ import { defineWeapon, POLEARM, SHIELD } from '../../helpers/index.js';
 export const umbrella = defineWeapon({
 	internalId: 100,
 	id: 'umbrella',
-	displayName: 'Umbrella',
-	description: 'A light improvised guard that pokes, blocks, and survives bad weather.',
-	tags: [
-	'improvised',
-	'jaunty',
-	'guarded',
-],
+	display: {
+			en: {
+				name: 'Umbrella',
+				description: 'A light improvised guard that pokes, blocks, and survives bad weather.',
+			},
+		},
 	tier: 1,
 	grip: 1,
 	families: POLEARM | SHIELD,

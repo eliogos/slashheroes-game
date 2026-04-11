@@ -3,13 +3,12 @@ import { defineWeapon, BATTERY } from '../../helpers/index.js';
 export const lightsabre = defineWeapon({
 	internalId: 91,
 	id: 'lightsabre',
-	displayName: 'Lightsabre',
-	description: 'A bladeless weapon of concentrated light that cuts with impossible cleanliness.',
-	tags: [
-	'radiant',
-	'humming',
-	'immaculate',
-],
+	display: {
+			en: {
+				name: 'Lightsabre',
+				description: 'A bladeless weapon of concentrated light that cuts with impossible cleanliness.',
+			},
+		},
 	tier: 6,
 	grip: 1,
 	families: BATTERY,

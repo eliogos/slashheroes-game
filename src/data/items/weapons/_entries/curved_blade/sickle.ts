@@ -3,13 +3,12 @@ import { defineWeapon, CURVED_BLADE, TOOL } from '../../helpers/index.js';
 export const sickle = defineWeapon({
 	internalId: 20,
 	id: 'sickle',
-	displayName: 'Sickle',
-	description: 'A hooked harvesting blade turned into a quick close-range cutter.',
-	tags: [
-	'hooked',
-	'rustic',
-	'nimble',
-],
+	display: {
+			en: {
+				name: 'Sickle',
+				description: 'A hooked harvesting blade turned into a quick close-range cutter.',
+			},
+		},
 	tier: 1,
 	grip: 1,
 	families: CURVED_BLADE | TOOL,

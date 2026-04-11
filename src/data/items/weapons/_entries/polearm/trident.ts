@@ -3,13 +3,12 @@ import { defineWeapon, POLEARM } from '../../helpers/index.js';
 export const trident = defineWeapon({
 	internalId: 53,
 	id: 'trident',
-	displayName: 'Trident',
-	description: 'A three-pronged spear that controls space with punishing outward pressure.',
-	tags: [
-	'regal',
-	'pronged',
-	'poised',
-],
+	display: {
+			en: {
+				name: 'Trident',
+				description: 'A three-pronged spear that controls space with punishing outward pressure.',
+			},
+		},
 	tier: 3,
 	grip: 1,
 	families: POLEARM,

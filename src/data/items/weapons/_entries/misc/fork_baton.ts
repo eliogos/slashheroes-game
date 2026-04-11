@@ -3,13 +3,12 @@ import { defineWeapon, MISC } from '../../helpers/index.js';
 export const fork_baton = defineWeapon({
 	internalId: 96,
 	id: 'fork_baton',
-	displayName: 'Jitte',
-	description: 'A short iron weapon built for catching attacks and punishing openings.',
-	tags: [
-	'vigilant',
-	'hooked',
-	'tactical',
-],
+	display: {
+			en: {
+				name: 'Jitte',
+				description: 'A short iron weapon built for catching attacks and punishing openings.',
+			},
+		},
 	tier: 1,
 	grip: 1,
 	families: MISC,

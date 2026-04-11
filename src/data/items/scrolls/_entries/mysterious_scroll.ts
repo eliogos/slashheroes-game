@@ -3,9 +3,12 @@ import { defineScroll } from '../helpers/index.js';
 export const mysterious_scroll = defineScroll({
 	internalId: 1,
 	id: 'mysterious_scroll',
-	displayName: 'Mysterious Scroll',
-	description: 'A sealed arcane scroll covered in symbols that seem to rearrange themselves every time you blink.',
-	tags: ['scroll', 'arcane', 'unstable'],
+	display: {
+			en: {
+				name: 'Mysterious Scroll',
+				description: 'A sealed arcane scroll covered in symbols that seem to rearrange themselves every time you blink.',
+			},
+		},
 	rarity: 'common',
 	stackable: 10,
 	spellId: 'random_spell',

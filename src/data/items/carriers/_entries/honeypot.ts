@@ -3,9 +3,12 @@ import { defineCarrier } from '../helpers/index.js';
 export const honeypot = defineCarrier({
 	internalId: 11,
 	id: 'honeypot',
-	displayName: 'Honeypot',
-	description: 'A small sealed crock for carrying honey. Scooping a spoonful restores a bit of stamina. Attracts bears. Use with awareness.',
-	tags: ['honey', 'stamina', 'utility'],
+	display: {
+			en: {
+				name: 'Honeypot',
+				description: 'A small sealed crock for carrying honey. Scooping a spoonful restores a bit of stamina. Attracts bears. Use with awareness.',
+			},
+		},
 	rarity: 'common',
 	quickAccess: true,
 	allowedTags: ['honey'],

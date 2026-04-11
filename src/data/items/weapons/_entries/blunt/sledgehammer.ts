@@ -3,13 +3,12 @@ import { defineWeapon, BLUNT } from '../../helpers/index.js';
 export const sledgehammer = defineWeapon({
 	internalId: 37,
 	id: 'sledgehammer',
-	displayName: 'Sledgehammer',
-	description: 'A massive work hammer turned into a devastating two-handed breaker.',
-	tags: [
-	'massive',
-	'demolishing',
-	'laborious',
-],
+	display: {
+			en: {
+				name: 'Sledgehammer',
+				description: 'A massive work hammer turned into a devastating two-handed breaker.',
+			},
+		},
 	tier: 3,
 	grip: 2,
 	families: BLUNT,

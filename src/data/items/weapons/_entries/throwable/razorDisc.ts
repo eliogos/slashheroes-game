@@ -3,13 +3,12 @@ import { defineWeapon, CURVED_BLADE, THROWABLE } from '../../helpers/index.js';
 export const razorDisc = defineWeapon({
 	internalId: 131,
 	id: 'razorDisc',
-	displayName: 'Razor Disc',
-	description: 'A vicious spinning disc edged for surgical cuts and thrown for maximum overkill.',
-	tags: [
-	'spinning',
-	'surgical',
-	'vicious',
-],
+	display: {
+			en: {
+				name: 'Razor Disc',
+				description: 'A vicious spinning disc edged for surgical cuts and thrown for maximum overkill.',
+			},
+		},
 	tier: 5,
 	grip: 0,
 	families: CURVED_BLADE | THROWABLE,

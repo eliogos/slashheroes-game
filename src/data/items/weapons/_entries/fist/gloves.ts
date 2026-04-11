@@ -3,13 +3,12 @@ import { defineWeapon, FIST } from '../../helpers/index.js';
 export const gloves = defineWeapon({
 	internalId: 72,
 	id: 'gloves',
-	displayName: 'Studded Gloves',
-	description: 'Reinforced gloves with knuckle studs that turn every punch into something the other guy remembers.',
-	tags: [
-	'studded',
-	'reinforced',
-	'humble',
-],
+	display: {
+			en: {
+				name: 'Studded Gloves',
+				description: 'Reinforced gloves with knuckle studs that turn every punch into something the other guy remembers.',
+			},
+		},
 	tier: 1,
 	grip: 1,
 	families: FIST,

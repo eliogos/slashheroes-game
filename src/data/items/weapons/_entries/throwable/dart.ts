@@ -3,13 +3,12 @@ import { defineWeapon, MISC, THROWABLE } from '../../helpers/index.js';
 export const dart = defineWeapon({
 	internalId: 115,
 	id: 'dart',
-	displayName: 'Dart',
-	description: 'A slim hand-thrown spike built for quick releases, shallow arcs, and irritatingly accurate hits.',
-	tags: [
-	'slim',
-	'accurate',
-	'snappy',
-],
+	display: {
+			en: {
+				name: 'Dart',
+				description: 'A slim hand-thrown spike built for quick releases, shallow arcs, and irritatingly accurate hits.',
+			},
+		},
 	tier: 1,
 	grip: 0,
 	families: MISC | THROWABLE,

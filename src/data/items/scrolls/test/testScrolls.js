@@ -69,7 +69,7 @@ const sortDirection = parseSortDirection(args, sortField);
 
 const rows = activeScrolls.map(entry => ({
 	index: entry.internalId,
-	name: entry.displayName,
+	name: entry.display.en.name,
 	school: entry.school,
 	spell: entry.spellId,
 	charges: entry.charges,

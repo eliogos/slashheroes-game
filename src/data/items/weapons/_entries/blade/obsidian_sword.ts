@@ -3,13 +3,12 @@ import { defineWeapon, BLADE, BLUNT } from '../../helpers/index.js';
 export const obsidian_sword = defineWeapon({
 	internalId: 16,
 	id: 'obsidian_sword',
-	displayName: 'Macuahuitl',
-	description: 'A brutal war club lined with cutting edges, blending crushing force with savage slashes.',
-	tags: [
-	'primal',
-	'ritual',
-	'savage',
-],
+	display: {
+			en: {
+				name: 'Macuahuitl',
+				description: 'A brutal war club lined with cutting edges, blending crushing force with savage slashes.',
+			},
+		},
 	tier: 5,
 	grip: 2,
 	families: BLADE | BLUNT,

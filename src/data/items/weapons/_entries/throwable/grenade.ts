@@ -3,13 +3,12 @@ import { defineWeapon, MISC, THROWABLE } from '../../helpers/index.js';
 export const grenade = defineWeapon({
 	internalId: 120,
 	id: 'grenade',
-	displayName: 'Grenade',
-	description: 'A compact explosive that turns a short throw into a sharp burst of shrapnel and panic.',
-	tags: [
-	'compact',
-	'fragmenting',
-	'military',
-],
+	display: {
+			en: {
+				name: 'Grenade',
+				description: 'A compact explosive that turns a short throw into a sharp burst of shrapnel and panic.',
+			},
+		},
 	tier: 3,
 	grip: 0,
 	families: MISC | THROWABLE,

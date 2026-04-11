@@ -3,13 +3,12 @@ import { defineWeapon, BLADE } from '../../helpers/index.js';
 export const shortsword = defineWeapon({
 	internalId: 9,
 	id: 'shortsword',
-	displayName: 'Shortsword',
-	description: 'A compact training sword built for dependable cuts, simple drills, and steady beginner footwork.',
-	tags: [
-	'steady',
-	'simple',
-	'dependable',
-],
+	display: {
+			en: {
+				name: 'Shortsword',
+				description: 'A compact training sword built for dependable cuts, simple drills, and steady beginner footwork.',
+			},
+		},
 	tier: 1,
 	grip: 1,
 	families: BLADE,

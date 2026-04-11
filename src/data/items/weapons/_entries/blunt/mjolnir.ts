@@ -3,13 +3,12 @@ import { defineWeapon, BLUNT, LEGENDARY } from '../../helpers/index.js';
 export const mjolnir = defineWeapon({
 	internalId: 46,
 	id: 'mjolnir',
-	displayName: 'Mjölnir',
-	description: 'A legendary hammer of impossible density, minus the thunder but not the impact.',
-	tags: [
-	'mythic',
-	'divine',
-	'compact',
-],
+	display: {
+			en: {
+				name: 'Mjölnir',
+				description: 'A legendary hammer of impossible density, minus the thunder but not the impact.',
+			},
+		},
 	tier: 6,
 	grip: 1,
 	families: BLUNT | LEGENDARY,

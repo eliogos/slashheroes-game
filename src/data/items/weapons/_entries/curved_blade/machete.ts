@@ -3,13 +3,12 @@ import { defineWeapon, CURVED_BLADE } from '../../helpers/index.js';
 export const machete = defineWeapon({
 	internalId: 22,
 	id: 'machete',
-	displayName: 'Machete',
-	description: 'A thick jungle cutter built for repeated chopping through brush and bone.',
-	tags: [
-	'rugged',
-	'broad',
-	'relentless',
-],
+	display: {
+			en: {
+				name: 'Machete',
+				description: 'A thick jungle cutter built for repeated chopping through brush and bone.',
+			},
+		},
 	tier: 2,
 	grip: 1,
 	families: CURVED_BLADE,

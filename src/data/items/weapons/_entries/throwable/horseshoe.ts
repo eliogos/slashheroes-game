@@ -3,13 +3,12 @@ import { defineWeapon, BLUNT, THROWABLE } from '../../helpers/index.js';
 export const horseshoe = defineWeapon({
 	internalId: 134,
 	id: 'horseshoe',
-	displayName: 'Horseshoe',
-	description: 'A lucky chunk of iron that hits like a compact hammer when thrown with spite.',
-	tags: [
-	'lucky',
-	'iron',
-	'chunky',
-],
+	display: {
+			en: {
+				name: 'Horseshoe',
+				description: 'A lucky chunk of iron that hits like a compact hammer when thrown with spite.',
+			},
+		},
 	tier: 1,
 	grip: 0,
 	families: BLUNT | THROWABLE,

@@ -3,13 +3,12 @@ import { defineWeapon, PROJECTILE } from '../../helpers/index.js';
 export const composite_bow = defineWeapon({
 	internalId: 71,
 	id: 'composite_bow',
-	displayName: 'Composite Bow',
-	description: 'A reinforced high-end bow delivering strong output without sacrificing control.',
-	tags: [
-	'reinforced',
-	'elite',
-	'resilient',
-],
+	display: {
+			en: {
+				name: 'Composite Bow',
+				description: 'A reinforced high-end bow delivering strong output without sacrificing control.',
+			},
+		},
 	tier: 6,
 	grip: 2,
 	families: PROJECTILE,

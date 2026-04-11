@@ -1,35 +1,33 @@
+import { resolveDisplay, type ItemDisplayInput } from '../../helpers/display.js';
 import { EDIBLE_SUBTYPE, SATIATION_TYPE, SPOILAGE_STATE } from './constants.js';
-import type { EdibleDefinition, EdibleEffect, EdibleLocalization } from './types.js';
+import type { EdibleDefinition, EdibleEffect } from './types.js';
 
 type EdibleInput = Omit<
 	Partial<EdibleDefinition>,
-	'id' | 'tags' | 'localization' | 'effects'
+	'id' | 'display' | 'effects'
 > &
 	Pick<EdibleDefinition, 'id'> & {
-		tags?: string[];
-		localization?: EdibleLocalization;
+		display?: ItemDisplayInput;
 		effects?: EdibleEffect[];
 	};
 
 export function defineEdible(edible: EdibleInput): EdibleDefinition {
 	const {
 		id,
-		displayName,
-		tags = [],
-		localization = {},
+		display = {},
 		effects = [],
 		...rest
 	} = edible;
+	const resolvedDisplay = resolveDisplay(id, display);
 
 	return {
 		internalId: 0,
 		id,
-		displayName: displayName ?? id,
-		description: '',
+		display: resolvedDisplay,
 		rarity: 'common',
 		stackable: 1,
 		subtype: EDIBLE_SUBTYPE.FOOD,
-		satiation: 0,
+		energy: 0,
 		satiationType: SATIATION_TYPE.INSTANT,
 		form: '',
 		requiresCooking: false,
@@ -40,8 +38,6 @@ export function defineEdible(edible: EdibleInput): EdibleDefinition {
 		spoilageState: SPOILAGE_STATE.FRESH,
 		created_at: '',
 		...rest,
-		tags: [...tags],
-		localization: { ...localization },
 		effects: effects.map((effect) => ({ ...effect })),
 	};
 }

@@ -3,13 +3,12 @@ import { defineWeapon, PROJECTILE } from '../../helpers/index.js';
 export const longbow = defineWeapon({
 	internalId: 69,
 	id: 'longbow',
-	displayName: 'Longbow',
-	description: 'A tall bow built for far-reaching shots and disciplined volleys.',
-	tags: [
-	'tall',
-	'patient',
-	'disciplined',
-],
+	display: {
+			en: {
+				name: 'Longbow',
+				description: 'A tall bow built for far-reaching shots and disciplined volleys.',
+			},
+		},
 	tier: 4,
 	grip: 2,
 	families: PROJECTILE,

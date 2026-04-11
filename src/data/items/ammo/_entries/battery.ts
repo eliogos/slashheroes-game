@@ -8,10 +8,12 @@ const { BATTERY } = WEAPON_FAMILY;
 export const battery = defineAmmo({
 	id: 'battery',
 	internalId: 3,
-	displayName: 'Battery',
-	description:
-		'A generic charge cell that feeds powered weapons and scales with how efficiently they convert stored energy.',
-	tags: ['charged', 'stored', 'volatile'],
+	display: {
+			en: {
+				name: 'Battery',
+				description: 'A generic charge cell that feeds powered weapons and scales with how efficiently they convert stored energy.',
+			},
+		},
 	qualities: { weight: Mass.FromGrams(120).Grams },
 	compatibleFamilyFlag: BATTERY,
 	weaponAmplifiers: {

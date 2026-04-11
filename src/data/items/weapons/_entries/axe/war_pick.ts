@@ -3,13 +3,12 @@ import { defineWeapon, AXE } from '../../helpers/index.js';
 export const war_pick = defineWeapon({
 	internalId: 62,
 	id: 'war_pick',
-	displayName: 'War Pick',
-	description: 'A piercing battlefield weapon focused on punching through hard protection.',
-	tags: [
-	'piercing',
-	'focused',
-	'grim',
-],
+	display: {
+			en: {
+				name: 'War Pick',
+				description: 'A piercing battlefield weapon focused on punching through hard protection.',
+			},
+		},
 	tier: 5,
 	grip: 1,
 	families: AXE,

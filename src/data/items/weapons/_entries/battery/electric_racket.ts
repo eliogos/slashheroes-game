@@ -3,13 +3,12 @@ import { defineWeapon, BATTERY, MISC } from '../../helpers/index.js';
 export const electric_racket = defineWeapon({
 	internalId: 111,
 	id: 'electric_racket',
-	displayName: 'Electric Racket',
-	description: 'A crackling racket that swats targets aside with charged mesh and buzzing follow-through.',
-	tags: [
-	'buzzing',
-	'swatting',
-	'lively',
-],
+	display: {
+			en: {
+				name: 'Electric Racket',
+				description: 'A crackling racket that swats targets aside with charged mesh and buzzing follow-through.',
+			},
+		},
 	tier: 2,
 	grip: 1,
 	families: BATTERY | MISC,

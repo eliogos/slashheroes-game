@@ -3,13 +3,12 @@ import { defineWeapon, BLUNT, FIST } from '../../helpers/index.js';
 export const gauntlet = defineWeapon({
 	internalId: 76,
 	id: 'gauntlet',
-	displayName: 'Stone Gauntlet',
-	description: 'A gauntlet carved from dense stone that turns every punch into a wall hitting you back.',
-	tags: [
-	'stone',
-	'crushing',
-	'supreme',
-],
+	display: {
+			en: {
+				name: 'Stone Gauntlet',
+				description: 'A gauntlet carved from dense stone that turns every punch into a wall hitting you back.',
+			},
+		},
 	tier: 6,
 	grip: 1,
 	families: BLUNT | FIST,

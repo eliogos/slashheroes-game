@@ -3,13 +3,12 @@ import { defineWeapon, POLEARM, TOOL } from '../../helpers/index.js';
 export const battle_rake = defineWeapon({
 	internalId: 51,
 	id: 'battle_rake',
-	displayName: 'Battle Rake',
-	description: 'A reworked farming rake that snags and jabs with ungainly persistence.',
-	tags: [
-	'ungainly',
-	'hooked',
-	'stubborn',
-],
+	display: {
+			en: {
+				name: 'Battle Rake',
+				description: 'A reworked farming rake that snags and jabs with ungainly persistence.',
+			},
+		},
 	tier: 2,
 	grip: 1,
 	families: POLEARM | TOOL,

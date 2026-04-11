@@ -98,7 +98,7 @@ const sortDirection = parseSortDirection(args, sortField);
 
 const rows = activeCarriers.map(entry => ({
 	index: entry.internalId,
-	name: entry.displayName,
+	name: entry.display.en.name,
 	rarity: entry.rarity,
 	occupied: entry.occupiedSlots,
 	slots: entry.slots ?? '∞',

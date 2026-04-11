@@ -3,13 +3,12 @@ import { defineWeapon, CURVED_BLADE } from '../../helpers/index.js';
 export const scimitar = defineWeapon({
 	internalId: 25,
 	id: 'scimitar',
-	displayName: 'Scimitar',
-	description: 'A deeply curved sword designed for flowing cuts and confident follow-through.',
-	tags: [
-	'flowing',
-	'elegant',
-	'keen',
-],
+	display: {
+			en: {
+				name: 'Scimitar',
+				description: 'A deeply curved sword designed for flowing cuts and confident follow-through.',
+			},
+		},
 	tier: 4,
 	grip: 1,
 	families: CURVED_BLADE,

@@ -1,9 +1,4 @@
-export interface ScrollLocalizationEntry {
-	displayName: string;
-	description: string;
-}
-
-export type ScrollLocalization = Record<string, ScrollLocalizationEntry>;
+import type { ItemDisplay } from '../../helpers/display.js';
 
 export interface ScrollEffect {
 	hook: string;
@@ -18,13 +13,10 @@ export interface ScrollEffect {
 export interface ScrollDefinition {
 	internalId: number;
 	id: string;
-	displayName: string;
-	description: string;
-	tags: string[];
+	display: ItemDisplay;
 	rarity: string;
 	stackable: number;
 	subtype: string;
-	localization: ScrollLocalization;
 	spellId: string;
 	school: string;
 	charges: number;

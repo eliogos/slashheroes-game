@@ -3,13 +3,12 @@ import { defineWeapon, BLADE } from '../../helpers/index.js';
 export const cleaver = defineWeapon({
 	internalId: 8,
 	id: 'cleaver',
-	displayName: 'Cleaver',
-	description: 'A brutal butcher\'s blade repurposed for hacking fights and ugly finishing blows.',
-	tags: [
-	'grim',
-	'crude',
-	'meaty',
-],
+	display: {
+			en: {
+				name: 'Cleaver',
+				description: 'A brutal butcher\'s blade repurposed for hacking fights and ugly finishing blows.',
+			},
+		},
 	tier: 1,
 	grip: 1,
 	families: BLADE,

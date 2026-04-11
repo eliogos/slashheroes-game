@@ -3,13 +3,12 @@ import { defineWeapon, POLEARM, TOOL } from '../../helpers/index.js';
 export const pitchfork = defineWeapon({
 	internalId: 48,
 	id: 'pitchfork',
-	displayName: 'Pitchfork',
-	description: 'A farming fork pressed into service with awkward but useful reach.',
-	tags: [
-	'rustic',
-	'awkward',
-	'poking',
-],
+	display: {
+			en: {
+				name: 'Pitchfork',
+				description: 'A farming fork pressed into service with awkward but useful reach.',
+			},
+		},
 	tier: 1,
 	grip: 1,
 	families: POLEARM | TOOL,

@@ -3,13 +3,12 @@ import { defineWeapon, KNIFE } from '../../helpers/index.js';
 export const wavy_dagger = defineWeapon({
 	internalId: 6,
 	id: 'wavy_dagger',
-	displayName: 'Kris',
-	description: 'A wavy ceremonial blade with unsettling follow-through and ritual weight.',
-	tags: [
-	'ritual',
-	'serpentine',
-	'ominous',
-],
+	display: {
+			en: {
+				name: 'Kris',
+				description: 'A wavy ceremonial blade with unsettling follow-through and ritual weight.',
+			},
+		},
 	tier: 5,
 	grip: 1,
 	families: KNIFE,

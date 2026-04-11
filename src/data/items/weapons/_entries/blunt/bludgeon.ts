@@ -3,13 +3,12 @@ import { defineWeapon, BLUNT } from '../../helpers/index.js';
 export const bludgeon = defineWeapon({
 	internalId: 36,
 	id: 'bludgeon',
-	displayName: 'Bludgeon',
-	description: 'A brutally heavy melee weapon that overwhelms through repeated crushing hits.',
-	tags: [
-	'brutal',
-	'crushing',
-	'oppressive',
-],
+	display: {
+			en: {
+				name: 'Bludgeon',
+				description: 'A brutally heavy melee weapon that overwhelms through repeated crushing hits.',
+			},
+		},
 	tier: 3,
 	grip: 1,
 	families: BLUNT,

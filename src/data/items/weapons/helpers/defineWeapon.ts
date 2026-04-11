@@ -1,8 +1,8 @@
+import { resolveDisplay, type ItemDisplayInput } from '../../helpers/display.js';
 import { buildWeaponFamilyFlag } from './familyConfigs.js';
 import type {
 	WeaponDefinition,
 	WeaponEffect,
-	WeaponLocalization,
 	WeaponQualityMultipliers,
 } from './types.js';
 
@@ -10,11 +10,10 @@ type WeaponFamilyInput = number | string | Array<number | string>;
 
 type WeaponInput = Omit<
 	Partial<WeaponDefinition>,
-	'id' | 'tags' | 'localization' | 'qualityMultipliers' | 'familyFlag' | 'effect'
+	'id' | 'display' | 'qualityMultipliers' | 'familyFlag' | 'effect'
 > &
 	Pick<WeaponDefinition, 'id'> & {
-		tags?: string[];
-		localization?: WeaponLocalization;
+		display?: ItemDisplayInput;
 		qualityMultipliers?: Partial<WeaponQualityMultipliers>;
 		families?: WeaponFamilyInput;
 		family?: WeaponFamilyInput;
@@ -25,9 +24,7 @@ type WeaponInput = Omit<
 export function defineWeapon(weapon: WeaponInput): WeaponDefinition {
 	const {
 		id,
-		displayName,
-		tags = [],
-		localization = {},
+		display = {},
 		qualityMultipliers = {},
 		families = [],
 		family,
@@ -39,18 +36,16 @@ export function defineWeapon(weapon: WeaponInput): WeaponDefinition {
 	const resolvedFamilyFlag = typeof familyFlag === 'number'
 		? familyFlag
 		: buildWeaponFamilyFlag(family ?? families);
+	const resolvedDisplay = resolveDisplay(id, display);
 
 	return {
 		internalId: 0,
 		id,
-		displayName: displayName ?? id,
-		description: '',
+		display: resolvedDisplay,
 		tier: 1,
 		grip: 1,
 		created_at: '',
 		...rest,
-		tags: [...tags],
-		localization: { ...localization },
 		qualityMultipliers: { ...qualityMultipliers },
 		familyFlag: resolvedFamilyFlag,
 		effect,

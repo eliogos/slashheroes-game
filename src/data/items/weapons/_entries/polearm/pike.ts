@@ -3,13 +3,12 @@ import { defineWeapon, POLEARM } from '../../helpers/index.js';
 export const pike = defineWeapon({
 	internalId: 50,
 	id: 'pike',
-	displayName: 'Pike',
-	description: 'A very long infantry weapon built to keep danger several steps away.',
-	tags: [
-	'lengthy',
-	'rigid',
-	'defensive',
-],
+	display: {
+			en: {
+				name: 'Pike',
+				description: 'A very long infantry weapon built to keep danger several steps away.',
+			},
+		},
 	tier: 2,
 	grip: 1,
 	families: POLEARM,

@@ -3,9 +3,12 @@ import { defineCarrier } from '../helpers/index.js';
 export const ringOfRings = defineCarrier({
 	internalId: 2,
 	id: 'ring_of_rings',
-	displayName: 'Ring of Rings',
-	description: 'A single enchanted band that absorbs up to five other rings, blending their magic into one averaged effect. Efficient. Slightly unsettling to think about too hard.',
-	tags: ['ring', 'magical', 'carrier'],
+	display: {
+			en: {
+				name: 'Ring of Rings',
+				description: 'A single enchanted band that absorbs up to five other rings, blending their magic into one averaged effect. Efficient. Slightly unsettling to think about too hard.',
+			},
+		},
 	rarity: 'unique',
 	allowedTypes: ['ring'],
 	slots: 5,

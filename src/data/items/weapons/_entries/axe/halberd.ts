@@ -3,13 +3,12 @@ import { defineWeapon, AXE, POLEARM } from '../../helpers/index.js';
 export const halberd = defineWeapon({
 	internalId: 56,
 	id: 'halberd',
-	displayName: 'Halberd',
-	description: 'A battlefield poleaxe combining reach, hooking control, and crushing finish.',
-	tags: [
-	'disciplined',
-	'fearsome',
-	'commanding',
-],
+	display: {
+			en: {
+				name: 'Halberd',
+				description: 'A battlefield poleaxe combining reach, hooking control, and crushing finish.',
+			},
+		},
 	tier: 6,
 	grip: 2,
 	families: AXE | POLEARM,

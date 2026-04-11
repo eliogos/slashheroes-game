@@ -1,9 +1,4 @@
-export interface WeaponLocalizationEntry {
-	displayName: string;
-	description: string;
-}
-
-export type WeaponLocalization = Record<string, WeaponLocalizationEntry>;
+import type { ItemDisplay } from '../../helpers/display.js';
 
 export interface WeaponQualityMultipliers {
 	weight?: number;
@@ -33,10 +28,7 @@ export type WeaponEffect = Record<string, unknown>;
 export interface WeaponDefinition {
 	internalId: number;
 	id: string;
-	displayName: string;
-	description: string;
-	tags: string[];
-	localization: WeaponLocalization;
+	display: ItemDisplay;
 	tier: number;
 	grip: 0 | 1 | 2;
 	qualityMultipliers: WeaponQualityMultipliers;

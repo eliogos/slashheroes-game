@@ -3,13 +3,12 @@ import { defineWeapon, BATTERY, MISC, THROWABLE } from '../../helpers/index.js';
 export const bottledLightning = defineWeapon({
 	internalId: 132,
 	id: 'bottledLightning',
-	displayName: 'Bottled Lightning',
-	description: 'A sealed charge flask that bursts into violent arcs the moment its fragile shell gives way.',
-	tags: [
-	'stormy',
-	'volatile',
-	'arcing',
-],
+	display: {
+			en: {
+				name: 'Bottled Lightning',
+				description: 'A sealed charge flask that bursts into violent arcs the moment its fragile shell gives way.',
+			},
+		},
 	tier: 5,
 	grip: 0,
 	families: BATTERY | MISC | THROWABLE,

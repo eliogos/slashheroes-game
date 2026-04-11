@@ -3,13 +3,12 @@ import { defineWeapon, PROJECTILE } from '../../helpers/index.js';
 export const recurve_bow = defineWeapon({
 	internalId: 70,
 	id: 'recurve_bow',
-	displayName: 'Recurve Bow',
-	description: 'A refined curved bow that squeezes more force from every practiced draw.',
-	tags: [
-	'refined',
-	'efficient',
-	'taut',
-],
+	display: {
+			en: {
+				name: 'Recurve Bow',
+				description: 'A refined curved bow that squeezes more force from every practiced draw.',
+			},
+		},
 	tier: 5,
 	grip: 2,
 	families: PROJECTILE,

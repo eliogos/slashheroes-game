@@ -3,9 +3,12 @@ import { defineCarrier } from '../helpers/index.js';
 export const ingredientPouch = defineCarrier({
 	internalId: 8,
 	id: 'ingredient_pouch',
-	displayName: 'Ingredient Pouch',
-	description: 'A drawstring pouch lined with small compartments. Ingredients stay sorted, stacked as each one allows, and don\'t contaminate each other. Mostly.',
-	tags: ['ingredient', 'crafting', 'organized'],
+	display: {
+			en: {
+				name: 'Ingredient Pouch',
+				description: 'A drawstring pouch lined with small compartments. Ingredients stay sorted, stacked as each one allows, and don\'t contaminate each other. Mostly.',
+			},
+		},
 	rarity: 'common',
 	allowedTypes: ['ingredient'],
 	slots: 30,

@@ -3,13 +3,12 @@ import { defineWeapon, LEGENDARY, MISC } from '../../helpers/index.js';
 export const warfan = defineWeapon({
 	internalId: 99,
 	id: 'warfan',
-	displayName: 'Tessen',
-	description: 'A Japanese war fan that hides iron ribs inside graceful folds for sudden blocks and disciplined strikes.',
-	tags: [
-	'graceful',
-	'hidden',
-	'poised',
-],
+	display: {
+			en: {
+				name: 'Tessen',
+				description: 'A Japanese war fan that hides iron ribs inside graceful folds for sudden blocks and disciplined strikes.',
+			},
+		},
 	tier: 6,
 	grip: 1,
 	families: LEGENDARY | MISC,

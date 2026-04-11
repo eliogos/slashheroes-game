@@ -3,13 +3,12 @@ import { defineWeapon, BATTERY, MISC, THROWABLE } from '../../helpers/index.js';
 export const gravitySphere = defineWeapon({
 	internalId: 123,
 	id: 'gravitySphere',
-	displayName: 'Gravity Sphere',
-	description: 'A compact sci-fi charge that collapses space into a brief crushing vortex before the field tears itself apart.',
-	tags: [
-	'gravitic',
-	'vortex',
-	'futuristic',
-],
+	display: {
+			en: {
+				name: 'Gravity Sphere',
+				description: 'A compact sci-fi charge that collapses space into a brief crushing vortex before the field tears itself apart.',
+			},
+		},
 	tier: 6,
 	grip: 0,
 	families: BATTERY | MISC | THROWABLE,

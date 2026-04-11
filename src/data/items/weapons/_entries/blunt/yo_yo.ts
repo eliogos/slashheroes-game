@@ -3,13 +3,12 @@ import { defineWeapon, BLUNT, RANGED } from '../../helpers/index.js';
 export const yo_yo = defineWeapon({
 	internalId: 93,
 	id: 'yo_yo',
-	displayName: 'Yo-yo',
-	description: 'A weighted tethered toy turned into a looping weapon with odd rhythm.',
-	tags: [
-	'playful',
-	'looping',
-	'eccentric',
-],
+	display: {
+			en: {
+				name: 'Yo-yo',
+				description: 'A weighted tethered toy turned into a looping weapon with odd rhythm.',
+			},
+		},
 	tier: 2,
 	grip: 1,
 	families: BLUNT | RANGED,

@@ -3,13 +3,12 @@ import { defineWeapon, BLUNT } from '../../helpers/index.js';
 export const maul = defineWeapon({
 	internalId: 42,
 	id: 'maul',
-	displayName: 'Maul',
-	description: 'A huge two-handed hammer built to flatten anything standing in front of it.',
-	tags: [
-	'gigantic',
-	'flattening',
-	'relentless',
-],
+	display: {
+			en: {
+				name: 'Maul',
+				description: 'A huge two-handed hammer built to flatten anything standing in front of it.',
+			},
+		},
 	tier: 4,
 	grip: 2,
 	families: BLUNT,

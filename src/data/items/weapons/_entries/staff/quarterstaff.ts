@@ -3,13 +3,12 @@ import { defineWeapon, STAFF } from '../../helpers/index.js';
 export const quarterstaff = defineWeapon({
 	internalId: 86,
 	id: 'quarterstaff',
-	displayName: 'Quarterstaff',
-	description: 'A reinforced combat staff built for disciplined spins and measured strikes.',
-	tags: [
-	'disciplined',
-	'reinforced',
-	'measured',
-],
+	display: {
+			en: {
+				name: 'Quarterstaff',
+				description: 'A reinforced combat staff built for disciplined spins and measured strikes.',
+			},
+		},
 	tier: 2,
 	grip: 1,
 	families: STAFF,

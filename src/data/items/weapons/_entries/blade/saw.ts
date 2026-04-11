@@ -3,13 +3,12 @@ import { defineWeapon, BLADE } from '../../helpers/index.js';
 export const saw = defineWeapon({
 	internalId: 10,
 	id: 'saw',
-	displayName: 'Saw',
-	description: 'A jagged hand weapon that tears flesh open with every dragging cut.',
-	tags: [
-	'jagged',
-	'ragged',
-	'vicious',
-],
+	display: {
+			en: {
+				name: 'Saw',
+				description: 'A jagged hand weapon that tears flesh open with every dragging cut.',
+			},
+		},
 	tier: 2,
 	grip: 1,
 	families: BLADE,

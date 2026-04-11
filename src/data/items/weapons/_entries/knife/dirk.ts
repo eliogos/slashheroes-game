@@ -3,13 +3,12 @@ import { defineWeapon, KNIFE } from '../../helpers/index.js';
 export const dirk = defineWeapon({
 	internalId: 2,
 	id: 'dirk',
-	displayName: 'Dirk',
-	description: 'A reinforced thrusting knife favored for disciplined one-handed fighting.',
-	tags: [
-	'formal',
-	'sturdy',
-	'disciplined',
-],
+	display: {
+			en: {
+				name: 'Dirk',
+				description: 'A reinforced thrusting knife favored for disciplined one-handed fighting.',
+			},
+		},
 	tier: 2,
 	grip: 1,
 	families: KNIFE,

@@ -3,13 +3,12 @@ import { defineWeapon, BLUNT } from '../../helpers/index.js';
 export const club = defineWeapon({
 	internalId: 29,
 	id: 'club',
-	displayName: 'Club',
-	description: 'A plain wooden club that solves problems with uncomplicated force.',
-	tags: [
-	'plain',
-	'crude',
-	'reliable',
-],
+	display: {
+			en: {
+				name: 'Club',
+				description: 'A plain wooden club that solves problems with uncomplicated force.',
+			},
+		},
 	tier: 1,
 	grip: 1,
 	families: BLUNT,

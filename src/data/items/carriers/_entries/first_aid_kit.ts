@@ -3,9 +3,12 @@ import { defineCarrier } from '../helpers/index.js';
 export const firstAidKit = defineCarrier({
 	internalId: 10,
 	id: 'first_aid_kit',
-	displayName: 'First Aid Kit',
-	description: 'A compact kit holding healing potions and bandaids. Everything you need when things go wrong, right where you can grab it.',
-	tags: ['healing', 'combat', 'medical'],
+	display: {
+			en: {
+				name: 'First Aid Kit',
+				description: 'A compact kit holding healing potions and bandaids. Everything you need when things go wrong, right where you can grab it.',
+			},
+		},
 	rarity: 'uncommon',
 	quickAccess: true,
 	allowedTags: ['healing_potion', 'bandaid'],

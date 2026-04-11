@@ -3,9 +3,12 @@ import { defineCarrier } from '../helpers/index.js';
 export const scrollCase = defineCarrier({
 	internalId: 3,
 	id: 'scroll_case',
-	displayName: 'Scroll Case',
-	description: 'A hardened cylindrical case that keeps scrolls dry, intact, and sorted. Up to twenty-five scrolls fit inside, stacked up to three per type before they start getting ideas.',
-	tags: ['scroll', 'padded', 'organized'],
+	display: {
+			en: {
+				name: 'Scroll Case',
+				description: 'A hardened cylindrical case that keeps scrolls dry, intact, and sorted. Up to twenty-five scrolls fit inside, stacked up to three per type before they start getting ideas.',
+			},
+		},
 	rarity: 'uncommon',
 	quickAccess: true,
 	allowedTypes: ['scroll'],

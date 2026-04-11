@@ -3,13 +3,12 @@ import { defineWeapon, SHIELD } from '../../helpers/index.js';
 export const targe = defineWeapon({
 	internalId: 103,
 	id: 'targe',
-	displayName: 'Targe',
-	description: 'A sturdy small shield that favors rugged control over raw size.',
-	tags: [
-	'rugged',
-	'compact',
-	'resolute',
-],
+	display: {
+			en: {
+				name: 'Targe',
+				description: 'A sturdy small shield that favors rugged control over raw size.',
+			},
+		},
 	tier: 3,
 	grip: 1,
 	families: SHIELD,

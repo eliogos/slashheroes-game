@@ -3,9 +3,12 @@ import { defineCarrier } from '../helpers/index.js';
 export const bandolier = defineCarrier({
 	internalId: 6,
 	id: 'bandolier',
-	displayName: 'Bandolier',
-	description: 'A cross-chest strap loaded with loops, pouches, and clips for every type of ammunition you carry. Organizes by type, stacks as each ammo allows, and keeps all of it within reach.',
-	tags: ['ammo', 'tactical', 'quickdraw'],
+	display: {
+			en: {
+				name: 'Bandolier',
+				description: 'A cross-chest strap loaded with loops, pouches, and clips for every type of ammunition you carry. Organizes by type, stacks as each ammo allows, and keeps all of it within reach.',
+			},
+		},
 	rarity: 'uncommon',
 	quickAccess: true,
 	allowedTypes: ['ammo'],

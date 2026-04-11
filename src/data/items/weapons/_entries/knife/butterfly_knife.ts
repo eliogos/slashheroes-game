@@ -3,13 +3,12 @@ import { defineWeapon, KNIFE } from '../../helpers/index.js';
 export const butterfly_knife = defineWeapon({
 	internalId: 4,
 	id: 'butterfly_knife',
-	displayName: 'Balisong',
-	description: 'A folding blade with flashy handling and deceptive attack timing.',
-	tags: [
-	'flashy',
-	'playful',
-	'unorthodox',
-],
+	display: {
+			en: {
+				name: 'Balisong',
+				description: 'A folding blade with flashy handling and deceptive attack timing.',
+			},
+		},
 	tier: 4,
 	grip: 1,
 	families: KNIFE,

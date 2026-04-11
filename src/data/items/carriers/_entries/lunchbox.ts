@@ -3,9 +3,12 @@ import { defineCarrier } from '../helpers/index.js';
 export const lunchbox = defineCarrier({
 	internalId: 5,
 	id: 'lunchbox',
-	displayName: 'Lunchbox',
-	description: 'A compact insulated box that holds up to twelve edibles. Keeps food at a stable temperature. The food appreciates it, even if you don\'t.',
-	tags: ['edible', 'insulated', 'compact'],
+	display: {
+			en: {
+				name: 'Lunchbox',
+				description: 'A compact insulated box that holds up to twelve edibles. Keeps food at a stable temperature. The food appreciates it, even if you don\'t.',
+			},
+		},
 	rarity: 'common',
 	allowedTypes: ['edible'],
 	slots: 12,

@@ -3,13 +3,12 @@ import { defineWeapon, BATTERY, FIREARM } from '../../helpers/index.js';
 export const laser_pistol = defineWeapon({
 	internalId: 80,
 	id: 'laser_pistol',
-	displayName: 'Laser Pistol',
-	description: 'A battery-fed sidearm that fires clean energy with crisp modern precision.',
-	tags: [
-	'sleek',
-	'precise',
-	'luminous',
-],
+	display: {
+			en: {
+				name: 'Laser Pistol',
+				description: 'A battery-fed sidearm that fires clean energy with crisp modern precision.',
+			},
+		},
 	tier: 4,
 	grip: 1,
 	families: BATTERY | FIREARM,

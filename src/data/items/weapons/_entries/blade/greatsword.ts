@@ -3,13 +3,12 @@ import { defineWeapon, BLADE } from '../../helpers/index.js';
 export const greatsword = defineWeapon({
 	internalId: 15,
 	id: 'greatsword',
-	displayName: 'Greatsword',
-	description: 'A heavy two-handed blade that delivers punishing strikes with fully committed swings.',
-	tags: [
-	'towering',
-	'punishing',
-	'relentless',
-],
+	display: {
+			en: {
+				name: 'Greatsword',
+				description: 'A heavy two-handed blade that delivers punishing strikes with fully committed swings.',
+			},
+		},
 	tier: 5,
 	grip: 2,
 	families: BLADE,

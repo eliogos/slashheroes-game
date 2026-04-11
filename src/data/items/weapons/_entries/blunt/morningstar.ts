@@ -3,13 +3,12 @@ import { defineWeapon, BLUNT } from '../../helpers/index.js';
 export const morningstar = defineWeapon({
 	internalId: 41,
 	id: 'morningstar',
-	displayName: 'Morningstar',
-	description: 'A brutal spiked weapon that lands heavy impacts with ugly finishing bites.',
-	tags: [
-	'menacing',
-	'jagged',
-	'severe',
-],
+	display: {
+			en: {
+				name: 'Morningstar',
+				description: 'A brutal spiked weapon that lands heavy impacts with ugly finishing bites.',
+			},
+		},
 	tier: 4,
 	grip: 1,
 	families: BLUNT,

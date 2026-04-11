@@ -3,13 +3,12 @@ import { defineWeapon, KNIFE, THROWABLE, TOOL } from '../../helpers/index.js';
 export const kunai = defineWeapon({
 	internalId: 117,
 	id: 'kunai',
-	displayName: 'Kunai',
-	description: 'A pointed utility knife that throws cleanly, sticks deep, and doubles as a rough climbing or digging tool.',
-	tags: [
-	'pointed',
-	'versatile',
-	'practical',
-],
+	display: {
+			en: {
+				name: 'Kunai',
+				description: 'A pointed utility knife that throws cleanly, sticks deep, and doubles as a rough climbing or digging tool.',
+			},
+		},
 	tier: 2,
 	grip: 0,
 	families: KNIFE | TOOL | THROWABLE,

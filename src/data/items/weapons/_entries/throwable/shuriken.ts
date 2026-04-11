@@ -3,13 +3,12 @@ import { defineWeapon, BLADE, THROWABLE } from '../../helpers/index.js';
 export const shuriken = defineWeapon({
 	internalId: 116,
 	id: 'shuriken',
-	displayName: 'Shuriken',
-	description: 'A star-shaped throwing blade made for quick harassment and sudden cuts from awkward angles.',
-	tags: [
-	'starry',
-	'sudden',
-	'harassing',
-],
+	display: {
+			en: {
+				name: 'Shuriken',
+				description: 'A star-shaped throwing blade made for quick harassment and sudden cuts from awkward angles.',
+			},
+		},
 	tier: 2,
 	grip: 0,
 	families: BLADE | THROWABLE,

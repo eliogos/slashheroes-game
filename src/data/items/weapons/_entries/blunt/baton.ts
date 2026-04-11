@@ -3,13 +3,12 @@ import { defineWeapon, BLUNT } from '../../helpers/index.js';
 export const baton = defineWeapon({
 	internalId: 34,
 	id: 'baton',
-	displayName: 'Baton',
-	description: 'A short control weapon made for fast jabs and disciplined strikes.',
-	tags: [
-	'disciplined',
-	'compact',
-	'brisk',
-],
+	display: {
+			en: {
+				name: 'Baton',
+				description: 'A short control weapon made for fast jabs and disciplined strikes.',
+			},
+		},
 	tier: 2,
 	grip: 1,
 	families: BLUNT,

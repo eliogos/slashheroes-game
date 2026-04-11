@@ -3,13 +3,12 @@ import { defineWeapon, FIREARM } from '../../helpers/index.js';
 export const musket = defineWeapon({
 	internalId: 79,
 	id: 'musket',
-	displayName: 'Musket',
-	description: 'A standard infantry gun meant for disciplined lines and measured volleys.',
-	tags: [
-	'disciplined',
-	'martial',
-	'measured',
-],
+	display: {
+			en: {
+				name: 'Musket',
+				description: 'A standard infantry gun meant for disciplined lines and measured volleys.',
+			},
+		},
 	tier: 3,
 	grip: 2,
 	families: FIREARM,

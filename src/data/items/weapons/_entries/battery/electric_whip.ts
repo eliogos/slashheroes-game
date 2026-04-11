@@ -3,13 +3,12 @@ import { defineWeapon, BATTERY, RANGED } from '../../helpers/index.js';
 export const electric_whip = defineWeapon({
 	internalId: 94,
 	id: 'electric_whip',
-	displayName: 'Electric Whip',
-	description: 'A powered lash that mixes long-range control with crackling punishment.',
-	tags: [
-	'crackling',
-	'flexible',
-	'punishing',
-],
+	display: {
+			en: {
+				name: 'Electric Whip',
+				description: 'A powered lash that mixes long-range control with crackling punishment.',
+			},
+		},
 	tier: 3,
 	grip: 1,
 	families: BATTERY | RANGED,

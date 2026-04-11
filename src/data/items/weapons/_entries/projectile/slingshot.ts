@@ -3,13 +3,12 @@ import { defineWeapon, PROJECTILE } from '../../helpers/index.js';
 export const slingshot = defineWeapon({
 	internalId: 66,
 	id: 'slingshot',
-	displayName: 'Slingshot',
-	description: 'A small elastic launcher suited for quick shots and cheap ammunition.',
-	tags: [
-	'elastic',
-	'playful',
-	'snappy',
-],
+	display: {
+			en: {
+				name: 'Slingshot',
+				description: 'A small elastic launcher suited for quick shots and cheap ammunition.',
+			},
+		},
 	tier: 2,
 	grip: 2,
 	families: PROJECTILE,

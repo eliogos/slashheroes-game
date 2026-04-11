@@ -3,13 +3,12 @@ import { defineWeapon, FIST } from '../../helpers/index.js';
 export const boxing_gloves = defineWeapon({
 	internalId: 113,
 	id: 'boxing_gloves',
-	displayName: 'Boxing Gloves',
-	description: 'Thick padded gloves built for sustained punishment. Hits land heavy and protect the hands just as well.',
-	tags: [
-	'padded',
-	'heavy',
-	'trained',
-],
+	display: {
+			en: {
+				name: 'Boxing Gloves',
+				description: 'Thick padded gloves built for sustained punishment. Hits land heavy and protect the hands just as well.',
+			},
+		},
 	tier: 2,
 	grip: 1,
 	families: FIST,

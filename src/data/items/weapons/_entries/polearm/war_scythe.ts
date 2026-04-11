@@ -3,13 +3,12 @@ import { defineWeapon, POLEARM } from '../../helpers/index.js';
 export const war_scythe = defineWeapon({
 	internalId: 57,
 	id: 'war_scythe',
-	displayName: 'War Scythe',
-	description: 'A reaped farming tool remade into a lethal weapon with vicious pulling cuts.',
-	tags: [
-	'reaping',
-	'grim',
-	'hooked',
-],
+	display: {
+			en: {
+				name: 'War Scythe',
+				description: 'A reaped farming tool remade into a lethal weapon with vicious pulling cuts.',
+			},
+		},
 	tier: 6,
 	grip: 1,
 	families: POLEARM,

@@ -3,13 +3,12 @@ import { defineWeapon, BLUNT } from '../../helpers/index.js';
 export const blackjack = defineWeapon({
 	internalId: 33,
 	id: 'blackjack',
-	displayName: 'Blackjack',
-	description: 'A concealed weighted striker built for sudden, brutal impacts.',
-	tags: [
-	'covert',
-	'weighted',
-	'compact',
-],
+	display: {
+			en: {
+				name: 'Blackjack',
+				description: 'A concealed weighted striker built for sudden, brutal impacts.',
+			},
+		},
 	tier: 2,
 	grip: 1,
 	families: BLUNT,

@@ -8,10 +8,12 @@ const { FIREARM } = WEAPON_FAMILY;
 export const rocket = defineAmmo({
 	id: 'rocket',
 	internalId: 5,
-	displayName: 'Rocket',
-	description:
-		'A self-propelled explosive round built for launchers that turn one shot into a very bad day.',
-	tags: ['propelled', 'explosive', 'heavy'],
+	display: {
+			en: {
+				name: 'Rocket',
+				description: 'A self-propelled explosive round built for launchers that turn one shot into a very bad day.',
+			},
+		},
 	qualities: { weight: Mass.FromGrams(2100).Grams },
 	compatibleFamilyFlag: FIREARM,
 	weaponAmplifiers: {

@@ -3,13 +3,12 @@ import { defineWeapon, SHIELD } from '../../helpers/index.js';
 export const pavise = defineWeapon({
 	internalId: 106,
 	id: 'pavise',
-	displayName: 'Pavise',
-	description: 'A large portable shield built to turn incoming pressure into a wall.',
-	tags: [
-	'towering',
-	'protective',
-	'steadfast',
-],
+	display: {
+			en: {
+				name: 'Pavise',
+				description: 'A large portable shield built to turn incoming pressure into a wall.',
+			},
+		},
 	tier: 4,
 	grip: 1,
 	families: SHIELD,

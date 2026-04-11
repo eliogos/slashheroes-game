@@ -3,13 +3,12 @@ import { defineWeapon, BLADE, RANGED } from '../../helpers/index.js';
 export const chain_sickle = defineWeapon({
 	internalId: 95,
 	id: 'chain_sickle',
-	displayName: 'Kusarigama',
-	description: 'A chain-sickle hybrid that controls distance before snapping into lethal cuts.',
-	tags: [
-	'chained',
-	'vicious',
-	'controlling',
-],
+	display: {
+			en: {
+				name: 'Kusarigama',
+				description: 'A chain-sickle hybrid that controls distance before snapping into lethal cuts.',
+			},
+		},
 	tier: 6,
 	grip: 2,
 	families: BLADE | RANGED,

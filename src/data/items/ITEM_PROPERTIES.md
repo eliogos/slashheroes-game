@@ -1,458 +1,592 @@
 # Item Properties Reference
 
-This document defines all properties across every item type in the game. Properties are organized
-into three tiers: **Universal** (every item), **Shared** (multiple types), and **Type-Specific**.
+*Reference for item definitions in `src/data/items`.*
 
----
+## Canonical display model
 
-## Architecture
+Each item uses the same nested display object:
 
+```ts
+export interface ItemDisplayEntry {
+  name: string;
+  description: string;
+  plural?: string;
+}
+
+export type ItemDisplay = {
+  en: ItemDisplayEntry;
+} & Record<string, ItemDisplayEntry>;
 ```
-Item
- ├── Universal properties          (all items)
- ├── Shared properties             (declared per group below)
- │    ├── Material properties      → armors only
- │    ├── Durability               → weapons, throwables, armors, artifacts, rings
- │    ├── Effects system           → weapons, throwables, armors, edibles, potions, scrolls, artifacts, rings
- │    ├── Expiry / perishability   → edibles, potions, ingredients
- │    └── Container properties     → bags, carriers
- └── Type-specific properties      (one section per item type)
+
+**Read item copy from:**
+- `item.display.en.name`
+- `item.display.en.description`
+- `item.display.en.plural` *(optional)*
+
+## Minimal shared shape
+
+All item definitions share this base:
+
+```ts
+type BaseItemLike = {
+  internalId: number;
+  id: string;
+  display: ItemDisplay;
+  created_at: string;
+  archived?: boolean;
+};
 ```
 
-Material properties are defined on a **material** entity (separate JSON) and referenced by the item
-via `material`. Items can deviate per-property using `qualityMultipliers`.
+## Unit reference
 
-**Effective value:** `material[property] × item.qualityMultipliers[property]`
+Use these badge-style labels as quick reading guides when balancing or naming fields:
 
----
-
-## Universal Properties
-
-Every item regardless of type.
-
-| Property | Type | Description |
-|---|---|---|
-| `internalId` | integer | Unique numeric identifier (auto-incremented) |
-| `id` | string | Unique slug (snake_case) |
-| `displayName` | string | Shown in UI |
-| `description` | string | Flavor text |
-| `lore` | string? | Extended backstory — optional, for notable items |
-| `tags` | string[] | Descriptive tags for filtering, trait interactions, and carrier restrictions |
-| `rarity` | enum | `common` `uncommon` `rare` `epic` `legendary` `unique` |
-| `weight` | number (g) | Physical weight in grams. Contributes to total carry weight and encumbrance |
-| `value` | number | Base currency value — scales with rarity and condition |
-| `stackable` | boolean \| integer | `false` = no stacking. Integer = max stack size |
-| `localization` | object | i18n key-value overrides |
-| `created_at` | ISO date | Creation timestamp |
-
----
-
-## Shared Properties
-
----
-
-### Material Properties
-
-**Applies to:** armors
-
-All values are normalized on a `-1` to `1` scale. `0` is neutral. Positive values express the trait
-strongly. **Negative values invert the trait**, providing active resistance or the opposite behavior —
-this is intentional and not merely "absence of the property". Design note: `malleability` and
-`brittleness` are loosely opposed — a highly malleable material rarely shatters, but this is not
-enforced.
-
-| Property | `-1` (inverted) | `0` (neutral) | `+1` (full expression) | Gameplay Influence |
-|---|---|---|---|---|
-| `corrosion` | Actively repels oxidation — sealed, chemically inert | No notable reaction to environment | Rusts or rots rapidly in any moisture | Multiplied by climate humidity/acidity to produce passive durability decay rate. Negative = mild resistance bonus in harsh climates. Interacts with `porosity`. |
-| `malleability` | Fully rigid — cannot be reshaped by any force | Moderate give under stress | Reshapes permanently under minimal force | Positive → better blunt absorption but deforms over time, reducing `coverage`. Negative → holds shape perfectly but `brittleness` fractures hit harder. |
-| `conductivity` | Active insulator — grounds and disperses electricity | Neither conducts nor resists | Excellent conductor | Lightning damage multiplier. Negative = mild lightning resistance. Positive also triggers magnetic trap sensitivity and related enemy abilities. |
-| `combustibility` | Fire-retardant — reduces incoming fire damage | Burns only under extreme sustained heat | Ignites on contact, burns hot and long | Fire damage multiplier. Negative = passive fire resistance. Positive = ignite chance on fire hit, burn DoT duration scales with value. |
-| `porosity` | Hydrophobic — repels liquids entirely | Normal surface absorption | Highly absorbent — soaks through quickly | Positive → absorbs water (weight increase in rain), absorbs acid/poison. Negative → liquids bead off, no absorption penalties. Both directions interact with `corrosion`. |
-| `brittleness` | Impact-absorbing — energy dissipates without fracturing | Normal fracture threshold | Shatters under sharp sudden stress | Positive → critical hits may permanently fracture the item, reducing `durabilityMax`. Negative = high resilience, fracture is nearly impossible. `elasticity` can partially offset positive values. |
-| `acoustics` | Sound-dampening — quieter than ambient | Neutral noise output | Very loud — clanks and clangs with every move | Directly modifies stealth rating. Negative = stealth bonus from the material itself (treated cloth, padded leather). Positive = stealth penalty. |
-| `toxicity` | Purifying — antimicrobial or antitoxin properties | No interaction with the wearer | Leaches harmful substances onto the user | Positive accumulates a poison or debuff stack per wear tick. Negative = minor passive cleanse, reducing existing minor poison stacks over time. |
-| `hardness` | Very soft — indents and scratches easily | Average surface resistance | Extremely hard — scratch-resistant | Positive slows passive edge and surface wear; determines minimum tool hardness needed for sharpening. Negative = rapid surface degradation from regular contact. |
-| `magnetism` | Diamagnetic — actively repels magnetic fields | Non-magnetic | Strongly ferromagnetic | Positive → attracted to magnetic traps, compass interference, bonus damage from magnet-based attacks. Negative = magnetic repulsion, minor bonus against those same threats. |
-| `luminosity` | Light-absorbing — darkens ambient light in its vicinity | No emission | Bright passive emission | Positive provides a light radius but breaks stealth in darkness. Negative creates a subtle darkness aura — minor stealth bonus in dark environments, unsettling to some NPCs. |
-| `elasticity` | Fully inelastic — absorbs impact energy but never returns it | Normal rebound behavior | Springs back immediately after any deformation | Positive → armor returns to shape after hits, reduces permanent `coverage` loss from `malleability`. Negative = deformation is absorbed but stays, accelerating permanent shape loss. |
-
----
-
-### Durability
-
-**Applies to:** weapons, throwables, armors, artifacts, rings
-
-| Property | Type | Description | Influence |
+| Badge | Value | Reference unit | Notes |
 |---|---|---|---|
-| `durability` | number | Current durability (HP of the item) | At 0, item transitions to the next `condition` state. At `broken`, item is unusable. |
-| `durabilityMax` | number | Maximum durability at full condition | Set by tier (weapons) or material + tier (armors). Degrades permanently when brittleness fractures occur. |
-| `degradable` | boolean | Whether this item degrades at all | `false` for indestructible artifacts. |
-| `condition` | enum | Derived state: `pristine` `good` `worn` `damaged` `broken` | Computed from `durability / durabilityMax`. All base stats scale down as condition drops. |
-| `repairability` | 0–1 | How well it responds to repair attempts | Low → requires a master craftsman or rare materials. High → can be field-repaired with basic tools. |
+| <img alt="mass g" src="https://img.shields.io/badge/mass-g-6f42c1?style=flat-square" /> | `qualities.weight`, `baseWeight` | grams (`g`) | Inventory / material mass reference |
+| <img alt="volume mL" src="https://img.shields.io/badge/volume-mL-1f6feb?style=flat-square" /> | `volume` | milliliters (`mL`) | Potion container volume |
+| <img alt="energy kcal" src="https://img.shields.io/badge/energy-kcal-d29922?style=flat-square" /> | `energy` | kilocalories (`kcal`) | Food energy reference |
+| <img alt="time ticks" src="https://img.shields.io/badge/time-ticks-2da44e?style=flat-square" /> | `duration`, `onset`, `castTime`, `shelfLife` | ticks | Time-based gameplay pacing |
+| <img alt="time actions" src="https://img.shields.io/badge/time-actions-2da44e?style=flat-square" /> | `decay`, `decayAction` | actions | Food freshness / spoilage pacing |
+| <img alt="ratio 0-1" src="https://img.shields.io/badge/ratio-0--1-f85149?style=flat-square" /> | `chance`, `failChance` | normalized ratio (`0.0–1.0`) | Read as 0% to 100% |
+| <img alt="scale x" src="https://img.shields.io/badge/scale-x-8250df?style=flat-square" /> | `concentration`, `viscosity`, multipliers | scalar / ratio | Balance-facing values rather than hard physical simulation |
+| <img alt="class enum" src="https://img.shields.io/badge/class-enum-57606a?style=flat-square" /> | `familyFlag`, subtype ids | enum / bitmask | Semantic classification values |
 
-**Degradation is triggered by:**
-- Regular use (each attack or hit received)
-- Climate exposure (`corrosion × humidity × elapsed ticks`)
-- Critical impacts (`brittleness × incoming force`)
-- Liquid contact (`porosity × liquid acidity × duration`)
-- Prolonged storage in poor conditions
+<sub>
+Notes: units in this page are mainly for semantics, balancing readability, and semi-realistic flavor. They are reference-facing gameplay values, not strict real-world simulation guarantees.
+</sub>
 
----
+<br>
 
-### Effects System
+> **Defined unit** = the authoring/input unit written in the data file. **Finalized unit** = the resolved gameplay unit after helper conversion, normalization, or derived calculation. Leave both blank when a field is semantic-only.
 
-**Applies to:** weapons (on-hit), armors (on-equip / on-hit-received), edibles, potions, scrolls, throwables (on-impact), artifacts, rings
+<br>
 
-```json
-{
-  "id": "poison",
-  "magnitude": 5,
-  "duration": 10,
-  "chance": 0.15,
-  "target": "enemy"
+## Item modules at a glance
+
+<table>
+  <thead>
+    <tr>
+      <th>Module</th>
+      <th>Definition</th>
+      <th>Purpose</th>
+      <th>Main extra fields</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><b>Weapons</b></td>
+      <td><code>WeaponDefinition</code></td>
+      <td>Melee / ranged combat entries resolved by family flags and quality multipliers.</td>
+      <td><code>tier</code>, <code>grip</code>, <code>qualityMultipliers</code>, <code>familyFlag</code>, <code>effect</code></td>
+    </tr>
+    <tr>
+      <td><b>Ammo</b></td>
+      <td><code>AmmoDefinition</code></td>
+      <td>Projectile or charge inputs for compatible weapon families.</td>
+      <td><code>qualities</code>, <code>compatibleFamilyFlag</code>, <code>weaponAmplifiers</code></td>
+    </tr>
+    <tr>
+      <td><b>Armors</b></td>
+      <td><code>ArmorDefinition</code></td>
+      <td>Slot-based protection resolved from material configs.</td>
+      <td><code>type</code>, <code>material</code>, <code>qualityMultipliers</code></td>
+    </tr>
+    <tr>
+      <td><b>Carriers</b></td>
+      <td><code>CarrierDefinition</code></td>
+      <td>Specialized containers that organize specific item groups.</td>
+      <td><code>allowedTypes</code>, <code>allowedTags</code>, <code>slots</code>, <code>effects</code></td>
+    </tr>
+    <tr>
+      <td><b>Edibles</b></td>
+      <td><code>EdibleDefinition</code></td>
+      <td>Food and drink with hunger, cooking, and spoilage behavior.</td>
+      <td><code>energy</code>, <code>satiationType</code>, <code>decay</code>, <code>spoilageState</code></td>
+    </tr>
+    <tr>
+      <td><b>Potions</b></td>
+      <td><code>PotionDefinition</code></td>
+      <td>Drinkable alchemy items with onset, duration, and shelf-life data.</td>
+      <td><code>volume</code>, <code>concentration</code>, <code>duration</code>, <code>perishable</code></td>
+    </tr>
+    <tr>
+      <td><b>Scrolls</b></td>
+      <td><code>ScrollDefinition</code></td>
+      <td>Spell-bearing paper items with charges and casting requirements.</td>
+      <td><code>spellId</code>, <code>school</code>, <code>charges</code>, <code>failChance</code></td>
+    </tr>
+  </tbody>
+</table>
+
+## Shared support structures
+
+### Effect payloads
+
+Item modules use two effect shapes:
+
+| Shape | Used by | Fields |
+|---|---|---|
+| `WeaponDefinition.effect` | weapons | `Record<string, unknown> \| null` |
+| `CarrierEffect`, `EdibleEffect`, `PotionEffect`, `ScrollEffect` | carriers, edibles, potions, scrolls | `hook`, `id`, `target`, `magnitude`, `duration`, `chance` |
+
+### Active entries
+
+Every module also exposes an `Active*Definition` alias that means:
+
+```ts
+type ActiveXDefinition = XDefinition & { archived?: false | undefined };
+```
+
+Only non-archived entries are included in active runtime lists.
+
+## Weapons
+
+Weapons are combat items used to attack, pressure, or control targets. Their identity comes from family flags, tier scaling, and quality multipliers that resolve into the final handling profile.
+
+Source: `src/data/items/weapons/helpers/types.ts`
+
+```ts
+interface WeaponDefinition {
+  internalId: number;
+  id: string;
+  display: ItemDisplay;
+  tier: number;
+  grip: 0 | 1 | 2;
+  qualityMultipliers: WeaponQualityMultipliers;
+  familyFlag: number;
+  effect: Record<string, unknown> | null;
+  created_at: string;
+  archived?: boolean;
 }
 ```
 
-| Field | Type | Description |
-|---|---|---|
-| `id` | string | References an effect definition |
-| `magnitude` | number | Damage per tick, stat change amount, heal value, or multiplier depending on effect type |
-| `duration` | number (ticks) | How long the effect persists. `0` = instant or permanent while active. |
-| `chance` | 0–1 | Probability of triggering. `1.0` = always. |
-| `target` | enum | `self` `enemy` `area` `contents` |
-| `hook` | enum | `onEquip` `onUnequip` `onHit` `onHitReceived` `onUse` `onExpire` `aura` |
+### Weapon fields
 
-**Target: `contents`** — applies the effect to all items currently stored inside this carrier. Used exclusively on carriers. Magnitude is typically a multiplier (`1.25` = 25% boost) or a full-protection flag (`1.0`).
+| Field | Type | Defined unit | Finalized unit | Meaning |
+|---|---|---|---|---|
+| `tier` | `number` |  |  | Power / progression tier used during stat resolution |
+| `grip` | `0 \| 1 \| 2` |  |  | `0` = throwable handling, `1` = one-handed, `2` = two-handed |
+| `qualityMultipliers` | object |  |  | Per-item adjustment against family base qualities |
+| `familyFlag` | `number` |  |  | Bitmask of one or more weapon families |
+| `effect` | `Record<string, unknown> \| null` |  |  | Optional special behavior payload |
 
-**Effect trigger hooks:**
+### `WeaponQualityMultipliers`
 
-| Hook | Description |
+| Key | Type | Defined unit | Finalized unit | Meaning |
+|---|---|---|---|---|
+| `weight` | `number?` | <img alt="scale x" src="https://img.shields.io/badge/scale-x-8250df?style=flat-square" /> | <img alt="mass g" src="https://img.shields.io/badge/mass-g-6f42c1?style=flat-square" /> | Heavier / lighter than family base |
+| `speed` | `number?` | <img alt="scale x" src="https://img.shields.io/badge/scale-x-8250df?style=flat-square" /> | <img alt="speed m/s" src="https://img.shields.io/badge/speed-m%2Fs-1f6feb?style=flat-square" /> | Faster / slower than family base |
+| `edge` | `number?` | <img alt="scale x" src="https://img.shields.io/badge/scale-x-8250df?style=flat-square" /> | <img alt="edge mm" src="https://img.shields.io/badge/edge-mm-0969da?style=flat-square" /> | Sharper / duller than family base |
+| `reach` | `number?` | <img alt="scale x" src="https://img.shields.io/badge/scale-x-8250df?style=flat-square" /> | <img alt="reach cm" src="https://img.shields.io/badge/reach-cm-0a7ea4?style=flat-square" /> | Shorter / longer than family base |
+| `curvature` | `number?` | <img alt="scale x" src="https://img.shields.io/badge/scale-x-8250df?style=flat-square" /> | <img alt="angle rad" src="https://img.shields.io/badge/angle-rad-bd561d?style=flat-square" /> | Straighter / more curved than family base |
+
+### Weapon family flags
+
+<p>
+  <code>AXE</code>
+  <code>BATTERY</code>
+  <code>BLADE</code>
+  <code>BLUNT</code>
+  <code>CURVED_BLADE</code>
+  <code>FIREARM</code>
+  <code>FIST</code>
+  <code>KNIFE</code>
+  <code>LEGENDARY</code>
+  <code>MISC</code>
+  <code>POLEARM</code>
+  <code>PROJECTILE</code>
+  <code>RANGED</code>
+  <code>SHIELD</code>
+  <code>STAFF</code>
+  <code>TOOL</code>
+  <code>THROWABLE</code>
+</p>
+
+A weapon can belong to **multiple families at once**.
+
+### Derived quality formula
+
+In the resolver, final family-based qualities are computed from family averages and item multipliers:
+
+$$
+Q_{\text{resolved}} = \operatorname{avg}(Q_{\text{families}}) \times M_{\text{item}}
+$$
+
+Throwables then receive the base bonus:
+
+$$
+\text{reach} \leftarrow \text{reach} + 40,\qquad
+\text{curvature} \leftarrow \text{curvature} + \frac{\pi}{18}
+$$
+
+## Ammo
+
+Ammo represents consumable projectiles, charges, or rounds used by compatible weapon families. It mainly adjusts delivery weight and weapon-specific output through compatibility and amplifier data.
+
+Source: `src/data/items/ammo/types.ts`
+
+```ts
+interface AmmoDefinition {
+  internalId: number;
+  id: string;
+  display: ItemDisplay;
+  qualities: { weight: number };
+  compatibleFamilyFlag: number;
+  weaponAmplifiers: Record<string, number>;
+  created_at: string;
+  archived?: boolean;
+}
+```
+
+### Ammo fields
+
+| Field | Type | Defined unit | Finalized unit | Meaning |
+|---|---|---|---|---|
+| `qualities.weight` | `number` | <img alt="mass g" src="https://img.shields.io/badge/mass-g-6f42c1?style=flat-square" /> | <img alt="mass g" src="https://img.shields.io/badge/mass-g-6f42c1?style=flat-square" /> | Projectile or round mass in grams |
+| `compatibleFamilyFlag` | `number` |  |  | Bitmask of weapon families that can consume this ammo |
+| `weaponAmplifiers` | `Record<string, number>` | <img alt="scale x" src="https://img.shields.io/badge/scale-x-8250df?style=flat-square" /> | <img alt="scale x" src="https://img.shields.io/badge/scale-x-8250df?style=flat-square" /> | Per-weapon multiplier overrides by weapon id |
+
+> Ammo weight lives in `qualities.weight`, not at top level.
+
+## Armors
+
+Armors are wearable protection pieces tied to a body slot and a material profile. Their final defensive identity is resolved from slot type, material properties, and quality scaling.
+
+Source: `src/data/items/armors/types.ts`
+
+```ts
+interface ArmorDefinition {
+  internalId: number;
+  id: string;
+  type: 'helm' | 'chest' | 'leggings' | 'boots';
+  material: ArmorMaterialId;
+  display: ItemDisplay;
+  qualityMultipliers: { protection: number };
+  created_at: string;
+  archived?: boolean;
+}
+```
+
+### Armor fields
+
+| Field | Type | Defined unit | Finalized unit | Meaning |
+|---|---|---|---|---|
+| `type` | `helm \| chest \| leggings \| boots` |  |  | Equipped slot |
+| `material` | `ArmorMaterialId` |  |  | Material key used to resolve the armor’s stat profile |
+| `qualityMultipliers.protection` | `number` | <img alt="scale x" src="https://img.shields.io/badge/scale-x-8250df?style=flat-square" /> | <img alt="stat pts" src="https://img.shields.io/badge/stat-pts-9a6700?style=flat-square" /> | Craftsmanship / quality scale on resolved protection output |
+
+<details>
+<summary><b>Armor material ids</b></summary>
+<p>
+  <code>paper</code>
+  <code>bread</code>
+  <code>cardboard</code>
+  <code>fabric</code>
+  <code>seashells</code>
+  <code>bone</code>
+  <code>leather</code>
+  <code>wood</code>
+  <code>scales</code>
+  <code>chainmail</code>
+  <code>ironplate</code>
+  <code>obsidian</code>
+  <code>kevlar</code>
+  <code>diamondplate</code>
+</p>
+</details>
+
+### Related armor support data
+
+**`ArmorMaterialDefinition`** powers the armor resolver and contains:
+
+- `id`
+- `displayName`
+- `description`
+- `types.helm.yieldStress`
+- `types.chest.thickness`
+- `types.chest.hardness`
+- `types.leggings.elasticity`
+- `types.boots.tractionCoefficient`
+- `baseWeight`
+- `variance`
+
+**`ArmorTypeDefinition`** describes each slot and links it to the resolved stat:
+
+| Slot | Resolved stat |
 |---|---|
-| `onEquip` | Fires when item is worn or held |
-| `onUnequip` | Fires when item is removed |
-| `onHit` | Fires when this item strikes a target |
-| `onHitReceived` | Fires when the wearer takes a hit |
-| `onUse` | Fires on active use or consumption |
-| `onExpire` | Fires when item expires, breaks, or is destroyed |
-| `aura` | Persistent passive area effect while equipped |
-
----
-
-### Expiry / Perishability
-
-**Applies to:** potions, ingredients
-
-| Property | Type | Description | Influence |
-|---|---|---|---|
-| `perishable` | boolean | Whether this item can expire at all | Non-perishable items ignore all expiry properties. |
-| `shelfLife` | number (ticks) | Time until spoiled at room temperature | Countdown starts from creation or pickup. |
-| `spoilage` | 0–1 | Daily decay rate | Modified by storage temperature, container insulation, climate humidity. |
-| `spoiledId` | string? | Item ID of the spoiled form | `null` = item is destroyed. e.g. potion → `inert_vial`. |
-| `refrigeratable` | boolean | Cold storage slows spoilage | Storing in an insulated container in a cold climate reduces `spoilage` rate. |
-| `preservable` | boolean | Can be processed to extend life | Unlocks a crafting recipe for a preserved variant with no expiry. |
-
-*Edibles use a simplified expiry model — see the Edibles section.*
-
----
-
-### Container Properties
-
-**Applies to:** bags, carriers
-
-| Property | Type | Description | Influence |
-|---|---|---|---|
-| `slots` | integer | Number of item slots | Each item or stack occupies one slot. |
-| `weightCapacity` | number (kg) | Max carry weight | Exceeding this applies an overweight penalty to speed and stamina. Carrying beyond hard cap is impossible. |
-| `allowedTypes` | string[]? | Carriers only — restricts to specific item types | e.g. `["ammo"]` for a quiver. `null` = accepts anything. |
-| `allowedTags` | string[]? | Carriers only — restricts by item tag | e.g. `["potion"]` for a potion belt. Enables slot efficiency over a standard bag. |
-| `expandable` | boolean | Slots or capacity can be upgraded | Via crafting, enchantment, or merchant. |
-| `waterproof` | boolean | Protects contents from moisture | Prevents humidity from contributing to corrosion of stored items. |
-| `padded` | boolean | Absorbs impact for stored contents | Reduces durability damage to fragile items (scrolls, potions, glass) from falls or combat. |
-| `insulated` | boolean | Maintains temperature of contents | Keeps food and potions at stable temperature — slows spoilage, preserves temperature-sensitive effects. |
-| `organized` | 0–1 | Item retrieval efficiency | Higher = faster access in combat (reduces action delay when swapping or consuming items mid-fight). |
-| `lockable` | boolean | Has a lock mechanism | Resists pickpocket and unauthorized looting. |
-| `weight` | number (g) | Empty weight of the container itself | Always added to total carry weight. |
-
----
-
-## Item-Type Specific Properties
-
-### Carriers
-
-Sub-inventories that sit inside a bag and consolidate a specific item type into one bag slot, saving space.
-
-*Uses all Container Properties above. Carriers always have `allowedTypes` or `allowedTags` set.*
-
-| Property | Type | Description |
-|---|---|---|
-| `unique` | boolean | Only one of this carrier can be owned at a time. Attempting to acquire a second is blocked. All carriers are `true`. |
-| `occupiedSlots` | integer | How many bag slots this carrier itself takes up. Always `1` — the efficiency comes from what it holds internally. |
-| `quickAccess` | boolean | Items in this carrier can be used directly without removing the carrier from the bag. |
-| `acquiredFrom` | string[] | Where this carrier can be obtained. Values: `"shop"`, `"merchant"`. |
-| `stackLimitPerType` | integer \| null | Max items per type that can stack within this carrier. `null` = defer to the item's own `stackMax`. Omit if the carrier does not allow stacking. |
-| `mergeable` | boolean | Items in this carrier can be merged to compress slots (e.g. two small potions → one medium). Requires items to define `mergeTier`. |
-| `mergeTiers` | string[] | Ordered merge progression. e.g. `["small", "medium", "great"]`. Two of tier N merge into one of tier N+1. |
-| `effectMode` | enum | How effects from stored items are combined when the carrier itself is equipped. `"average"` = all stored item effects are averaged into one. Only relevant for ring-type carriers. |
-| `equipSlot` | string? | If set, this carrier is worn as equipment rather than stored in a bag. Value matches a character equipment slot (e.g. `"ring"`). |
-
----
-
-### Weapons
-
-| Property | Type | Description | Influence |
-|---|---|---|---|
-| `tier` | 1–10 | Craftsmanship tier | Scales base stats and value; determines `durabilityMax` base |
-| `damage` | number | Base damage value | Scaled by `edge` and current `condition` |
-| `damageType` | enum[] | `slash` `pierce` `blunt` `elemental` `true` | Determines armor interaction and enemy resistances |
-| `speed` | 0–2 | Attack speed multiplier | Affects attacks per turn and combo potential |
-| `edge` | 0–2 | Sharpness and penetration | Bonus to piercing/slashing damage; naturally degrades as durability drops |
-| `reach` | 0–2 | Attack range | Determines tile reach and safe engagement distance |
-| `grip` | 1–2 | Handedness: `1` = one-handed, `2` = two-handed | Occupies one or both hand slots. Shields can always be co-equipped regardless of grip. |
-| `familyFlag` | bitmask | Weapon family / category | Controls ammo compatibility, skill unlocks, AI behavior |
-| `parryRating` | 0–1 | Defensive parry capability | Reduces incoming damage when actively parrying |
-| `blockRating` | 0–1 | Damage blocked when actively blocking | Shields high; daggers low |
-| `critChance` | 0–1 | Base critical hit chance | Stacks additively with character stats |
-| `critMultiplier` | number | Damage multiplier on crit | Default `2.0` |
-| `staminaCost` | number | Stamina consumed per swing | Scales with weight and grip |
-| `sharpenable` | boolean | Can be honed with a sharpening stone | Temporarily boosts `edge` above base for a duration |
-| `enchantable` | boolean | Can receive enchantments | |
-| `soulbound` | boolean | Binds to character on equip | Cannot be traded or dropped while soulbound |
-
-*Also uses: Durability, Effects System*
-
----
-
-### Throwables
-
-All weapon properties apply, plus:
-
-| Property | Type | Description | Influence |
-|---|---|---|---|
-| `curvature` | 0–2 | Arc or curve of flight path | Higher = more curved trajectory (bolas, boomerangs, curved blades) |
-| `returnTo` | boolean | Returns to the thrower if it misses or completes arc | Boomerang behavior |
-| `aoe` | number (m) | Area of effect radius on impact | `0` = single target only |
-| `fuseTime` | number? | Delay in ticks before detonation | For explosive throwables. `null` = immediate impact. |
-| `splashEffect` | string? | Substance applied to the ground or targets on impact | References an effect ID — oil, acid, frost, etc. |
-| `bounces` | integer | Number of ricochets before coming to rest | `0` = no bounce |
-| `stackMax` | integer | Max stack size | Most throwables are stackable |
-| `recoverable` | boolean | Can be retrieved from the ground after use | Throwing knives: yes. Clay pots: no. |
-
-*Also uses: Durability, Effects System*
-
----
-
-### Ammo
-
-| Property | Type | Description | Influence |
-|---|---|---|---|
-| `weight` | number (g) | Weight per round / per projectile | Contributes to quiver or carrier weight |
-| `compatibleFamilyFlag` | bitmask | Weapon families that accept this ammo | |
-| `weaponAmplifiers` | object | Per-weapon-type damage multipliers | e.g. `{ "longbow": 1.12, "composite_bow": 1.4 }` |
-| `penetration` | 0–1 | Armor penetration | Bypasses a percentage of the target's armor protection value |
-| `damageTypeOverride` | enum? | Overrides the weapon's damage type | Fire arrows turn a piercing attack into fire damage |
-| `specialEffect` | string? | On-hit effect applied on impact | References an effect ID — poison, bleed, frost, etc. |
-| `tracerVisible` | boolean | Reveals shooter position to enemies on hit | Relevant for stealth builds |
-| `recoverable` | boolean | Can be retrieved after use | Arrows: yes. Bullets: no. |
-| `stackMax` | integer | Max stack size | Bullets: 200+. Arrows: 20–40. |
-| `velocity` | 0–1 | Relative projectile speed | Affects hit chance at long range and dodge difficulty |
-
----
-
-### Armors
-
-Subtypes: `helm` `chest` `leggings` `boots`
-
-| Property | Type | Description | Influence |
-|---|---|---|---|
-| `type` | enum | `helm` `chest` `leggings` `boots` | Determines which body slot it occupies |
-| `material` | string | Reference to material definition | Source of all material properties |
-| `protection` | number | Base damage reduction | Scales down proportionally as `condition` degrades |
-| `coverage` | 0–1 | Fraction of body part covered | Affects hit-location damage calculations — low coverage = gaps that can be targeted |
-| `mobility` | 0–1 | Movement speed modifier | Heavy armor penalizes speed and dodge |
-| `encumbrance` | 0–1 | Stamina drain rate modifier | Higher = more stamina cost per action while worn |
-| `resistances` | object | Elemental damage resistances | `{ "fire": 0.3, "lightning": 0.1, "poison": 0.0 }` |
-| `layerable` | boolean | Can be worn under other armor pieces | Padded gambeson under chainmail, for example |
-| `stealthPenalty` | 0–1 | Direct penalty to stealth score | Derived from `acoustics` + weight, but exposed as its own modifier for override |
-| `setId` | string? | Part of an armor set | Equipping all pieces in a set triggers bonus effects |
-| `qualityMultipliers` | object | Per-property deviations from material base | |
-
-*Also uses: Material Properties, Durability, Effects System*
-
----
-
-### Edibles
-
-Subtypes: `food`, `beverage`
-
-#### Core qualities
-
-| Property | Type | Description | Influence |
-|---|---|---|---|
-| `satiation` | number | How much hunger is restored on consumption | Fills the hunger meter. Higher = more filling. |
-| `effects` | Effect[] | Buffs or debuffs applied on consumption | Use the Effects System format with `hook: "onUse"`. Can be positive (stamina boost, heal) or negative (food poison). |
-| `decay` | number (actions) | How many player actions before the item rots | When the counter reaches 0, the item is prefixed with `rotten_` and a `[Rotten]` label is applied. No new item is created. |
-
-#### Additional properties
-
-| Property | Type | Description | Influence |
-|---|---|---|---|
-| `subtype` | enum | `food` `beverage` | Affects carrier compatibility and some race interactions. |
-| `requiresCooking` | boolean | Must be cooked before it is safe to consume | If consumed raw, `effects` apply regardless (typically `food_poison`). Use alongside `cookedFormId`. |
-| `cookedFormId` | string? | Item ID of the cooked form | Produced by cooking this item at a fire or cooking station. |
-| `refrigeratable` | boolean | Cold effects reset the `decay` counter | Applies when a chilling potion, cold aura, or cold environment is in contact with the item. |
-
----
-
-### Resources
-
-Raw materials gathered or looted from the world.
-
-| Property | Type | Description | Influence |
-|---|---|---|---|
-| `purity` | 0–1 | Quality of raw material | Affects output quality and quantity when refined — low purity ore yields fewer ingots |
-| `hardness` | 0–1 | Surface hardness | Determines which tools can mine or process it. Cannot sharpen on something softer than the blade. |
-| `refinable` | boolean | Can be smelted, cut, or otherwise processed | |
-| `refinedFormId` | string? | Item ID of the processed output | e.g. `iron_ore` → `iron_ingot` |
-| `yieldRate` | 0–1 | Conversion efficiency | `0.7` = 70% of input mass becomes usable output |
-| `sourceType` | enum | `mined` `harvested` `looted` `crafted` `traded` | Affects spawn location logic and economy behavior |
-| `flammable` | boolean | Can be used as fuel | |
-| `fuelValue` | number? | Burn duration as fuel in ticks | Relevant for crafting stations and survival mechanics |
-| `stackMax` | integer | Max stack size | |
-
-
----
-
-### Ingredients
-
-Crafting or alchemy components. More reactive and perishable than raw resources.
-
-| Property | Type | Description | Influence |
-|---|---|---|---|
-| `potency` | 0–1 | Contribution strength in a recipe | Higher = stronger output effect from this ingredient |
-| `solubility` | 0–1 | How cleanly it dissolves in liquid | High = mixes without residue; low = cloudy, reduced concentration |
-| `volatility` | 0–1 | Stability during crafting | High = chance of failure, degraded output, or explosion |
-| `catalytic` | boolean \| number | Amplifies other ingredients | Does not contribute its own effect; multiplies the potency of neighboring ingredients |
-| `contraindications` | string[] | Ingredient IDs that react badly with this | Combining these produces dangerous or negative results |
-| `synergies` | string[] | Ingredient IDs that enhance this one | Bonus potency or unlocked effects when combined |
-| `school` | enum | `alchemy` `cooking` `enchanting` `herbalism` etc. | Determines valid crafting stations and skill bonuses |
-| `freshness` | 0–1 | Current quality — degrades over time | Reduces effective `potency` as freshness drops |
-| `perishable` | boolean | | |
-| `shelfLife` | number | | |
-| `spoilage` | 0–1 | | |
-| `stackMax` | integer | | |
-
----
-
-### Scrolls
-
-Single-use or limited-charge magical texts.
-
-| Property | Type | Description | Influence |
-|---|---|---|---|
-| `spellId` | string | The spell this scroll contains | References the spell definition |
-| `school` | enum | `fire` `ice` `arcane` `holy` `dark` `nature` `time` etc. | Affects resistance interactions and spell skill bonuses |
-| `charges` | integer | Uses before the scroll is consumed | Most scrolls are single-use (`1`) |
-| `castTime` | number (ticks) | Activation delay | Longer = more vulnerable during cast |
-| `intelligenceRequirement` | number? | Min INT to read without misfire | Below this threshold, `failChance` is non-zero |
-| `failChance` | 0–1 | Chance of misfire at minimum INT | Scales down as INT exceeds requirement |
-| `cursed` | boolean | Activates a negative effect instead of the intended one | Not identifiable until used, unless the scroll is appraised |
-| `learnOnUse` | boolean | Teaches the spell permanently to the caster | Rare scrolls — consumed on use but spell is added to the character's known spells |
-| `fragile` | boolean | Can be destroyed by water, fire, or rough handling | Water-damaged scrolls fail on use; fire destroys them entirely |
-| `singleUse` | boolean | Destroyed on first use regardless of charges | |
-| `effects` | Effect[] | What happens on successful cast | |
-
----
-
-### Potions
-
-Drinkable magical or alchemical concoctions.
-
-| Property | Type | Description | Influence |
-|---|---|---|---|
-| `volume` | number (ml) | Liquid volume | Affects total weight and serving count |
-| `concentration` | 0–1 | Potency multiplier | Higher = stronger effect but shorter shelf life |
-| `servings` | integer | Doses per container | |
-| `onset` | number (ticks) | Delay before effect activates | Fast potions: `0`. Slow-release: `10+` |
-| `duration` | number (ticks) | How long the effect lasts | |
-| `school` | enum | `healing` `mana` `stamina` `buff` `debuff` `poison` `antidote` `transmutation` etc. | |
-| `effects` | Effect[] | Applied on consumption | |
-| `mixable` | boolean | Can be combined with other potions | Enables a potion-mixing crafting system |
-| `volatile` | boolean | Can explode if struck while in inventory | Chance based on incoming force and `ignitability` of container |
-| `viscosity` | 0–1 | Thickness of the liquid | High = slower `onset`, longer `duration` |
-| `containerType` | enum | `vial` `flask` `bottle` `jug` | Affects stack size, break chance, and pour behavior |
-| `cursed` | boolean | Effect is harmful despite appearance | |
-| `perishable` | boolean | | |
-| `shelfLife` | number | | |
-| `spoilage` | 0–1 | | |
-| `spoiledId` | string? | e.g. potion → `inert_vial` or `rancid_mixture` | |
-
----
-
-### Artifacts
-
-Powerful and often unique items with exceptional properties.
-
-| Property | Type | Description | Influence |
-|---|---|---|---|
-| `unique` | boolean | Only one instance exists in the world at a time | |
-| `lore` | string | Deep backstory and provenance | |
-| `equippableSlot` | enum? | Which character slot it occupies | `weapon` `ring` `neck` `offhand` `relic` etc. |
-| `cursed` | boolean | Cannot be unequipped without a specific ritual | |
-| `charges` | integer? | Uses of active ability. `null` = passive only | |
-| `setId` | string? | Part of a named artifact set | Equipping all items in the set triggers unique bonus effects |
-| `awakened` | boolean | Has an awakened state with additional power | |
-| `awakeningCondition` | string? | What triggers awakening | e.g. `"kill_100_enemies"` or `"reach_tier_5"` |
-| `soulbound` | boolean | Binds to the character on equip or pickup | Cannot be traded, dropped, or stored once bound |
-| `sentient` | boolean | Has its own will or can communicate | Opens unique dialogue; may resist being stored or wielded by an unworthy character |
-| `alignment` | enum? | `good` `neutral` `evil` | Affects usability by certain classes or morality scores |
-| `effects` | Effect[] | Passive effects while held or worn | |
-| `onEquip` | Effect[] | | |
-| `onHit` | Effect[] | | |
-| `durability` | number? | `null` = indestructible | |
-| `durabilityMax` | number? | | |
-
-*Also uses: Effects System*
-
----
-
-### Rings
-
-Wearable accessories occupying the finger slots.
-
-| Property | Type | Description | Influence |
-|---|---|---|---|
-| `enchantments` | object[] | Magical stat bonuses applied while worn | |
-| `effects` | Effect[] | Passive effects active while equipped | |
-| `cursed` | boolean | Cannot be removed without a curse-break item or ritual | |
-| `soulbound` | boolean | Binds to the character on equip | |
-| `setId` | string? | Part of a ring set | Wearing multiple rings from the same set triggers bonus effects |
-| `socketable` | boolean | Can accept a gem or rune | |
-| `socketedItemId` | string? | ID of currently socketed gem or rune | |
-| `charges` | integer? | Uses of an active ability | `null` = passive only |
-| `fingerSlot` | enum? | `thumb` `index` `middle` `ring` `pinky` | Some ring effects are finger-specific |
-| `durability` | number? | Most rings are durable — brittle rings (bone, crystal) can shatter | |
-| `durabilityMax` | number? | | |
-
-*Also uses: Durability, Effects System*
-
----
-
-## Property Cross-Reference
-
-Quick lookup: which shared groups each item type uses.
-
-| Item Type | Material | Durability | Effects | Expiry | Container |
-|---|:---:|:---:|:---:|:---:|:---:|
-| Bags | — | optional | — | — | ✓ |
-| Carriers | — | — | — | — | ✓ |
-| Weapons | — | ✓ | ✓ | — | — |
-| Throwables | — | ✓ | ✓ | — | — |
-| Ammo | — | — | ✓ | — | — |
-| Armors | ✓ | ✓ | ✓ | — | — |
-| Edibles | — | — | ✓ | ✓ | — |
-| Resources | — | — | — | — | — |
-| Ingredients | — | — | — | ✓ | — |
-| Scrolls | — | optional | ✓ | — | — |
-| Potions | — | — | ✓ | ✓ | — |
-| Artifacts | — | optional | ✓ | — | — |
-| Rings | — | optional | ✓ | — | — |
+| `helm` | `critInfluence` |
+| `chest` | `defense` |
+| `leggings` | `evasion` |
+| `boots` | `stride` |
+
+### Armor resolution formula
+
+The armor resolver is material-driven. At a high level:
+
+$$
+\text{baseStat} = f(\text{material}, \text{slot}) \times \text{qualityMultipliers.protection}
+$$
+
+$$
+\text{spread} = \text{baseStat} \times \text{variance}
+$$
+
+So the displayed output is effectively a resolved range: `base ± spread`.
+
+## Carriers
+
+Carriers are utility storage items that organize, restrict, and sometimes enhance groups of contained items. They function like specialized sub-inventories with capacity, access, and filtering rules.
+
+Source: `src/data/items/carriers/helpers/types.ts`
+
+```ts
+interface CarrierDefinition {
+  internalId: number;
+  id: string;
+  display: ItemDisplay;
+  rarity: 'common' | 'uncommon' | 'rare' | 'epic' | 'legendary' | 'unique';
+  unique: boolean;
+  stackable: boolean;
+  occupiedSlots: number;
+  quickAccess: boolean;
+  allowedTypes: string[] | null;
+  allowedTags: string[] | null;
+  slots: number | null;
+  stackLimitPerType: number | null;
+  mergeable: boolean;
+  mergeTiers: string[];
+  effectMode: string | null;
+  equipSlot: string | null;
+  acquiredFrom: string[];
+  effects: CarrierEffect[];
+  padded?: boolean;
+  waterproof?: boolean;
+  insulated?: boolean;
+  lockable?: boolean;
+  created_at: string;
+  archived?: boolean;
+}
+```
+
+### Carrier fields
+
+| Field | Type | Defined unit | Finalized unit | Meaning |
+|---|---|---|---|---|
+| `rarity` | enum |  |  | Carrier rarity label |
+| `unique` | `boolean` |  |  | Whether only one should exist per owner |
+| `stackable` | `boolean` |  |  | Whether the carrier item itself stacks |
+| `occupiedSlots` | `number` | `slots` | `inventory slots` | Inventory slots consumed by the carrier |
+| `quickAccess` | `boolean` |  |  | Allows direct use from the carrier |
+| `allowedTypes` | `string[] \| null` |  |  | Accepted item types |
+| `allowedTags` | `string[] \| null` |  |  | Accepted item tags / labels |
+| `slots` | `number \| null` | `slots` | `internal slots` | Internal capacity |
+| `stackLimitPerType` | `number \| null` | `count` | `count` | Per-type stacking override |
+| `mergeable` | `boolean` |  |  | Whether stored items can merge up |
+| `mergeTiers` | `string[]` |  |  | Ordered merge chain |
+| `effectMode` | `string \| null` |  |  | How contained effects are combined |
+| `equipSlot` | `string \| null` |  |  | If worn rather than carried |
+| `acquiredFrom` | `string[]` |  |  | Allowed acquisition sources |
+| `effects` | `CarrierEffect[]` |  |  | Passive or container-targeted carrier effects |
+| `padded`, `waterproof`, `insulated`, `lockable` | `boolean?` |  |  | Optional storage protection flags |
+
+## Edibles
+
+Edibles are food and drink consumables that primarily interact with hunger, freshness, cooking, and spoilage. They can also apply direct use effects through their effect payloads.
+
+Source: `src/data/items/edibles/helpers/types.ts`
+
+```ts
+interface EdibleDefinition {
+  internalId: number;
+  id: string;
+  display: ItemDisplay;
+  rarity: string;
+  stackable: number;
+  subtype: EdibleSubtype;
+  energy: number;
+  satiationType: SatiationType;
+  form: string;
+  requiresCooking: boolean;
+  cookedFormId: string | null;
+  refrigeratable: boolean;
+  decay: number;
+  decayAction: number;
+  spoilageState: SpoilageState;
+  effects: EdibleEffect[];
+  created_at: string;
+  archived?: boolean;
+}
+```
+
+### Edible fields
+
+| Field | Type | Defined unit | Finalized unit | Meaning |
+|---|---|---|---|---|
+| `rarity` | `string` |  |  | Rarity label |
+| `stackable` | `number` | `count` | `count` | Max stack size |
+| `subtype` | `EdibleSubtype` |  |  | Numeric edible category id |
+| `energy` | `number` | <img alt="energy kcal" src="https://img.shields.io/badge/energy-kcal-d29922?style=flat-square" /> | <img alt="hunger pts" src="https://img.shields.io/badge/hunger-pts-2da44e?style=flat-square" /> | Food energy in kilocalories |
+| `satiationType` | `SatiationType` |  |  | Distribution behavior for hunger restoration |
+| `form` | `string` |  |  | Variant label such as `raw`, `cooked`, `glazed` |
+| `requiresCooking` | `boolean` |  |  | Whether the item should be cooked first |
+| `cookedFormId` | `string \| null` |  |  | Target id after cooking |
+| `refrigeratable` | `boolean` |  |  | Whether cold storage helps preserve it |
+| `decay` | `number` | <img alt="time actions" src="https://img.shields.io/badge/time-actions-2da44e?style=flat-square" /> | spoilage budget | Total freshness budget in actions |
+| `decayAction` | `number` | <img alt="time actions" src="https://img.shields.io/badge/time-actions-2da44e?style=flat-square" /> | spoilage interval | Actions between spoilage ticks |
+| `spoilageState` | `SpoilageState` |  |  | Freshness bucket |
+| `effects` | `EdibleEffect[]` |  |  | On-use food effects |
+
+### Enum ids
+
+| Group | Values |
+|---|---|
+| `EDIBLE_SUBTYPE` | `1 = FOOD`, `2 = BEVERAGE` |
+| `SATIATION_TYPE` | `1 = INSTANT`, `2 = STEADY`, `3 = SLOWBURN`, `4 = DELAYED`, `5 = THRESHOLD`, `6 = BUFFER`, `7 = SYNERGY`, `8 = COMBO`, `9 = BOOST` |
+| `SPOILAGE_STATE` | `1 = FRESH`, `2 = AGING`, `3 = STALE`, `4 = SPOILED`, `5 = ROTTEN` |
+
+### Satiation formula
+
+Normalized hunger fill comes from `getBaseSatiation()`:
+
+$$
+\text{baseSatiation} = \operatorname{round}\left(
+\frac{\text{energyKcal}}{\text{energyMaxKcal}} \times \text{hungerMax}
+\right)
+$$
+
+### Spoilage formula
+
+Spoilage helpers use a heat multiplier and elapsed actions:
+
+$$
+\text{heatMultiplier} =
+\operatorname{clamp}\left(1 + (T - T_n)\times s,\ m_{\min},\ m_{\max}\right)
+$$
+
+$$
+\text{baseSpoilage} = \text{actionsPassed} \times \text{heatMultiplier}
+$$
+
+## Potions
+
+Potions are liquid consumables built around timed effects, concentration, and shelf life. They model dose-based use, onset timing, and possible instability or spoilage.
+
+Source: `src/data/items/potions/helpers/types.ts`
+
+```ts
+interface PotionDefinition {
+  internalId: number;
+  id: string;
+  display: ItemDisplay;
+  rarity: string;
+  stackable: number;
+  subtype: string;
+  volume: number;
+  concentration: number;
+  servings: number;
+  onset: number;
+  duration: number;
+  school: string;
+  effects: PotionEffect[];
+  mixable: boolean;
+  volatile: boolean;
+  viscosity: number;
+  containerType: string;
+  cursed: boolean;
+  perishable: boolean;
+  shelfLife: number | null;
+  spoilage: number;
+  spoiledId: string | null;
+  created_at: string;
+  archived?: boolean;
+}
+```
+
+### Potion fields
+
+| Field | Type | Defined unit | Finalized unit | Meaning |
+|---|---|---|---|---|
+| `rarity` | `string` |  |  | Rarity label |
+| `stackable` | `number` | `count` | `count` | Max stack size |
+| `subtype` | `string` |  |  | Subtype label, defaulting to `potion` |
+| `volume` | `number` | <img alt="volume mL" src="https://img.shields.io/badge/volume-mL-1f6feb?style=flat-square" /> | <img alt="volume mL" src="https://img.shields.io/badge/volume-mL-1f6feb?style=flat-square" /> | Liquid volume |
+| `concentration` | `number` | <img alt="scale x" src="https://img.shields.io/badge/scale-x-8250df?style=flat-square" /> | effect strength scale | Potency factor |
+| `servings` | `number` | `count` | `uses / doses` | Number of doses |
+| `onset` | `number` | <img alt="time ticks" src="https://img.shields.io/badge/time-ticks-2da44e?style=flat-square" /> | <img alt="time ticks" src="https://img.shields.io/badge/time-ticks-2da44e?style=flat-square" /> | Delay before the effect starts |
+| `duration` | `number` | <img alt="time ticks" src="https://img.shields.io/badge/time-ticks-2da44e?style=flat-square" /> | <img alt="time ticks" src="https://img.shields.io/badge/time-ticks-2da44e?style=flat-square" /> | Duration after onset |
+| `school` | `string` |  |  | Potion category / school |
+| `effects` | `PotionEffect[]` |  |  | Applied consumption effects |
+| `mixable` | `boolean` |  |  | Whether it can be combined with other potions |
+| `volatile` | `boolean` |  |  | Whether it is unstable |
+| `viscosity` | `number` | <img alt="scale x" src="https://img.shields.io/badge/scale-x-8250df?style=flat-square" /> | flow thickness scale | Thickness of the mixture |
+| `containerType` | `string` |  |  | Container label such as `vial` |
+| `cursed` | `boolean` |  |  | Whether the potion is cursed |
+| `perishable` | `boolean` |  |  | Whether it can expire |
+| `shelfLife` | `number \| null` | <img alt="time ticks" src="https://img.shields.io/badge/time-ticks-2da44e?style=flat-square" /> | <img alt="time ticks" src="https://img.shields.io/badge/time-ticks-2da44e?style=flat-square" /> | Lifetime before spoilage |
+| `spoilage` | `number` | <img alt="ratio 0-1" src="https://img.shields.io/badge/ratio-0--1-f85149?style=flat-square" /> | decay rate scalar | Spoilage rate |
+| `spoiledId` | `string \| null` |  |  | Result id after spoilage |
+
+## Scrolls
+
+Scrolls are spell-bearing consumables that store a castable effect in written form. They focus on activation time, charges, failure chance, and knowledge-related gating such as intelligence requirements.
+
+Source: `src/data/items/scrolls/helpers/types.ts`
+
+```ts
+interface ScrollDefinition {
+  internalId: number;
+  id: string;
+  display: ItemDisplay;
+  rarity: string;
+  stackable: number;
+  subtype: string;
+  spellId: string;
+  school: string;
+  charges: number;
+  castTime: number;
+  intelligenceRequirement: number | null;
+  failChance: number;
+  cursed: boolean;
+  learnOnUse: boolean;
+  fragile: boolean;
+  singleUse: boolean;
+  effects: ScrollEffect[];
+  created_at: string;
+  archived?: boolean;
+}
+```
+
+### Scroll fields
+
+| Field | Type | Defined unit | Finalized unit | Meaning |
+|---|---|---|---|---|
+| `rarity` | `string` |  |  | Rarity label |
+| `stackable` | `number` | `count` | `count` | Max stack size |
+| `subtype` | `string` |  |  | Subtype label, defaulting to `scroll` |
+| `spellId` | `string` |  |  | Referenced spell id |
+| `school` | `string` |  |  | Magic school |
+| `charges` | `number` | `count` | `uses` | Available uses |
+| `castTime` | `number` | <img alt="time ticks" src="https://img.shields.io/badge/time-ticks-2da44e?style=flat-square" /> | <img alt="time ticks" src="https://img.shields.io/badge/time-ticks-2da44e?style=flat-square" /> | Activation time |
+| `intelligenceRequirement` | `number \| null` |  |  | Optional minimum INT |
+| `failChance` | `number` | <img alt="ratio 0-1" src="https://img.shields.io/badge/ratio-0--1-f85149?style=flat-square" /> | failure probability | Misfire chance |
+| `cursed` | `boolean` |  |  | Whether the scroll has a harmful twist |
+| `learnOnUse` | `boolean` |  |  | Whether the spell is learned permanently |
+| `fragile` | `boolean` |  |  | Whether handling/environment can ruin it |
+| `singleUse` | `boolean` |  |  | Whether one use consumes it immediately |
+| `effects` | `ScrollEffect[]` |  |  | Scroll cast effects |
+
+## Quick reference matrix
+
+| Type | `display` | `rarity` | `stackable` | Effect field | Special driver |
+|---|:---:|:---:|:---:|---|---|
+| Weapons | ✓ | — | — | `effect` | `familyFlag`, `qualityMultipliers` |
+| Ammo | ✓ | — | — | — | `compatibleFamilyFlag`, `weaponAmplifiers` |
+| Armors | ✓ | — | — | — | `type`, `material`, `protection` multiplier |
+| Carriers | ✓ | ✓ | boolean | `effects[]` | `allowedTypes`, `allowedTags`, `slots` |
+| Edibles | ✓ | ✓ | number | `effects[]` | `energy`, `satiationType`, `decay` |
+| Potions | ✓ | ✓ | number | `effects[]` | `volume`, `concentration`, `shelfLife` |
+| Scrolls | ✓ | ✓ | number | `effects[]` | `spellId`, `charges`, `failChance` |
+
+
+

@@ -3,13 +3,12 @@ import { defineWeapon, BLUNT, THROWABLE, TOOL } from '../../helpers/index.js';
 export const tacticalShovel = defineWeapon({
 	internalId: 129,
 	id: 'tacticalShovel',
-	displayName: 'Tactical Shovel',
-	description: 'A compact entrenching shovel that digs, chops, and throws with alarming enthusiasm.',
-	tags: [
-	'entrenching',
-	'compact',
-	'rugged',
-],
+	display: {
+			en: {
+				name: 'Tactical Shovel',
+				description: 'A compact entrenching shovel that digs, chops, and throws with alarming enthusiasm.',
+			},
+		},
 	tier: 2,
 	grip: 0,
 	families: BLUNT | TOOL | THROWABLE,

@@ -3,13 +3,12 @@ import { defineWeapon, BLUNT, FIST } from '../../helpers/index.js';
 export const monkey_fist = defineWeapon({
 	internalId: 116,
 	id: 'monkey_fist',
-	displayName: 'Monkey Fist',
-	description: 'A dense rope-knotted ball swung on a short lead. Hits harder than it looks and leaves a satisfying dent.',
-	tags: [
-	'knotted',
-	'weighted',
-	'compact',
-],
+	display: {
+			en: {
+				name: 'Monkey Fist',
+				description: 'A dense rope-knotted ball swung on a short lead. Hits harder than it looks and leaves a satisfying dent.',
+			},
+		},
 	tier: 2,
 	grip: 1,
 	families: BLUNT | FIST,

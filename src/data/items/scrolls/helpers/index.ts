@@ -3,6 +3,4 @@ export type {
 	ActiveScrollDefinition,
 	ScrollDefinition,
 	ScrollEffect,
-	ScrollLocalization,
-	ScrollLocalizationEntry,
 } from './types.js';

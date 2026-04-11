@@ -3,13 +3,12 @@ import { defineWeapon, SHIELD } from '../../helpers/index.js';
 export const buckler = defineWeapon({
 	internalId: 101,
 	id: 'buckler',
-	displayName: 'Buckler',
-	description: 'A compact hand shield meant for quick parries and close-in confidence.',
-	tags: [
-	'compact',
-	'defensive',
-	'nimble',
-],
+	display: {
+			en: {
+				name: 'Buckler',
+				description: 'A compact hand shield meant for quick parries and close-in confidence.',
+			},
+		},
 	tier: 1,
 	grip: 1,
 	families: SHIELD,

@@ -3,13 +3,12 @@ import { defineWeapon, BLUNT } from '../../helpers/index.js';
 export const iron_club = defineWeapon({
 	internalId: 45,
 	id: 'iron_club',
-	displayName: 'Kanabo',
-	description: 'A monstrous spiked club that turns every swing into a punishment.',
-	tags: [
-	'monstrous',
-	'savage',
-	'domineering',
-],
+	display: {
+			en: {
+				name: 'Kanabo',
+				description: 'A monstrous spiked club that turns every swing into a punishment.',
+			},
+		},
 	tier: 5,
 	grip: 2,
 	families: BLUNT,

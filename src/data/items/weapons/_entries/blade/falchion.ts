@@ -3,13 +3,12 @@ import { defineWeapon, BLADE } from '../../helpers/index.js';
 export const falchion = defineWeapon({
 	internalId: 13,
 	id: 'falchion',
-	displayName: 'Falchion',
-	description: 'A forward-weighted slashing sword that bites hard through wide, committed arcs.',
-	tags: [
-	'feral',
-	'hungry',
-	'arcing',
-],
+	display: {
+			en: {
+				name: 'Falchion',
+				description: 'A forward-weighted slashing sword that bites hard through wide, committed arcs.',
+			},
+		},
 	tier: 3,
 	grip: 1,
 	families: BLADE,

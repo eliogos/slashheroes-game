@@ -3,9 +3,12 @@ import { definePotion } from '../helpers/index.js';
 export const small_health_potion = definePotion({
 	internalId: 1,
 	id: 'small_health_potion',
-	displayName: 'Small Health Potion',
-	description: 'A simple red restorative brewed for quick battlefield recovery when things start going sideways.',
-	tags: ['healing_potion', 'restorative', 'common'],
+	display: {
+			en: {
+				name: 'Small Health Potion',
+				description: 'A simple red restorative brewed for quick battlefield recovery when things start going sideways.',
+			},
+		},
 	rarity: 'common',
 	stackable: 20,
 	volume: 250,

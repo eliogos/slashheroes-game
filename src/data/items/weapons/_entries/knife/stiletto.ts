@@ -3,13 +3,12 @@ import { defineWeapon, KNIFE } from '../../helpers/index.js';
 export const stiletto = defineWeapon({
 	internalId: 3,
 	id: 'stiletto',
-	displayName: 'Stiletto',
-	description: 'A narrow dueling blade designed for precise punctures and clean finishers.',
-	tags: [
-	'elegant',
-	'sinister',
-	'precise',
-],
+	display: {
+			en: {
+				name: 'Stiletto',
+				description: 'A narrow dueling blade designed for precise punctures and clean finishers.',
+			},
+		},
 	tier: 3,
 	grip: 1,
 	families: KNIFE,

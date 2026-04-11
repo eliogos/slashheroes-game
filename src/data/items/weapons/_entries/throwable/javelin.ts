@@ -3,13 +3,12 @@ import { defineWeapon, POLEARM, THROWABLE } from '../../helpers/index.js';
 export const javelin = defineWeapon({
 	internalId: 118,
 	id: 'javelin',
-	displayName: 'Javelin',
-	description: 'A light war spear built to sail straight through open air before punching into a distant target.',
-	tags: [
-	'aerodynamic',
-	'straight',
-	'martial',
-],
+	display: {
+			en: {
+				name: 'Javelin',
+				description: 'A light war spear built to sail straight through open air before punching into a distant target.',
+			},
+		},
 	tier: 2,
 	grip: 0,
 	families: POLEARM | THROWABLE,

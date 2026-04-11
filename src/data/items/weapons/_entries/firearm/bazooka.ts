@@ -3,13 +3,12 @@ import { defineWeapon, FIREARM } from '../../helpers/index.js';
 export const bazooka = defineWeapon({
 	internalId: 83,
 	id: 'bazooka',
-	displayName: 'Bazooka',
-	description: 'An explosive launcher engineered for oversized destruction and backblast terror.',
-	tags: [
-	'explosive',
-	'oversized',
-	'demolishing',
-],
+	display: {
+			en: {
+				name: 'Bazooka',
+				description: 'An explosive launcher engineered for oversized destruction and backblast terror.',
+			},
+		},
 	tier: 6,
 	grip: 2,
 	families: FIREARM,

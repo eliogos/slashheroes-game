@@ -3,13 +3,12 @@ import { defineWeapon, PROJECTILE } from '../../helpers/index.js';
 export const crossbow = defineWeapon({
 	internalId: 68,
 	id: 'crossbow',
-	displayName: 'Crossbow',
-	description: 'A mechanized ranged weapon that favors punch and ease over draw rhythm.',
-	tags: [
-	'mechanical',
-	'heavy',
-	'direct',
-],
+	display: {
+			en: {
+				name: 'Crossbow',
+				description: 'A mechanized ranged weapon that favors punch and ease over draw rhythm.',
+			},
+		},
 	tier: 3,
 	grip: 1,
 	families: PROJECTILE,

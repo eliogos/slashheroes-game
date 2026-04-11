@@ -3,13 +3,12 @@ import { defineWeapon, MISC, POLEARM, THROWABLE } from '../../helpers/index.js';
 export const swissArrow = defineWeapon({
 	internalId: 127,
 	id: 'swissArrow',
-	displayName: 'Swiss Arrow',
-	description: 'A hand-thrown dart with fletching and a corded launch trick that gives it far more reach than it should have.',
-	tags: [
-	'corded',
-	'fletched',
-	'clever',
-],
+	display: {
+			en: {
+				name: 'Swiss Arrow',
+				description: 'A hand-thrown dart with fletching and a corded launch trick that gives it far more reach than it should have.',
+			},
+		},
 	tier: 2,
 	grip: 0,
 	families: MISC | POLEARM | THROWABLE,

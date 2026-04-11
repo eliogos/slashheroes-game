@@ -3,13 +3,12 @@ import { defineWeapon, AXE } from '../../helpers/index.js';
 export const battle_axe = defineWeapon({
 	internalId: 61,
 	id: 'battle_axe',
-	displayName: 'Battle Axe',
-	description: 'A war-ready axe with broad chopping power and confident handling.',
-	tags: [
-	'martial',
-	'broad',
-	'forceful',
-],
+	display: {
+			en: {
+				name: 'Battle Axe',
+				description: 'A war-ready axe with broad chopping power and confident handling.',
+			},
+		},
 	tier: 4,
 	grip: 1,
 	families: AXE,

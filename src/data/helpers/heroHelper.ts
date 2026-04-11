@@ -1,4 +1,5 @@
 import { HERO_CLASSES, HERO_RACES, HERO_STATS } from '../heroes/index.ts';
+import { EPSILON, STAT_DECIMAL_PLACES } from './constants.js';
 import { HERO_MODIFIER_KEY_BY_SHORTCODE } from '../heroes/types.ts';
 import type {
 	ComputedHeroStats,
@@ -18,6 +19,12 @@ export function getClassById(classId: HeroLookupId): HeroClassDefinition | null 
 
 const POINT_STATS = new Set<ModifierKey>(['str', 'agi', 'wis', 'int', 'per', 'luk']);
 
+function roundToStatPrecision(value: number): number {
+	const factor = 10 ** STAT_DECIMAL_PLACES;
+	const adjustment = value >= 0 ? EPSILON : -EPSILON;
+	return Math.round((value + adjustment) * factor) / factor;
+}
+
 export function computeHeroStats(
 	race: HeroRaceDefinition,
 	heroClass: HeroClassDefinition,
@@ -30,11 +37,16 @@ export function computeHeroStats(
 			continue;
 		}
 
+		if (key === 'EXP') {
+			computed[key] = roundToStatPrecision(stat.defaultValue ?? 0);
+			continue;
+		}
+
 		const modKey = HERO_MODIFIER_KEY_BY_SHORTCODE[key];
 		const raceMod = race.mods[modKey] ?? 0;
 		const classMod = heroClass.mods[modKey] ?? 0;
 		const multiplier = POINT_STATS.has(modKey) ? 1 : 10;
-		computed[key] = (stat.defaultValue ?? 0) + (raceMod * multiplier) + (classMod * multiplier);
+		computed[key] = roundToStatPrecision((stat.defaultValue ?? 0) + (raceMod * multiplier) + (classMod * multiplier));
 	}
 
 	return computed;

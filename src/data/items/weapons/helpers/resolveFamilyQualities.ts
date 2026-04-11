@@ -26,7 +26,7 @@ function resolveWeaponFamilies(
 
 	if (!famList.length || famList.some((family) => !family)) {
 		throw new Error(
-			`Invalid families for weapon "${weapon.displayName ?? weapon.id}": ${familyIds}`,
+			`Invalid families for weapon "${weapon.display.en.name ?? weapon.id}": ${familyIds}`,
 		);
 	}
 

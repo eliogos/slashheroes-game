@@ -3,13 +3,12 @@ import { defineWeapon, CURVED_BLADE } from '../../helpers/index.js';
 export const great_blade = defineWeapon({
 	internalId: 28,
 	id: 'great_blade',
-	displayName: 'Ōdachi',
-	description: 'An oversized war sword with sweeping reach and fearsome cutting authority.',
-	tags: [
-	'grand',
-	'sweeping',
-	'imperial',
-],
+	display: {
+			en: {
+				name: 'Ōdachi',
+				description: 'An oversized war sword with sweeping reach and fearsome cutting authority.',
+			},
+		},
 	tier: 6,
 	grip: 2,
 	families: CURVED_BLADE,

@@ -3,13 +3,12 @@ import { defineWeapon, FIST } from '../../helpers/index.js';
 export const baseball_gloves = defineWeapon({
 	internalId: 112,
 	id: 'baseball_gloves',
-	displayName: 'Baseball Gloves',
-	description: 'Worn leather batting gloves repurposed for brawling. Light and comfortable, but they do the job.',
-	tags: [
-	'leather',
-	'casual',
-	'light',
-],
+	display: {
+			en: {
+				name: 'Baseball Gloves',
+				description: 'Worn leather batting gloves repurposed for brawling. Light and comfortable, but they do the job.',
+			},
+		},
 	tier: 1,
 	grip: 1,
 	families: FIST,

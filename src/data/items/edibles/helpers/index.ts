@@ -22,7 +22,11 @@ export {
 } from './getBaseSatiation.js';
 export {
 	DEFAULT_HEAT_SENSITIVITY,
+	DEFAULT_HEAT_SENSITIVITY_STEP_C,
+	DEFAULT_NEUTRAL_TEMPERATURE,
 	DEFAULT_NEUTRAL_TEMPERATURE_C,
+	SPOILAGE_DEFAULTS,
+	SPOILAGE_THRESHOLDS,
 	applySpoilageTick,
 	getBaseSpoilage,
 	getHeatMultiplier,
@@ -45,7 +49,7 @@ export type {
 export type {
 	ActiveEdibleDefinition,
 	EdibleDefinition,
+	EdibleDisplay,
+	EdibleDisplayEntry,
 	EdibleEffect,
-	EdibleLocalization,
-	EdibleLocalizationEntry,
 } from './types.js';

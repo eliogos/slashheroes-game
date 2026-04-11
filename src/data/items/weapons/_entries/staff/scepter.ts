@@ -3,13 +3,12 @@ import { defineWeapon, STAFF } from '../../helpers/index.js';
 export const scepter = defineWeapon({
 	internalId: 87,
 	id: 'scepter',
-	displayName: 'Scepter',
-	description: 'A ceremonial rod that carries authority and surprising close-range menace.',
-	tags: [
-	'ceremonial',
-	'regal',
-	'poised',
-],
+	display: {
+			en: {
+				name: 'Scepter',
+				description: 'A ceremonial rod that carries authority and surprising close-range menace.',
+			},
+		},
 	tier: 4,
 	grip: 1,
 	families: STAFF,

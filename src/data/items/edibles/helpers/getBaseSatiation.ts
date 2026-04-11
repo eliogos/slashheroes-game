@@ -92,7 +92,7 @@ export function getEffectiveSatiationKcal(
 }
 
 export function getBaseSatiation(
-	satiationKcal: number,
+	energyKcal: number,
 	options: BaseSatiationOptions = {},
 ): number {
 	const hungerMax = options.hungerMax ?? DEFAULT_HUNGER_MAX;
@@ -102,15 +102,15 @@ export function getBaseSatiation(
 		return 0;
 	}
 
-	return Math.round((satiationKcal / energyMaxKcal) * hungerMax);
+	return Math.round((energyKcal / energyMaxKcal) * hungerMax);
 }
 
 export function getSatiationDistribution(
-	satiationKcal: number,
+	energyKcal: number,
 	options: SatiationDistributionOptions = {},
 ): SatiationDistribution {
 	const type = options.type ?? SATIATION_TYPE.INSTANT;
-	const effectiveKcal = getEffectiveSatiationKcal(satiationKcal, options);
+	const effectiveKcal = getEffectiveSatiationKcal(energyKcal, options);
 	const baseSatiation = getBaseSatiation(effectiveKcal, options);
 
 	let immediateSatiation = baseSatiation;

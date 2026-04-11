@@ -3,13 +3,12 @@ import { defineWeapon, MISC } from '../../helpers/index.js';
 export const scissors = defineWeapon({
 	internalId: 97,
 	id: 'scissors',
-	displayName: 'Scissors',
-	description: 'A cutting tool that becomes surprisingly nasty once used with intent.',
-	tags: [
-	'domestic',
-	'snippy',
-	'awkward',
-],
+	display: {
+			en: {
+				name: 'Scissors',
+				description: 'A cutting tool that becomes surprisingly nasty once used with intent.',
+			},
+		},
 	tier: 1,
 	grip: 1,
 	families: MISC,

@@ -3,13 +3,12 @@ import { defineWeapon, BLADE } from '../../helpers/index.js';
 export const rapier = defineWeapon({
 	internalId: 11,
 	id: 'rapier',
-	displayName: 'Rapier',
-	description: 'A thin dueling sword built for fast lunges, exact lines, and punishing thrusts.',
-	tags: [
-	'elegant',
-	'refined',
-	'exacting',
-],
+	display: {
+			en: {
+				name: 'Rapier',
+				description: 'A thin dueling sword built for fast lunges, exact lines, and punishing thrusts.',
+			},
+		},
 	tier: 2,
 	grip: 1,
 	families: BLADE,

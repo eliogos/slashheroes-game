@@ -3,13 +3,12 @@ import { defineWeapon, CURVED_BLADE, TOOL } from '../../helpers/index.js';
 export const bolo_knife = defineWeapon({
 	internalId: 21,
 	id: 'bolo_knife',
-	displayName: 'Bolo Knife',
-	description: 'A dense utility chopper that hits harder than its size suggests.',
-	tags: [
-	'dense',
-	'utilitarian',
-	'rugged',
-],
+	display: {
+			en: {
+				name: 'Bolo Knife',
+				description: 'A dense utility chopper that hits harder than its size suggests.',
+			},
+		},
 	tier: 2,
 	grip: 1,
 	families: CURVED_BLADE | TOOL,

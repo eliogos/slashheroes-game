@@ -3,13 +3,12 @@ import { defineWeapon, FIREARM } from '../../helpers/index.js';
 export const machine_gun = defineWeapon({
 	internalId: 84,
 	id: 'machine_gun',
-	displayName: 'Machine Gun',
-	description: 'A rapid-fire heavy weapon that overwhelms targets through relentless output.',
-	tags: [
-	'rapidfire',
-	'relentless',
-	'suppressive',
-],
+	display: {
+			en: {
+				name: 'Machine Gun',
+				description: 'A rapid-fire heavy weapon that overwhelms targets through relentless output.',
+			},
+		},
 	tier: 6,
 	grip: 2,
 	families: FIREARM,

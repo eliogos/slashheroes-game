@@ -1,6 +1,6 @@
+import { resolveDisplay, type ItemDisplayInput } from '../../helpers/display.js';
 import type {
 	ArmorDefinition,
-	ArmorLocalization,
 	ArmorQualityMultipliers,
 } from '../types.js';
 
@@ -10,11 +10,10 @@ export const DEFAULT_ARMOR_QUALITY_MULTIPLIERS: Readonly<ArmorQualityMultipliers
 
 type ArmorInput = Omit<
 	Partial<ArmorDefinition>,
-	'tags' | 'localization' | 'qualityMultipliers'
+	'display' | 'qualityMultipliers'
 > & {
 		id?: string;
-		tags?: string[];
-		localization?: ArmorLocalization;
+		display?: ItemDisplayInput;
 		qualityMultipliers?: Partial<ArmorQualityMultipliers>;
 	};
 
@@ -29,28 +28,24 @@ export function buildArmorId(
 export function defineArmor(armor: ArmorInput): ArmorDefinition {
 	const {
 		id,
-		displayName,
+		display = {},
 		type = 'helm',
 		material = 'paper',
-		tags = [],
-		localization = {},
 		qualityMultipliers = {},
 		...rest
 	} = armor;
 
 	const resolvedId = id ?? buildArmorId(material, type);
+	const resolvedDisplay = resolveDisplay(resolvedId, display);
 
 	return {
 		internalId: 0,
 		id: resolvedId,
-		displayName: displayName ?? resolvedId,
 		type,
 		material,
-		description: '',
+		display: resolvedDisplay,
 		created_at: '',
 		...rest,
-		tags: [...tags],
-		localization: { ...localization },
 		qualityMultipliers: {
 			...DEFAULT_ARMOR_QUALITY_MULTIPLIERS,
 			...qualityMultipliers,

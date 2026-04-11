@@ -3,13 +3,12 @@ import { defineWeapon, BATTERY, BLADE } from '../../helpers/index.js';
 export const chainsaw = defineWeapon({
 	internalId: 18,
 	id: 'chainsaw',
-	displayName: 'Chainsaw',
-	description: 'A roaring motorized cutter that shreds through targets while its battery still holds.',
-	tags: [
-	'roaring',
-	'industrial',
-	'ferocious',
-],
+	display: {
+			en: {
+				name: 'Chainsaw',
+				description: 'A roaring motorized cutter that shreds through targets while its battery still holds.',
+			},
+		},
 	tier: 6,
 	grip: 2,
 	families: BATTERY | BLADE,

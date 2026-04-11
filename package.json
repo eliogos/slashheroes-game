@@ -13,6 +13,7 @@
 		"test:bags": "tsx src/data/items/bags/test/testBags.js",
 		"test:armors": "tsx src/data/items/armors/test/testArmors.js",
 		"test:ammo": "tsx src/data/items/ammo/test/testAmmo.js",
+		"test:experience": "tsx src/data/heroes/test/testExperience.js",
 		"test:carriers": "tsx src/data/items/carriers/test/testCarriers.js",
 		"test:edibles": "tsx src/data/items/edibles/test/testEdibles.js",
 		"test:potions": "tsx src/data/items/potions/test/testPotions.js",

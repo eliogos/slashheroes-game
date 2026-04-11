@@ -3,13 +3,12 @@ import { defineWeapon, BLUNT, THROWABLE } from '../../helpers/index.js';
 export const brick = defineWeapon({
 	internalId: 130,
 	id: 'brick',
-	displayName: 'Brick',
-	description: 'A classic piece of urban masonry that solves arguments with all the grace of a falling wall.',
-	tags: [
-	'masonry',
-	'ugly',
-	'direct',
-],
+	display: {
+			en: {
+				name: 'Brick',
+				description: 'A classic piece of urban masonry that solves arguments with all the grace of a falling wall.',
+			},
+		},
 	tier: 1,
 	grip: 0,
 	families: BLUNT | THROWABLE,

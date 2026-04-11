@@ -1,30 +1,28 @@
-import type { ScrollDefinition, ScrollEffect, ScrollLocalization } from './types.js';
+import { resolveDisplay, type ItemDisplayInput } from '../../helpers/display.js';
+import type { ScrollDefinition, ScrollEffect } from './types.js';
 
 type ScrollInput = Omit<
 	Partial<ScrollDefinition>,
-	'id' | 'tags' | 'localization' | 'effects'
+	'id' | 'display' | 'effects'
 > &
 	Pick<ScrollDefinition, 'id'> & {
-		tags?: string[];
-		localization?: ScrollLocalization;
+		display?: ItemDisplayInput;
 		effects?: ScrollEffect[];
 	};
 
 export function defineScroll(scroll: ScrollInput): ScrollDefinition {
 	const {
 		id,
-		displayName,
-		tags = [],
-		localization = {},
+		display = {},
 		effects = [],
 		...rest
 	} = scroll;
+	const resolvedDisplay = resolveDisplay(id, display);
 
 	return {
 		internalId: 0,
 		id,
-		displayName: displayName ?? id,
-		description: '',
+		display: resolvedDisplay,
 		rarity: 'common',
 		stackable: 1,
 		subtype: 'scroll',
@@ -40,8 +38,6 @@ export function defineScroll(scroll: ScrollInput): ScrollDefinition {
 		singleUse: true,
 		created_at: '',
 		...rest,
-		tags: [...tags],
-		localization: { ...localization },
 		effects: effects.map((effect) => ({ ...effect })),
 	};
 }

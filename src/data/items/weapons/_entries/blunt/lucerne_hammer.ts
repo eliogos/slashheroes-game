@@ -3,13 +3,12 @@ import { defineWeapon, BLUNT, POLEARM } from '../../helpers/index.js';
 export const lucerne_hammer = defineWeapon({
 	internalId: 44,
 	id: 'lucerne_hammer',
-	displayName: 'Lucerne Hammer',
-	description: 'A pole-mounted hammer that extends crushing force deep into formation lines.',
-	tags: [
-	'martial',
-	'elongated',
-	'disciplined',
-],
+	display: {
+			en: {
+				name: 'Lucerne Hammer',
+				description: 'A pole-mounted hammer that extends crushing force deep into formation lines.',
+			},
+		},
 	tier: 5,
 	grip: 2,
 	families: BLUNT | POLEARM,

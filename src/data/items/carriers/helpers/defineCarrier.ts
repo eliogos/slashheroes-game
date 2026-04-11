@@ -1,16 +1,15 @@
+import { resolveDisplay, type ItemDisplayInput } from '../../helpers/display.js';
 import type {
 	CarrierDefinition,
 	CarrierEffect,
-	CarrierLocalization,
 } from './types.js';
 
 type CarrierInput = Omit<
 	Partial<CarrierDefinition>,
-	'id' | 'tags' | 'localization' | 'allowedTypes' | 'allowedTags' | 'mergeTiers' | 'acquiredFrom' | 'effects'
+	'id' | 'display' | 'allowedTypes' | 'allowedTags' | 'mergeTiers' | 'acquiredFrom' | 'effects'
 > &
 	Pick<CarrierDefinition, 'id'> & {
-		tags?: string[];
-		localization?: CarrierLocalization;
+		display?: ItemDisplayInput;
 		allowedTypes?: string[] | null;
 		allowedTags?: string[] | null;
 		mergeTiers?: string[];
@@ -21,9 +20,7 @@ type CarrierInput = Omit<
 export function defineCarrier(carrier: CarrierInput): CarrierDefinition {
 	const {
 		id,
-		displayName,
-		tags = [],
-		localization = {},
+		display = {},
 		allowedTypes = null,
 		allowedTags = null,
 		mergeTiers = [],
@@ -31,12 +28,12 @@ export function defineCarrier(carrier: CarrierInput): CarrierDefinition {
 		effects = [],
 		...rest
 	} = carrier;
+	const resolvedDisplay = resolveDisplay(id, display);
 
 	return {
 		internalId: 0,
 		id,
-		displayName: displayName ?? id,
-		description: '',
+		display: resolvedDisplay,
 		rarity: 'common',
 		unique: true,
 		stackable: false,
@@ -49,8 +46,6 @@ export function defineCarrier(carrier: CarrierInput): CarrierDefinition {
 		equipSlot: null,
 		created_at: '',
 		...rest,
-		tags: [...tags],
-		localization: { ...localization },
 		allowedTypes: allowedTypes ? [...allowedTypes] : null,
 		allowedTags: allowedTags ? [...allowedTags] : null,
 		mergeTiers: [...mergeTiers],

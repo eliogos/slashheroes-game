@@ -3,13 +3,12 @@ import { defineWeapon, CURVED_BLADE, FIST } from '../../helpers/index.js';
 export const tigerclaw = defineWeapon({
 	internalId: 75,
 	id: 'tigerclaw',
-	displayName: 'Bagh Nakh',
-	description: 'A clawed hand weapon that rips targets open during quick slashing flurries.',
-	tags: [
-	'clawed',
-	'feral',
-	'ripping',
-],
+	display: {
+			en: {
+				name: 'Bagh Nakh',
+				description: 'A clawed hand weapon that rips targets open during quick slashing flurries.',
+			},
+		},
 	tier: 4,
 	grip: 1,
 	families: CURVED_BLADE | FIST,

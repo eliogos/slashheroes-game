@@ -3,13 +3,12 @@ import { defineWeapon, BLUNT } from '../../helpers/index.js';
 export const bat = defineWeapon({
 	internalId: 30,
 	id: 'bat',
-	displayName: 'Bat',
-	description: 'A light swingable stick that favors tempo over raw crushing power.',
-	tags: [
-	'sporty',
-	'lively',
-	'balanced',
-],
+	display: {
+			en: {
+				name: 'Bat',
+				description: 'A light swingable stick that favors tempo over raw crushing power.',
+			},
+		},
 	tier: 1,
 	grip: 1,
 	families: BLUNT,

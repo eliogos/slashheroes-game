@@ -10,10 +10,7 @@ Reference guide for the weapon system — fields, qualities, damage calculation,
 |---|---|---|
 | `internalId` | `number` | Unique numeric ID used internally |
 | `id` | `string` | Unique slug in `snake_case` (e.g. `rusty_knife`) |
-| `displayName` | `string` | Human-readable name shown in UI |
-| `description` | `string` | Flavor text |
-| `tags` | `string[]` | Descriptive tags |
-| `localization` | `object` | i18n overrides |
+| `display` | `object` | Language-keyed UI copy at `display.en.{name, description, plural?}` |
 | `tier` | `number` (1–10) | Craftsmanship tier. Higher = stronger and more precise via exponential scaling. |
 | `grip` | `number` (1 or 2) | `1` = one-handed, `2` = two-handed |
 | `familyFlag` | `number` | Bitmask of weapon families. A weapon can belong to multiple families. |

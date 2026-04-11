@@ -3,13 +3,12 @@ import { defineWeapon, FIST } from '../../helpers/index.js';
 export const tactical_gloves = defineWeapon({
 	internalId: 114,
 	id: 'tactical_gloves',
-	displayName: 'Tactical Gloves',
-	description: 'Military-grade combat gloves with reinforced knuckles and non-slip grip. Built for fighters who mean business.',
-	tags: [
-	'military',
-	'reinforced',
-	'combat',
-],
+	display: {
+			en: {
+				name: 'Tactical Gloves',
+				description: 'Military-grade combat gloves with reinforced knuckles and non-slip grip. Built for fighters who mean business.',
+			},
+		},
 	tier: 3,
 	grip: 1,
 	families: FIST,

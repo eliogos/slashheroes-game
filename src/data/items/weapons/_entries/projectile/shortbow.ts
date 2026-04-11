@@ -3,13 +3,12 @@ import { defineWeapon, PROJECTILE } from '../../helpers/index.js';
 export const shortbow = defineWeapon({
 	internalId: 65,
 	id: 'shortbow',
-	displayName: 'Shortbow',
-	description: 'A compact bow with fast draw speed and easy handling at short range.',
-	tags: [
-	'compact',
-	'nimble',
-	'responsive',
-],
+	display: {
+			en: {
+				name: 'Shortbow',
+				description: 'A compact bow with fast draw speed and easy handling at short range.',
+			},
+		},
 	tier: 1,
 	grip: 2,
 	families: PROJECTILE,

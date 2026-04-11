@@ -3,13 +3,12 @@ import { defineWeapon, CURVED_BLADE } from '../../helpers/index.js';
 export const sickle_sword = defineWeapon({
 	internalId: 27,
 	id: 'sickle_sword',
-	displayName: 'Khopesh',
-	description: 'A forward-hooking sickle-sword that drags targets into brutal finishing arcs.',
-	tags: [
-	'ancient',
-	'hooked',
-	'brutal',
-],
+	display: {
+			en: {
+				name: 'Khopesh',
+				description: 'A forward-hooking sickle-sword that drags targets into brutal finishing arcs.',
+			},
+		},
 	tier: 5,
 	grip: 2,
 	families: CURVED_BLADE,

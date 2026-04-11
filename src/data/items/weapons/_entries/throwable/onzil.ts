@@ -3,13 +3,12 @@ import { defineWeapon, BLADE, THROWABLE } from '../../helpers/index.js';
 export const onzil = defineWeapon({
 	internalId: 126,
 	id: 'onzil',
-	displayName: 'Onzil',
-	description: 'A multi-bladed African throwing knife shaped to cut on the spin and look menacing even at rest.',
-	tags: [
-	'multiwinged',
-	'ceremonial',
-	'menacing',
-],
+	display: {
+			en: {
+				name: 'Onzil',
+				description: 'A multi-bladed African throwing knife shaped to cut on the spin and look menacing even at rest.',
+			},
+		},
 	tier: 4,
 	grip: 0,
 	families: BLADE | THROWABLE,

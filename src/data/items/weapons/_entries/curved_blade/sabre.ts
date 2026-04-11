@@ -3,13 +3,12 @@ import { defineWeapon, CURVED_BLADE } from '../../helpers/index.js';
 export const sabre = defineWeapon({
 	internalId: 24,
 	id: 'sabre',
-	displayName: 'Sabre',
-	description: 'A swift cavalry-style sword that rewards slashing momentum and timing.',
-	tags: [
-	'swift',
-	'dashing',
-	'refined',
-],
+	display: {
+			en: {
+				name: 'Sabre',
+				description: 'A swift cavalry-style sword that rewards slashing momentum and timing.',
+			},
+		},
 	tier: 3,
 	grip: 1,
 	families: CURVED_BLADE,

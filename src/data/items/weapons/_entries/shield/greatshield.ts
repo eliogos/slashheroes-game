@@ -3,13 +3,12 @@ import { defineWeapon, SHIELD } from '../../helpers/index.js';
 export const greatshield = defineWeapon({
 	internalId: 108,
 	id: 'greatshield',
-	displayName: 'Greatshield',
-	description: 'An ultimate heavy shield that sacrifices agility for overwhelming protection.',
-	tags: [
-	'massive',
-	'immovable',
-	'daunting',
-],
+	display: {
+			en: {
+				name: 'Greatshield',
+				description: 'An ultimate heavy shield that sacrifices agility for overwhelming protection.',
+			},
+		},
 	tier: 6,
 	grip: 1,
 	families: SHIELD,

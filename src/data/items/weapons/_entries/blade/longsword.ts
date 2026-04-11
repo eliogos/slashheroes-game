@@ -3,13 +3,12 @@ import { defineWeapon, BLADE } from '../../helpers/index.js';
 export const longsword = defineWeapon({
 	internalId: 14,
 	id: 'longsword',
-	displayName: 'Longsword',
-	description: 'A versatile war sword with reliable reach, clean handling, and disciplined offense.',
-	tags: [
-	'martial',
-	'versatile',
-	'steadfast',
-],
+	display: {
+			en: {
+				name: 'Longsword',
+				description: 'A versatile war sword with reliable reach, clean handling, and disciplined offense.',
+			},
+		},
 	tier: 4,
 	grip: 1,
 	families: BLADE,

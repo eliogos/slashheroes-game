@@ -3,13 +3,12 @@ import { defineWeapon, AXE, TOOL } from '../../helpers/index.js';
 export const pickaxe = defineWeapon({
 	internalId: 60,
 	id: 'pickaxe',
-	displayName: 'Pickaxe',
-	description: 'A mining tool adapted for combat that punctures with nasty concentrated force.',
-	tags: [
-	'mining',
-	'stubborn',
-	'puncturing',
-],
+	display: {
+			en: {
+				name: 'Pickaxe',
+				description: 'A mining tool adapted for combat that punctures with nasty concentrated force.',
+			},
+		},
 	tier: 3,
 	grip: 1,
 	families: AXE | TOOL,

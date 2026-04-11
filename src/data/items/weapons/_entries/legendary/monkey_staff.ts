@@ -3,13 +3,12 @@ import { defineWeapon, LEGENDARY, STAFF } from '../../helpers/index.js';
 export const monkey_staff = defineWeapon({
 	internalId: 89,
 	id: 'monkey_staff',
-	displayName: 'Ruyi Jingu Bang',
-	description: 'A mythic staff of impossible mastery, famous for overwhelming reach and power.',
-	tags: [
-	'mythic',
-	'sovereign',
-	'overwhelming',
-],
+	display: {
+			en: {
+				name: 'Ruyi Jingu Bang',
+				description: 'A mythic staff of impossible mastery, famous for overwhelming reach and power.',
+			},
+		},
 	tier: 6,
 	grip: 2,
 	families: LEGENDARY | STAFF,

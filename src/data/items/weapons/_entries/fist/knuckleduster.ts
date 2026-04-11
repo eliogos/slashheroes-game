@@ -3,13 +3,12 @@ import { defineWeapon, FIST } from '../../helpers/index.js';
 export const knuckleduster = defineWeapon({
 	internalId: 74,
 	id: 'knuckleduster',
-	displayName: 'Knuckleduster',
-	description: 'A metal fist weapon built to turn compact punches into brutal impacts.',
-	tags: [
-	'metal',
-	'compact',
-	'punishing',
-],
+	display: {
+			en: {
+				name: 'Knuckleduster',
+				description: 'A metal fist weapon built to turn compact punches into brutal impacts.',
+			},
+		},
 	tier: 3,
 	grip: 1,
 	families: FIST,

@@ -3,13 +3,12 @@ import { defineWeapon, POLEARM } from '../../helpers/index.js';
 export const pole_blade = defineWeapon({
 	internalId: 54,
 	id: 'pole_blade',
-	displayName: 'Naginata',
-	description: 'A sweeping polearm that mixes elegant handling with punishing long arcs.',
-	tags: [
-	'sweeping',
-	'elegant',
-	'poised',
-],
+	display: {
+			en: {
+				name: 'Naginata',
+				description: 'A sweeping polearm that mixes elegant handling with punishing long arcs.',
+			},
+		},
 	tier: 4,
 	grip: 1,
 	families: POLEARM,

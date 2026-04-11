@@ -8,10 +8,12 @@ const { FIREARM } = WEAPON_FAMILY;
 export const bullet = defineAmmo({
 	id: 'bullet',
 	internalId: 4,
-	displayName: 'Bullet',
-	description:
-		'A generalized firearm round meant to cover most guns before you split calibers into their own entries.',
-	tags: ['metal', 'compact', 'ballistic'],
+	display: {
+			en: {
+				name: 'Bullet',
+				description: 'A generalized firearm round meant to cover most guns before you split calibers into their own entries.',
+			},
+		},
 	qualities: { weight: Mass.FromGrams(12).Grams },
 	compatibleFamilyFlag: FIREARM,
 	weaponAmplifiers: {

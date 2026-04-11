@@ -3,13 +3,12 @@ import { defineWeapon, FIST, KNIFE } from '../../helpers/index.js';
 export const ninjaclaw = defineWeapon({
 	internalId: 115,
 	id: 'ninjaclaw',
-	displayName: 'Tekkō-kagi',
-	description: 'A set of hand claws designed for ninjas — rakes across flesh with curved iron tines and punishes anything that gets too close.',
-	tags: [
-	'clawed',
-	'ninja',
-	'swift',
-],
+	display: {
+			en: {
+				name: 'Tekkō-kagi',
+				description: 'A set of hand claws designed for ninjas — rakes across flesh with curved iron tines and punishes anything that gets too close.',
+			},
+		},
 	tier: 5,
 	grip: 1,
 	families: FIST | KNIFE,

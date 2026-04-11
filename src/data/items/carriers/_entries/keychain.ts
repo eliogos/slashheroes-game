@@ -3,9 +3,12 @@ import { defineCarrier } from '../helpers/index.js';
 export const keychain = defineCarrier({
 	internalId: 4,
 	id: 'keychain',
-	displayName: 'Keychain',
-	description: 'A modest ring of metal links that clips to a belt loop. Every key goes on it. Every single one. No more rattling around your bag looking for the right one.',
-	tags: ['key', 'belt', 'utility'],
+	display: {
+			en: {
+				name: 'Keychain',
+				description: 'A modest ring of metal links that clips to a belt loop. Every key goes on it. Every single one. No more rattling around your bag looking for the right one.',
+			},
+		},
 	rarity: 'common',
 	quickAccess: true,
 	allowedTypes: ['key'],

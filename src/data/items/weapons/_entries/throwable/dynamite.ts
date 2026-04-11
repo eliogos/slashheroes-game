@@ -3,13 +3,12 @@ import { defineWeapon, MISC, THROWABLE, TOOL } from '../../helpers/index.js';
 export const dynamite = defineWeapon({
 	internalId: 124,
 	id: 'dynamite',
-	displayName: 'Dynamite',
-	description: 'A stick of blasting compound that feels improvised, unstable, and extremely convincing on impact.',
-	tags: [
-	'blasting',
-	'unstable',
-	'improvised',
-],
+	display: {
+			en: {
+				name: 'Dynamite',
+				description: 'A stick of blasting compound that feels improvised, unstable, and extremely convincing on impact.',
+			},
+		},
 	tier: 3,
 	grip: 0,
 	families: MISC | TOOL | THROWABLE,

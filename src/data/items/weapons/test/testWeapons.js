@@ -213,7 +213,7 @@ for (const weapon of weapons) {
 
 	rows.push({
 		index: weapon.internalId,
-		name: weapon.displayName ?? weapon.name,
+		name: weapon.display.en.name,
 		tier: weapon.tier,
 		families: getWeaponFamilyKeys(weapon).join('+'),
 		grip: weapon.grip,

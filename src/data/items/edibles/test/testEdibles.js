@@ -1,12 +1,12 @@
 import { activeEdibles } from '../index.ts';
 import { getBaseSatiation } from '../helpers/index.ts';
 
-const SORT_FIELDS = ['index', 'name', 'subtype', 'satiation', 'basesatiation', 'decay', 'effects'];
+const SORT_FIELDS = ['index', 'name', 'subtype', 'energy', 'basesatiation', 'decay', 'effects'];
 const SORT_DEFAULT_DIRECTIONS = {
 	index: 'asc',
 	name: 'asc',
 	subtype: 'asc',
-	satiation: 'desc',
+	energy: 'desc',
 	basesatiation: 'desc',
 	decay: 'desc',
 	effects: 'desc'
@@ -92,10 +92,10 @@ const sortDirection = parseSortDirection(args, sortField);
 
 const rows = activeEdibles.map(entry => ({
 	index: entry.internalId,
-	name: entry.displayName,
+	name: entry.display.en.name,
 	subtype: entry.subtype,
-	satiation: entry.satiation,
-	baseSatiation: getBaseSatiation(entry.satiation),
+	energy: entry.energy,
+	baseSatiation: getBaseSatiation(entry.energy),
 	decay: entry.decay,
 	stackable: entry.stackable,
 	effects: entry.effects?.length ?? 0

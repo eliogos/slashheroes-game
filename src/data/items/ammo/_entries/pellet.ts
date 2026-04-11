@@ -8,10 +8,12 @@ const { FIREARM, PROJECTILE } = WEAPON_FAMILY;
 export const pellet = defineAmmo({
 	id: 'pellet',
 	internalId: 1,
-	displayName: 'Pellet',
-	description:
-		'A generic impact round shared by slings, slingshots, and crude cannons, with each weapon amplifying the shot differently.',
-	tags: ['generic', 'compact', 'impact'],
+	display: {
+			en: {
+				name: 'Pellet',
+				description: 'A generic impact round shared by slings, slingshots, and crude cannons, with each weapon amplifying the shot differently.',
+			},
+		},
 	qualities: { weight: Mass.FromGrams(180).Grams },
 	compatibleFamilyFlag: PROJECTILE | FIREARM,
 	weaponAmplifiers: {

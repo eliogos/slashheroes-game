@@ -3,13 +3,12 @@ import { defineWeapon, MISC, THROWABLE } from '../../helpers/index.js';
 export const chalk = defineWeapon({
 	internalId: 136,
 	id: 'chalk',
-	displayName: 'Chalk',
-	description: 'A dusty little classroom missile, just like the old school days except now it technically counts as a weapon.',
-	tags: [
-	'dusty',
-	'petty',
-	'nostalgic',
-],
+	display: {
+			en: {
+				name: 'Chalk',
+				description: 'A dusty little classroom missile, just like the old school days except now it technically counts as a weapon.',
+			},
+		},
 	tier: 1,
 	grip: 0,
 	families: MISC | THROWABLE,

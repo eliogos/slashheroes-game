@@ -3,13 +3,12 @@ import { defineWeapon, FIREARM } from '../../helpers/index.js';
 export const handcannon = defineWeapon({
 	internalId: 82,
 	id: 'handcannon',
-	displayName: 'Handcannon',
-	description: 'A heavy short-range gun that trades finesse for outrageous stopping power.',
-	tags: [
-	'heavy',
-	'outrageous',
-	'brutal',
-],
+	display: {
+			en: {
+				name: 'Handcannon',
+				description: 'A heavy short-range gun that trades finesse for outrageous stopping power.',
+			},
+		},
 	tier: 5,
 	grip: 1,
 	families: FIREARM,

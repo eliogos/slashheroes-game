@@ -3,13 +3,12 @@ import { defineWeapon, SHIELD } from '../../helpers/index.js';
 export const round_shield = defineWeapon({
 	internalId: 102,
 	id: 'round_shield',
-	displayName: 'Round Shield',
-	description: 'A standard shield with balanced coverage and steady battlefield utility.',
-	tags: [
-	'balanced',
-	'sturdy',
-	'dependable',
-],
+	display: {
+			en: {
+				name: 'Round Shield',
+				description: 'A standard shield with balanced coverage and steady battlefield utility.',
+			},
+		},
 	tier: 2,
 	grip: 1,
 	families: SHIELD,

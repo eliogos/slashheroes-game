@@ -50,8 +50,6 @@ export type {
 	WeaponDefinition,
 	WeaponEffect,
 	WeaponFamilyDefinition,
-	WeaponLocalization,
-	WeaponLocalizationEntry,
 	WeaponQualityMultipliers,
 	WeaponQualitySet,
 } from './types.js';

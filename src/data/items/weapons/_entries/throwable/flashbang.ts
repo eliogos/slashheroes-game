@@ -3,13 +3,12 @@ import { defineWeapon, MISC, THROWABLE } from '../../helpers/index.js';
 export const flashbang = defineWeapon({
 	internalId: 125,
 	id: 'flashbang',
-	displayName: 'Flash Bang',
-	description: 'A stunning burst grenade that prioritizes blinding shock over outright lethal force.',
-	tags: [
-	'blinding',
-	'stunning',
-	'disorienting',
-],
+	display: {
+			en: {
+				name: 'Flash Bang',
+				description: 'A stunning burst grenade that prioritizes blinding shock over outright lethal force.',
+			},
+		},
 	tier: 4,
 	grip: 0,
 	families: MISC | THROWABLE,

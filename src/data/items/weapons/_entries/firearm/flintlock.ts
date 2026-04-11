@@ -3,13 +3,12 @@ import { defineWeapon, FIREARM } from '../../helpers/index.js';
 export const flintlock = defineWeapon({
 	internalId: 77,
 	id: 'flintlock',
-	displayName: 'Flintlock',
-	description: 'An early single-shot firearm that rewards nerve and deliberate timing.',
-	tags: [
-	'antique',
-	'deliberate',
-	'smoky',
-],
+	display: {
+			en: {
+				name: 'Flintlock',
+				description: 'An early single-shot firearm that rewards nerve and deliberate timing.',
+			},
+		},
 	tier: 1,
 	grip: 1,
 	families: FIREARM,

@@ -8,9 +8,12 @@ const { PROJECTILE } = WEAPON_FAMILY;
 export const arrow = defineAmmo({
 	id: 'arrow',
 	internalId: 2,
-	displayName: 'Arrow',
-	description: 'A fletched projectile tuned for bows, balancing low mass with clean puncturing flight.',
-	tags: ['fletched', 'piercing', 'steady'],
+	display: {
+			en: {
+				name: 'Arrow',
+				description: 'A fletched projectile tuned for bows, balancing low mass with clean puncturing flight.',
+			},
+		},
 	qualities: { weight: Mass.FromGrams(45).Grams },
 	compatibleFamilyFlag: PROJECTILE,
 	weaponAmplifiers: {

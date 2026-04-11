@@ -11,6 +11,7 @@ export const DEFAULT_MODIFIERS: Readonly<HeroModifiers> = {
 	per: 0,
 	luk: 0,
 	hun: 0,
+	exp: 0,
 };
 
 type HeroClassInput = Omit<Partial<HeroClassDefinition>, 'mods'> &

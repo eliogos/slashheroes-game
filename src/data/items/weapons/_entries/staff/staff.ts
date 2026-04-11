@@ -3,13 +3,12 @@ import { defineWeapon, STAFF } from '../../helpers/index.js';
 export const staff = defineWeapon({
 	internalId: 85,
 	id: 'staff',
-	displayName: 'Staff',
-	description: 'A simple wooden pole with plain handling and dependable length.',
-	tags: [
-	'plain',
-	'wooden',
-	'steady',
-],
+	display: {
+			en: {
+				name: 'Staff',
+				description: 'A simple wooden pole with plain handling and dependable length.',
+			},
+		},
 	tier: 1,
 	grip: 1,
 	families: STAFF,

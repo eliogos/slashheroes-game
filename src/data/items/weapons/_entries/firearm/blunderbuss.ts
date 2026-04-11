@@ -3,13 +3,12 @@ import { defineWeapon, FIREARM } from '../../helpers/index.js';
 export const blunderbuss = defineWeapon({
 	internalId: 78,
 	id: 'blunderbuss',
-	displayName: 'Blunderbuss',
-	description: 'A short brutal scatter gun built for chaos at punishingly close range.',
-	tags: [
-	'chaotic',
-	'booming',
-	'savage',
-],
+	display: {
+			en: {
+				name: 'Blunderbuss',
+				description: 'A short brutal scatter gun built for chaos at punishingly close range.',
+			},
+		},
 	tier: 2,
 	grip: 1,
 	families: FIREARM,

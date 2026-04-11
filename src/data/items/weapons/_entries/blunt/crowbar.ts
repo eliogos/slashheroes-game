@@ -3,13 +3,12 @@ import { defineWeapon, BLUNT } from '../../helpers/index.js';
 export const crowbar = defineWeapon({
 	internalId: 32,
 	id: 'crowbar',
-	displayName: 'Crowbar',
-	description: 'A prying tool repurposed into a compact weapon with nasty leverage.',
-	tags: [
-	'industrial',
-	'stubborn',
-	'harsh',
-],
+	display: {
+			en: {
+				name: 'Crowbar',
+				description: 'A prying tool repurposed into a compact weapon with nasty leverage.',
+			},
+		},
 	tier: 2,
 	grip: 1,
 	families: BLUNT,

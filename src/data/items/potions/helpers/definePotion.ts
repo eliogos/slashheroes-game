@@ -1,30 +1,28 @@
-import type { PotionDefinition, PotionEffect, PotionLocalization } from './types.js';
+import { resolveDisplay, type ItemDisplayInput } from '../../helpers/display.js';
+import type { PotionDefinition, PotionEffect } from './types.js';
 
 type PotionInput = Omit<
 	Partial<PotionDefinition>,
-	'id' | 'tags' | 'localization' | 'effects'
+	'id' | 'display' | 'effects'
 > &
 	Pick<PotionDefinition, 'id'> & {
-		tags?: string[];
-		localization?: PotionLocalization;
+		display?: ItemDisplayInput;
 		effects?: PotionEffect[];
 	};
 
 export function definePotion(potion: PotionInput): PotionDefinition {
 	const {
 		id,
-		displayName,
-		tags = [],
-		localization = {},
+		display = {},
 		effects = [],
 		...rest
 	} = potion;
+	const resolvedDisplay = resolveDisplay(id, display);
 
 	return {
 		internalId: 0,
 		id,
-		displayName: displayName ?? id,
-		description: '',
+		display: resolvedDisplay,
 		rarity: 'common',
 		stackable: 1,
 		subtype: 'potion',
@@ -45,8 +43,6 @@ export function definePotion(potion: PotionInput): PotionDefinition {
 		spoiledId: null,
 		created_at: '',
 		...rest,
-		tags: [...tags],
-		localization: { ...localization },
 		effects: effects.map((effect) => ({ ...effect })),
 	};
 }

@@ -3,13 +3,12 @@ import { defineWeapon, BATTERY, BLUNT } from '../../helpers/index.js';
 export const electric_baton = defineWeapon({
 	internalId: 35,
 	id: 'electric_baton',
-	displayName: 'Electric Baton',
-	description: 'A charged enforcement baton that mixes blunt trauma with powered shocks.',
-	tags: [
-	'charged',
-	'policing',
-	'crackling',
-],
+	display: {
+			en: {
+				name: 'Electric Baton',
+				description: 'A charged enforcement baton that mixes blunt trauma with powered shocks.',
+			},
+		},
 	tier: 3,
 	grip: 1,
 	families: BATTERY | BLUNT,

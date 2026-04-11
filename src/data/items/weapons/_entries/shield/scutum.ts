@@ -3,13 +3,12 @@ import { defineWeapon, SHIELD } from '../../helpers/index.js';
 export const scutum = defineWeapon({
 	internalId: 107,
 	id: 'scutum',
-	displayName: 'Scutum',
-	description: 'A Roman-style shield that dominates space through size and disciplined coverage.',
-	tags: [
-	'roman',
-	'disciplined',
-	'imposing',
-],
+	display: {
+			en: {
+				name: 'Scutum',
+				description: 'A Roman-style shield that dominates space through size and disciplined coverage.',
+			},
+		},
 	tier: 5,
 	grip: 1,
 	families: SHIELD,

@@ -3,13 +3,12 @@ import { defineWeapon, BATTERY } from '../../helpers/index.js';
 export const taser = defineWeapon({
 	internalId: 90,
 	id: 'taser',
-	displayName: 'Taser',
-	description: 'A compact electric shock weapon built for close-range stuns and dirty little jolts.',
-	tags: [
-	'compact',
-	'crackling',
-	'covert',
-],
+	display: {
+			en: {
+				name: 'Taser',
+				description: 'A compact electric shock weapon built for close-range stuns and dirty little jolts.',
+			},
+		},
 	tier: 1,
 	grip: 1,
 	families: BATTERY,

@@ -3,13 +3,12 @@ import { defineWeapon, BLADE } from '../../helpers/index.js';
 export const two_hander = defineWeapon({
 	internalId: 12,
 	id: 'two_hander',
-	displayName: 'Zweihänder',
-	description: 'A massive battlefield sword that trades speed for sweeping two-handed dominance.',
-	tags: [
-	'massive',
-	'sweeping',
-	'imposing',
-],
+	display: {
+			en: {
+				name: 'Zweihänder',
+				description: 'A massive battlefield sword that trades speed for sweeping two-handed dominance.',
+			},
+		},
 	tier: 3,
 	grip: 2,
 	families: BLADE,

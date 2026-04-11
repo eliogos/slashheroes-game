@@ -3,13 +3,12 @@ import { defineWeapon, MISC, THROWABLE } from '../../helpers/index.js';
 export const smokeGrenade = defineWeapon({
 	internalId: 121,
 	id: 'smokeGrenade',
-	displayName: 'Smoke Grenade',
-	description: 'A canister that trades raw blast for choking cover, confusion, and a filthy cloud of breathing problems.',
-	tags: [
-	'clouding',
-	'obscuring',
-	'dirty',
-],
+	display: {
+			en: {
+				name: 'Smoke Grenade',
+				description: 'A canister that trades raw blast for choking cover, confusion, and a filthy cloud of breathing problems.',
+			},
+		},
 	tier: 3,
 	grip: 0,
 	families: MISC | THROWABLE,

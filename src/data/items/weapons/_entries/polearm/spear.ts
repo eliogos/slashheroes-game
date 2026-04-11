@@ -3,13 +3,12 @@ import { defineWeapon, POLEARM } from '../../helpers/index.js';
 export const spear = defineWeapon({
 	internalId: 49,
 	id: 'spear',
-	displayName: 'Spear',
-	description: 'A classic thrusting weapon with reliable reach and clean linear attacks.',
-	tags: [
-	'classic',
-	'balanced',
-	'disciplined',
-],
+	display: {
+			en: {
+				name: 'Spear',
+				description: 'A classic thrusting weapon with reliable reach and clean linear attacks.',
+			},
+		},
 	tier: 1,
 	grip: 1,
 	families: POLEARM,

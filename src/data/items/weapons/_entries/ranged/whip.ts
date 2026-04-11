@@ -3,13 +3,12 @@ import { defineWeapon, RANGED } from '../../helpers/index.js';
 export const whip = defineWeapon({
 	internalId: 92,
 	id: 'whip',
-	displayName: 'Whip',
-	description: 'A flexible long-range weapon that punishes spacing and timing mistakes.',
-	tags: [
-	'flexible',
-	'snaring',
-	'stinging',
-],
+	display: {
+			en: {
+				name: 'Whip',
+				description: 'A flexible long-range weapon that punishes spacing and timing mistakes.',
+			},
+		},
 	tier: 1,
 	grip: 1,
 	families: RANGED,

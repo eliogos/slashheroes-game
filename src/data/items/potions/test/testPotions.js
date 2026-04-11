@@ -69,7 +69,7 @@ const sortDirection = parseSortDirection(args, sortField);
 
 const rows = activePotions.map(entry => ({
 	index: entry.internalId,
-	name: entry.displayName,
+	name: entry.display.en.name,
 	school: entry.school,
 	volume: entry.volume,
 	servings: entry.servings,

@@ -3,13 +3,12 @@ import { defineWeapon, MISC } from '../../helpers/index.js';
 export const ukulele = defineWeapon({
 	internalId: 109,
 	id: 'ukulele',
-	displayName: 'Ukulele',
-	description: 'A bard\'s cheerful little instrument that can charm a crowd or crack a skull in a pinch.',
-	tags: [
-	'cheerful',
-	'melodic',
-	'nimble',
-],
+	display: {
+			en: {
+				name: 'Ukulele',
+				description: 'A bard\'s cheerful little instrument that can charm a crowd or crack a skull in a pinch.',
+			},
+		},
 	tier: 1,
 	grip: 1,
 	families: MISC,

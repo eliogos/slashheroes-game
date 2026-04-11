@@ -1,9 +1,10 @@
 import { defineEdible } from './defineEdible.js';
-import type { EdibleDefinition, EdibleEffect, EdibleLocalization } from './types.js';
+import type { EdibleDefinition, EdibleDisplayEntry, EdibleEffect } from './types.js';
 
-type EdibleVariantInput = Omit<Partial<EdibleDefinition>, 'tags' | 'localization' | 'effects'> & {
-	tags?: string[];
-	localization?: EdibleLocalization;
+type EdibleDisplayInput = Record<string, Partial<EdibleDisplayEntry>>;
+
+type EdibleVariantInput = Omit<Partial<EdibleDefinition>, 'display' | 'effects'> & {
+	display?: EdibleDisplayInput;
 	effects?: EdibleEffect[];
 };
 
@@ -13,17 +14,26 @@ type EdibleVariantInput = Omit<Partial<EdibleDefinition>, 'tags' | 'localization
  */
 export function defineVariant(base: EdibleDefinition, variant: EdibleVariantInput): EdibleDefinition {
 	const {
-		tags,
-		localization,
+		display,
 		effects,
 		...rest
 	} = variant;
 
+	const locales = new Set<string>(['en', ...Object.keys(base.display), ...Object.keys(display ?? {})]);
+	const mergedDisplay = Object.fromEntries(
+		Array.from(locales).map((locale) => [
+			locale,
+			{
+				...base.display[locale],
+				...(display?.[locale] ?? {}),
+			},
+		]),
+	) as EdibleDisplayInput;
+
 	return defineEdible({
 		...base,
 		...rest,
-		tags: tags ? Array.from(new Set([...base.tags, ...tags])) : [...base.tags],
-		localization: { ...base.localization, ...(localization ?? {}) },
+		display: mergedDisplay,
 		effects: effects ? effects.map((effect) => ({ ...effect })) : base.effects.map((effect) => ({ ...effect })),
 	});
 }

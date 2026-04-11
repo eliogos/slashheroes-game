@@ -3,13 +3,12 @@ import { defineWeapon, BLUNT } from '../../helpers/index.js';
 export const colossal_crusher = defineWeapon({
 	internalId: 47,
 	id: 'colossal_crusher',
-	displayName: 'Colossal Crusher',
-	description: 'An absurdly oversized hammer built for pure destructive spectacle.',
-	tags: [
-	'colossal',
-	'devastating',
-	'absurd',
-],
+	display: {
+			en: {
+				name: 'Colossal Crusher',
+				description: 'An absurdly oversized hammer built for pure destructive spectacle.',
+			},
+		},
 	tier: 6,
 	grip: 2,
 	families: BLUNT,

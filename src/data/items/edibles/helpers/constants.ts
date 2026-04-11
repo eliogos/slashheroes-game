@@ -1,22 +1,33 @@
-/** High-level category used by carrier logic and food handling rules. */
+/** Numeric ids for edible subtypes, mainly for compact Discord-facing payloads. */
 export const EDIBLE_SUBTYPE = {
-	FOOD: 'food',
-	BEVERAGE: 'beverage',
+	/** Solid or bite-sized consumable food. */
+	FOOD: 1,
+	/** Drinkable consumable such as juice, broth, or potion-like food. */
+	BEVERAGE: 2,
 } as const;
 
 export type EdibleSubtype = (typeof EDIBLE_SUBTYPE)[keyof typeof EDIBLE_SUBTYPE];
 
-/** Simple labels for how a food helps with hunger. */
+/** Numeric ids for food behavior types; labels live in `satiationTypeDefinitions`. */
 export const SATIATION_TYPE = {
-	INSTANT: 'instant',
-	STEADY: 'steady',
-	SLOWBURN: 'slowburn',
-	DELAYED: 'delayed',
-	THRESHOLD: 'threshold',
-	BUFFER: 'buffer',
-	SYNERGY: 'synergy',
-	COMBO: 'combo',
-	BOOST: 'boost',
+	/** Applies the full base satiation immediately. */
+	INSTANT: 1,
+	/** Applies part now and the rest over the next few actions. */
+	STEADY: 2,
+	/** Fills hunger now and slows hunger drain for a while. */
+	SLOWBURN: 3,
+	/** Holds the satiation and applies it after a short delay. */
+	DELAYED: 4,
+	/** Becomes stronger when current hunger is already low. */
+	THRESHOLD: 5,
+	/** Adds a temporary reserve beyond the immediate fill. */
+	BUFFER: 6,
+	/** Gets stronger with matching food, effects, or conditions. */
+	SYNERGY: 7,
+	/** Repeated use in a short streak scales the effect up. */
+	COMBO: 8,
+	/** Applies satiation and also grants a short extra bonus or effect. */
+	BOOST: 9,
 } as const;
 
 export type SatiationType = (typeof SATIATION_TYPE)[keyof typeof SATIATION_TYPE];
@@ -75,13 +86,13 @@ export const satiationTypeDefinitions = {
 	},
 } as const satisfies Readonly<Record<SatiationType, SatiationTypeDefinition>>;
 
-/** Current freshness stage once spoilage has started progressing. */
+/** Numeric ids for freshness buckets returned by spoilage helpers. */
 export const SPOILAGE_STATE = {
-	FRESH: 'fresh',
-	AGING: 'aging',
-	STALE: 'stale',
-	SPOILED: 'spoiled',
-	ROTTEN: 'rotten',
+	FRESH: 1,
+	AGING: 2,
+	STALE: 3,
+	SPOILED: 4,
+	ROTTEN: 5,
 } as const;
 
 export type SpoilageState = (typeof SPOILAGE_STATE)[keyof typeof SPOILAGE_STATE];

@@ -3,13 +3,12 @@ import { defineWeapon, CURVED_BLADE } from '../../helpers/index.js';
 export const cutlass = defineWeapon({
 	internalId: 23,
 	id: 'cutlass',
-	displayName: 'Cutlass',
-	description: 'A naval sidearm tuned for compact swings in cramped decks and brawls.',
-	tags: [
-	'briny',
-	'agile',
-	'rowdy',
-],
+	display: {
+			en: {
+				name: 'Cutlass',
+				description: 'A naval sidearm tuned for compact swings in cramped decks and brawls.',
+			},
+		},
 	tier: 3,
 	grip: 1,
 	families: CURVED_BLADE,
