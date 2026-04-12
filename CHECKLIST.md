@@ -40,3 +40,5 @@
 
 - [x] Derived stats
 - [x] Die-based chance generator system
+
+- [-] Room generation and fairness estimation
