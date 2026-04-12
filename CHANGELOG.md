@@ -1,3 +1,10 @@
+# [1.20.0](https://github.com/eliogos/slashheroes-game/compare/v1.19.0...v1.20.0) (2026-04-12)
+
+
+### Features
+
+* **dungeon:** implement dungeon generation system with regions, room types, and outcomes ([dd6055b](https://github.com/eliogos/slashheroes-game/commit/dd6055b670c8d3272a3109c57d21a947744aae8b))
+
 # [1.19.0](https://github.com/eliogos/slashheroes-game/compare/v1.18.0...v1.19.0) (2026-04-11)
 
 
